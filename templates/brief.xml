@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://telotadev.bbaw.de:9011/exist/rest/db/apps/ediarum/schemata/fs_briefe_schema.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:telota="http://www.telota.de" telota:doctype="fs_brief" xml:lang="de" xml:id="prov_${id}">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title></title>
+            </titleStmt>
+            <editionStmt>
+                <edition>
+                    <title type="editionstitel">Friedrich Schleiermacher - Kritische Gesamtausgabe</title>
+                    <title type="abteilungstitel" n="5">Abt. V. Briefwechsel und biographische Dokumente</title>
+                </edition>
+                <respStmt>
+                    <name>Simon Gerber</name>
+                    <resp>Herausgeber</resp>
+                </respStmt>
+                <respStmt>
+                    <name>Sarah Schmidt</name>
+                    <resp>Herausgeberin</resp>
+                </respStmt>
+            </editionStmt>
+            <publicationStmt>
+                <publisher>Berlin-Brandenburgische Akademie der Wissenschaften</publisher>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc rend="Handschrift">
+                    <msIdentifier>
+                        <institution>Berlin-Brandenburgische Akademie der Wissenschaften</institution>
+                        <repository>Archiv</repository>
+                        <idno></idno>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text type="Brief">
+        <body>
+            <div type="Schreibakt">
+                <opener>
+                    <dateline rend="align(right)" />
+					<salute />
+                </opener>
+				<p />
+				<closer rend="eigener Absatz">
+					<salute />
+					<signed />
+				</closer>
+            </div>
+        </body>
+    </text>
+</TEI>

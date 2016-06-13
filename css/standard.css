@@ -1,0 +1,1033 @@
+﻿/* 
+Copyright 2016 Berlin-Brandenburg Academy of Sciences and Humanities
+
+This file is part of ediarum.BASE.
+
+ediarum.BASE is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ediarum.BASE is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+@namespace telota "http://www.telota.de";
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/linlibertine_r.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "BBAWfont-italic";
+    src:url("../fonts/linlibertine_ri.ttf");
+    font-weight: normal;
+    font-family: "BBAWfont-italic";
+
+}
+
+TEI {
+    padding: 1em;
+    font-family: BBAWfont;
+}
+
+/* falls Lesekopie geöffnet beim Verweisprüfen */
+TEI[telota|copy] {
+    -oxy-editable: false;
+    background-color: #E6EFF2;
+    background-image: url('gfx/bg_readonly.png');
+}
+
+/* ################ teiHeader ############ */
+
+teiHeader {
+    padding: 0 0 1em 0;
+    border-bottom: 1px #000000 solid;
+    font-family: "BBAWfont-italic";
+
+}
+
+titleStmt {
+    display: block;
+    margin: 0 0 1em 0;
+    font-size: 1.5em;
+}
+
+titleStmt title {
+    -oxy-placeholder-content: "Titel";
+    -oxy-display-tags: none;
+}
+
+titleStmt title idno {
+    padding: 0 0.5em 0 0;
+    -oxy-placeholder-content: "Briefnummer";
+    -oxy-display-tags: none;
+}
+
+titleStmt title idno:after {
+    content: ".";
+} 
+
+editionStmt {
+    display: none;
+}
+
+publicationStmt {
+    display: none;
+}
+
+sourceDesc,
+msIdentifier {
+    -oxy-display-tags: none;
+}
+
+sourceDesc:before {
+    display: block;
+}
+
+sourceDesc msDesc {
+    display: block;
+    content: "Handschrift: ";
+}
+
+sourceDesc msDesc * {
+    -oxy-display-tags: none;
+}
+
+sourceDesc msDesc institution:after,
+sourceDesc msDesc repository:after,
+sourceDesc msDesc collection:after{
+    content: " / ";
+}
+
+sourceDesc msDesc[rend="copy"] {
+    content: "Abschrift: ";
+}
+
+sourceDesc msDesc[rend="concept"] {
+    content: "Entwurf: ";
+}
+
+sourceDesc msDesc[rend="notExtant"] {
+    content: "Erschlossen";
+}
+
+sourceDesc msDesc[rend="print"] {
+    content: "Nur Druckzeuge vorhanden.";
+}
+
+sourceDesc msDesc idno {
+    -oxy-placeholder-content: "Signatur";
+}
+
+sourceDesc msDesc idno[type='uri']:before {
+    content: "\A URI: ";
+}
+
+sourceDesc msDesc physDesc p {
+    display: block;
+    -oxy-placeholder-content: "[Hier Papier, Format etc. eintragen]";
+}
+
+sourceDesc msDesc physDesc:before {
+    content: "Handschriftenbeschreibung: ";
+    font-style: normal;
+    font-weight: bold;
+}
+
+sourceDesc witness msDesc {
+    display: block;
+    content: "h:";
+}
+
+sourceDesc listWit witness {
+    display: block;
+}
+
+sourceDesc witness>bibl {
+    content: "D: ";
+    -oxy-display-tags: none;
+}
+
+sourceDesc witness:nth-child(2)>bibl {
+    content: "D2: ";
+}
+
+sourceDesc witness:nth-child(3)>bibl {
+    content: "D3: ";
+}
+
+sourceDesc witness:nth-child(4)>bibl {
+    content: "D4: ";
+}
+
+sourceDesc witness:nth-child(5)>bibl {
+    content: "D5: ";
+}
+
+/* Creation */
+
+text {
+    border-top: 1px solid silver;
+}
+
+profileDesc creation:empty {
+    -oxy-placeholder-content: '[Angaben zur Erstellung des Manuskripts über Menü "Allgemein" angeben]'; 
+    display: block;
+} 
+
+
+profileDesc creation date {
+    display: block;
+}
+
+profileDesc creation persName,
+profileDesc creation placeName,
+profileDesc correspAction persName,
+profileDesc correspAction placeName {
+    display: block;
+    -oxy-editable: false;
+}
+
+profileDesc creation date:before {
+    content: "Datum: "
+}
+
+correspDesc date[when],
+profileDesc creation date[when] {
+    content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd');
+    -oxy-display-tags: none;
+}
+
+correspDesc date[from],
+profileDesc creation date[from] {
+    content: oxy_editor(type,datePicker,edit,'@from',format,'yyyy-MM-dd') " bis " oxy_editor(type,datePicker,edit,'@to',format,'yyyy-MM-dd');
+    -oxy-display-tags: none;
+}
+
+correspDesc date[notBefore],
+profileDesc creation date[notBefore] {
+    content: "Nicht vor" oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd');
+    -oxy-display-tags: none;    
+}
+
+
+profileDesc creation persName:before {
+    content: "Ersteller: ";
+}
+
+profileDesc creation placeName:before {
+    content: "Erstellungsort: ";
+}
+
+profileDesc creation persName:after,
+profileDesc creation placeName:after {
+    content: url('gfx/link.png');
+}
+
+/* Abstract (Regest) */
+physDesc,
+correspDesc,
+profileDesc abstract,
+correspDesc note {
+    display: block;
+    margin: 1em 0 0 0;
+    padding: 1em 0 0 0;
+    border-top: 1px solid silver;
+}
+
+profileDesc abstract:before {
+    display: block;
+    content: "Regest: ";
+    font-weight: bold;
+}
+
+profileDesc abstract p {
+    display: block;
+    -oxy-placeholder-content: "[Regest hier eingeben]"
+}
+
+
+abstract quote {
+    font-family: BBAWfont;
+    -oxy-display-tags: none;
+}
+
+abstract quote:before {
+    content: "„";
+}
+
+abstract quote:after {
+    content: "“";
+}
+
+/* correspondence description */
+
+correspAction[type="sent"] {
+    display: block;
+    -oxy-placeholder-content: '[Absenderangaben über Menü "Briefmetadaten" eintragen]';
+}
+
+correspAction[type="received"] {
+    display: block;
+    -oxy-placeholder-content: '[Empfängerangaben über Menü "Briefmetadaten" eintragen]';
+}
+
+
+correspAction[type='sent'] persName:before {
+    content: "Absender: ";
+}
+
+correspAction[type='received'] persName:before {
+    content: "Empfänger: ";
+}
+
+correspAction[type='sent'] placeName:before {
+    content: "Schreibort: ";
+}
+
+correspAction[type='received'] placeName:before {
+    content: "Empfangsort: ";
+}
+
+correspAction[type='sent'] date:before {
+    content: "Schreibdatum: ";
+}
+
+correspAction[type='received'] date:before {
+    content: "Empfangsdatum: ";
+}
+
+correspContext ref {
+    display: block;
+}
+
+correspContext ref[target] {
+    color: #465E7A;
+}
+
+correspContext ref[type="prev"] {
+    content: "Vorangehender Brief: ";
+}
+
+correspContext ref[type="next"] {
+    content: "Nachfolgender Brief: ";
+}
+
+correspContext ref[type="prev"][target] {
+    content: "Vorangehender Brief";
+}
+
+correspContext ref[type="next"][target] {
+    content: "Nachfolgender Brief";
+}
+
+correspContext ref[target]:after {
+    content: " " url('gfx/link.png');
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_letter}') "?id=" attr(target);
+}
+
+correspDesc note:before {
+    display: block;
+    content: "Anmerkungen zum Brief:";
+    font-weight: bold;
+}
+
+correspDesc note {
+    display: block;
+    -oxy-placeholder-content: "[Hier Anmerkungen zum Brief oder zur Datierung eingeben]";
+    -oxy-show-placeholder: always;
+}
+
+msDesc[rend="notExtant"] msIdentifier {
+    display: none;
+}
+
+text body div[type="regestOnly"] {
+    display: block;
+    -oxy-editable: false;
+    content: "[Kein Text, nur Regest möglich]";
+}
+
+/* ############## text ################# */
+
+/* text structure */
+
+text body {
+    position: relative;
+    display: block;
+}
+
+text head {
+    display: block;
+    margin: 0 0 1em 0;
+}
+
+text head[type="h1"] {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+text head[type="h2"] {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+text head[type="h3"] {
+    font-size: 1.2em;
+}
+
+text p, 
+text lg[type="verse"] {
+    display: block;
+    margin: 0 0 1em 0;
+}
+
+text p[rend="align(center)"]{
+    text-align: center;
+}
+
+text lb {
+    display: inline;
+    -oxy-display-tags: none;            
+}
+
+text lb:before {
+    content: "\A";
+    white-space: pre-line;
+}
+
+text g[ref="#typoHyphen"] {
+    content: "-";
+    -oxy-display-tags: none;
+}
+
+/* see <br> in http://www.w3.org/TR/CSS2/sample.html */
+
+text lg lg,
+text lg lg l {
+    display: block;
+}
+
+text list,
+text list item {
+    display: block;
+    -oxy-display-tags: none;
+}
+
+text list {
+    margin: 1em 0 0 1em;    
+}
+
+text space {
+    content: "   ";
+    border-bottom: 1px dotted gray;
+    -oxy-display-tags: none;
+}
+
+text pb {
+    content: "|";
+    padding: 0;
+    color: black;
+    -oxy-display-tags: none;
+}
+
+text pb[n]:after {
+    content: "(" attr(n) ")";
+    font-family: "BBAWfont-italic";
+    color: gray;
+}
+
+text pb[facs]:after {
+    content: "(folio)";
+    font-family: "BBAWfont-italic";
+}
+
+text pb[n][facs]:after {
+    content: "(" attr(n) ")";
+    font-family: "BBAWfont-italic";
+}
+
+text pb[facs]:after {
+    link: url(attr(facs));
+    color: #6998BC;
+}
+
+fw {
+    font-style: italic;
+    color: gray;
+    -oxy-display-tags: none; 
+}
+
+fw:before {
+    font-style: normal;
+    content: "|("
+}
+
+fw:after {
+    font-style: normal;
+    content: ")"
+}
+
+text figure {
+    display: block;
+    -oxy-display-tags: none;
+}
+
+text figure head {
+    -oxy-display-tags: none;
+    -oxy-placeholder-content: "Bildunterschrift";
+}
+
+text graphic {
+    content: oxy_url(attr(url));
+    width: 300px;
+    -oxy-display-tags: none;
+}
+
+text note {
+    background-color: #e0e0e0;
+    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Anmerkung eingeben]"
+}
+
+text note p { 
+    display: inline;
+}
+
+milestone {
+    margin-left: 50%;
+    content: "―";
+    -oxy-display-tags: none;
+}
+
+/* Correspondence */
+dateline {
+    display: block;
+    -oxy-placeholder-content: "[Datumszeile]";
+}
+
+opener dateline {
+    text-align: right;
+}
+
+opener salute {
+    display: block;
+    -oxy-placeholder-content: "[Anrede]";
+}
+
+closer salute {
+    display: block;
+    -oxy-placeholder-content: "[Gruß]";
+}
+
+signed {
+    display: block;
+    -oxy-placeholder-content: "[Unterschrift]";
+}
+
+/* Tables  */
+
+text table {
+      display: table;
+  margin: 1em 0 1em 0;
+}
+text table > head{
+    display:table-caption;
+    font-family: "BBAWfont-italic";
+    margin-bottom: 6pt;
+}
+
+text row {
+  display: table-row;
+}
+text row[role='label'] {
+   color: inherit;
+   background-color: #aaa;
+   font-weight: bold;
+}
+
+text cell {
+  display: table-cell;
+  border: 1px solid silver;
+  padding: 3px;
+  color: inherit;
+  background-color:inherit;
+}
+
+text cell[role='label'] {
+   color: inherit;
+   background-color: #bbb;
+}
+
+/* Authors editing */
+
+text subst {
+    -oxy-display-tags: none;
+}
+
+text del {
+    color: red;
+    background-color: white;
+    text-decoration: line-through;
+    -oxy-display-tags: none;
+}
+
+text add {
+    color: green;
+    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Hinzufügung]"
+}
+
+text hi[rendition="#u"] {
+    text-decoration: underline;
+    -oxy-display-tags: none;
+}
+
+text hi[rendition="#uu"] {
+    border-bottom:1px solid #000;
+    text-decoration:underline;
+    -oxy-display-tags: none;
+}
+
+
+/* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
+
+
+text hi[rendition="#sup"] {
+    position: relative; 
+    top: -0.5em;
+    font-size: 0.7em;
+    -oxy-display-tags: none;
+}
+
+/* Publishers editing */
+
+text supplied {
+    font-family: "BBAWfont-italic";
+    background-color: #e0e0e0;
+    -oxy-display-tags: none;    
+}
+
+text supplied:before  {
+    content: "[";
+    font-style: normal;
+}
+
+text supplied:after {
+    content: "]";
+    font-style: normal;
+}
+
+
+text supplied[cert="low"]:before {
+    content: "zu ergänzen wohl [";
+    font-family: "BBAWfont-italic";
+    color: gray;
+}
+
+text surplus {
+    text-decoration: line-through;
+    color: #395B8C;
+}
+
+text choice {
+    -oxy-display-tags: none;
+}
+
+text choice sic,
+text choice orig {
+    background-color: #FFDDDD;
+    -oxy-display-tags: none;
+}
+
+text choice corr,
+text choice reg {
+    font-style: italic;
+    background-color: #E8FFDD;
+    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Normalisierte Schreibung]";
+}
+
+text corr[type="deleted"] {
+    content: "[gelöscht]";
+    font-style: italic;
+    color: green;
+}
+
+text choice abbr {
+    background-color: #e0e0e0;
+    -oxy-display-tags: none;
+}
+
+text choice expan {
+    font-style: italic;
+    background-color: #E8FFDD;
+    -oxy-display-tags: none;
+}
+
+text gap,
+text unclear {
+    background-color: #FFA100;
+    -oxy-display-tags: none;
+}
+
+text gap:after,
+text unclear:after {
+    background-color: #FFA100;
+}
+
+text gap {
+    content: "   ";
+}
+
+text damage {
+    -oxy-display-tags: none;
+    font-style: italic;
+}
+
+text damage:empty {
+    -oxy-display-tags: none;
+    content: "Schadhafte Stelle";
+}
+
+text damage:before {
+    content: "[";
+}
+
+text damage:after {
+    content: "]";
+}
+
+abstract ex,
+text ex {
+    font-family: "BBAWfont-italic";
+    -oxy-display-tags: none;
+}
+
+text foreign {
+    font-family: "DejaVu Serif";
+    font-size: 0.8em;
+    -oxy-display-tags: none;
+    background-color: #e0e0e0;
+}
+
+/* Annotation */
+
+abstract seg,
+text seg {
+    -oxy-display-tags: none;
+}
+
+abstract seg orig,
+text seg orig {
+    background-color: #E8E4D5;
+    -oxy-display-tags: none;
+}
+
+abstract seg note,
+text seg note,
+text note[type="sachapparat"] {
+    padding-left: 0.5em;
+    font-family: "BBAWfont-italic";
+
+    color: #423E2C;
+    background-color: #D6D2C2;
+    -oxy-placeholder-content: "[Sachanmerkung hier eingeben]";
+    -oxy-display-tags: none;
+}
+
+text note[type="sachapparat"] {
+    display: block;
+    margin: 0 0 2em 0;
+    padding: 0;    
+}
+
+text seg[type="textapparat"] note {
+    -oxy-placeholder-content: "[Textanmerkung hier eingeben]";
+    -oxy-display-tags: none;
+}
+
+text anchor[type="sachapparat"] {
+    display: block;
+    content: "Sachanmerkung: Start des Bezugstextes";
+    color: #423E2C;
+    background-color: #D6D2C2;
+    -oxy-display-tags: none;
+}
+
+
+
+/* Indexes */
+
+abstract index,
+text index {
+    -oxy-display-tags: none;
+    line-height: 0.8em;
+}
+
+abstract index:before,
+text index:before {
+    content: url('gfx/index_start2.png');
+}
+
+abstract index[indexName='persons']:before,
+text index[indexName='persons']:before {
+        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(corresp);
+}
+
+abstract index[indexName='places']:before,
+text index[indexName='places']:before {
+        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(corresp);
+}
+
+abstract index[indexName='bibl']:before,
+text index[indexName='bibl']:before {
+        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(corresp);
+}
+
+abstract anchor[type="index"],
+text anchor[type="index"] {
+    -oxy-display-tags: none;    
+    line-height: 0.8em;
+}
+
+abstract anchor[type="index"]:after,
+text anchor[type="index"]:after {
+    content: url('gfx/index_ende2.png');
+}
+
+abstract index term,
+text index term {
+    display: none;
+}
+
+/* Names */
+
+persName,
+orgName,
+placeName,
+bibl,
+rs[type='person'],
+rs[type='place'],
+rs[type='bibl'],
+rs[type='term'] {
+    color: #465E7A;
+    -oxy-display-tags: none;
+} 
+
+persName:after,
+orgName:after,
+placeName:after,
+bibl:after,
+rs[type='person']:after,
+rs[type='place']:after,
+rs[type='bibl']:after,
+rs[type='term']:after{
+    content: " " url('gfx/link.png');
+}
+
+rs[type='person'][key]:after,
+persName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);
+}
+
+rs[type='org'][key]:after,
+orgName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_org}') "?id=" attr(key);
+}
+
+rs[type='place'][key]:after,
+placeName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
+}
+
+rs[type='bibl'][sameAs]:after,
+bibl[sameAs]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(sameAs);
+}
+
+rs[type='term'][key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_item}') "?id=" attr(key);
+}
+
+witness bibl {
+    color: black;
+}
+
+witness bibl:after {
+    display: none;
+}
+
+/* Dates */
+text date {
+    -oxy-display-tags: none;
+}
+
+/*  References */
+
+text ref,
+msContents note ref {
+    -oxy-display-tags: none;
+    border-bottom: 1px dashed #00C6FF;
+}
+
+text anchor[type="verweisziel"] {
+    -oxy-display-tags: none;
+}
+
+text anchor[xml|id^="start"]:after {
+    content: url('gfx/verweisziel_start.png');
+}
+
+text anchor[xml|id^="stop"]:before {
+    content: url('gfx/verweisziel_stop.png');
+}
+
+/* AvH-R */
+div[ana] {
+    border-bottom: 1px solid silver;
+    padding: 0 0 1em 0;
+    margin: 0 0 1em 0;
+}
+
+div[ana]:before {
+    font-family: Arial, Helvetica;
+    font-size: 0.8em;
+    background-color: #e0e0e0;
+    content: 
+        oxy_popup(
+            edit, "@ana",
+            values, "#geophysics,#geography,#geology,#cartography,#astronomy,#phytology,#phytogeography,#climate,#zoology,#ethnology ,#languages,#politics,#economics,#religion,#history,#bioscience,#chemistry,#private,#biography,#body,#old,#france,#spain,#sea1,#tenerife,#sea2,#venezuela,#sea3,#cuba1,#sea4,#colombia,#ecuador,#peru,#sea5,#guayaquil,#sea6,#newSpain,#sea7,#cuba2,#sea8,#usa,#sea9,#italy,#later,#prussia,#russia,#petersburg1,#moscow1,#journeyOut,#urals1,#siberia1,#altai1,#altai2,#irtysh,#siberia2,#urals2,#volga,#returnJourney,#moscow2,#petersburg2",
+            labels, "Erdmagnetismus,Geographie,Geognosie\\, Bau der Erde\\, Erdgeschichte,Kartographie\\, Entdeckungsgeschichte\\,  Meeresströmungen,Messungen\\, Messinstrumente\\, Messtechnik,Botanische Specimen und Beschreibungen,Pflanzengeographie,Temperaturmessungen\\, Isotherme\\, Klimazonen,Tierbeschreibungen\\, Zoologie,Kulturen der neuen Welt\\, Anthropologie,Vokabellisten und Sprachvergleiche,Politisch-moralische Urteile,Landwirtschaft\\, Bergbau\\, Produktion\\, Ökonomie,Missionen\\, Kirche und Religion,Sprach- und Kulturgeschichte\\,  Examen Critique,Biowissenschaften außer Botanik und Pflanzengeographie,Chemische Untersuchungen\\, Laborversuche,Humboldts Ausgaben- und Einkaufslisten etc.,Persönliche oder familiäre Beziehungen\\, Autobiographisches,eigene Gesundheit oder die anderer\\, Körperempfinden,Altes vor der Reise: Dresden\\, Salzburg\\, Ungarn 1797/98,Paris-Toulon 20.10.1798-5.1.1799,Spanien 5.1.-5.6.1799,La Coruña -Teneriffa 5.-19.6.1799,Teneriffa 19.-25.6.1799,Teneriffa - Venezuela 25.6.-16.7.1799,Venezuela 16.7.1799-23.11.1800,Venezuela - Havana 24.11.-19.12.1800,Cuba 19.12.1800-5.3.1801,Havanna-Cartagena 5.-30.3.1801,Kolumbien 30.3.1801—3.1.1802,Ecuador 3.1.1802-1.8.1802,Peru 1.8.1802-24.12.1802,Lima-Guayaquil 24.12.1802-4.1.1803,Guayaquil 4.1.-17.2.1803,Guayaquil-Neuspanien 17.2.1803-22.3.1803,Neuspanien 22.3.1803-7.3.1804,Neuspanien – Cuba 7.-19.3.1804,Kuba 20.3.-29.4.1804,Cuba – USA 29.4.-20.5.1804,USA 20.5.-30.6.1804,Rückreise USA-Bordeaux 30.6.-3.8.1804 ,Paris-Italien-Berlin 11.3.-16.11.1805,Aufzeichnungen nach der Italienreise,Berlin-Polangen 12.4.-22.4.1829 ,Polangen-Narwa 22.4.-30.4.1829,St. Petersburg\\, Reise n. Moskau 1.5.-24.5.1829 ,Moskau 24.5.-27.5.1829 ,u. a. Nizniij Novgorod-Kazan 28.6.-14.6.1829 ,Ekaterinburg u. nördl. Ural 15.6.-18.7.1829,Westsibirien\\, Tobolsk 18.7.-2.8.1829,Barnaul\\, Ob\\, Kolyvansee 2.8.-5.8.1829,Kolyvan-Schlangenberg-Baty 6.8.-17.8.1829,Krasnojarsk-Omsk 17.8.-28.8.1829,Petropawlowsk-Troick 29.8.-2.9.1829,Miass\\, Zlatoust und Umgebung 3.9.-15.9.1829,Miass-Astrachan 16.9.-20.10.1829,Rückreise Zarizyn\\, Woronesch 21.10.-3.11.1829,Moskau\\, Reise n. Petersburg 3.11.-13.11.1829,St. Petersburg 13.11-15.12.1829",
+            resultSeparator, " ",
+            rendererSeparator, " ● ",
+            columns, 90,
+            selectionMode, "multiple",
+            color, #555,
+            fontInherit, true);
+}
+
+div[ana='#later']:before {
+    content: "Aufzeichnungen nach der Italienreise";
+}
+
+div[ana][type]:before {
+    content: 
+    oxy_popup(
+            edit, "@ana",
+            values, "#geophysics,#geography,#geology,#cartography,#astronomy,#phytology,#phytogeography,#climate,#zoology,#ethnology ,#languages,#politics,#economics,#religion,#history,#bioscience,#chemistry,#private,#biography,#body,#old,#france,#spain,#sea1,#tenerife,#sea2,#venezuela,#sea3,#cuba1,#sea4,#colombia,#ecuador,#peru,#sea5,#guayaquil,#sea6,#newSpain,#sea7,#cuba2,#sea8,#usa,#sea9,#italy,#later,#prussia,#russia,#petersburg1,#moscow1,#journeyOut,#urals1,#siberia1,#altai1,#altai2,#irtysh,#siberia2,#urals2,#volga,#returnJourney,#moscow2,#petersburg2",
+            labels, "Erdmagnetismus,Geographie,Geognosie\\, Bau der Erde\\, Erdgeschichte,Kartographie\\, Entdeckungsgeschichte\\,  Meeresströmungen,Messungen\\, Messinstrumente\\, Messtechnik,Botanische Specimen und Beschreibungen,Pflanzengeographie,Temperaturmessungen\\, Isotherme\\, Klimazonen,Tierbeschreibungen\\, Zoologie,Kulturen der neuen Welt\\, Anthropologie,Vokabellisten und Sprachvergleiche,Politisch-moralische Urteile,Landwirtschaft\\, Bergbau\\, Produktion\\, Ökonomie,Missionen\\, Kirche und Religion,Sprach- und Kulturgeschichte\\,  Examen Critique,Biowissenschaften außer Botanik und Pflanzengeographie,Chemische Untersuchungen\\, Laborversuche,Humboldts Ausgaben- und Einkaufslisten etc.,Persönliche oder familiäre Beziehungen\\, Autobiographisches,eigene Gesundheit oder die anderer\\, Körperempfinden,Altes vor der Reise: Dresden\\, Salzburg\\, Ungarn 1797/98,Paris-Toulon 20.10.1798-5.1.1799,Spanien 5.1.-5.6.1799,La Coruña -Teneriffa 5.-19.6.1799,Teneriffa 19.-25.6.1799,Teneriffa - Venezuela 25.6.-16.7.1799,Venezuela 16.7.1799-23.11.1800,Venezuela - Havana 24.11.-19.12.1800,Cuba 19.12.1800-5.3.1801,Havanna-Cartagena 5.-30.3.1801,Kolumbien 30.3.1801—3.1.1802,Ecuador 3.1.1802-1.8.1802,Peru 1.8.1802-24.12.1802,Lima-Guayaquil 24.12.1802-4.1.1803,Guayaquil 4.1.-17.2.1803,Guayaquil-Neuspanien 17.2.1803-22.3.1803,Neuspanien 22.3.1803-7.3.1804,Neuspanien – Cuba 7.-19.3.1804,Kuba 20.3.-29.4.1804,Cuba – USA 29.4.-20.5.1804,USA 20.5.-30.6.1804,Rückreise USA-Bordeaux 30.6.-3.8.1804 ,Paris-Italien-Berlin 11.3.-16.11.1805,Aufzeichnungen nach der Italienreise,Berlin-Polangen 12.4.-22.4.1829 ,Polangen-Narwa 22.4.-30.4.1829,St. Petersburg\\, Reise n. Moskau 1.5.-24.5.1829 ,Moskau 24.5.-27.5.1829 ,u. a. Nizniij Novgorod-Kazan 28.6.-14.6.1829 ,Ekaterinburg u. nördl. Ural 15.6.-18.7.1829,Westsibirien\\, Tobolsk 18.7.-2.8.1829,Barnaul\\, Ob\\, Kolyvansee 2.8.-5.8.1829,Kolyvan-Schlangenberg-Baty 6.8.-17.8.1829,Krasnojarsk-Omsk 17.8.-28.8.1829,Petropawlowsk-Troick 29.8.-2.9.1829,Miass\\, Zlatoust und Umgebung 3.9.-15.9.1829,Miass-Astrachan 16.9.-20.10.1829,Rückreise Zarizyn\\, Woronesch 21.10.-3.11.1829,Moskau\\, Reise n. Petersburg 3.11.-13.11.1829,St. Petersburg 13.11-15.12.1829",
+            resultSeparator, " ",
+            rendererSeparator, " ● ",
+            columns, 90,
+            selectionMode, "multiple",
+            color, #555,
+            fontInherit, true)
+    oxy_popup(
+            edit, "@type",
+            values, "appendix,chapter,diaryEntry,edition,index,letter,poem,session,travelReport,essay,letter,excerpt,note,measurement,calculation",
+            labels, "Anhang,Kapitel,Tagebucheintrag,Abdruck einer Textquelle,Verzeichnis,Brief,Gedicht,Vorlesungsstunde/Lehreinheit/Vortrag,Reisebeschreibung,Wissenschaftliche Abhandlungen\\, z. B. 'Geognosie von Amerika',Abschrift\\, Entwurf oder Auszug eines Briefes oder einer Briefkorrespondenz,Auszüge oder Kommentare aus Werken anderer Autoren,Eingeklebte Zettel, Höhenunterschiede\\, etc.).,Einfache Rechenoperationen (Additionen\\, Substraktionen\\, Mittelwerte\\, Brüche)",
+            columns, 90,
+            selectionMode, "single",
+            color, #555,
+            fontInherit, true);            
+}
+
+div[type="measurement"]:before {
+    display: block;
+    width: 5%;
+    padding: 0.2em;
+    content: "Messung";
+    font-family: Arial, sans-serif;
+    font-size: 0.7em;
+    background-color: gray;
+    color: white;
+}
+
+div[type="measurement"] {
+    display: table-row;
+}
+
+div[type="measurement"] div {
+    padding: 0.3em;
+    border: 1px solid gray;
+    -oxy-display-tags: none;
+}
+
+div[type="measurement"] p {
+    display: inline;
+}
+
+facsimile {
+    display: block;
+    border-top: 1px solid silver;
+    padding: 1em 0 1em 0;
+}
+facsimile:before {
+    display: block;
+    content: "Digitalisate";
+    font-weight: bold;
+}
+
+/* AvH */
+facsimile graphic[xml|id] {
+    content: oxy_substring(attr(xml|id), 6);
+    link : attr(url);
+    -oxy-display-tags: none;
+    color: blue;
+}
+
+/* Iffland */
+facsimile graphic[url] {
+    content : attr(url);
+    -oxy-display-tags: none;
+}
+
+facsimile graphic:after {
+    content: ", ";
+}
+
+facsimile graphic:last-child:after {
+    content: "";
+}
+
+/* Iffland Adresse */
+
+telota|envelope,
+telota|envPart {
+    display: block;
+}
+
+address,
+addrLine {
+    display: block;
+}
+
+/* Hirt */
+rs[type='artwork'] {
+    color: #465E7A;
+    -oxy-display-tags: none;
+} 
+
+rs[type='artwork']:after {
+    content: " " url('gfx/link.png');
+}
+
+rs[type='artwork'][key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${hirt_website_artwork}') "?id=" attr(key);
+}
+
+measure {
+    background-color: #F7D8FF;
+    -oxy-display-tags: none;
+}

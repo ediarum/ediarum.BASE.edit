@@ -1,0 +1,15 @@
+Berlin-Brandenburgische Akademie der Wissenschaften 
+TELOTA - The electronic Life of the Academy
+http://telotadev.bbaw.de/oxygen/updateSite.xml
+
+------------------------------------------------------------------------------------------------
+
+ediarum.AvHR 
+Digitale Arbeitsumgebung für das Editionsvorhaben 
+Alexander von Humboldt auf Reisen. Wissenschaft aus der Bewegung.
+
+Framework (Dokumenttyp Zuordnung) für Oxygen XML 
+
+CHANGELOG
+------------------------------------------------------------------------------------------------
+

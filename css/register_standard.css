@@ -1,0 +1,270 @@
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+@namespace telota "http://www.telota.de";
+
+/* General */
+TEI {
+    padding: 1em;
+    font-family: BBAWfont;
+    margin-right: 4cm;
+    margin-left: 1cm;
+}
+
+teiHeader {
+    display: none;
+}
+
+text * {
+    -oxy-display-tags: none;
+}
+
+person,
+place,
+bibl,
+org,
+location,
+item {
+    display: block;
+    border-bottom: 1px solid #99CCFF;
+    padding: 1em 0 1em 0;
+
+}
+
+person:focus-within,
+place:focus-within,
+bibl:focus-within,
+org:focus-within,
+item:focus-within {
+    background-color: #e0e0e0;
+}
+
+persName[type='reg'], 
+placeName[type='reg'],
+orgName[type='reg'],
+settlement,
+label[type='reg'] {
+    display: block;
+    font-weight: bold;
+}
+
+persName[type='alt'], 
+placeName[type='alt'],
+orgName[type='alt'],
+label[type='alt'] {
+    display: block;
+    font-style: italic;
+} 
+
+place listPlace,
+bibl bibl,
+org location,
+item list {
+    padding-left: 1em;
+}
+
+place listPlace place:last-child,
+bibl bibl:last-child,
+org location:last-child,
+item list item:last-child {
+    border-bottom: 0;
+}
+
+idno {
+    -oxy-display-tags:none;
+    display:block;
+    font-size:9pt;
+}
+
+idno:after {
+    content: " " url('gfx/ref_black_small.png');
+    link: oxy_xpath('text()');
+}
+
+listRef,
+linkGrp {
+    display: block;
+}
+
+ptr {
+    content: attr(target);
+    -oxy-editable: false;
+}
+
+ptr:after {
+    content: ", ";
+}
+
+ptr:last-child:after {
+    content: "";
+}
+
+ptr[type='letter'] {
+    content: "Brief " attr(target);
+}
+
+ptr[type='page'] {
+    content: "Seite " attr(target);
+}
+
+ptr[type='document'] {
+    content: "Dokument " attr(target);
+}
+
+ref {
+    content: "siehe " attr(target);
+}
+
+
+/* Persons */
+person[role]:before {
+    color: #666;
+    font-family: Arial, Helvetica, Sans;
+    font-size: 0.8em;
+}
+
+person[role='fictional']:before {
+    content: "[Fiktionaler Charakter]";
+}
+
+person[role='mythological']:before {
+    content: "[Mythologische Person]";   
+}
+
+persName[subtype='birthname']:before {
+    content: "Geburtsname: ";
+    color: #666;
+}
+
+persName[subtype='pseudonym']:before {
+    content: "Pseudonym: ";
+    color: #666;
+}
+
+surname {
+    -oxy-placeholder-content: "Nachname";
+}
+
+forename {
+    -oxy-placeholder-content: "Vorname(n)";
+    -oxy-show-placeholder: always;
+}
+
+forename:before {
+    content: ", ";
+}
+
+birth {
+    -oxy-placeholder-content: "Geburtsjahr?";
+}
+
+death {
+    -oxy-placeholder-content: "Todesjahr?";
+    -oxy-show-placeholder: always;
+}
+
+death:before {
+    content: "-";
+}
+
+death + birth:before  {
+    content: "\A";
+}
+
+floruit:before {
+    content: "Floruit: ";
+    color: #666;
+}
+
+note,
+desc {
+    display: block;
+    -oxy-placeholder-content: "Bemerkung";
+}
+
+/* Org */
+location:before {
+    content: "Ort";
+}
+
+location[from][to]:before {
+    content: "Ort " attr(from) "-" attr(to);
+    color: #555;
+} 
+
+/* Places */
+placeName[type="reg"] {
+    font-weight: bold;
+     -oxy-placeholder-content: "Ortsname";
+}
+
+placeName[type="alt"] {
+     -oxy-placeholder-content: "Alternativer Ortsname";
+}
+
+/* Bibl */
+author, editor {
+    display: block;
+}
+
+editor:after {
+    content: " (Hrsg.)";
+    color: gray;
+}
+
+bibl persName[key] {
+    color: #465E7A;
+}
+
+title {
+    display: block;
+    font-weight: bold;
+    -oxy-placeholder-content: "Publikationstitel";
+}
+
+bibl date {
+    display: block;
+}
+
+bibl pubPlace {
+    display: block;
+}
+
+bibl pubPlace + date:before{
+    content:", ";
+}
+
+bibl pubPlace + date,
+bibl:has(date) pubPlace {
+    display: inline;
+}
+
+biblScope {
+    display: block;
+}
+
+/* Subjects */
+label {
+    display: block;
+}
+
+label[type='reg'] {
+    font-weight: bold;
+}
+
+
+/* Artwork */
+artwork{
+    display: block;
+    border: 1px solid #99CCFF;
+}
+
+place[resp='gerlach'],
+person[resp='gerlach']{
+    background-color: #E5FFD6;
+}
+
+place[telota|merge],
+person[telota|merge]{
+    background-color: #FFC9C9;
+}
+
+

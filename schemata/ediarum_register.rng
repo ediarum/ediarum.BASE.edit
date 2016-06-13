@@ -1,0 +1,600 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:telota="http://www.telota.de" xmlns:tei="http://www.tei-c.org/ns/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.tei-c.org/ns/1.0">
+    <start>
+        <element name="TEI">
+            <a:documentation>root element, always necessary</a:documentation>
+            <attribute name="doctype" ns="http://www.telota.de">
+                <choice>
+                    <value>avh_register</value>
+                    <value>ah_personenregister</value>
+                    <value>ah_mythPersonenregister</value>
+                    <value>ah_ortsregister</value>
+                    <value>ah_werkregister</value>
+                    <value>ah_artworkregister</value>
+                    <value>ah_subject</value>
+                    <value>iffland_personenregister</value>
+                    <value>iffland_ortsregister</value>
+                    <value>iffland_werkregister</value>
+                    <value>helmholtz_personenregister</value>
+                    <value>helmholtz_sachregister</value>
+                </choice>
+            </attribute>
+            <attribute name="xml:lang"/>
+            <attribute name="xml:id"/>
+
+            <!-- header -->
+            <element name="teiHeader">
+                <a:documentation>contains the metadata of the manuscript</a:documentation>
+                <element name="fileDesc">
+                    <element name="titleStmt">
+                        <element name="title">
+                            <a:documentation>title of the letter within the
+                                edition</a:documentation>
+                            <text/>
+                        </element>
+                    </element>
+                    <!-- about the edition -->
+                    <!-- publisher -->
+                    <element name="publicationStmt">
+                        <element name="p">
+                            <text/>
+                        </element>
+                    </element>
+                    <!-- source description -->
+                    <element name="sourceDesc">
+                        <element name="p">
+                            <text/>
+                        </element>
+                        <!-- end of sourceDesc -->
+                    </element>
+                    <!-- end of  fileDesc -->
+
+                    <!-- sender, recipient and date of creation -->
+                </element>
+            </element>
+
+            <!-- ################# TEXT ##################### -->
+            <element name="text">
+                <!--  body -->
+                <element name="body">
+                    <ref name="lists"/>
+                    <!-- end of body -->
+                </element>
+                <!--back-->
+            </element>
+            <!-- ende of text -->
+
+            <!-- end of back -->
+        </element>
+
+        <!-- end of TEI -->
+    </start>
+
+    <!-- #################### 1. Attributes #################### -->
+    <define name="xmllang">
+        <!-- xml:lang ist kein valider define-Name, daher xmllang -->
+        <attribute name="xml:lang">
+            <choice>
+                <value>de</value>
+                <value>en</value>
+                <value>fr</value>
+                <value>it</value>
+                <value>grc</value>
+                <value>lat</value>
+                <value>he</value>
+            </choice>
+        </attribute>
+    </define>
+
+    <!-- ################### Header ####################### -->
+    <!-- about the edition -->
+
+
+    <!-- about the publishers -->
+    <define name="publicationStmt">
+        <element name="publicationStmt">
+            <element name="publisher">
+                <value type="string">Berlin-Brandenburgische Akademie der Wissenschaften</value>
+            </element>
+        </element>
+    </define>
+    <define name="lists">
+        <choice>
+            <element name="listPerson">
+                <oneOrMore>
+                    <element name="person">
+                        <optional>
+                            <!-- anpassen -->
+                            <attribute name="resp">
+                                <value>gerlach</value>
+                            </attribute>
+                        </optional>
+                        <optional>
+                            <attribute name="role">
+                                <choice>
+                                    <value>fictional</value>
+                                    <value>mythological</value>
+                                </choice>
+                            </attribute>
+                        </optional>
+                        <ref name="xmlid"/>
+                        <optional>
+                            <ref name="idno"/>
+                        </optional>
+                        <oneOrMore>
+                            <element name="persName">
+                                <choice>
+                                    <group>
+                                        <attribute name="type">
+                                            <value>reg</value>
+                                        </attribute>
+                                    </group>
+                                    <group>
+                                        <attribute name="type">
+                                            <value>alt</value>
+                                        </attribute>
+                                        <optional>
+                                            <attribute name="subtype">
+                                                <choice>
+                                                  <value>birthname</value>
+                                                  <value>pseudonym</value>
+                                                </choice>
+                                            </attribute>
+                                        </optional>
+                                    </group>
+                                </choice>
+                                <choice>
+                                    <group>
+                                        <element name="name">
+                                            <text/>
+                                        </element>
+                                    </group>
+                                    <group>
+                                        <element name="surname">
+                                            <text/>
+                                        </element>
+                                        <element name="forename">
+                                            <text/>
+                                        </element>
+                                    </group>
+                                </choice>
+                            </element>
+                        </oneOrMore>
+                        <optional>
+                            <choice>
+                                <group>
+                                    <element name="birth">
+                                        <text/>
+                                    </element>
+                                    <element name="death">
+                                        <text/>
+                                    </element>
+                                </group>
+                                <group>
+                                    <element name="floruit">
+                                        <attribute name="notBefore">
+                                            <data type="string">
+                                                <param name="pattern"
+                                                  >\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                            </data>
+                                        </attribute>
+                                        <attribute name="notAfter">
+                                            <data type="string">
+                                                <param name="pattern"
+                                                  >\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                            </data>
+                                        </attribute>
+                                        <text/>
+                                    </element>
+                                </group>
+                            </choice>
+                        </optional>
+                        <optional>
+                            <element name="occupation">
+                                <text/>
+                            </element>
+                        </optional>
+                        <optional>
+                            <element name="note">
+                                <text/>
+                            </element>
+                        </optional>
+                        <optional>
+                            <ref name="linkGrp"/>
+                        </optional>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="listPlace">
+                <oneOrMore>
+                    <ref name="place"/>
+                </oneOrMore>
+            </element>
+            <element name="listOrg">
+                <oneOrMore>
+                    <element name="org">
+                        <attribute name="xml:id"/>
+                        <optional>
+                            <ref name="idno"/>
+                        </optional>
+                        <element name="orgName">
+                            <attribute name="type">
+                                <value>reg</value>
+                            </attribute>
+                            <text/>
+                        </element>
+                        <zeroOrMore>
+                            <element name="orgName">
+                                <attribute name="type">
+                                    <value>alt</value>
+                                </attribute>
+                                <text/>
+                            </element>
+                        </zeroOrMore>
+                        <optional>
+                            <element name="desc">
+                                <text/>
+                            </element>
+                        </optional>
+                        <optional>
+                            <ref name="linkGrp"/>
+                        </optional>
+                        <zeroOrMore>
+                            <element name="location">
+                                <ref name="xmlid"/>
+                                <optional>
+                                    <group>
+                                        <attribute name="from">
+                                            <data type="string">
+                                                <param name="pattern">\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                            </data>
+                                        </attribute>
+                                        <attribute name="to">
+                                            <data type="string">
+                                                <param name="pattern">\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                            </data>
+                                        </attribute>
+                                    </group>
+                                </optional>
+                                <element name="address">
+                                    <optional>
+                                        <ref name="idno"/>
+                                    </optional>
+                                    <element name="settlement">
+                                        <attribute name="key">
+                                            <text/>
+                                        </attribute>
+                                        <text/>
+                                    </element>
+                                    <optional>
+                                        <element name="note">
+                                            <text/>
+                                        </element>
+                                    </optional>
+                                    <optional>
+                                        <ref name="linkGrp"/>
+                                    </optional>
+                                </element>
+                            </element>
+                        </zeroOrMore>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="listBibl">
+                <oneOrMore>
+                    <element name="bibl">
+                        <ref name="xmlid"/>
+                        <choice>
+                            <group>
+                                <attribute name="type">
+                                    <choice>
+                                        <value>journal</value>
+                                        <value>edited_volume</value>
+                                        <value>volume</value>
+                                    </choice>
+                                </attribute>
+                                <zeroOrMore>
+                                    <element name="editor">
+                                        <ref name="bibl_persName"/>
+                                    </element>
+                                </zeroOrMore>
+                                <element name="title">
+                                    <text/>
+                                </element>
+                                <optional>
+                                    <element name="publisher">
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <element name="pubPlace">
+                                        <optional>
+                                            <attribute name="key">
+                                                <text/>
+                                            </attribute>
+                                        </optional>
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <element name="date">
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <element name="note">
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <zeroOrMore>
+                                      <ref name="bibl_article"/>
+                                </zeroOrMore>
+                            </group>
+                            <group>
+                                <choice>
+                                    <oneOrMore>
+                                        <element name="author">
+                                            <ref name="bibl_persName"/>
+                                        </element>
+                                    </oneOrMore>
+                                    <oneOrMore>
+                                        <element name="editor">
+                                            <ref name="bibl_persName"/>
+                                        </element>
+                                    </oneOrMore>
+                                </choice>
+                                <element name="title">
+                                    <text/>
+                                </element>
+                                <optional>
+                                    <element name="publisher">
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <element name="pubPlace">
+                                        <optional>
+                                            <attribute name="key">
+                                                <text/>
+                                            </attribute>
+                                        </optional>
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <element name="date">
+                                        <text/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <element name="note">
+                                        <text/>
+                                    </element>
+                                </optional>
+                            </group>
+                        </choice>
+                    </element>
+                </oneOrMore>
+            </element>
+            <ref name="list"/>
+            <element ns="http://www.telota.de" name="listArtwork">
+                <oneOrMore>
+                    <element name="artwork">
+                        <attribute name="id"/>
+                        <element name="title">
+                            <text/>
+                        </element>
+                        <element name="note">
+                            <text/>
+                        </element>
+                    </element>
+                </oneOrMore>
+            </element>
+        </choice>
+    </define>
+    <define name="xmlid">
+        <attribute name="xml:id">
+            <data type="ID"/>
+        </attribute>
+    </define>
+    <define name="idno">
+        <element name="idno">
+            <attribute name="type">
+                <value>uri</value>
+            </attribute>
+            <data type="anyURI"/>
+        </element>
+    </define>
+    <define name="place">
+        <element name="place">
+            <optional>
+                <!-- anpassen -->
+                <attribute name="resp">
+                    <value>gerlach</value>
+                </attribute>
+            </optional>
+            <ref name="xmlid"/>
+            <optional>
+                <attribute name="type">
+                    <choice>
+                        <value>street</value>
+                        <value>building</value>
+                    </choice>
+                </attribute>
+            </optional>
+            <zeroOrMore>
+                <ref name="idno"/>
+            </zeroOrMore>
+            <oneOrMore>
+                <element name="placeName">
+                    <attribute name="type">
+                        <choice>
+                            <value>reg</value>
+                            <value>alt</value>
+                        </choice>
+                    </attribute>
+                    <text/>
+                </element>
+            </oneOrMore>
+            <optional>
+                <element name="note">
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <ref name="linkGrp"/>
+            </optional>
+            <optional>
+                <element name="listPlace">
+                    <oneOrMore>
+                        <ref name="place"/>
+                    </oneOrMore>
+                </element>
+            </optional>
+        </element>
+    </define>
+    <!-- Sachregister -->
+    <define name="list">
+        <element name="list">
+            <oneOrMore>
+                <ref name="item"/>
+            </oneOrMore>
+        </element>
+    </define>
+    <define name="item">
+        <element name="item">
+            <ref name="xmlid"/>
+            <optional>
+                <ref name="idno"/>
+            </optional>
+            <element name="label">
+                <attribute name="type">
+                    <value>reg</value>
+                </attribute>
+                <text/>
+            </element>
+            <zeroOrMore>
+                <element name="label">
+                    <attribute name="type">
+                        <value>alt</value>
+                    </attribute>
+                    <text/>
+                </element>
+            </zeroOrMore>
+            <optional>
+                <element name="desc">
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <element name="note">
+                    <text/>
+                </element>
+            </optional>
+            <optional>
+                <ref name="listRef"/>
+            </optional>
+            <optional>
+                <ref name="list"/>
+            </optional>
+        </element>
+    </define>
+    <define name="listRef">
+        <element name="listRef">
+            <oneOrMore>
+                <element name="ptr">
+                    <attribute name="type">
+                        <choice>
+                            <value>page</value>
+                            <value>letter</value>
+                            <value>document</value>
+                        </choice>
+                    </attribute>
+                    <optional>
+                        <attribute name="subtype">
+                            <choice>
+                                <value>comment</value>
+                                <value>sentFrom</value>
+                            </choice>
+                        </attribute>
+                    </optional>
+                    <attribute name="target">
+                        <text/>
+                    </attribute>
+                </element>
+            </oneOrMore>
+        </element>
+    </define>
+    <define name="linkGrp">
+        <element name="linkGrp">
+            <oneOrMore>
+                <element name="ptr">
+                    <attribute name="type">
+                        <choice>
+                            <value>page</value>
+                            <value>letter</value>
+                            <value>document</value>
+                        </choice>
+                    </attribute>
+                    <optional>
+                        <attribute name="subtype">
+                            <choice>
+                                <value>comment</value>
+                                <value>sentFrom</value>
+                            </choice>
+                        </attribute>
+                    </optional>
+                    <attribute name="target">
+                        <text/>
+                    </attribute>
+                </element>
+            </oneOrMore>
+        </element>
+    </define>
+    <define name="ref">
+        <attribute name="target">
+            <text/>
+        </attribute>
+    </define>
+    <define name="bibl_persName">
+        <element name="persName">
+            <optional>
+                <attribute name="key">
+                    <text/>
+                </attribute>
+            </optional>
+            <element name="surname">
+                <text/>
+            </element>
+            <element name="forename">
+                <text/>
+            </element>
+        </element>
+    </define>
+    <define name="bibl_article">
+        <element name="bibl">
+            <ref name="xmlid"/>
+            <attribute name="type">
+                <value>article</value>
+            </attribute>
+            <oneOrMore>
+                <element name="author">
+                    <ref name="bibl_persName"/>
+                </element>
+            </oneOrMore>
+            <element name="title">
+                <text/>
+            </element>
+            <element name="biblScope">
+                <text/>
+            </element>
+            <optional>
+                <element name="note">
+                    <text/>
+                </element>
+            </optional>
+        </element>
+    </define>
+</grammar>
