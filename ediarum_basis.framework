@@ -10095,7 +10095,7 @@ or ancestor-or-self::correspDesc/note</String>
 								<null/>
 							</field>
 							<field name="authorExtensionStateListener">
-								<String>org.bbaw.telota.ediarum.extensions.EdiarumAuthorExtensionStateListener</String>
+								<null/>
 							</field>
 							<field name="attributesRecognizer">
 								<null/>
