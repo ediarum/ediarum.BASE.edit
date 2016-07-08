@@ -504,6 +504,12 @@ text note p {
     display: inline;
 }
 
+text note metamark,
+text add metamark {
+    content: "\23A1";
+    -oxy-display-tags: none;
+}
+
 milestone {
     margin-left: 50%;
     content: "―";
