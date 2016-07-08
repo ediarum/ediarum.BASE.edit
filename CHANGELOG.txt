@@ -13,3 +13,6 @@ Framework (Dokumenttyp Zuordnung) für Oxygen XML
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.17.1 vom 08.07.2016
+
+* BUGFIX #6514: extensionsListener entfernen
