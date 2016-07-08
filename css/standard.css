@@ -570,6 +570,10 @@ text cell {
   background-color:inherit;
 }
 
+text cell[rendition='#right'] {
+    text-align: right;
+}
+
 text cell[role='label'] {
    color: inherit;
    background-color: #bbb;
