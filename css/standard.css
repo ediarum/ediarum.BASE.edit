@@ -257,15 +257,18 @@ profileDesc abstract p {
 }
 
 
+note quote,
 abstract quote {
     font-family: BBAWfont;
     -oxy-display-tags: none;
 }
 
+note quote:before,
 abstract quote:before {
     content: "„";
 }
 
+note quote:after,
 abstract quote:after {
     content: "“";
 }
@@ -581,10 +584,12 @@ text cell[role='label'] {
 
 /* Authors editing */
 
+quote subst,
 text subst {
     -oxy-display-tags: none;
 }
 
+quote del,
 text del {
     color: red;
     background-color: white;
@@ -592,17 +597,20 @@ text del {
     -oxy-display-tags: none;
 }
 
+quote add,
 text add {
     color: green;
     -oxy-display-tags: none;
     -oxy-placeholder-content: "[Hinzufügung]"
 }
 
+quote hi[rendition="#u"],
 text hi[rendition="#u"] {
     text-decoration: underline;
     -oxy-display-tags: none;
 }
 
+quote hi[rendition="#uu"],
 text hi[rendition="#uu"] {
     border-bottom:1px solid #000;
     text-decoration:underline;
@@ -612,7 +620,7 @@ text hi[rendition="#uu"] {
 
 /* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
 
-
+quote hi[rendition="#sup"],
 text hi[rendition="#sup"] {
     position: relative; 
     top: -0.5em;
@@ -621,18 +629,20 @@ text hi[rendition="#sup"] {
 }
 
 /* Publishers editing */
-
+quote supplied,
 text supplied {
     font-family: "BBAWfont-italic";
     background-color: #e0e0e0;
     -oxy-display-tags: none;    
 }
 
+quote supplied:before,
 text supplied:before  {
     content: "[";
     font-style: normal;
 }
 
+quote supplied:after,
 text supplied:after {
     content: "]";
     font-style: normal;
@@ -645,21 +655,27 @@ text supplied[cert="low"]:before {
     color: gray;
 }
 
+quote surplus,
 text surplus {
     text-decoration: line-through;
     color: #395B8C;
 }
 
+quote choice,
 text choice {
     -oxy-display-tags: none;
 }
 
+quote choice sic,
+quote choice orig,
 text choice sic,
 text choice orig {
     background-color: #FFDDDD;
     -oxy-display-tags: none;
 }
 
+quote choice corr,
+quote choice reg,
 text choice corr,
 text choice reg {
     font-style: italic;
@@ -668,34 +684,43 @@ text choice reg {
     -oxy-placeholder-content: "[Normalisierte Schreibung]";
 }
 
+quote corr[type="deleted"],
 text corr[type="deleted"] {
     content: "[gelöscht]";
     font-style: italic;
     color: green;
 }
 
+quote choice abbr,
 text choice abbr {
     background-color: #e0e0e0;
     -oxy-display-tags: none;
 }
 
+
+quote choice expan,
 text choice expan {
     font-style: italic;
     background-color: #E8FFDD;
     -oxy-display-tags: none;
 }
 
+quote gap,
+quote unclear,
 text gap,
 text unclear {
     background-color: #FFA100;
     -oxy-display-tags: none;
 }
 
+quote gap:after,
+quote unclear:after,
 text gap:after,
 text unclear:after {
     background-color: #FFA100;
 }
 
+quote gap,
 text gap {
     content: "   ";
 }
@@ -718,7 +743,7 @@ text damage:after {
     content: "]";
 }
 
-abstract ex,
+quote ex,
 text ex {
     font-family: "BBAWfont-italic";
     -oxy-display-tags: none;
