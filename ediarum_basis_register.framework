@@ -456,7 +456,7 @@
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::place</String>
+																<String>ancestor-or-self::place[1]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -1379,11 +1379,11 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;listPlace>
-&lt;place xmlns="http://www.tei-c.org/ns/1.0" xml:id="ediarum_${id}" type="${ask('', radio, ('building':'Gebäude';'street':'Straße';))}">
-        &lt;placeName type="reg">${ask('Name eingeben')}&lt;/placeName>
-&lt;/place>
-  &lt;/listPlace></String>
+																<String>&lt;listPlace xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;place xml:id="ediarum_${id}" type="${ask('', radio, ('building':'Gebäude';'street':'Straße';))}">
+          &lt;placeName type="reg">${ask('Name eingeben')}&lt;/placeName>
+  &lt;/place>
+&lt;/listPlace></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
