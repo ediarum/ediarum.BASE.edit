@@ -347,7 +347,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
-  &lt;orgName type="reg">${ask('Name der Einrichtung (ohne Beschreibung')}&lt;/orgName>
+  &lt;orgName type="reg">${ask('Name der Einrichtung (ohne Beschreibung)')}&lt;/orgName>
 &lt;/org></String>
 															</entry>
 															<entry>
@@ -373,7 +373,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0" xml:id="ed_${id}">
-  &lt;orgName>${ask('Name der Einrichtung (ohne Beschreibung)')}&lt;/orgName>
+  &lt;orgName type="reg">${ask('Name der Einrichtung (ohne Beschreibung)')}&lt;/orgName>
 &lt;/org></String>
 															</entry>
 															<entry>
