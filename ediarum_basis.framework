@@ -5227,13 +5227,13 @@ or ancestor-or-self::quote</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>correspContext_ptr[prev]</String>
+											<String>correspContext_ref[ID]</String>
 										</field>
 										<field name="name">
-											<String>Vorhergehender Brief</String>
+											<String>Korrespondenzkontext (Interner Link)</String>
 										</field>
 										<field name="description">
-											<String>Fügt Verweis auf vorhergehenden Brief (A) ein.</String>
+											<String>Fügt einen Link auf einen vorhergehenden Brief (A) oder nachfolgenden Brief (B) ein.</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/verweis.gif</String>
@@ -5262,7 +5262,7 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>element</String>
 																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='prev' target='"+@xml:id+"'/>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target='"+@xml:id+"'/>
 &lt;/correspContext>"</String>
 															</entry>
 															<entry>
@@ -5300,7 +5300,7 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>element</String>
 																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='prev' target='"+@xml:id+"'/>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target='"+@xml:id+"'/>
 &lt;/correspContext>"</String>
 															</entry>
 															<entry>
@@ -5327,7 +5327,7 @@ or ancestor-or-self::quote</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[not(ref/@type='prev')]]</String>
+														<String>//correspDesc[correspContext]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5337,7 +5337,7 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type='prev' target='"+@xml:id+"'/>"</String>
+																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target='"+@xml:id+"'/>"</String>
 															</entry>
 															<entry>
 																<String>expression</String>
@@ -5345,7 +5345,11 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>correspContext</String>
+																<String>//correspContext</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
 															</entry>
 															<entry>
 																<String>node</String>
@@ -5355,42 +5359,6 @@ or ancestor-or-self::quote</String>
 													</field>
 													<field name="operationID">
 														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[ref/@type='prev']]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>attribute name</String>
-																<String>target</String>
-															</entry>
-															<entry>
-																<String>attribute value</String>
-																<String>@xml:id</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-															<entry>
-																<String>xpath to element of the attribute</String>
-																<String>//correspContext/ref[@type="prev"]</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAttributeOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -7261,6 +7229,38 @@ or ancestor-or-self::quote</String>
 														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementsOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::ref[parent::correspContext[count(ref) = 1]]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocations</String>
+																<String>ancestor-or-self::correspContext</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::ref[parent::correspContext]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocations</String>
+																<String>ancestor-or-self::ref</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementsOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -8341,184 +8341,6 @@ or ancestor-or-self::note[parent::correspDesc]</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>correspContext_ptr[next]</String>
-										</field>
-										<field name="name">
-											<String>Nachfolgender Brief</String>
-										</field>
-										<field name="description">
-											<String>Fügt Verweis auf nachfolgenden Brief (A) ein.</String>
-										</field>
-										<field name="largeIconPath">
-											<String>${framework}/icons/verweis.gif</String>
-										</field>
-										<field name="smallIconPath">
-											<String>${framework}/icons/verweis16.gif</String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[not(correspContext) and note]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='next' target='"+@xml:id+"'/>
-&lt;/correspContext>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspDesc/note</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Before</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[not(correspContext)]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='next' target='"+@xml:id+"'/>
-&lt;/correspContext>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspDesc</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Inside as last child</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[not(ref/@type='next')]]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type='next' target='"+@xml:id+"'/>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspContext</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Inside as last child</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[ref/@type='prev']]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>attribute name</String>
-																<String>target</String>
-															</entry>
-															<entry>
-																<String>attribute value</String>
-																<String>@xml:id</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-															<entry>
-																<String>xpath to element of the attribute</String>
-																<String>//correspContext/ref[@type="next"]</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAttributeOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>true</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
 											<String>facsimile</String>
 										</field>
 										<field name="name">
@@ -9058,7 +8880,7 @@ or ancestor-or-self::correspDesc/note</String>
 											<String>correspContext_ref[text]</String>
 										</field>
 										<field name="name">
-											<String>Korrespondenzzusammenhang (Text)</String>
+											<String>Korrespondenzkontext (Text)</String>
 										</field>
 										<field name="description">
 											<String>Fügt einen Textverweis auf einen vorangehenden oder nachfolgenden Brief ein.</String>
@@ -9086,7 +8908,7 @@ or ancestor-or-self::correspDesc/note</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type="${ask('Korrespondenzzusammenhang des Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
 &lt;/correspContext></String>
 															</entry>
 															<entry>
@@ -9112,7 +8934,7 @@ or ancestor-or-self::correspDesc/note</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type="${ask('Korrespondenzzusammenhang des Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
 &lt;/correspContext></String>
 															</entry>
 															<entry>
@@ -9131,13 +8953,13 @@ or ancestor-or-self::correspDesc/note</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[not(ref/@type='next')]]</String>
+														<String>//correspDesc[correspContext]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="next">${ask('Verweis auf nachfolgenden Brief in Textform', generic, '')}&lt;/ref></String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis auf nachfolgenden Brief in Textform', generic, '')}&lt;/ref></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -9146,31 +8968,6 @@ or ancestor-or-self::correspDesc/note</String>
 															<entry>
 																<String>insertPosition</String>
 																<String>Inside as last child</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[ref/@type='prev']]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="prev">${ask('Verweis auf vorangehenden Brief in Textform', generic, '')}&lt;/ref>
-</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspContext</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Inside as first child</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9418,6 +9215,112 @@ or ancestor-or-self::p[parent::abstract]</String>
 										</field>
 										<field name="enabledInReadOnlyContext">
 											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>correspContext_ref[text+URL]</String>
+										</field>
+										<field name="name">
+											<String>Korrespondenzkontext (Text und externer Link)</String>
+										</field>
+										<field name="description">
+											<String>Fügt einen Textverweis mitsamt externem Link auf einen vorangehenden oder nachfolgenden Brief ein.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspDesc[not(correspContext) and note]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target="${ask('Externer Link', url, '')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+&lt;/correspContext></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc/note</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspDesc[not(correspContext)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target="${ask('Externer Link', url, '')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+&lt;/correspContext></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspDesc[correspContext]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target="${ask('Externer Link', url, '')}">${ask('Verweis auf nachfolgenden Brief in Textform', generic, '')}&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspContext</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 								</action-array>
@@ -10114,17 +10017,17 @@ or ancestor-or-self::p[parent::abstract]</String>
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>correspContext_ptr[prev]</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>correspContext_ptr[next]</String>
+																	<String>correspContext_ref[ID]</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>correspContext_ref[text]</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>correspContext_ref[text+URL]</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
