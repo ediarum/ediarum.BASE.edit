@@ -257,15 +257,18 @@ profileDesc abstract p {
 }
 
 
+note quote,
 abstract quote {
     font-family: BBAWfont;
     -oxy-display-tags: none;
 }
 
+note quote:before,
 abstract quote:before {
     content: "„";
 }
 
+note quote:after,
 abstract quote:after {
     content: "“";
 }
@@ -315,13 +318,6 @@ correspContext ref[target] {
     color: #465E7A;
 }
 
-correspContext ref[type="prev"] {
-    content: "Vorangehender Brief: ";
-}
-
-correspContext ref[type="next"] {
-    content: "Nachfolgender Brief: ";
-}
 
 correspContext ref[type="prev"][target] {
     content: "Vorangehender Brief";
@@ -331,9 +327,24 @@ correspContext ref[type="next"][target] {
     content: "Nachfolgender Brief";
 }
 
+correspContext ref[type="prev"],
+correspContext ref[type="prev"][target^="http://"] {
+    content: "Vorangehender Brief: ";
+}
+
+correspContext ref[type="next"],
+correspContext ref[type="next"][target^="http://"] {
+    content: "Nachfolgender Brief: ";
+}
+
 correspContext ref[target]:after {
     content: " " url('gfx/link.png');
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_letter}') "?id=" attr(target);
+}
+
+correspContext ref[target^="http://"]:after {
+    content: " " url('gfx/link.png');
+    link: attr(target);
 }
 
 correspDesc note:before {
@@ -504,6 +515,12 @@ text note p {
     display: inline;
 }
 
+text note metamark,
+text add metamark {
+    content: "\23A1";
+    -oxy-display-tags: none;
+}
+
 milestone {
     margin-left: 50%;
     content: "―";
@@ -564,6 +581,10 @@ text cell {
   background-color:inherit;
 }
 
+text cell[rendition='#right'] {
+    text-align: right;
+}
+
 text cell[role='label'] {
    color: inherit;
    background-color: #bbb;
@@ -571,10 +592,12 @@ text cell[role='label'] {
 
 /* Authors editing */
 
+quote subst,
 text subst {
     -oxy-display-tags: none;
 }
 
+quote del,
 text del {
     color: red;
     background-color: white;
@@ -582,17 +605,20 @@ text del {
     -oxy-display-tags: none;
 }
 
+quote add,
 text add {
     color: green;
     -oxy-display-tags: none;
     -oxy-placeholder-content: "[Hinzufügung]"
 }
 
+quote hi[rendition="#u"],
 text hi[rendition="#u"] {
     text-decoration: underline;
     -oxy-display-tags: none;
 }
 
+quote hi[rendition="#uu"],
 text hi[rendition="#uu"] {
     border-bottom:1px solid #000;
     text-decoration:underline;
@@ -602,7 +628,7 @@ text hi[rendition="#uu"] {
 
 /* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
 
-
+quote hi[rendition="#sup"],
 text hi[rendition="#sup"] {
     position: relative; 
     top: -0.5em;
@@ -611,18 +637,20 @@ text hi[rendition="#sup"] {
 }
 
 /* Publishers editing */
-
+quote supplied,
 text supplied {
     font-family: "BBAWfont-italic";
     background-color: #e0e0e0;
     -oxy-display-tags: none;    
 }
 
+quote supplied:before,
 text supplied:before  {
     content: "[";
     font-style: normal;
 }
 
+quote supplied:after,
 text supplied:after {
     content: "]";
     font-style: normal;
@@ -635,21 +663,27 @@ text supplied[cert="low"]:before {
     color: gray;
 }
 
+quote surplus,
 text surplus {
     text-decoration: line-through;
     color: #395B8C;
 }
 
+quote choice,
 text choice {
     -oxy-display-tags: none;
 }
 
+quote choice sic,
+quote choice orig,
 text choice sic,
 text choice orig {
     background-color: #FFDDDD;
     -oxy-display-tags: none;
 }
 
+quote choice corr,
+quote choice reg,
 text choice corr,
 text choice reg {
     font-style: italic;
@@ -658,34 +692,43 @@ text choice reg {
     -oxy-placeholder-content: "[Normalisierte Schreibung]";
 }
 
+quote corr[type="deleted"],
 text corr[type="deleted"] {
     content: "[gelöscht]";
     font-style: italic;
     color: green;
 }
 
+quote choice abbr,
 text choice abbr {
     background-color: #e0e0e0;
     -oxy-display-tags: none;
 }
 
+
+quote choice expan,
 text choice expan {
     font-style: italic;
     background-color: #E8FFDD;
     -oxy-display-tags: none;
 }
 
+quote gap,
+quote unclear,
 text gap,
 text unclear {
     background-color: #FFA100;
     -oxy-display-tags: none;
 }
 
+quote gap:after,
+quote unclear:after,
 text gap:after,
 text unclear:after {
     background-color: #FFA100;
 }
 
+quote gap,
 text gap {
     content: "   ";
 }
@@ -708,7 +751,7 @@ text damage:after {
     content: "]";
 }
 
-abstract ex,
+quote ex,
 text ex {
     font-family: "BBAWfont-italic";
     -oxy-display-tags: none;
@@ -1011,6 +1054,16 @@ telota|envPart {
 address,
 addrLine {
     display: block;
+}
+
+address:before {
+    display: block;
+    content: "Adresse:";
+    font-style: italic;
+}
+
+addrLine {
+    -oxy-placeholder-content: "[Adresszeile]";
 }
 
 /* Hirt */

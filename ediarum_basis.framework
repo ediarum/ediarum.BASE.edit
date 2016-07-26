@@ -148,7 +148,8 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text or ancestor-or-self::abstract//quote</String>
+														<String>ancestor-or-self::text 
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -194,7 +195,8 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -614,7 +616,8 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -660,7 +663,8 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -950,7 +954,8 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1162,7 +1167,8 @@ or ancestor-or-self::correspDesc/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -2461,7 +2467,8 @@ or ancestor-or-self::msContents/p/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -3731,7 +3738,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//text[@type='letter'] and //sourceDesc/msDesc[@rend]</String>
+														<String>//sourceDesc/msDesc[@rend]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -3884,7 +3891,8 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5219,13 +5227,13 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 									</action>
 									<action>
 										<field name="id">
-											<String>correspContext_ptr[prev]</String>
+											<String>correspContext_ref[ID]</String>
 										</field>
 										<field name="name">
-											<String>Vorhergehender Brief</String>
+											<String>Korrespondenzkontext (Interner Link)</String>
 										</field>
 										<field name="description">
-											<String>Fügt Verweis auf vorhergehenden Brief (A) ein.</String>
+											<String>Fügt einen Link auf einen vorhergehenden Brief (A) oder nachfolgenden Brief (B) ein.</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/verweis.gif</String>
@@ -5254,7 +5262,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															<entry>
 																<String>element</String>
 																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='prev' target='"+@xml:id+"'/>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target='"+@xml:id+"'/>
 &lt;/correspContext>"</String>
 															</entry>
 															<entry>
@@ -5292,7 +5300,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															<entry>
 																<String>element</String>
 																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='prev' target='"+@xml:id+"'/>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target='"+@xml:id+"'/>
 &lt;/correspContext>"</String>
 															</entry>
 															<entry>
@@ -5319,7 +5327,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[not(ref/@type='prev')]]</String>
+														<String>//correspDesc[correspContext]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5329,7 +5337,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type='prev' target='"+@xml:id+"'/>"</String>
+																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target='"+@xml:id+"'/>"</String>
 															</entry>
 															<entry>
 																<String>expression</String>
@@ -5337,7 +5345,11 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>correspContext</String>
+																<String>//correspContext</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
 															</entry>
 															<entry>
 																<String>node</String>
@@ -5347,42 +5359,6 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 													</field>
 													<field name="operationID">
 														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[ref/@type='prev']]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>attribute name</String>
-																<String>target</String>
-															</entry>
-															<entry>
-																<String>attribute value</String>
-																<String>@xml:id</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-															<entry>
-																<String>xpath to element of the attribute</String>
-																<String>//correspContext/ref[@type="prev"]</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAttributeOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -5903,7 +5879,8 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -6576,7 +6553,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String></String>
+																<String>${ask('Bruchzahl auswählen', combobox, ('¼':'1/4';'½':'1/2';'¾':'3/4';'⅐':'1/7';'⅑':'1/9';'⅒':'1/10';'⅓':'1/3';'⅔':'2/3';'⅕':'1/5';'⅖':'2/5';'⅗':'3/5';'⅘':'4/5';'⅙':'1/6';'⅚':'5/6';'⅛':'1/8';'⅜':'3/8';'⅝':'5/8';'⅞':'7/8';), '')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7158,6 +7135,22 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::address</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::address</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::salute</String>
 													</field>
 													<field name="argValues">
@@ -7229,6 +7222,38 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															<entry>
 																<String>elementLocations</String>
 																<String>ancestor-or-self::placeName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::ref[parent::correspContext[count(ref) = 1]]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocations</String>
+																<String>ancestor-or-self::correspContext</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::ref[parent::correspContext]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocations</String>
+																<String>ancestor-or-self::ref</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7490,7 +7515,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::dateline[@rendition="right"]</String>
+														<String>ancestor-or-self::dateline[@rendition="#right"]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -7544,6 +7569,62 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::cell[@rendition="#right"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::cell</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::cell[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::cell</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#right</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -7576,7 +7657,8 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8214,10 +8296,10 @@ rs_zwei</String>
 											<String>quote</String>
 										</field>
 										<field name="name">
-											<String>Zitat im Regest</String>
+											<String>Zitat in Regest, Kommentar etc.</String>
 										</field>
 										<field name="description">
-											<String>Zitat aus dem aktuell bearbeiteten Manuskript im Regest</String>
+											<String>Zitat aus einer Quelle im Regest, im Kommentar etc.</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -8229,13 +8311,15 @@ rs_zwei</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl shift Z</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::abstract/p</String>
+														<String>ancestor-or-self::abstract/p
+or ancestor-or-self::note[parent::seg]
+or ancestor-or-self::note[parent::correspDesc]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8253,184 +8337,6 @@ rs_zwei</String>
 										</field>
 										<field name="enabledInReadOnlyContext">
 											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>correspContext_ptr[next]</String>
-										</field>
-										<field name="name">
-											<String>Nachfolgender Brief</String>
-										</field>
-										<field name="description">
-											<String>Fügt Verweis auf nachfolgenden Brief (A) ein.</String>
-										</field>
-										<field name="largeIconPath">
-											<String>${framework}/icons/verweis.gif</String>
-										</field>
-										<field name="smallIconPath">
-											<String>${framework}/icons/verweis16.gif</String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[not(correspContext) and note]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='next' target='"+@xml:id+"'/>
-&lt;/correspContext>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspDesc/note</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Before</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[not(correspContext)]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type='next' target='"+@xml:id+"'/>
-&lt;/correspContext>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspDesc</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Inside as last child</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[not(ref/@type='next')]]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type='next' target='"+@xml:id+"'/>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspContext</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Inside as last child</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[ref/@type='prev']]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_letters}</String>
-															</entry>
-															<entry>
-																<String>attribute name</String>
-																<String>target</String>
-															</entry>
-															<entry>
-																<String>attribute value</String>
-																<String>@xml:id</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//li</String>
-															</entry>
-															<entry>
-																<String>xpath to element of the attribute</String>
-																<String>//correspContext/ref[@type="next"]</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAttributeOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>true</Boolean>
 										</field>
 									</action>
 									<action>
@@ -8974,7 +8880,7 @@ or ancestor-or-self::correspDesc/note</String>
 											<String>correspContext_ref[text]</String>
 										</field>
 										<field name="name">
-											<String>Korrespondenzzusammenhang (Text)</String>
+											<String>Korrespondenzkontext (Text)</String>
 										</field>
 										<field name="description">
 											<String>Fügt einen Textverweis auf einen vorangehenden oder nachfolgenden Brief ein.</String>
@@ -9002,7 +8908,7 @@ or ancestor-or-self::correspDesc/note</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type="${ask('Korrespondenzzusammenhang des Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
 &lt;/correspContext></String>
 															</entry>
 															<entry>
@@ -9028,7 +8934,7 @@ or ancestor-or-self::correspDesc/note</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
-  &lt;ref type="${ask('Korrespondenzzusammenhang des Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
 &lt;/correspContext></String>
 															</entry>
 															<entry>
@@ -9047,13 +8953,13 @@ or ancestor-or-self::correspDesc/note</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[not(ref/@type='next')]]</String>
+														<String>//correspDesc[correspContext]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="next">${ask('Verweis auf nachfolgenden Brief in Textform', generic, '')}&lt;/ref></String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}">${ask('Verweis auf nachfolgenden Brief in Textform', generic, '')}&lt;/ref></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -9062,31 +8968,6 @@ or ancestor-or-self::correspDesc/note</String>
 															<entry>
 																<String>insertPosition</String>
 																<String>Inside as last child</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>//correspDesc[correspContext[ref/@type='prev']]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="prev">${ask('Verweis auf vorangehenden Brief in Textform', generic, '')}&lt;/ref>
-</String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>//correspContext</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Inside as first child</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9218,6 +9099,230 @@ or ancestor-or-self::correspDesc/note</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>metamark</String>
+										</field>
+										<field name="name">
+											<String>Einweisungszeichen</String>
+										</field>
+										<field name="description">
+											<String>Einweisungszeichen einer Hinzufügung oder Anmerkung im Text</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 E</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::add</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::add</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::note</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ref[URL]</String>
+										</field>
+										<field name="name">
+											<String>Link auf externe Website</String>
+										</field>
+										<field name="description">
+											<String>Link auf externe Website, nach Möglichkeit hier Permalinks verwenden</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[parent::seg] 
+or ancestor-or-self::note[parent::correspDesc] 
+or ancestor-or-self::p[parent::abstract]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0" target="${ask('URL eingeben', url, '')}">&lt;/ref></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>correspContext_ref[text+URL]</String>
+										</field>
+										<field name="name">
+											<String>Korrespondenzkontext (Text und externer Link)</String>
+										</field>
+										<field name="description">
+											<String>Fügt einen Textverweis mitsamt externem Link auf einen vorangehenden oder nachfolgenden Brief ein.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspDesc[not(correspContext) and note]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target="${ask('Externer Link', url, '')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+&lt;/correspContext></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc/note</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspDesc[not(correspContext)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;correspContext xmlns='http://www.tei-c.org/ns/1.0'>
+  &lt;ref type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target="${ask('Externer Link', url, '')}">${ask('Verweis in Textform', generic, '')}&lt;/ref>
+&lt;/correspContext></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspDesc[correspContext]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' type="${ask('Typ des verlinkten Briefs auswählen', combobox, ('prev':'Vorangehender Brief';'next':'Nachfolgender Brief';), 'prev')}" target="${ask('Externer Link', url, '')}">${ask('Verweis auf nachfolgenden Brief in Textform', generic, '')}&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspContext</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -9232,7 +9337,688 @@ or ancestor-or-self::correspDesc/note</String>
 										<String></String>
 									</field>
 									<field name="menuEntriesDescriptorList">
-										<menuEntry-array/>
+										<menuEntry-array>
+											<menu>
+												<field name="label">
+													<String>Textstruktur</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>paragraph</String>
+															</field>
+														</menuItem>
+														<menu>
+															<field name="label">
+																<String>Zeilenumbruch</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>lb</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>lb[break]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>lb[break-hyphen]</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+														<menu>
+															<field name="label">
+																<String>Liste</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>itemizedlist</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>item</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+														<menu>
+															<field name="label">
+																<String>Tabelle</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>insert.table</String>
+																		</field>
+																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>insert.table.column</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>delete.table.column</String>
+																		</field>
+																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>insert.table.row</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>delete.table.row</String>
+																		</field>
+																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>insert.table.cell</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.join.row.cells</String>
+																		</field>
+																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.join.cell.above</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.join.cell.below</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.split.above</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.split.below</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.split.left</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.split.right</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+														<menuItem>
+															<field name="actionID">
+																<String>note</String>
+															</field>
+														</menuItem>
+														<menu>
+															<field name="label">
+																<String>Seitenumbruch</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>pb</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>pb[facs]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>fw</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Autorbearbeitungen</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[underline]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[superscript]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>del</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>subst</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>add</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Lesbarkeit</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>unclear</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>gap</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>del_gap</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>damage</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Herausgeberbearbeitung</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>supplied</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>sic-corr[deleted]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>sic-corr</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>orig-reg</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>seg</String>
+															</field>
+														</menuItem>
+														<menu>
+															<field name="label">
+																<String>Verweise</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>anchor</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>ref</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>ref[note]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>ref[URL]</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+														<menu>
+															<field name="label">
+																<String>Datumsangaben</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>date-when</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>date-fromto</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>date-notBeforeAfter</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+														<menuItem>
+															<field name="actionID">
+																<String>foreign</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Indizierung &amp; Namen</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>orgName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>placeName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>bibl</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>rs[term]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>index_personen</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>index_places</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>index_bibl</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Sonderfunktionen</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>metamark</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menuSeparator/>
+											<menu>
+												<field name="label">
+													<String>Allgemein</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>msDesc_idno[uri]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>wit(Druck)</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>msDesc/@rend</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>facsimile</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>msDesc/physDesc</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_creation_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_creation_placeName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_date-when</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_date-fromto</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_date-notBeforeAfter</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>abstract</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>head</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>milestone</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>quote</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Briefmetadaten</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[sent]_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[sent]_orgName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[sent]_placeName</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[received]_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[received]_placeName</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[sent]_date[when]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[sent]_date[from]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[sent]_date[notBefore] - Kopie</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[received]_date[when]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[received]_date[notBefore]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>correspDesc/note</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>correspContext_ref[ID]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspContext_ref[text]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspContext_ref[text+URL]</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Brieftext</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>address</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>opener</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>writingSession</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>closer</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>closer_dateline</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>postscript</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+										</menuEntry-array>
 									</field>
 								</menu>
 							</field>
@@ -9575,6 +10361,11 @@ or ancestor-or-self::correspDesc/note</String>
 																<String>ref[note]</String>
 															</field>
 														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[URL]</String>
+															</field>
+														</toolbarItem>
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
@@ -9793,11 +10584,6 @@ or ancestor-or-self::correspDesc/note</String>
 																	<String>abstract</String>
 																</field>
 															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>quote</String>
-																</field>
-															</toolbarItem>
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
@@ -9807,6 +10593,11 @@ or ancestor-or-self::correspDesc/note</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>milestone</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>quote</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
@@ -9907,17 +10698,17 @@ or ancestor-or-self::correspDesc/note</String>
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>correspContext_ptr[prev]</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>correspContext_ptr[next]</String>
+																	<String>correspContext_ref[ID]</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>correspContext_ref[text]</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>correspContext_ref[text+URL]</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
