@@ -318,13 +318,6 @@ correspContext ref[target] {
     color: #465E7A;
 }
 
-correspContext ref[type="prev"] {
-    content: "Vorangehender Brief: ";
-}
-
-correspContext ref[type="next"] {
-    content: "Nachfolgender Brief: ";
-}
 
 correspContext ref[type="prev"][target] {
     content: "Vorangehender Brief";
@@ -334,9 +327,24 @@ correspContext ref[type="next"][target] {
     content: "Nachfolgender Brief";
 }
 
+correspContext ref[type="prev"],
+correspContext ref[type="prev"][target^="http://"] {
+    content: "Vorangehender Brief: ";
+}
+
+correspContext ref[type="next"],
+correspContext ref[type="next"][target^="http://"] {
+    content: "Nachfolgender Brief: ";
+}
+
 correspContext ref[target]:after {
     content: " " url('gfx/link.png');
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_letter}') "?id=" attr(target);
+}
+
+correspContext ref[target^="http://"]:after {
+    content: " " url('gfx/link.png');
+    link: attr(target);
 }
 
 correspDesc note:before {
