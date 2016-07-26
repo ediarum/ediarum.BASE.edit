@@ -10,9 +10,28 @@ Alexander von Humboldt auf Reisen. Wissenschaft aus der Bewegung.
 
 Framework (Dokumenttyp Zuordnung) für Oxygen XML 
 
+Entwicklung: Stefan Dumont, dumont@bbaw.de
+
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.18.0 vom 26.07.2016
+
+	* UPDATE #6264: Author-Erweiterung Status Listener
+	* BUGFIX #6197: Adresse einfügen in Briefen nicht möglich
+	* BUGFIX #6324: Neueinträge in einrichtungen.xml bekommen unvollständiges Markup
+	* BUGFIX  #6326: Benutzung von "Symbole > Bruchzahlen" derzeit unklar
+	* BUGFIX  #6567: Register: Norm-ID kann nicht in Unterorte eingefügt werden
+	* BUGFIX  #6610: Art der Textgrundlage funktioniert nicht in Textsorte "Dokument"
+	* FEATURE #6178: Kodierung für Einfügezeichen
+	* FEATURE #6262: Tabellen-Ausrichtung
+	* FEATURE #6394: Verweise auf externe Quellen
+	* FEATURE #6515: Menü "ediarum" einrichten
+	* FEATURE #6568: <quote> in Sachanmerkung ermöglichen
+	* FEATURE #6609: Tastenkombination für "Zitat" (<quote>)
+	* FEATURE #6611: Vorangehender/nachfolgender Briefe optimieren
+
+
 0.17.1 vom 08.07.2016
 
-* BUGFIX #6514: extensionsListener entfernen
+	* BUGFIX #6514: extensionsListener entfernen
