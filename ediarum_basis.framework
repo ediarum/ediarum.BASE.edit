@@ -7167,6 +7167,22 @@ or ancestor-or-self::quote</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::address</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::address</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::salute</String>
 													</field>
 													<field name="argValues">
