@@ -8311,7 +8311,7 @@ rs_zwei</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl shift Z</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -9322,7 +9322,7 @@ or ancestor-or-self::correspDesc/note</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift E</String>
+											<String>M1 M2 E</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
