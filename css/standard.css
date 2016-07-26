@@ -1048,6 +1048,16 @@ addrLine {
     display: block;
 }
 
+address:before {
+    display: block;
+    content: "Adresse:";
+    font-style: italic;
+}
+
+addrLine {
+    -oxy-placeholder-content: "[Adresszeile]";
+}
+
 /* Hirt */
 rs[type='artwork'] {
     color: #465E7A;
