@@ -5503,7 +5503,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5549,7 +5549,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5595,7 +5595,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5641,7 +5641,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5687,7 +5687,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5733,7 +5733,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -6547,7 +6547,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
