@@ -9139,6 +9139,52 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>symbol_units</String>
+										</field>
+										<field name="name">
+											<String>Einheitenzeichen</String>
+										</field>
+										<field name="description">
+											<String>Währungen, Gewichte etc.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';), '&amp;#x00A3;')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10642,6 +10688,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>symbol_fracture</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_units</String>
 																</field>
 															</toolbarItem>
 															<toolbarSeparator/>
