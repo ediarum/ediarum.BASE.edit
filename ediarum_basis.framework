@@ -9323,6 +9323,52 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>symbol_letters</String>
+										</field>
+										<field name="name">
+											<String>Buchstaben</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x00E3;':'ã';'&amp;#0230;':'æ';'&amp;#0198;':'Æ';'&amp;#x00E7;':'ç';'&amp;#x00C7;':'Ç';'&amp;#x229;':'ȩ';'&amp;#x00EB;':'ë';'&amp;#x00EF;':'ï';'&amp;#x0142;':'ł';'&amp;#x0141;':'Ł';'&amp;#x144;':'ń';'&amp;#x00D1;':'ñ';'&amp;#x00F8;':'ø';'&amp;#0339;':'œ';'&amp;#0338;':'Œ';'&amp;#x0161;':'š';'&amp;#x0160;':'Š';), '&amp;#x00E3;')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10820,7 +10866,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 														<toolbarEntry-array>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>symbol_macron</String>
+																	<String>symbol_letters</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
@@ -10828,11 +10874,13 @@ or ancestor-or-self::p[parent::abstract]</String>
 																	<String>symbol_fracture</String>
 																</field>
 															</toolbarItem>
+															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>symbol_emDash</String>
+																	<String>symbol_macron</String>
 																</field>
 															</toolbarItem>
+															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>symbol_enDash</String>
@@ -10840,22 +10888,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>symbol_aelig_min</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_AElig</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_oelig</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_oelig_min</String>
+																	<String>symbol_emDash</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
