@@ -4,9 +4,8 @@ http://telotadev.bbaw.de/oxygen/updateSite.xml
 
 ------------------------------------------------------------------------------------------------
 
-ediarum.AvHR 
-Digitale Arbeitsumgebung für das Editionsvorhaben 
-Alexander von Humboldt auf Reisen. Wissenschaft aus der Bewegung.
+ediarum.BASIS 
+Digitale Arbeitsumgebung für Editionsvorhaben
 
 Framework (Dokumenttyp Zuordnung) für Oxygen XML 
 
@@ -14,6 +13,12 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 
 CHANGELOG
 ------------------------------------------------------------------------------------------------
+
+0.19.0 vom 02.08.2016
+
+	* BUGFIX #6629: Die GeoNames-Funktion funktioniert nicht für Unterorte
+	* FEATURE #6246: Auszeichnungen von kursiven und gesperrten Wörtern in Drucktexten
+	* FEATURE #6639: Erweiterung des Menüpunktes "Symbole"
 
 0.18.0 vom 26.07.2016
 

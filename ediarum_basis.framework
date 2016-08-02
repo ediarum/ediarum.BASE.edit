@@ -5503,7 +5503,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5549,197 +5549,13 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&amp;#8212;</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>symbol_oelig</String>
-										</field>
-										<field name="name">
-											<String>Œ</String>
-										</field>
-										<field name="description">
-											<String></String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&amp;#0338;</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>symbol_oelig_min</String>
-										</field>
-										<field name="name">
-											<String>œ</String>
-										</field>
-										<field name="description">
-											<String></String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&amp;#0339;</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>symbol_AElig</String>
-										</field>
-										<field name="name">
-											<String>Æ</String>
-										</field>
-										<field name="description">
-											<String></String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&amp;#0198;</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>symbol_aelig_min</String>
-										</field>
-										<field name="name">
-											<String>æ</String>
-										</field>
-										<field name="description">
-											<String></String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&amp;#0230;</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -6547,7 +6363,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -7811,52 +7627,6 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>fragment</String>
 																<String>&amp;#x0305;</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>symbol_small_c+cedilla</String>
-										</field>
-										<field name="name">
-											<String>ç</String>
-										</field>
-										<field name="description">
-											<String></String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String></String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&amp;#x00E7;</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9323,6 +9093,190 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>symbol_letters</String>
+										</field>
+										<field name="name">
+											<String>Buchstaben</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x00E3;':'ã';'&amp;#0230;':'æ';'&amp;#0198;':'Æ';'&amp;#x00E7;':'ç';'&amp;#x00C7;':'Ç';'&amp;#x229;':'ȩ';'&amp;#x00EB;':'ë';'&amp;#x00EF;':'ï';'&amp;#x0142;':'ł';'&amp;#x0141;':'Ł';'&amp;#x144;':'ń';'&amp;#x00D1;':'ñ';'&amp;#x00F8;':'ø';'&amp;#0339;':'œ';'&amp;#0338;':'Œ';'&amp;#x0161;':'š';'&amp;#x0160;':'Š';), '&amp;#x00E3;')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_units</String>
+										</field>
+										<field name="name">
+											<String>Einheitenzeichen</String>
+										</field>
+										<field name="description">
+											<String>Währungen, Gewichte etc.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';), '&amp;#x00A3;')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>hi[#g]</String>
+										</field>
+										<field name="name">
+											<String>Gesperrter Text</String>
+										</field>
+										<field name="description">
+											<String>In gedrucktem Text gesperrte Wörter auszeichnen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("*:hi")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#g">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>hi[#i]</String>
+										</field>
+										<field name="name">
+											<String>Kursiver Text</String>
+										</field>
+										<field name="description">
+											<String>In gedrucktem Text hervorgehoben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("*:hi")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#i">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -9786,6 +9740,31 @@ or ancestor-or-self::p[parent::abstract]</String>
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menu>
+															<field name="label">
+																<String>Ursprünglich gedruckte Texte</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>hi[#i]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>hi[#g]</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
 														<menuItem>
 															<field name="actionID">
 																<String>metamark</String>
@@ -10820,7 +10799,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 														<toolbarEntry-array>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>symbol_macron</String>
+																	<String>symbol_letters</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
@@ -10830,9 +10809,16 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>symbol_emDash</String>
+																	<String>symbol_units</String>
 																</field>
 															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_macron</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>symbol_enDash</String>
@@ -10840,22 +10826,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>symbol_aelig_min</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_AElig</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_oelig</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_oelig_min</String>
+																	<String>symbol_emDash</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>

@@ -2518,7 +2518,7 @@
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::place</String>
+																<String>ancestor-or-self::place[1]</String>
 															</entry>
 															<entry>
 																<String>node</String>
