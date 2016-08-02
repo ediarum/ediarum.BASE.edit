@@ -636,6 +636,19 @@ text hi[rendition="#sup"] {
     -oxy-display-tags: none;
 }
 
+quote hi[rendition="#i"],
+text hi[rendition="#i"] {
+    font-style: italic;
+    -oxy-display-tags: none;
+}
+
+quote hi[rendition="#g"],
+text hi[rendition="#g"] {
+    letter-spacing:0.125em;
+    -oxy-display-tags: none;
+}
+
+
 /* Publishers editing */
 quote supplied,
 text supplied {

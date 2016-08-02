@@ -9185,6 +9185,98 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>hi[#g]</String>
+										</field>
+										<field name="name">
+											<String>Gesperrter Text</String>
+										</field>
+										<field name="description">
+											<String>In gedrucktem Text gesperrte Wörter auszeichnen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("*:hi")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#g">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>hi[#i]</String>
+										</field>
+										<field name="name">
+											<String>Kursiver Text</String>
+										</field>
+										<field name="description">
+											<String>In gedrucktem Text hervorgehoben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("*:hi")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#i">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -9648,6 +9740,31 @@ or ancestor-or-self::p[parent::abstract]</String>
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menu>
+															<field name="label">
+																<String>Ursprünglich gedruckte Texte</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>hi[#i]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>hi[#g]</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
 														<menuItem>
 															<field name="actionID">
 																<String>metamark</String>
