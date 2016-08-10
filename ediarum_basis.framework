@@ -9277,6 +9277,194 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>hi[mPrint]</String>
+										</field>
+										<field name="name">
+											<String>Vorgedruckte Wörter</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("*:hi")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#mPrint">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>@rendition="mPrint"</String>
+										</field>
+										<field name="name">
+											<String>Absatz, Adresse etc. ist vorgedruckter Text</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::address[@rendition="mPrint"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::address</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::address</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::address</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#mPrint</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[@rendition="mPrint"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#mPrint</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -9740,6 +9928,17 @@ or ancestor-or-self::p[parent::abstract]</String>
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>@rendition="mPrint"</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[mPrint]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Ursprünglich gedruckte Texte</String>
@@ -9765,6 +9964,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 																</menuEntry-array>
 															</field>
 														</menu>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>metamark</String>
