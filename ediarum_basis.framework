@@ -202,7 +202,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Art der Unterstreichung', combobox, ('#u':'Einfach unterstrichen';'#uu':'Doppelt unterstrichen';), '#u')}"/></String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Art der Unterstreichung', combobox, ('#u':'Einfach unterstrichen';'#uu':'Doppelt unterstrichen';'#mMM':'Am Rand angestrichen';), '#u')}"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9505,6 +9505,84 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>p[renditon=#mMM]</String>
+										</field>
+										<field name="name">
+											<String>Absatz am Rand angestrichen</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#mMM</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[@rendition='#mMM']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10010,6 +10088,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 																<String>metamark</String>
 															</field>
 														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>p[renditon=#mMM]</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -10262,6 +10345,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<menuItem>
 												<field name="actionID">
 													<String>@rendition[align]</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>p[renditon=#mMM]</String>
 												</field>
 											</menuItem>
 											<menuItem>
