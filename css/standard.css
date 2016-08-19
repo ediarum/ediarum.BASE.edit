@@ -407,6 +407,11 @@ text p[rend="align(center)"]{
     text-align: center;
 }
 
+text p[rendition="#mMM"] {
+    border-left: 3px solid black;
+    padding-left: 0.5em;
+}
+
 text lb {
     display: inline;
     -oxy-display-tags: none;            
@@ -625,8 +630,14 @@ text hi[rendition="#u"] {
 
 quote hi[rendition="#uu"],
 text hi[rendition="#uu"] {
-    border-bottom:1px solid #000;
+    border-bottom: 1px solid #000;
     text-decoration:underline;
+    -oxy-display-tags: none;
+}
+
+text hi[rendition="#mMM"] {
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
     -oxy-display-tags: none;
 }
 
