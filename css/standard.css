@@ -511,8 +511,13 @@ text note {
     -oxy-placeholder-content: "[Anmerkung eingeben]"
 }
 
+text note:has(p) {
+    display: block;
+    margin-left: 1em;
+}
+
 text note p { 
-    display: inline;
+    display: block;
 }
 
 text note metamark,
