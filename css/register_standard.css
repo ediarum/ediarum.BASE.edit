@@ -182,11 +182,11 @@ desc {
 
 /* Org */
 location:before {
-    content: "Ort";
+    content: "Standort";
 }
 
 location[from][to]:before {
-    content: "Ort " attr(from) "-" attr(to);
+    content: "Standort " attr(from) "-" attr(to);
     color: #555;
 } 
 

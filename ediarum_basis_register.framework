@@ -3579,10 +3579,10 @@
 											<String>org_location</String>
 										</field>
 										<field name="name">
-											<String>Ortsangabe</String>
+											<String>Standort</String>
 										</field>
 										<field name="description">
-											<String>Ortsangabe der Organisation</String>
+											<String>Standort der Organisation</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -3610,11 +3610,12 @@
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;location xmlns='http://www.tei-c.org/ns/1.0'>
+																<String>"&lt;location xmlns='http://www.tei-c.org/ns/1.0' xml:id='${id}'>
   &lt;address>
-    &lt;settlement key='"+ xml:id +"'>"+ /span +"&lt;/settlement>
+    &lt;settlement key='"+ @xml:id +"'>"+ /span +"&lt;/settlement>
+    &lt;note>${ask('Genauere Ortsangabe: Straße, Platz etc.', generic, '')}&lt;/note>
   &lt;/address>
-&lt;/location></String>
+&lt;/location>"</String>
 															</entry>
 															<entry>
 																<String>expression</String>
@@ -3650,11 +3651,12 @@
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;location xmlns='http://www.tei-c.org/ns/1.0'>
+																<String>"&lt;location xmlns='http://www.tei-c.org/ns/1.0' xml:id='${id}'>
   &lt;address>
-    &lt;settlement key='"+ xml:id +"'>"+ /span +"&lt;/settlement>
+    &lt;settlement key='"+ @xml:id +"'>"+ /span +"&lt;/settlement>
+    &lt;note>${ask('Genauere Ortsangabe: Straße, Platz etc.', generic, '')}&lt;/note>
   &lt;/address>
-&lt;/location></String>
+&lt;/location>"</String>
 															</entry>
 															<entry>
 																<String>expression</String>
@@ -4349,6 +4351,11 @@ org_location[to]</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>org_location</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>org_location[date]</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>
