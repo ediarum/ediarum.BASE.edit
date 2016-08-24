@@ -1541,6 +1541,22 @@
 														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::location</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::location</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -3683,7 +3699,7 @@
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 									<action>
@@ -3807,7 +3823,7 @@
 											<String>org_location[date]</String>
 										</field>
 										<field name="name">
-											<String>Ortsangabe datieren</String>
+											<String>Standortangabe datieren</String>
 										</field>
 										<field name="description">
 											<String>Beschränkt die Ortsangaben auf den angegebenen Zeitraum</String>
