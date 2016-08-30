@@ -334,7 +334,7 @@
                                     <String>${ediarum_index_bibl_zotero}</String>
                                 </field>
                                 <field name="value">
-                                    <String>/oxygen/ediarum.xql?index=werkindex</String>
+                                    <String>/oxygen/ediarum.xql?index=werkindex&amp;action=update-get</String>
                                 </field>
                                 <field name="shortDescription">
                                     <String></String>
