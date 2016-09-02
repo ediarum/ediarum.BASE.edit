@@ -109,10 +109,12 @@ ptr[type='document'] {
     content: "Dokument " attr(target);
 }
 
-ref {
+listRef ref[target],
+linkGrp ref[target] {
     content: "siehe " attr(target);
 }
 
+note ref[target],
 note persName,
 note orgName,
 note placeName {
@@ -120,10 +122,15 @@ note placeName {
     -oxy-display-tags: none;
 } 
 
+note ref[target]:after,
 note persName:after,
 orgName:after,
 note placeName:after {
     content: " " url('gfx/link.png');
+}
+
+note ref[target]:after {
+    link: attr(target);     
 }
 
 note persName[key]:after {

@@ -612,7 +612,10 @@
                         </attribute>
                         <text/>
                     </element>
-                </zeroOrMore>                   
+                </zeroOrMore>
+                <zeroOrMore>
+                    <ref name="ref"/>
+                </zeroOrMore>
             </interleave>
         </element>
     </define>
