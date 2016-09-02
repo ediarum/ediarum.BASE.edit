@@ -531,6 +531,16 @@ text add metamark {
     -oxy-display-tags: none;
 }
 
+metamark[function="used"] {
+    content: url('gfx/metamark_used_start.png');
+    -oxy-display-tags: none;
+}
+
+anchor[type="used"] {
+    content: url('gfx/metamark_used_stop.png');
+    -oxy-display-tags: none;
+}
+
 milestone {
     margin-left: 50%;
     content: "―";
