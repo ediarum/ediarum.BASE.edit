@@ -113,6 +113,31 @@ ref {
     content: "siehe " attr(target);
 }
 
+note persName,
+note orgName,
+note placeName {
+    color: #465E7A;
+    -oxy-display-tags: none;
+} 
+
+note persName:after,
+orgName:after,
+note placeName:after {
+    content: " " url('gfx/link.png');
+}
+
+note persName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);
+}
+
+note orgName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_org}') "?id=" attr(key);
+}
+
+note placeName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
+}
+
 
 /* Persons */
 person[role]:before {

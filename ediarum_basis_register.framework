@@ -830,64 +830,6 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>link</String>
-										</field>
-										<field name="name">
-											<String>Verlinkung</String>
-										</field>
-										<field name="description">
-											<String>Personen untereinander verlinken</String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::TEI[@telota:doctype="iffland_personenregister"]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>URL</String>
-																<String>${HIRT_DATACOPY}/Iffland_Personenregister.xml</String>
-															</entry>
-															<entry>
-																<String>element</String>
-																<String>"&lt;rs xmlns='http://www.tei-c.org/ns/1.0'  type="person"  group="real"  key='" + @id + "' />"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>.</String>
-															</entry>
-															<entry>
-																<String>node</String>
-																<String>//entry</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
 											<String>general_delete_entry</String>
 										</field>
 										<field name="name">
@@ -3482,6 +3424,180 @@
 									</action>
 									<action>
 										<field name="id">
+											<String>general_persName</String>
+										</field>
+										<field name="name">
+											<String>Personenname verlinken</String>
+										</field>
+										<field name="description">
+											<String>In der Beschreibung erwähnte Person verlinken</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;persName xmlns='http://www.tei-c.org/ns/1.0' key='" + @xml:id + "' />"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>general_placeName</String>
+										</field>
+										<field name="name">
+											<String>Ortsname verlinken</String>
+										</field>
+										<field name="description">
+											<String>In der Beschreibung erwähnten Ort verlinken</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_place}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;placeName xmlns='http://www.tei-c.org/ns/1.0' key='" + @xml:id + "' />"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>general_orgName</String>
+										</field>
+										<field name="name">
+											<String>Organisationsname verlinken</String>
+										</field>
+										<field name="description">
+											<String>In der Beschreibung genannte Institution, Firma oder sonstige Organisation verlinken</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0' key='" + @xml:id + "' />"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>general_openInWebsite</String>
 										</field>
 										<field name="name">
@@ -4040,6 +4156,22 @@ org_location[to]</String>
 											<menuSeparator/>
 											<menuItem>
 												<field name="actionID">
+													<String>general_persName</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>general_placeName</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>general_orgName</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
 													<String>person_birth</String>
 												</field>
 											</menuItem>
@@ -4139,6 +4271,22 @@ org_location[to]</String>
 																<String>general_sort</String>
 															</field>
 														</toolbarItem>
+														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>general_persName</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>general_placeName</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>general_orgName</String>
+															</field>
+														</toolbarItem>
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
@@ -4203,11 +4351,6 @@ org_location[to]</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>person_role</String>
-															</field>
-														</toolbarItem>
-														<toolbarItem>
-															<field name="actionID">
-																<String>link</String>
 															</field>
 														</toolbarItem>
 														<toolbarSeparator/>
