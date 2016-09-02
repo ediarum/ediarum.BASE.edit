@@ -9685,6 +9685,56 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>metamark[function=used]</String>
+										</field>
+										<field name="name">
+											<String>Textpassage "erledigt"</String>
+										</field>
+										<field name="description">
+											<String>Textpassage ist durch den Autor im Manuskript als erledigt markiert</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elements</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0" function="used" spanTo="#$[ID]"/>$[SELECTION]&lt;anchor type="used" xmlns="http://www.tei-c.org/ns/1.0" xml:id="$[ID]"/></String>
+															</entry>
+															<entry>
+																<String>id</String>
+																<String>${id}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.SurroundWithElementsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10193,6 +10243,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 														<menuItem>
 															<field name="actionID">
 																<String>p[renditon=#mMM]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>metamark[function=used]</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
