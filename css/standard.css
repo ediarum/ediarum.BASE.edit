@@ -908,6 +908,11 @@ rs[type='term']:after{
     content: " " url('gfx/link.png');
 }
 
+persName[cert="low"]:after,
+rs[type='person'][cert="low"]:after {
+    content: " " url('gfx/link.png')"(?)";
+}
+
 rs[type='person'][key]:after,
 persName[key]:after {
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);

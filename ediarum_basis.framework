@@ -6091,13 +6091,13 @@ or ancestor-or-self::quote</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>changeCertPerson</String>
+											<String>@cert[low]</String>
 										</field>
 										<field name="name">
-											<String>unsischere Zuordnung</String>
+											<String>Unsichere Identifizierung</String>
 										</field>
 										<field name="description">
-											<String>Ã„ndert die Wahrscheinlichkeit bei der Personenzuordnung</String>
+											<String>Identifizierung (d.h. Verknüpfung) der Person unsicher</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -6115,13 +6115,13 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::rs</String>
+														<String>ancestor-or-self::persName[not(@cert)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>elementLocation</String>
-																<String>ancestor-or-self::rs</String>
+																<String>ancestor-or-self::persName</String>
 															</entry>
 															<entry>
 																<String>name</String>
@@ -6129,7 +6129,31 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>${ask('Wie sicher ist die Zuordnung?'), radio, ('low':'unsicher';'high':'sicher';)}</String>
+																<String>low</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type="person" and not(@cert)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs[@type='person']</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cert</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>low</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9583,6 +9607,84 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>@cert[remove]</String>
+										</field>
+										<field name="name">
+											<String>Unsichere Identifizierung entfernen</String>
+										</field>
+										<field name="description">
+											<String>Identifizierung (d.h. Verknüpfung) der Person als sicher markieren</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::persName[@cert="low"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::persName</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cert</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type="person" and @cert]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs[@type='person']</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cert</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10093,6 +10195,12 @@ or ancestor-or-self::p[parent::abstract]</String>
 																<String>p[renditon=#mMM]</String>
 															</field>
 														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>@cert[low]</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -10339,6 +10447,17 @@ or ancestor-or-self::p[parent::abstract]</String>
 										<menuEntry-array>
 											<menuItem>
 												<field name="actionID">
+													<String>@cert[low]</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>@cert[remove]</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
 													<String>paragraph</String>
 												</field>
 											</menuItem>
@@ -10352,6 +10471,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 													<String>p[renditon=#mMM]</String>
 												</field>
 											</menuItem>
+											<menuSeparator/>
 											<menuItem>
 												<field name="actionID">
 													<String>ediarum_delete</String>
