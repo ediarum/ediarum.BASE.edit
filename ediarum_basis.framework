@@ -1089,7 +1089,8 @@ or ancestor-or-self::quote</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1149,7 +1150,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8153,7 +8155,8 @@ rs_zwei</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::abstract/p
 or ancestor-or-self::note[parent::seg]
-or ancestor-or-self::note[parent::correspDesc]</String>
+or ancestor-or-self::note[parent::correspDesc]
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8901,7 +8904,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -9733,6 +9737,60 @@ or ancestor-or-self::p[parent::abstract]</String>
 										</field>
 										<field name="enabledInReadOnlyContext">
 											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>notesStmt</String>
+										</field>
+										<field name="name">
+											<String>Anmerkung zum Text</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;notesStmt xmlns="http://www.tei-c.org/ns/1.0">&lt;note type="editorial">&lt;p>&lt;/p>&lt;/note>&lt;/notesStmt></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//sourceDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 								</action-array>
@@ -11064,6 +11122,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>abstract</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>notesStmt</String>
 																</field>
 															</toolbarItem>
 															<toolbarSeparator/>
