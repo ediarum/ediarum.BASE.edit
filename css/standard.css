@@ -273,6 +273,25 @@ abstract quote:after {
     content: "“";
 }
 
+/* Anmerkungen zum Text */
+notesStmt note:before {
+    content: "Anmerkungen zum Text";
+    font-weight: bold;
+}
+
+notesStmt note p {
+    display: block;
+    -oxy-placeholder-content: "[Text hier eingeben]";
+}
+
+notesStmt {
+    display: block;
+    margin: 1em 0 1em 0;
+    padding: 1em 0 1em 0;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;   
+}
+
 /* correspondence description */
 
 correspAction[type="sent"] {
