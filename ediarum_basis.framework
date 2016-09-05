@@ -1089,7 +1089,8 @@ or ancestor-or-self::quote</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1149,7 +1150,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8153,7 +8155,8 @@ rs_zwei</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::abstract/p
 or ancestor-or-self::note[parent::seg]
-or ancestor-or-self::note[parent::correspDesc]</String>
+or ancestor-or-self::note[parent::correspDesc]
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8901,7 +8904,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
