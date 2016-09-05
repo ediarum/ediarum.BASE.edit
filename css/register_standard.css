@@ -109,8 +109,40 @@ ptr[type='document'] {
     content: "Dokument " attr(target);
 }
 
-ref {
+listRef ref[target],
+linkGrp ref[target] {
     content: "siehe " attr(target);
+}
+
+note ref[target],
+note persName,
+note orgName,
+note placeName {
+    color: #465E7A;
+    -oxy-display-tags: none;
+} 
+
+note ref[target]:after,
+note persName:after,
+orgName:after,
+note placeName:after {
+    content: " " url('gfx/link.png');
+}
+
+note ref[target]:after {
+    link: attr(target);     
+}
+
+note persName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);
+}
+
+note orgName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_org}') "?id=" attr(key);
+}
+
+note placeName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
 }
 
 
@@ -182,11 +214,11 @@ desc {
 
 /* Org */
 location:before {
-    content: "Ort";
+    content: "Standort";
 }
 
 location[from][to]:before {
-    content: "Ort " attr(from) "-" attr(to);
+    content: "Standort " attr(from) "-" attr(to);
     color: #555;
 } 
 

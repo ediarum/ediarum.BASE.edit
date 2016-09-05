@@ -31,8 +31,19 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
     font-family: "BBAWfont-italic";
     src:url("../fonts/linlibertine_ri.ttf");
     font-weight: normal;
-    font-family: "BBAWfont-italic";
+}
 
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/linbiolinum_r.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Biolinum-italic";
+    src: url("../fonts/linbiolinum_ri.ttf");
+    font-weight: normal;
 }
 
 TEI {
@@ -174,6 +185,10 @@ sourceDesc witness:nth-child(5)>bibl {
     content: "D5: ";
 }
 
+sourceDesc witness[select='#this'] {
+    font-weight: bold;
+}
+
 /* Creation */
 
 text {
@@ -271,6 +286,25 @@ abstract quote:before {
 note quote:after,
 abstract quote:after {
     content: "“";
+}
+
+/* Anmerkungen zum Text */
+notesStmt note:before {
+    content: "Anmerkungen zum Text";
+    font-weight: bold;
+}
+
+notesStmt note p {
+    display: block;
+    -oxy-placeholder-content: "[Text hier eingeben]";
+}
+
+notesStmt {
+    display: block;
+    margin: 1em 0 1em 0;
+    padding: 1em 0 1em 0;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;   
 }
 
 /* correspondence description */
@@ -407,6 +441,11 @@ text p[rend="align(center)"]{
     text-align: center;
 }
 
+text p[rendition="#mMM"] {
+    border-left: 3px solid black;
+    padding-left: 0.5em;
+}
+
 text lb {
     display: inline;
     -oxy-display-tags: none;            
@@ -511,13 +550,28 @@ text note {
     -oxy-placeholder-content: "[Anmerkung eingeben]"
 }
 
+text note:has(p) {
+    display: block;
+    margin-left: 1em;
+}
+
 text note p { 
-    display: inline;
+    display: block;
 }
 
 text note metamark,
 text add metamark {
     content: "\23A1";
+    -oxy-display-tags: none;
+}
+
+metamark[function="used"] {
+    content: url('gfx/metamark_used_start.png');
+    -oxy-display-tags: none;
+}
+
+anchor[type="used"] {
+    content: url('gfx/metamark_used_stop.png');
     -oxy-display-tags: none;
 }
 
@@ -620,8 +674,14 @@ text hi[rendition="#u"] {
 
 quote hi[rendition="#uu"],
 text hi[rendition="#uu"] {
-    border-bottom:1px solid #000;
+    border-bottom: 1px solid #000;
     text-decoration:underline;
+    -oxy-display-tags: none;
+}
+
+text hi[rendition="#mMM"] {
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
     -oxy-display-tags: none;
 }
 
@@ -777,6 +837,18 @@ text foreign {
     background-color: #e0e0e0;
 }
 
+/* Vorgedruckte Textteile */
+hi[rendition='#mPrint'] {
+    -oxy-display-tags: none;
+}
+
+hi[rendition='#mPrint'],
+p[rendition='#mPrint'],
+address[rendition='#mPrint'] {
+    font-family: "Biolinum", Helvetica, Arial, Sans;
+}
+
+
 /* Annotation */
 
 abstract seg,
@@ -890,6 +962,11 @@ rs[type='place']:after,
 rs[type='bibl']:after,
 rs[type='term']:after{
     content: " " url('gfx/link.png');
+}
+
+persName[cert="low"]:after,
+rs[type='person'][cert="low"]:after {
+    content: " " url('gfx/link.png')"(?)";
 }
 
 rs[type='person'][key]:after,
@@ -1041,6 +1118,11 @@ facsimile graphic[xml|id] {
     link : attr(url);
     -oxy-display-tags: none;
     color: blue;
+}
+
+note[type="auxCalc"]:before {
+    content: "[NR:] ";
+    font-style: italic;
 }
 
 /* Iffland */

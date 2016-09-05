@@ -202,7 +202,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Art der Unterstreichung', combobox, ('#u':'Einfach unterstrichen';'#uu':'Doppelt unterstrichen';), '#u')}"/></String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Art der Unterstreichung', combobox, ('#u':'Einfach unterstrichen';'#uu':'Doppelt unterstrichen';'#mMM':'Am Rand angestrichen';), '#u')}"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -242,6 +242,46 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::p[parent::note]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0">&lt;/p></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::p[parent::note]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::text and ancestor-or-self::text//lg</String>
 													</field>
 													<field name="argValues">
@@ -266,7 +306,7 @@ or ancestor-or-self::quote</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text and ancestor-or-self::p[namespace-uri() = "http://www.tei-c.org/ns/1.0"]</String>
+														<String>ancestor-or-self::list</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -276,7 +316,7 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::*:p[namespace-uri() = "http://www.tei-c.org/ns/1.0"][1]</String>
+																<String>ancestor-or-self::list</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -290,7 +330,7 @@ or ancestor-or-self::quote</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::list</String>
+														<String>ancestor-or-self::text and ancestor-or-self::p[namespace-uri() = "http://www.tei-c.org/ns/1.0"]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -300,7 +340,7 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::list</String>
+																<String>ancestor-or-self::*:p[namespace-uri() = "http://www.tei-c.org/ns/1.0"][1]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -1049,7 +1089,8 @@ or ancestor-or-self::quote</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1109,7 +1150,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -6051,13 +6093,13 @@ or ancestor-or-self::quote</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>changeCertPerson</String>
+											<String>@cert[low]</String>
 										</field>
 										<field name="name">
-											<String>unsischere Zuordnung</String>
+											<String>Unsichere Identifizierung</String>
 										</field>
 										<field name="description">
-											<String>Ã„ndert die Wahrscheinlichkeit bei der Personenzuordnung</String>
+											<String>Identifizierung (d.h. Verknüpfung) der Person unsicher</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -6075,13 +6117,13 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::rs</String>
+														<String>ancestor-or-self::persName[not(@cert)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>elementLocation</String>
-																<String>ancestor-or-self::rs</String>
+																<String>ancestor-or-self::persName</String>
 															</entry>
 															<entry>
 																<String>name</String>
@@ -6089,7 +6131,31 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>${ask('Wie sicher ist die Zuordnung?'), radio, ('low':'unsicher';'high':'sicher';)}</String>
+																<String>low</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type="person" and not(@cert)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs[@type='person']</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cert</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>low</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -8089,7 +8155,8 @@ rs_zwei</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::abstract/p
 or ancestor-or-self::note[parent::seg]
-or ancestor-or-self::note[parent::correspDesc]</String>
+or ancestor-or-self::note[parent::correspDesc]
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8837,7 +8904,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -9275,6 +9343,533 @@ or ancestor-or-self::p[parent::abstract]</String>
 										</field>
 										<field name="enabledInReadOnlyContext">
 											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>hi[mPrint]</String>
+										</field>
+										<field name="name">
+											<String>Vorgedruckte Wörter</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("*:hi")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#mPrint">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>@rendition="mPrint"</String>
+										</field>
+										<field name="name">
+											<String>Absatz, Adresse etc. ist vorgedruckter Text</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::address[@rendition="mPrint"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::address</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::address</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::address</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#mPrint</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[@rendition="mPrint"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#mPrint</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>p[renditon=#mMM]</String>
+										</field>
+										<field name="name">
+											<String>Absatz am Rand angestrichen</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#mMM</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[@rendition='#mMM']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>@cert[remove]</String>
+										</field>
+										<field name="name">
+											<String>Unsichere Identifizierung entfernen</String>
+										</field>
+										<field name="description">
+											<String>Identifizierung (d.h. Verknüpfung) der Person als sicher markieren</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::persName[@cert="low"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::persName</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cert</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type="person" and @cert]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs[@type='person']</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cert</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>metamark[function=used]</String>
+										</field>
+										<field name="name">
+											<String>Textpassage "erledigt"</String>
+										</field>
+										<field name="description">
+											<String>Textpassage ist durch den Autor im Manuskript als erledigt markiert</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elements</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0" function="used" spanTo="#$[ID]"/>$[SELECTION]&lt;anchor type="used" xmlns="http://www.tei-c.org/ns/1.0" xml:id="$[ID]"/></String>
+															</entry>
+															<entry>
+																<String>id</String>
+																<String>${id}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.SurroundWithElementsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>notesStmt</String>
+										</field>
+										<field name="name">
+											<String>Anmerkung zum Text</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;notesStmt xmlns="http://www.tei-c.org/ns/1.0">&lt;note type="editorial">&lt;p>&lt;/p>&lt;/note>&lt;/notesStmt></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//sourceDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>@select</String>
+										</field>
+										<field name="name">
+											<String>Textgrundlage auswählen/abwählen</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::witness[@select]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::witness</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>select</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::witness
+and not(//witness[@select])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::witness</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>select</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#this</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 								</action-array>
@@ -9740,6 +10335,17 @@ or ancestor-or-self::p[parent::abstract]</String>
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>@rendition="mPrint"</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[mPrint]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Ursprünglich gedruckte Texte</String>
@@ -9765,9 +10371,26 @@ or ancestor-or-self::p[parent::abstract]</String>
 																</menuEntry-array>
 															</field>
 														</menu>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>metamark</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>p[renditon=#mMM]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>metamark[function=used]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>@cert[low]</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -10016,6 +10639,22 @@ or ancestor-or-self::p[parent::abstract]</String>
 										<menuEntry-array>
 											<menuItem>
 												<field name="actionID">
+													<String>@select</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>@cert[low]</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>@cert[remove]</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
 													<String>paragraph</String>
 												</field>
 											</menuItem>
@@ -10024,6 +10663,12 @@ or ancestor-or-self::p[parent::abstract]</String>
 													<String>@rendition[align]</String>
 												</field>
 											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>p[renditon=#mMM]</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
 											<menuItem>
 												<field name="actionID">
 													<String>ediarum_delete</String>
@@ -10513,6 +11158,17 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
+																	<String>facsimile</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>msDesc/physDesc</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
 																	<String>wit(Druck)</String>
 																</field>
 															</toolbarItem>
@@ -10523,12 +11179,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>facsimile</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>msDesc/physDesc</String>
+																	<String>@select</String>
 																</field>
 															</toolbarItem>
 															<toolbarSeparator/>
@@ -10561,6 +11212,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>abstract</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>notesStmt</String>
 																</field>
 															</toolbarItem>
 															<toolbarSeparator/>

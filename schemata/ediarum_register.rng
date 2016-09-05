@@ -197,9 +197,7 @@
                             </element>
                         </optional>
                         <optional>
-                            <element name="note">
-                                <text/>
-                            </element>
+                            <ref name="note"/>
                         </optional>
                         <optional>
                             <ref name="linkGrp"/>
@@ -324,9 +322,7 @@
                                     </element>
                                 </optional>
                                 <optional>
-                                    <element name="note">
-                                        <text/>
-                                    </element>
+                                    <ref name="note"/>
                                 </optional>
                                 <zeroOrMore>
                                       <ref name="bibl_article"/>
@@ -369,9 +365,7 @@
                                     </element>
                                 </optional>
                                 <optional>
-                                    <element name="note">
-                                        <text/>
-                                    </element>
+                                    <ref name="note"/>
                                 </optional>
                             </group>
                         </choice>
@@ -386,9 +380,7 @@
                         <element name="title">
                             <text/>
                         </element>
-                        <element name="note">
-                            <text/>
-                        </element>
+                        <ref name="note"/>
                     </element>
                 </oneOrMore>
             </element>
@@ -439,9 +431,7 @@
                 </element>
             </oneOrMore>
             <optional>
-                <element name="note">
-                    <text/>
-                </element>
+                <ref name="note"/>
             </optional>
             <optional>
                 <ref name="linkGrp"/>
@@ -489,9 +479,7 @@
                 </element>
             </optional>
             <optional>
-                <element name="note">
-                    <text/>
-                </element>
+                <ref name="note"/>
             </optional>
             <optional>
                 <ref name="listRef"/>
@@ -591,10 +579,44 @@
                 <text/>
             </element>
             <optional>
-                <element name="note">
-                    <text/>
-                </element>
+                <ref name="note"/>
             </optional>
+        </element>
+    </define>
+    <define name="note">
+        <element name="note">
+            <interleave>
+                <zeroOrMore>
+                    <text/>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="persName">
+                        <attribute name="key">
+                            <text/>
+                        </attribute>
+                        <text/>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="placeName">
+                        <attribute name="key">
+                            <text/>
+                        </attribute>
+                        <text/>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="orgName">
+                        <attribute name="key">
+                            <text/>
+                        </attribute>
+                        <text/>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <ref name="ref"/>
+                </zeroOrMore>
+            </interleave>
         </element>
     </define>
 </grammar>
