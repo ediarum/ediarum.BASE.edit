@@ -31,8 +31,19 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
     font-family: "BBAWfont-italic";
     src:url("../fonts/linlibertine_ri.ttf");
     font-weight: normal;
-    font-family: "BBAWfont-italic";
+}
 
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/linbiolinum_r.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Biolinum-italic";
+    src: url("../fonts/linbiolinum_ri.ttf");
+    font-weight: normal;
 }
 
 TEI {
@@ -821,6 +832,18 @@ text foreign {
     -oxy-display-tags: none;
     background-color: #e0e0e0;
 }
+
+/* Vorgedruckte Textteile */
+hi[rendition='#mPrint'] {
+    -oxy-display-tags: none;
+}
+
+hi[rendition='#mPrint'],
+p[rendition='#mPrint'],
+address[rendition='#mPrint'] {
+    font-family: "Biolinum", Helvetica, Arial, Sans;
+}
+
 
 /* Annotation */
 
