@@ -185,6 +185,10 @@ sourceDesc witness:nth-child(5)>bibl {
     content: "D5: ";
 }
 
+sourceDesc witness[select='#this'] {
+    font-weight: bold;
+}
+
 /* Creation */
 
 text {
