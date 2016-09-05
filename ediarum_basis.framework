@@ -9793,6 +9793,85 @@ or ancestor-or-self::p[parent::abstract]</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>@select</String>
+										</field>
+										<field name="name">
+											<String>Textgrundlage auswählen/abwählen</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::witness[@select]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::witness</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>select</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::witness
+and not(//witness[@select])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::witness</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>select</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#this</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10560,6 +10639,11 @@ or ancestor-or-self::p[parent::abstract]</String>
 										<menuEntry-array>
 											<menuItem>
 												<field name="actionID">
+													<String>@select</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
 													<String>@cert[low]</String>
 												</field>
 											</menuItem>
@@ -11074,6 +11158,17 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
+																	<String>facsimile</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>msDesc/physDesc</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
 																	<String>wit(Druck)</String>
 																</field>
 															</toolbarItem>
@@ -11084,12 +11179,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>facsimile</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>msDesc/physDesc</String>
+																	<String>@select</String>
 																</field>
 															</toolbarItem>
 															<toolbarSeparator/>
