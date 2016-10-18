@@ -299,4 +299,7 @@ person[telota|merge]{
     background-color: #FFC9C9;
 }
 
-
+/* special */
+idno[type='mega'] {
+    display: none;
+}
