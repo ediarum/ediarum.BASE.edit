@@ -14,6 +14,10 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.21.0 vom 18.10.2016
+
+	* FEATURE #6108: Zoteroanbindung
+
 0.20.0 vom 05.09.2016
 
 	* UPDATE 6838: CSS für AvH-R Nebenrechungen
