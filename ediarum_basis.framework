@@ -1001,7 +1001,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '1')}" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung';'illegible':'unleserlich';'fm':'fremdsprachlicher Text';), 'lost')}" /></String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '1')}" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung/Verlust';'empty':'Leerraum';'illegible':'unleserlich';'fm':'fremdsprachlicher Text';), 'lost')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -5441,7 +5441,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5481,7 +5481,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
