@@ -6481,7 +6481,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6537,7 +6537,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6593,7 +6593,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" from="${ask('Startdatum im Format JJJJ-MM-TT')}" to="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" from="${ask('Startdatum im Format JJJJ-MM-TT')}" to="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6649,7 +6649,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6705,7 +6705,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
