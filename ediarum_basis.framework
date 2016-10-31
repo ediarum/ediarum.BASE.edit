@@ -5420,10 +5420,10 @@ or ancestor-or-self::quote</String>
 											<String>Fügt den Absender (Organisation) des Briefes ein</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/icons/persName.gif</String>
+											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/icons/persName16.gif</String>
+											<String></String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -9949,6 +9949,116 @@ and not(//witness[@select])</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>correspAction[received]_orgName</String>
+										</field>
+										<field name="name">
+											<String>Empfänger (Organisation)</String>
+										</field>
+										<field name="description">
+											<String>Fügt den Empfänger (Organisation) des Briefes ein</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspAction[@type='received']/(persName|orgName)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc/correspAction[@type="received"]/(orgName|persName)</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspAction[@type='received']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc/correspAction[@type="received"]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10593,6 +10703,11 @@ and not(//witness[@select])</String>
 														<menuItem>
 															<field name="actionID">
 																<String>correspAction[received]_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[received]_orgName</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -11367,6 +11482,11 @@ and not(//witness[@select])</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>correspAction[received]_persName</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>correspAction[received]_orgName</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
