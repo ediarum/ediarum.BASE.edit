@@ -10059,6 +10059,125 @@ and not(//witness[@select])</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>editor</String>
+										</field>
+										<field name="name">
+											<String>Herausgeber</String>
+										</field>
+										<field name="description">
+											<String>Herausgeber (Bearbeiter) des edierten Textes</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//teiHeader/fileDesc/titleStmt</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;editor xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;persName ref="${ask('GND, VIAF etc. (URI) der Person', generic, '')}">
+    &lt;surname>${ask('Nachname', generic, '')}&lt;/surname>
+    &lt;forename>${ask('Vorname', generic, '')}&lt;/forename>
+  &lt;/persName>
+&lt;/editor></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//teiHeader/fileDesc/titleStmt</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>respStmt</String>
+										</field>
+										<field name="name">
+											<String>Mitarbeiter</String>
+										</field>
+										<field name="description">
+											<String>Mitarbeiter (nicht: Herausgeber) am edierten Text</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//teiHeader/fileDesc/titleStmt</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;respStmt xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;persName ref="${ask('GND, VIAF etc. (URI) der Person', generic, '')}">
+    &lt;surname>${ask('Nachname', generic, '')}&lt;/surname>
+    &lt;forename>${ask('Vorname', generic, '')}&lt;/forename>
+  &lt;/persName>
+  &lt;resp>&lt;note type="remarkResponsibility">${ask('Art der Mitarbeit', editable_combobox, ('Mitarbeit':'Mitarbeit';'Redaktionelle Mitarbeit':'Redaktionelle Mitarbeit';'Transkription':'Transkription';'Kommentar':'Kommentar';'Register':'Register';'':'';), 'Mitarbeit')}&lt;/note>&lt;/resp>
+&lt;/respStmt></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//teiHeader/fileDesc/titleStmt</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11425,6 +11544,17 @@ and not(//witness[@select])</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>quote</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>editor</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>respStmt</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
