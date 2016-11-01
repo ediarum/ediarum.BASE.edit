@@ -7,6 +7,7 @@
             <a:documentation>root element, always necessary</a:documentation>
             <attribute name="doctype" ns="http://www.telota.de">
                 <choice>
+                    <value>register</value>
                     <value>avh_register</value>
                     <value>ah_personenregister</value>
                     <value>ah_mythPersonenregister</value>
