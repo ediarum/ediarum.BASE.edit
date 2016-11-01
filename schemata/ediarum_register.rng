@@ -22,9 +22,12 @@
                     <value>helmholtz_sachregister</value>
                 </choice>
             </attribute>
-            <attribute name="xml:lang"/>
-            <attribute name="xml:id"/>
-
+            <optional>
+                <attribute name="xml:lang"/>    
+            </optional>
+            <optional>
+                <attribute name="xml:id"/>    
+            </optional>
             <!-- header -->
             <element name="teiHeader">
                 <a:documentation>contains the metadata of the manuscript</a:documentation>
