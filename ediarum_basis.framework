@@ -10178,6 +10178,98 @@ and not(//witness[@select])</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>symbol_ellipsis</String>
+										</field>
+										<field name="name">
+											<String>Auslassungspunkte</String>
+										</field>
+										<field name="description">
+											<String>Auslassungspunkte</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&amp;#8230;</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_symbols</String>
+										</field>
+										<field name="name">
+											<String>Symbole</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x2609;':'☉';'&amp;#x263E;':'☾';'&amp;#x263D;':'☽';'&amp;#x25A1;':'□';), '&amp;#x2609;')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11795,6 +11887,11 @@ and not(//witness[@select])</String>
 																	<String>symbol_units</String>
 																</field>
 															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_symbols</String>
+																</field>
+															</toolbarItem>
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
@@ -11810,6 +11907,12 @@ and not(//witness[@select])</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>symbol_emDash</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_ellipsis</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
