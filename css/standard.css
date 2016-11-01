@@ -720,8 +720,7 @@ text hi[rendition="#mMM"] {
 
 /* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
 
-quote hi[rendition="#sup"],
-text hi[rendition="#sup"] {
+hi[rendition="#sup"] {
     position: relative; 
     top: -0.5em;
     font-size: 0.7em;
