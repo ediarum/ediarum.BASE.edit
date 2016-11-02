@@ -14,6 +14,19 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.22.0 vom 02.11.2016
+
+	* BUGFIX #6780: <TEI xmlns...> in Registerdateien validiert nicht
+	* BUGFIX #6790: Funktion "Register sortieren" funktioniert nicht
+	* BUGFIX #6871: Negative Jahreszahlen validieren nicht
+	* BUGFIX #6902: Aktion "Absender (Organisation)" überprüfen
+	* BUGFIX #7086: Darstellung hochgestellter Zeichen in der Handschriftenbeschreibung
+	* FEATURE #6323: Auswahlmenü für "Sicherheit der Datierung"
+	* FEATURE #6402: Funktion für die Dokumentation der editorischen Verantwortung
+	* FEATURE #6599: Dreipunktzeichen in "Symbole" integrieren
+	* FEATURE #7023: Umgang mit leeren Seiten und Faksimiles (Dateinennung und Workflow ediarum)
+	* FEATURE #7198: ediarum.Register: Rolle einer Person bei musischen Werken
+
 0.21.0 vom 18.10.2016
 
 	* FEATURE #6108: Zoteroanbindung
