@@ -4141,6 +4141,60 @@ org_location[to]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>bibl_author_role</String>
+										</field>
+										<field name="name">
+											<String>Anteil am Werk bestimmen</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::author</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::author</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>role</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Anteil auswählen', combobox, ('music':'Musik';'composition':'Komposition';'arrangement':'Bearbeitung';'libretto':'Libretto';'text':'Text';'translation':'Übersetzung';), '')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -4200,6 +4254,11 @@ org_location[to]</String>
 												</field>
 											</menuItem>
 											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>bibl_author_role</String>
+												</field>
+											</menuItem>
 											<menuItem>
 												<field name="actionID">
 													<String>general_persName</String>
@@ -4507,6 +4566,11 @@ org_location[to]</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>bibl_author2editor</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>bibl_author_role</String>
 															</field>
 														</toolbarItem>
 														<toolbarSeparator/>

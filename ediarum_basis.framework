@@ -1001,7 +1001,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '1')}" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung';'illegible':'unleserlich';'fm':'fremdsprachlicher Text';), 'lost')}" /></String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '1')}" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung/Verlust';'empty':'Leerraum';'illegible':'unleserlich';'fm':'fremdsprachlicher Text';), 'lost')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -5420,10 +5420,10 @@ or ancestor-or-self::quote</String>
 											<String>Fügt den Absender (Organisation) des Briefes ein</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/icons/persName.gif</String>
+											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/icons/persName16.gif</String>
+											<String></String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -5441,7 +5441,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5481,7 +5481,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -6481,7 +6481,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6537,7 +6537,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6593,7 +6593,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" from="${ask('Startdatum im Format JJJJ-MM-TT')}" to="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" from="${ask('Startdatum im Format JJJJ-MM-TT')}" to="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6649,7 +6649,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -6705,7 +6705,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit mit der die Datierung zutrifft', generic, 'high')}" />
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Startdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Enddatum im Format JJJJ-MM-TT')}" cert="${ask('Sicherheit der Datierung', combobox, ('high':'Hoch';'low':'Niedrig';), 'high')}" />
 
 </String>
 															</entry>
@@ -9949,6 +9949,327 @@ and not(//witness[@select])</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>correspAction[received]_orgName</String>
+										</field>
+										<field name="name">
+											<String>Empfänger (Organisation)</String>
+										</field>
+										<field name="description">
+											<String>Fügt den Empfänger (Organisation) des Briefes ein</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspAction[@type='received']/(persName|orgName)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc/correspAction[@type="received"]/(orgName|persName)</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//correspAction[@type='received']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//correspDesc/correspAction[@type="received"]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>editor</String>
+										</field>
+										<field name="name">
+											<String>Herausgeber</String>
+										</field>
+										<field name="description">
+											<String>Herausgeber (Bearbeiter) des edierten Textes</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//teiHeader/fileDesc/titleStmt</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;editor xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;persName ref="${ask('GND, VIAF etc. (URI) der Person', generic, '')}">
+    &lt;surname>${ask('Nachname', generic, '')}&lt;/surname>
+    &lt;forename>${ask('Vorname', generic, '')}&lt;/forename>
+  &lt;/persName>
+&lt;/editor></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//teiHeader/fileDesc/titleStmt</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>respStmt</String>
+										</field>
+										<field name="name">
+											<String>Mitarbeiter</String>
+										</field>
+										<field name="description">
+											<String>Mitarbeiter (nicht: Herausgeber) am edierten Text</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//teiHeader/fileDesc/titleStmt</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;respStmt xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;persName ref="${ask('GND, VIAF etc. (URI) der Person', generic, '')}">
+    &lt;surname>${ask('Nachname', generic, '')}&lt;/surname>
+    &lt;forename>${ask('Vorname', generic, '')}&lt;/forename>
+  &lt;/persName>
+  &lt;resp>&lt;note type="remarkResponsibility">${ask('Art der Mitarbeit', editable_combobox, ('Mitarbeit':'Mitarbeit';'Redaktionelle Mitarbeit':'Redaktionelle Mitarbeit';'Transkription':'Transkription';'Kommentar':'Kommentar';'Register':'Register';'':'';), 'Mitarbeit')}&lt;/note>&lt;/resp>
+&lt;/respStmt></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//teiHeader/fileDesc/titleStmt</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_ellipsis</String>
+										</field>
+										<field name="name">
+											<String>Auslassungspunkte</String>
+										</field>
+										<field name="description">
+											<String>Auslassungspunkte</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&amp;#8230;</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_symbols</String>
+										</field>
+										<field name="name">
+											<String>Symbole</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x2609;':'☉';'&amp;#x263E;':'☾';'&amp;#x263D;':'☽';'&amp;#x25A1;':'□';), '&amp;#x2609;')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10593,6 +10914,11 @@ and not(//witness[@select])</String>
 														<menuItem>
 															<field name="actionID">
 																<String>correspAction[received]_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>correspAction[received]_orgName</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -11312,6 +11638,17 @@ and not(//witness[@select])</String>
 																	<String>quote</String>
 																</field>
 															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>editor</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>respStmt</String>
+																</field>
+															</toolbarItem>
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
@@ -11367,6 +11704,11 @@ and not(//witness[@select])</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>correspAction[received]_persName</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>correspAction[received]_orgName</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
@@ -11545,6 +11887,11 @@ and not(//witness[@select])</String>
 																	<String>symbol_units</String>
 																</field>
 															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_symbols</String>
+																</field>
+															</toolbarItem>
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
@@ -11560,6 +11907,12 @@ and not(//witness[@select])</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>symbol_emDash</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_ellipsis</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>

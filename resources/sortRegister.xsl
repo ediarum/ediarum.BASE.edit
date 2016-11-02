@@ -23,12 +23,28 @@
             </xsl:apply-templates>
         </xsl:copy>
     </xsl:template>
+    
+    <xsl:template match="tei:body/tei:listOrg">
+        <xsl:copy>
+            <xsl:apply-templates select="./tei:org">
+                <xsl:sort select="tei:orgName[@type = 'reg']/normalize-space()" lang="de"/>
+            </xsl:apply-templates>
+        </xsl:copy>
+    </xsl:template>
 
     <xsl:template match="tei:body/tei:listBibl">
         <xsl:copy>
             <xsl:apply-templates select="tei:bibl">
                 <xsl:sort select="tei:author/tei:persName[@type = 'reg']/normalize-space()" lang="de"/>
                 <xsl:sort select="tei:author/tei:title" lang="de"/>
+            </xsl:apply-templates>
+        </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="tei:body/tei:list">
+        <xsl:copy>
+            <xsl:apply-templates select="./tei:item">
+                <xsl:sort select="tei:label[@type = 'reg']/normalize-space()" lang="de"/>
             </xsl:apply-templates>
         </xsl:copy>
     </xsl:template>

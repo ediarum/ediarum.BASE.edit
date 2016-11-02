@@ -70,12 +70,12 @@ teiHeader {
 titleStmt {
     display: block;
     margin: 0 0 1em 0;
-    font-size: 1.5em;
 }
 
 titleStmt title {
     -oxy-placeholder-content: "Titel";
     -oxy-display-tags: none;
+    font-size: 1.5em;
 }
 
 titleStmt title idno {
@@ -87,6 +87,38 @@ titleStmt title idno {
 titleStmt title idno:after {
     content: ".";
 } 
+
+titleStmt editor,
+titleStmt respStmt {
+    display: block;
+    font-size: 0.8em;
+}
+
+editor:after {
+    content: "(Herausgeber)";
+}
+
+respStmt resp,
+respStmt resp note {
+    -oxy-display-tags: none;
+}
+
+respStmt note:before {
+    content: "(";
+}
+
+respStmt note:after {
+    content: ")";
+}
+
+titleStmt persName surname,
+titleStmt persName forename {
+    -oxy-display-tags: none;
+}
+
+titleStmt surname:after {
+    content:",";
+}
 
 editionStmt {
     display: none;
@@ -688,8 +720,7 @@ text hi[rendition="#mMM"] {
 
 /* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
 
-quote hi[rendition="#sup"],
-text hi[rendition="#sup"] {
+hi[rendition="#sup"] {
     position: relative; 
     top: -0.5em;
     font-size: 0.7em;
