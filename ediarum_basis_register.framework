@@ -4568,6 +4568,11 @@ org_location[to]</String>
 																<String>bibl_author2editor</String>
 															</field>
 														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>bibl_author_role</String>
+															</field>
+														</toolbarItem>
 														<toolbarSeparator/>
 														<toolbarItem>
 															<field name="actionID">
