@@ -23,10 +23,10 @@
                 </choice>
             </attribute>
             <optional>
-                <attribute name="xml:lang"/>    
+                <attribute name="xml:lang"/>
             </optional>
             <optional>
-                <attribute name="xml:id"/>    
+                <attribute name="xml:id"/>
             </optional>
             <!-- header -->
             <element name="teiHeader">
@@ -250,12 +250,14 @@
                                     <group>
                                         <attribute name="from">
                                             <data type="string">
-                                                <param name="pattern">\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                                <param name="pattern"
+                                                  >\d\d\d\d(-\d\d)?(-\d\d)?</param>
                                             </data>
                                         </attribute>
                                         <attribute name="to">
                                             <data type="string">
-                                                <param name="pattern">\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                                <param name="pattern"
+                                                  >\d\d\d\d(-\d\d)?(-\d\d)?</param>
                                             </data>
                                         </attribute>
                                     </group>
@@ -329,13 +331,14 @@
                                     <ref name="note"/>
                                 </optional>
                                 <zeroOrMore>
-                                      <ref name="bibl_article"/>
+                                    <ref name="bibl_article"/>
                                 </zeroOrMore>
                             </group>
                             <group>
                                 <choice>
                                     <oneOrMore>
                                         <element name="author">
+                                            <ref name="author_role"/>
                                             <ref name="bibl_persName"/>
                                         </element>
                                     </oneOrMore>
@@ -573,6 +576,7 @@
             </attribute>
             <oneOrMore>
                 <element name="author">
+                    <ref name="author_role"/>
                     <ref name="bibl_persName"/>
                 </element>
             </oneOrMore>
@@ -622,5 +626,19 @@
                 </zeroOrMore>
             </interleave>
         </element>
+    </define>
+    <define name="author_role">
+        <optional>
+            <attribute name="role">
+                <choice>
+                    <value>music</value>
+                    <value>composition</value>
+                    <value>arrangement</value>
+                    <value>libretto</value>
+                    <value>text</value>
+                    <value>translation</value>
+                </choice>
+            </attribute>
+        </optional>
     </define>
 </grammar>
