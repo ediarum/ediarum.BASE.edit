@@ -181,13 +181,13 @@
                                         <attribute name="notBefore">
                                             <data type="string">
                                                 <param name="pattern"
-                                                  >\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                                  >-?\d\d\d\d(-\d\d)?(-\d\d)?</param>
                                             </data>
                                         </attribute>
                                         <attribute name="notAfter">
                                             <data type="string">
                                                 <param name="pattern"
-                                                  >\d\d\d\d(-\d\d)?(-\d\d)?</param>
+                                                    >-?\d\d\d\d(-\d\d)?(-\d\d)?</param>
                                             </data>
                                         </attribute>
                                         <text/>
