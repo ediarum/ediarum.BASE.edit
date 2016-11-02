@@ -237,6 +237,34 @@ author, editor {
     display: block;
 }
 
+author[role]:after {
+    color: gray;
+}
+
+author[role='music']:after {
+    content: " (Musik)";
+}
+
+author[role='composition']:after {
+    content: " (Komposition)";
+}
+
+author[role='arrangement']:after {
+    content: " (Bearbeitung)";
+}
+
+author[role='libretto']:after {
+    content: " (Libretto)";
+}
+
+author[role='text']:after {
+    content: " (Text)";
+}
+
+author[role='translation']:after {
+    content: " (Übersetzung)";
+}
+
 editor:after {
     content: " (Hrsg.)";
     color: gray;
