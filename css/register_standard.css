@@ -124,7 +124,7 @@ note placeName {
 
 note ref[target]:after,
 note persName:after,
-orgName:after,
+note orgName:after,
 note placeName:after {
     content: " " url('gfx/link.png');
 }
