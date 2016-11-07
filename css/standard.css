@@ -582,6 +582,11 @@ text note {
     -oxy-placeholder-content: "[Anmerkung eingeben]"
 }
 
+text note:after {
+    content: " " url('gfx/note_hand.gif');
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(hand);
+}
+
 text note:has(p) {
     display: block;
     margin-left: 1em;

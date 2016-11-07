@@ -896,70 +896,19 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::closer</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"  resp="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes'), '#author')}" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}">&lt;/note></String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>ancestor-or-self::closer</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Before</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::opener</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"  resp="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes'), '#author')}" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}">&lt;/note></String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>ancestor-or-self::opener</String>
-															</entry>
-															<entry>
-																<String>insertPosition</String>
-																<String>Before</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
 														<String>ancestor-or-self::text</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"   resp="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes'), '#author')}" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}">&lt;/note></String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String></String>
+																<String>actionIDs</String>
+																<String>note_1
+note_2</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -10262,6 +10211,190 @@ and not(//witness[@select])</String>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>note_1</String>
+										</field>
+										<field name="name">
+											<String>note-Element</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::closer</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register'), '#author')}">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::closer</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::opener</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register'), '#author')}">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::opener</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register'), '#author')}">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>note_2</String>
+										</field>
+										<field name="name">
+											<String>note/@hand mit Register</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[@hand='#index']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>@xml:id</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::note</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::note</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>ana</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
