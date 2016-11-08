@@ -4195,6 +4195,345 @@ org_location[to]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>general_ptr_1</String>
+										</field>
+										<field name="name">
+											<String>Referenz auf Druckausgabe - Teil 1</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::linkGrp</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;ptr xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Art der Referenz', combobox, ('page':'Seitenzahl';'letter':'Briefnummer';'':'';), 'page')}" target="${ask('Referenz im Format Band#Seite bzw. Band#Briefnr. eingeben', generic, '')}" subtype="${ask('Nur in Anmerkung erwähnt?', combobox, ('no':'Nein';'yes':'Ja';), 'no')}" /></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::linkGrp</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::listRef</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;ptr xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Art der Referenz', combobox, ('page':'Seitenzahl';'letter':'Briefnummer';'':'';), 'page')}" target="${ask('Referenz im Format Band#Seite bzw. Band#Briefnr. eingeben', generic, '')}" subtype="${ask('Nur in Anmerkung erwähnt?', combobox, ('no':'Nein';'yes':'Ja';), 'no')}" /></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::listRef</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::person[not(./linkGrp)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;linkGrp xmlns="http://www.tei-c.org/ns/1.0">&lt;ptr type="${ask('Art der Referenz', combobox, ('page':'Seitenzahl';'letter':'Briefnummer';'':'';), 'page')}" target="${ask('Referenz im Format Band#Seite bzw. Band#Briefnr. eingeben', generic, '')}" subtype="${ask('Nur in Anmerkung erwähnt?', combobox, ('no':'Nein';'yes':'Ja';), 'no')}" />&lt;/linkGrp></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::person</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::place[not(./linkGrp)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;linkGrp xmlns="http://www.tei-c.org/ns/1.0">&lt;ptr type="${ask('Art der Referenz', combobox, ('page':'Seitenzahl';'letter':'Briefnummer';'':'';), 'page')}" target="${ask('Referenz im Format Band#Seite bzw. Band#Briefnr. eingeben', generic, '')}" subtype="${ask('Nur in Anmerkung erwähnt?', combobox, ('no':'Nein';'yes':'Ja';), 'no')}" />&lt;/linkGrp></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::place</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::item[not(./listRef)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;listRef xmlns="http://www.tei-c.org/ns/1.0">&lt;ptr type="${ask('Art der Referenz', combobox, ('page':'Seitenzahl';'letter':'Briefnummer';'':'';), 'page')}" target="${ask('Referenz im Format Band#Seite bzw. Band#Briefnr. eingeben', generic, '')}" subtype="${ask('Nur in Anmerkung erwähnt?', combobox, ('no':'Nein';'yes':'Ja';), 'no')}" />&lt;/listRef></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::item</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>general_ptr_2</String>
+										</field>
+										<field name="name">
+											<String>Referenz auf Druckausgabe - Teil 2</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::ptr[@subtype='no']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::ptr</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>subtype</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::ptr[@subtype='yes']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::ptr</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>subtype</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>comment</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>ana</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>general_ptr</String>
+										</field>
+										<field name="name">
+											<String>Referenz auf Druckausgabe</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::linkGrp 
+or ancestor-or-self::listRef
+or ancestor-or-self::person[not(./linkGrp)]
+or ancestor-or-self::place[not(./linkGrp)]
+or ancestor-or-self::item[not(./listRef)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>general_ptr_1
+general_ptr_2</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -4400,6 +4739,12 @@ org_location[to]</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>ref[URL]</String>
+															</field>
+														</toolbarItem>
+														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>general_ptr</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>

@@ -86,7 +86,6 @@ linkGrp {
 
 ptr {
     content: attr(target);
-    -oxy-editable: false;
 }
 
 ptr:after {
