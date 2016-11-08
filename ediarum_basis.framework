@@ -8872,7 +8872,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::add</String>
+																<String>ancestor-or-self::add[1]</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -8892,7 +8892,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::note</String>
+																<String>ancestor-or-self::note[1]</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
