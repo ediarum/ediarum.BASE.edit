@@ -82,12 +82,10 @@ idno:after {
 listRef,
 linkGrp {
     display: block;
-    -oxy-editable: false;
 }
 
 ptr {
     content: attr(target);
-    -oxy-editable: false;
 }
 
 ptr:after {
