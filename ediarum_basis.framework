@@ -918,10 +918,10 @@ note_2</String>
 											<String>gap</String>
 										</field>
 										<field name="name">
-											<String>Lücke im Text</String>
+											<String>Nicht entzifferbarer Text und Auslassungen</String>
 										</field>
 										<field name="description">
-											<String>Gar nicht lesbare Wörter im Text</String>
+											<String>Nicht entzifferbarer Text und Auslassungen</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/gap.gif</String>
@@ -1714,10 +1714,10 @@ or ancestor-or-self::correspDesc/note</String>
 											<String>del_gap</String>
 										</field>
 										<field name="name">
-											<String>Durchgestrichenes unleserliches Wort</String>
+											<String>Nicht entzifferbarer Text, durchgestrichen</String>
 										</field>
 										<field name="description">
-											<String>Durchgestrichenens und gänzlich (!) unleserliches Wort im Text markieren</String>
+											<String>Nicht entzifferbarer Text, durchgestrichen</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/del_gap.gif</String>
