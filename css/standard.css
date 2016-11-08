@@ -653,7 +653,7 @@ signed {
 /* Tables  */
 
 text table {
-      display: table;
+  display: table;
   margin: 1em 0 1em 0;
 }
 text table > head{
@@ -673,10 +673,14 @@ text row[role='label'] {
 
 text cell {
   display: table-cell;
-  border: 1px solid silver;
+  border: 1px dashed silver;
   padding: 3px;
   color: inherit;
   background-color:inherit;
+}
+
+text table[rend='drawn'] cell {
+    border: 1px solid silver;
 }
 
 text cell[rendition='#right'] {

@@ -10353,6 +10353,84 @@ and not(//witness[@select])</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>table.drawn</String>
+										</field>
+										<field name="name">
+											<String>Tabelle explizit gezeichnet</String>
+										</field>
+										<field name="description">
+											<String>Tabelle nicht nur implizit durch die Anordnung von Zeilen und Spalten vorhanden, sondern durch explizite Zeichnung der Gitterlinien.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::table[@rend="drawn"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::table</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rend</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::table</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::table</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rend</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>drawn</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -10874,6 +10952,12 @@ and not(//witness[@select])</String>
 																<String>@cert[low]</String>
 															</field>
 														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>table.drawn</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -11152,6 +11236,11 @@ and not(//witness[@select])</String>
 											<menuItem>
 												<field name="actionID">
 													<String>p[renditon=#mMM]</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>table.drawn</String>
 												</field>
 											</menuItem>
 											<menuSeparator/>
