@@ -579,12 +579,19 @@ text graphic {
 text note {
     background-color: #e0e0e0;
     -oxy-display-tags: none;
-    -oxy-placeholder-content: "[Anmerkung eingeben]"
+    -oxy-placeholder-content: "[Anmerkung eingeben]";
+    -oxy-show-placeholder: always;
 }
 
-text note:after {
+text note[hand]:after {
     content: " " url('gfx/note_hand.gif');
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(hand);
+}
+
+text note[hand='#author']:after,
+text note[hand='#addressee']:after {
+    content: none;
+    link: none;
 }
 
 text note:has(p) {
