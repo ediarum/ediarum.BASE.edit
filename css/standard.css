@@ -793,7 +793,9 @@ text choice {
 quote choice sic,
 quote choice orig,
 text choice sic,
-text choice orig {
+text choice orig,
+quote choice abbr,
+text choice abbr {
     background-color: #FFDDDD;
     -oxy-display-tags: none;
 }
@@ -801,11 +803,18 @@ text choice orig {
 quote choice corr,
 quote choice reg,
 text choice corr,
-text choice reg {
+text choice reg,
+quote choice expan,
+text choice expan {
     font-style: italic;
     background-color: #E8FFDD;
     -oxy-display-tags: none;
     -oxy-placeholder-content: "[Normalisierte Schreibung]";
+}
+
+quote choice corr,
+text choice corr {
+    -oxy-placeholder-content: "[Korrigierte Schreibung]";
 }
 
 quote corr[type="deleted"],
@@ -818,15 +827,13 @@ text corr[type="deleted"] {
 quote choice abbr,
 text choice abbr {
     background-color: #e0e0e0;
-    -oxy-display-tags: none;
 }
 
 
 quote choice expan,
 text choice expan {
-    font-style: italic;
     background-color: #E8FFDD;
-    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Aufgelöste Schreibung]";
 }
 
 quote gap,
@@ -910,7 +917,6 @@ text seg note,
 text note[type="sachapparat"] {
     padding-left: 0.5em;
     font-family: "BBAWfont-italic";
-
     color: #423E2C;
     background-color: #D6D2C2;
     -oxy-placeholder-content: "[Sachanmerkung hier eingeben]";

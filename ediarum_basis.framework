@@ -566,11 +566,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;seg  xmlns="http://www.tei-c.org/ns/1.0" type="comment">&lt;orig>&lt;/orig>&lt;note xml:id="n${id}">&lt;/note>&lt;/seg></String>
-															</entry>
-															<entry>
-																<String>schemaAware</String>
-																<String>false</String>
+																<String>&lt;seg  xmlns="http://www.tei-c.org/ns/1.0" type="comment">&lt;orig>&lt;/orig>&lt;note xml:id="n${id}">${caret}&lt;/note>&lt;/seg></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -663,7 +659,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;subst xmlns="http://www.tei-c.org/ns/1.0">&lt;del rendition="${ask('Art der Streichung', combobox, ('#ow':'Tilgung durch Überschreibung des ursprünglichen Textes';'#s':'Tilgung durch Streichung';'#erased':'Tilgung durch Radieren';), '#s')}" >&lt;/del>&lt;add place="${ask('Art der Hinzufügung', combobox, ('superlinear':'über der Zeile eingetragen';'sublinear':'unter der Zeile eingetragen';'intralinear':'innerhalb der Zeile eingetragen';'across':'über den ursprünglichen Text geschrieben';'left':'am linken Rand eingetragen';'right':'am rechten Rand eingetragen';))}">&lt;/add>&lt;/subst></String>
+																<String>&lt;subst xmlns="http://www.tei-c.org/ns/1.0">&lt;del rendition="${ask('Art der Streichung', combobox, ('#ow':'Tilgung durch Überschreibung des ursprünglichen Textes';'#s':'Tilgung durch Streichung';'#erased':'Tilgung durch Radieren';), '#s')}" >&lt;/del>&lt;add place="${ask('Art der Hinzufügung', combobox, ('superlinear':'über der Zeile eingetragen';'sublinear':'unter der Zeile eingetragen';'intralinear':'innerhalb der Zeile eingetragen';'across':'über den ursprünglichen Text geschrieben';'left':'am linken Rand eingetragen';'right':'am rechten Rand eingetragen';))}">${caret}&lt;/add>&lt;/subst></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1745,7 +1741,7 @@ or ancestor-or-self::correspDesc/note</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0" rendition="#s">&lt;gap quantity="${ask('Anzahl der nicht lesbaren Wörter', generic, '1')}" unit="words" />&lt;/del></String>
+																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0" rendition="#s">&lt;gap quantity="${ask('Anzahl der nicht lesbaren Wörter', generic, '1')}" unit="words" />&lt;/del>${caret}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -2465,7 +2461,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">&lt;sic>&lt;/sic>&lt;corr type="deleted">&lt;/corr>&lt;/choice></String>
+																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">&lt;sic>&lt;/sic>&lt;corr type="deleted">&lt;/corr>&lt;/choice>${caret}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -3794,7 +3790,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															<entry>
 																<String>fragment</String>
 																<String>&lt;closer rend="${ask('Formatierung:', combobox, ('paragraph':'eigener Absatz';'within the line':'in der Zeile';))}"  xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;salute>${ask('GruÃŸ falls vorhanden'')}&lt;/salute>
+  &lt;salute>${ask('Gruß falls vorhanden'')}&lt;/salute>
   &lt;signed>${ask('Unterschrift'')}&lt;/signed>
 &lt;/closer></String>
 															</entry>
@@ -3895,52 +3891,6 @@ or ancestor-or-self::quote</String>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
-										</field>
-									</action>
-									<action>
-										<field name="id">
-											<String>creation_date_delete</String>
-										</field>
-										<field name="name">
-											<String>Genaues Datum</String>
-										</field>
-										<field name="description">
-											<String>Genaues Datum</String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor::correspAction</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>elementLocation</String>
-																<String></String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.DeleteElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -5695,7 +5645,7 @@ or ancestor-or-self::quote</String>
 																<String>fragment</String>
 																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">
   &lt;sic xmlns="http://www.tei-c.org/ns/1.0">&lt;/sic>
-  &lt;corr xmlns="http://www.tei-c.org/ns/1.0" cert="${ask('Wahrscheinlichkeit mit der die Korrektur zutrifft', combobox, ('high':'hoch';'medium':'mittel';'low':'niedrig';))}">${ask('Korrigierte Fassung')}&lt;/corr>
+  &lt;corr xmlns="http://www.tei-c.org/ns/1.0" cert="${ask('Wahrscheinlichkeit mit der die Korrektur zutrifft', combobox, ('high':'hoch';'medium':'mittel';'low':'niedrig';))}">${caret}&lt;/corr>
 &lt;/choice></String>
 															</entry>
 														</serializableOrderedMap>
@@ -6710,7 +6660,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">&lt;orig>&lt;/orig>&lt;reg>&lt;/reg>&lt;/choice></String>
+																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">&lt;orig>&lt;/orig>&lt;reg>${caret}&lt;/reg>&lt;/choice></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7495,7 +7445,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">&lt;abbr>&lt;/abbr>&lt;expan>&lt;/expan>&lt;/choice></String>
+																<String>&lt;choice xmlns="http://www.tei-c.org/ns/1.0">&lt;abbr>&lt;/abbr>&lt;expan>${caret}&lt;/expan>&lt;/choice></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
