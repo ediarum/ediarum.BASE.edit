@@ -2168,7 +2168,7 @@ or ancestor-or-self::msContents/p/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:closer or ancestor-or-self::*:opener</String>
+														<String>oxy:allows-child-element('lb')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -7952,7 +7952,7 @@ rs_zwei</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:closer or ancestor-or-self::*:opener</String>
+														<String>oxy:allows-child-element('lb')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8002,7 +8002,7 @@ rs_zwei</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:closer or ancestor-or-self::*:opener</String>
+														<String>oxy:allows-child-element('lb')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
