@@ -852,7 +852,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Art der Hinzufügung', combobox, ('superlinear':'über der Zeile eingetragen';'sublinear':'unter der Zeile eingetragen';'intralinear':'innerhalb der Zeile eingetragen';'across':'über den ursprünglichen Text geschrieben';'left':'am linken Rand eingetragen';'right':'am rechten Rand eingetragen';), 'intralinear')}" /></String>
+																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Art der Hinzufügung', combobox, ('superlinear':'über der Zeile eingetragen';'sublinear':'unter der Zeile eingetragen';'intralinear':'innerhalb der Zeile eingetragen';'across':'über den ursprünglichen Text geschrieben';'left':'am linken Rand eingetragen';'right':'am rechten Rand eingetragen';'mTop':'am oberen Rand eingetragen';'mBottom':'am unteren Rand eingetragen';), 'intralinear')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
