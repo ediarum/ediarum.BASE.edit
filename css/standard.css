@@ -187,13 +187,16 @@ sourceDesc msDesc physDesc:before {
     font-weight: bold;
 }
 
-sourceDesc witness msDesc {
-    display: block;
-    content: "h:";
-}
-
 sourceDesc listWit witness {
     display: block;
+}
+
+sourceDesc witness msDesc[type='concept'] {
+    content: "Entwurf: ";
+}
+
+sourceDesc witness msDesc[type='copy'] {
+    content: "Abschrift: ";
 }
 
 sourceDesc witness>bibl {
