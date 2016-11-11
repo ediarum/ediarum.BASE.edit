@@ -1444,10 +1444,10 @@ or ancestor-or-self::correspDesc/note</String>
 											<String>wit(Manuskript)</String>
 										</field>
 										<field name="name">
-											<String>Überlieferung: Abschrift</String>
+											<String>Überlieferung: Abschrift, Entwurf ...</String>
 										</field>
 										<field name="description">
-											<String>Nachweis einer Abschrift hinzufügen</String>
+											<String>Nachweis einer weiteren Handschrift (Abschrift, Entwurf etc.) hinzufügen</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -1465,31 +1465,29 @@ or ancestor-or-self::correspDesc/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//teiHeader/fileDesc/sourceDesc/listWit/witness/msDesc</String>
+														<String>//sourceDesc/listWit</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;witness>
-  &lt;msDesc type="copy">
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;msDesc type="${ask('Art der Handschrift', combobox, ('concept':'Entwurf';'copy':'Abschrift';), 'concept')}">
     &lt;msIdentifier>
       &lt;institution>${ask('Aufbewahrende Institution')}&lt;/institution>
-      &lt;repository>${ask('Abteilung')}&lt;/repository>
       &lt;collection>${ask('ggf. Sammlung')}&lt;/collection>
-       &lt;idno>${ask('Volständige Signatur')}&lt;/idno>
+       &lt;idno>${ask('Vollständige Signatur')}&lt;/idno>
     &lt;/msIdentifier>
   &lt;/msDesc>
-&lt;/witness>
-</String>
+&lt;/witness></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>//teiHeader/fileDesc/sourceDesc/listWit/witness</String>
+																<String>//teiHeader/fileDesc/sourceDesc/listWit</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
-																<String>After</String>
+																<String>Inside as first child</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1507,12 +1505,11 @@ or ancestor-or-self::correspDesc/note</String>
 																<String>fragment</String>
 																<String>&lt;listWit xmlns="http://www.tei-c.org/ns/1.0">
 &lt;witness>
-  &lt;msDesc type="copy">
+  &lt;msDesc type="${ask('Art der Handschrift', combobox, ('concept':'Entwurf';'copy':'Abschrift';), 'concept')}">
     &lt;msIdentifier>
       &lt;institution>${ask('Aufbewahrende Institution')}&lt;/institution>
-      &lt;repository>${ask('Abteilung')}&lt;/repository>
       &lt;collection>${ask('ggf. Sammlung')}&lt;/collection>
-       &lt;idno>${ask('Volständige Signatur')}&lt;/idno>
+       &lt;idno>${ask('Vollständige Signatur')}&lt;/idno>
     &lt;/msIdentifier>
   &lt;/msDesc>
 &lt;/witness>
@@ -1520,11 +1517,11 @@ or ancestor-or-self::correspDesc/note</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>//teiHeader/fileDesc/sourceDesc/msDesc</String>
+																<String>//teiHeader/fileDesc/sourceDesc</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
-																<String>After</String>
+																<String>Inside as last child</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -11745,6 +11742,11 @@ and not(//witness[@select])</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>wit(Druck)</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>wit(Manuskript)</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
