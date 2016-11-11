@@ -1476,7 +1476,9 @@ or ancestor-or-self::correspDesc/note</String>
     &lt;msIdentifier>
       &lt;institution>${ask('Aufbewahrende Institution')}&lt;/institution>
       &lt;collection>${ask('ggf. Sammlung')}&lt;/collection>
-       &lt;idno>${ask('Vollständige Signatur')}&lt;/idno>
+       &lt;idno>
+         &lt;idno type="shelfmark">${ask('Signatur')}&lt;/idno>
+        &lt;/idno>
     &lt;/msIdentifier>
   &lt;/msDesc>
 &lt;/witness></String>
@@ -1509,7 +1511,9 @@ or ancestor-or-self::correspDesc/note</String>
     &lt;msIdentifier>
       &lt;institution>${ask('Aufbewahrende Institution')}&lt;/institution>
       &lt;collection>${ask('ggf. Sammlung')}&lt;/collection>
-       &lt;idno>${ask('Vollständige Signatur')}&lt;/idno>
+       &lt;idno>
+         &lt;idno type="shelfmark">${ask('Signatur')}&lt;/idno>
+        &lt;/idno>
     &lt;/msIdentifier>
   &lt;/msDesc>
 &lt;/witness>
@@ -5579,6 +5583,30 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::msDesc[parent::witness]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;idno xmlns="http://www.tei-c.org/ns/1.0" type="uri">${ask('Kalliope-URI eingeben', generic)}&lt;/idno></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::msDesc//idno[@type='shelfmark']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String></String>
 													</field>
 													<field name="argValues">
@@ -5589,7 +5617,7 @@ or ancestor-or-self::quote</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>//msDesc/msIdentifier/idno</String>
+																<String>/sourceDesc/msDesc/msIdentifier/idno</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
