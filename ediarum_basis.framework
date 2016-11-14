@@ -923,7 +923,7 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>note_1
-note_2</String>
+hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -2715,19 +2715,19 @@ or ancestor-or-self::quote</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>figure</String>
+											<String>figure_1</String>
 										</field>
 										<field name="name">
 											<String>Zeichnung</String>
 										</field>
 										<field name="description">
-											<String>Fügt eine Zeichnung des Autors ein</String>
+											<String></String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/icons/figure20.png</String>
+											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/icons/figure16.png</String>
+											<String></String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2745,7 +2745,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}">
+																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}" hand="${ask('Urheber der Zeichner', combobox, ('#author':'Autor des Textes';'#addressee':'Empfänger dieses Briefes';'#index':'Person aus dem Register'), '#author')}">
   &lt;figDesc>${caret}&lt;/figDesc>
 &lt;/figure></String>
 															</entry>
@@ -10317,10 +10317,10 @@ and not(//witness[@select])</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>note_2</String>
+											<String>hand</String>
 										</field>
 										<field name="name">
-											<String>note/@hand mit Register</String>
+											<String>@hand mit Register</String>
 										</field>
 										<field name="description">
 											<String></String>
@@ -10339,6 +10339,42 @@ and not(//witness[@select])</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::figure[@hand='#index']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>@xml:id</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::figure</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAttributeOperation</String>
+													</field>
+												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::note[@hand='#index']</String>
@@ -10383,11 +10419,11 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>elementLocation</String>
-																<String>ancestor-or-self::note</String>
+																<String>ancestor-or-self::* </String>
 															</entry>
 															<entry>
 																<String>name</String>
-																<String>ana</String>
+																<String>notexistant</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -10471,6 +10507,53 @@ and not(//witness[@select])</String>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>figure</String>
+										</field>
+										<field name="name">
+											<String>Zeichnung</String>
+										</field>
+										<field name="description">
+											<String>Fügt eine Zeichnung des Autors ein</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/figure20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/figure16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("figure")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>figure_1
+hand</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
