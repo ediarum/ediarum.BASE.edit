@@ -9390,7 +9390,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>#$XPATH{@xml:id}</String>
+																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -9441,7 +9441,7 @@ or ancestor-or-self::notesStmt/note</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>#$XPATH{@xml:id}</String>
+																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
