@@ -565,14 +565,34 @@ fw:after {
 
 text figure {
     display: block;
+    margin: 0 0 0 2em;
     -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Zeichnung o.ä.]";
+}
+
+text figure[facs] {
+    content: url(oxy_base-uri() '/exist/webdav/db/projects/${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
+    width: 250px;
 }
 
 text figure head {
     -oxy-display-tags: none;
-    -oxy-placeholder-content: "Bildunterschrift";
+    -oxy-placeholder-content: "[Überschrift der Abbildung]";
 }
 
+text figure figDesc {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Bildbeschreibung]"
+}
+
+text figure note {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]"
+}
+
+/*  graphic DEPRECATED */
 text graphic {
     content: oxy_url(attr(url));
     width: 300px;

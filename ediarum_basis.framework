@@ -560,7 +560,31 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text or ancestor-or-self::abstract</String>
+														<String>ancestor-or-self::figure</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note type="editorial" xml:id="n${id}">${caret}&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::figure</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String> oxy:allows-child-element('seg')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -577,7 +601,7 @@ or ancestor-or-self::quote</String>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2694,16 +2718,16 @@ or ancestor-or-self::quote</String>
 											<String>figure</String>
 										</field>
 										<field name="name">
-											<String>Zeichnung einfügen</String>
+											<String>Zeichnung</String>
 										</field>
 										<field name="description">
-											<String>Fügt eine eigenhändige Zeichnung des Autors ein</String>
+											<String>Fügt eine Zeichnung des Autors ein</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/figure20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/figure16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2715,15 +2739,14 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>oxy:allows-child-element("figure")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;graphic url="${ask('URL des Bildes eingeben oder auswählen', url, '')}" />
-  &lt;head>&lt;/head>
+																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}">
+  &lt;figDesc>${caret}&lt;/figDesc>
 &lt;/figure></String>
 															</entry>
 															<entry>
@@ -11423,6 +11446,11 @@ and not(//witness[@select])</String>
 											<toolbarItem>
 												<field name="actionID">
 													<String>note</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>figure</String>
 												</field>
 											</toolbarItem>
 											<toolbar>
