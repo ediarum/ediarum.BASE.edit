@@ -566,7 +566,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;note type="editorial" xml:id="n${id}">${caret}&lt;/note></String>
+																<String>&lt;note type="editorial" xml:id="n${id}" xmlns="http://www.tei-c.org/ns/1.0">${caret}&lt;/note></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
