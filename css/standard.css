@@ -220,6 +220,22 @@ sourceDesc witness:nth-child(5)>bibl {
     content: "D5: ";
 }
 
+sourceDesc witness:nth-child(6)>bibl {
+    content: "D6: ";
+}
+
+sourceDesc witness:nth-child(7)>bibl {
+    content: "D7: ";
+}
+
+sourceDesc witness:nth-child(8)>bibl {
+    content: "D8: ";
+}
+
+sourceDesc witness:nth-child(9)>bibl {
+    content: "D9: ";
+}
+
 sourceDesc witness[select='#this'] {
     font-weight: bold;
 }
