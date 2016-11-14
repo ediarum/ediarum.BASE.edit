@@ -1093,6 +1093,10 @@ witness bibl:after {
     display: none;
 }
 
+witness bibl[sameAs]:after {
+    display: inline;
+}
+
 /* Dates */
 text date {
     -oxy-display-tags: none;
