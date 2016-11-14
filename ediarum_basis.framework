@@ -560,6 +560,30 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::figure</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note type="editorial" xml:id="n${id}">${caret}&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::figure</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String> oxy:allows-child-element('seg')</String>
 													</field>
 													<field name="argValues">
@@ -2721,7 +2745,9 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}">&lt;/figure></String>
+																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}">
+  &lt;figDesc>${caret}&lt;/figDesc>
+&lt;/figure></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -10453,56 +10479,6 @@ and not(//witness[@select])</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
-									<action>
-										<field name="id">
-											<String>figure-figDesc</String>
-										</field>
-										<field name="name">
-											<String>Beschreibung der Zeichnung hinzufügen</String>
-										</field>
-										<field name="description">
-											<String></String>
-										</field>
-										<field name="largeIconPath">
-											<String></String>
-										</field>
-										<field name="smallIconPath">
-											<String></String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String></String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>fragment</String>
-																<String>&lt;figDesc xmlns="http://www.tei-c.org/ns/1.0">&lt;/figDesc></String>
-															</entry>
-															<entry>
-																<String>insertLocation</String>
-																<String>ancestor-or-self::figure</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-										<field name="enabledInReadOnlyContext">
-											<Boolean>true</Boolean>
-										</field>
-									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11292,11 +11268,6 @@ and not(//witness[@select])</String>
 											<menuItem>
 												<field name="actionID">
 													<String>@cert[remove]</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>figure-figDesc</String>
 												</field>
 											</menuItem>
 											<menuSeparator/>
