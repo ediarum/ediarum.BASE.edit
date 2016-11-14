@@ -14,6 +14,23 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.23.0 vom 14.11.2016
+
+	* FEATURE #6441: Lösung für die Kodierung und Beschreibung von Skizzen, Zeichnungen, etc.
+	* FEATURE #6970: Registerfunktionen erweitern
+	* BUGFIX #6179: Cursor-Position bei Arbeit in Autoransicht
+	* BUGFIX #7131: <note/> in <note/>: Einweisungszeichen, Autoransicht
+	* BUGFIX #7132: <note/>: lb soll gesetzt werden können
+	* BUGFIX #7220: orgName im Register mit Pfeil angezeigt
+	* BUGFIX #7258: 6. Druckvorlage
+	* FEATURE #6167: Werte von @place erweitern
+	* FEATURE #6209: Tabelle sichtbar/unsichtbar
+	* FEATURE #6232: Mousonover-Text zu "Unsicheren Lesarten" vereinheitlichen
+	* FEATURE #6245: Mehrere Handschriften in teiHeader notieren
+	* UPDATE #6256: damage durch gap ersetzen
+	* FEATURE #7134: @hand in <note/> erweitern
+	* FEATURE #7256: Verlinkung von Druckzeugen mit Registereintrag
+
 0.22.0 vom 02.11.2016
 
 	* BUGFIX #6780: <TEI xmlns...> in Registerdateien validiert nicht

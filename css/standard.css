@@ -187,13 +187,16 @@ sourceDesc msDesc physDesc:before {
     font-weight: bold;
 }
 
-sourceDesc witness msDesc {
-    display: block;
-    content: "h:";
-}
-
 sourceDesc listWit witness {
     display: block;
+}
+
+sourceDesc witness msDesc[type='concept'] {
+    content: "Entwurf: ";
+}
+
+sourceDesc witness msDesc[type='copy'] {
+    content: "Abschrift: ";
 }
 
 sourceDesc witness>bibl {
@@ -215,6 +218,22 @@ sourceDesc witness:nth-child(4)>bibl {
 
 sourceDesc witness:nth-child(5)>bibl {
     content: "D5: ";
+}
+
+sourceDesc witness:nth-child(6)>bibl {
+    content: "D6: ";
+}
+
+sourceDesc witness:nth-child(7)>bibl {
+    content: "D7: ";
+}
+
+sourceDesc witness:nth-child(8)>bibl {
+    content: "D8: ";
+}
+
+sourceDesc witness:nth-child(9)>bibl {
+    content: "D9: ";
 }
 
 sourceDesc witness[select='#this'] {
@@ -562,14 +581,34 @@ fw:after {
 
 text figure {
     display: block;
+    margin: 0 0 0 2em;
     -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Zeichnung o.ä.]";
+}
+
+text figure[facs] {
+    content: url(oxy_base-uri() '/exist/webdav/db/projects/${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
+    width: 250px;
 }
 
 text figure head {
     -oxy-display-tags: none;
-    -oxy-placeholder-content: "Bildunterschrift";
+    -oxy-placeholder-content: "[Überschrift der Abbildung]";
 }
 
+text figure figDesc {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Bildbeschreibung]"
+}
+
+text figure note {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]"
+}
+
+/*  graphic DEPRECATED */
 text graphic {
     content: oxy_url(attr(url));
     width: 300px;
@@ -579,7 +618,19 @@ text graphic {
 text note {
     background-color: #e0e0e0;
     -oxy-display-tags: none;
-    -oxy-placeholder-content: "[Anmerkung eingeben]"
+    -oxy-placeholder-content: "[Anmerkung eingeben]";
+    -oxy-show-placeholder: always;
+}
+
+text note[hand]:after {
+    content: " " url('gfx/note_hand.gif');
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(hand);
+}
+
+text note[hand='#author']:after,
+text note[hand='#addressee']:after {
+    content: none;
+    link: none;
 }
 
 text note:has(p) {
@@ -641,7 +692,7 @@ signed {
 /* Tables  */
 
 text table {
-      display: table;
+  display: table;
   margin: 1em 0 1em 0;
 }
 text table > head{
@@ -661,10 +712,14 @@ text row[role='label'] {
 
 text cell {
   display: table-cell;
-  border: 1px solid silver;
+  border: 1px dashed silver;
   padding: 3px;
   color: inherit;
   background-color:inherit;
+}
+
+text table[rend='drawn'] cell {
+    border: 1px solid silver;
 }
 
 text cell[rendition='#right'] {
@@ -781,7 +836,9 @@ text choice {
 quote choice sic,
 quote choice orig,
 text choice sic,
-text choice orig {
+text choice orig,
+quote choice abbr,
+text choice abbr {
     background-color: #FFDDDD;
     -oxy-display-tags: none;
 }
@@ -789,11 +846,18 @@ text choice orig {
 quote choice corr,
 quote choice reg,
 text choice corr,
-text choice reg {
+text choice reg,
+quote choice expan,
+text choice expan {
     font-style: italic;
     background-color: #E8FFDD;
     -oxy-display-tags: none;
     -oxy-placeholder-content: "[Normalisierte Schreibung]";
+}
+
+quote choice corr,
+text choice corr {
+    -oxy-placeholder-content: "[Korrigierte Schreibung]";
 }
 
 quote corr[type="deleted"],
@@ -806,15 +870,13 @@ text corr[type="deleted"] {
 quote choice abbr,
 text choice abbr {
     background-color: #e0e0e0;
-    -oxy-display-tags: none;
 }
 
 
 quote choice expan,
 text choice expan {
-    font-style: italic;
     background-color: #E8FFDD;
-    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Aufgelöste Schreibung]";
 }
 
 quote gap,
@@ -898,7 +960,6 @@ text seg note,
 text note[type="sachapparat"] {
     padding-left: 0.5em;
     font-family: "BBAWfont-italic";
-
     color: #423E2C;
     background-color: #D6D2C2;
     -oxy-placeholder-content: "[Sachanmerkung hier eingeben]";
@@ -1030,6 +1091,10 @@ witness bibl {
 
 witness bibl:after {
     display: none;
+}
+
+witness bibl[sameAs]:after {
+    display: inline;
 }
 
 /* Dates */
