@@ -14,6 +14,11 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.23.1 vom 09.12.2016
+
+	* BUGFIX: 7536: Kalliope-URI einfügen
+	* BUGFIX: 7501: Copy & Paste
+
 0.23.0 vom 14.11.2016
 
 	* FEATURE #6441: Lösung für die Kodierung und Beschreibung von Skizzen, Zeichnungen, etc.
