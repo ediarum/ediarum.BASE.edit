@@ -2744,7 +2744,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}" hand="${ask('Urheber der Zeichner', combobox, ('#author':'Autor des Textes';'#addressee':'Empfänger dieses Briefes';'#index':'Person aus dem Register'), '#author')}">
+																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}" hand="${ask('Urheber der Zeichner', combobox, ('#author':'Autor des Textes';'#addressee':'Empfänger dieses Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">
   &lt;figDesc>${caret}&lt;/figDesc>
 &lt;/figure></String>
 															</entry>
@@ -10253,7 +10253,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register'), '#author')}">&lt;/note></String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">&lt;/note></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -10277,7 +10277,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register'), '#author')}">&lt;/note></String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">&lt;/note></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -10301,7 +10301,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register'), '#author')}">&lt;/note></String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">&lt;/note></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
