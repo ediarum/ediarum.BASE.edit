@@ -642,8 +642,8 @@ text note p {
     display: block;
 }
 
-text note metamark,
-text add metamark {
+text metamark,
+text metamark {
     content: "\23A1";
     -oxy-display-tags: none;
 }
