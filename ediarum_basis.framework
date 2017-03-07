@@ -8900,6 +8900,30 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
