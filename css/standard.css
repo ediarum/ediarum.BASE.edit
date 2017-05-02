@@ -1,5 +1,5 @@
 ﻿/* 
-Copyright 2016 Berlin-Brandenburg Academy of Sciences and Humanities
+Copyright 2016-2017 Berlin-Brandenburg Academy of Sciences and Humanities
 
 This file is part of ediarum.BASE.
 
@@ -775,7 +775,8 @@ text hi[rendition="#mMM"] {
 
 /* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
 
-hi[rendition="#sup"] {
+hi[rendition="#sup"],
+g[rendition="#sup"] {
     position: relative; 
     top: -0.5em;
     font-size: 0.7em;
