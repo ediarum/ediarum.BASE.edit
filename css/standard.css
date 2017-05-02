@@ -599,7 +599,11 @@ text figure head {
 text figure figDesc {
     display: block;
     font-style: italic;
-    -oxy-placeholder-content: "[Bildbeschreibung]"
+    -oxy-placeholder-content: "[Bildbeschreibung durch den Bearbeiter]"
+}
+
+text figure p {
+    -oxy-placeholder-content: "[Bildunterschrift des Autors]"
 }
 
 text figure note {
