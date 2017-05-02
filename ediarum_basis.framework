@@ -969,7 +969,7 @@ hand</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '1')}" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung/Verlust';'empty':'Leerraum';'illegible':'unleserlich';'fm':'fremdsprachlicher Text';), 'lost')}"/></String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '1')}" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung/Verlust';'empty':'Leerraum';'illegible':'unleserlich';'fm':'fremdsprachlicher Text';'insignificant':'Für das Korpus unwichtiger Text'), 'lost')}"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
