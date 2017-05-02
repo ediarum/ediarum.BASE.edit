@@ -2745,6 +2745,7 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;figure xmlns="http://www.tei-c.org/ns/1.0" facs="${ask('Dateiname', generic, '')}" hand="${ask('Urheber der Zeichner', combobox, ('#author':'Autor des Textes';'#addressee':'Empfänger dieses Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">
+  &lt;p>&lt;/p>
   &lt;figDesc>${caret}&lt;/figDesc>
 &lt;/figure></String>
 															</entry>
@@ -10810,6 +10811,98 @@ gap_3</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>hi[#b]</String>
+										</field>
+										<field name="name">
+											<String>Fettdruck</String>
+										</field>
+										<field name="description">
+											<String>Fettgedruckter Text (nur bei Transkription gedruckter Texte)</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="#b">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>hi[#aq_#fr]</String>
+										</field>
+										<field name="name">
+											<String>Schriftartwechsel</String>
+										</field>
+										<field name="description">
+											<String>Hervorhebung der Schriftart (Antiqua bzw. Fraktur)</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String> oxy:allows-child-element('hi')</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Schriftart', combobox, ('#aq':'Antiqua';'#fr':'Fraktur';), '#aq')}">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11286,7 +11379,7 @@ gap_3</String>
 														<menuSeparator/>
 														<menu>
 															<field name="label">
-																<String>Ursprünglich gedruckte Texte</String>
+																<String>Transkription gedruckter Texte</String>
 															</field>
 															<field name="accessKey">
 																<String></String>
@@ -11303,7 +11396,17 @@ gap_3</String>
 																	</menuItem>
 																	<menuItem>
 																		<field name="actionID">
+																			<String>hi[#b]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
 																			<String>hi[#g]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>hi[#aq_#fr]</String>
 																		</field>
 																	</menuItem>
 																</menuEntry-array>
