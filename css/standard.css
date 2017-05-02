@@ -1115,6 +1115,12 @@ msContents note ref {
     border-bottom: 1px dashed #00C6FF;
 }
 
+text ref[target]:after,
+msContents note ref[target]:after {
+    content: " " url('gfx/link.png');
+    link: attr(target);
+}
+
 text anchor[type="verweisziel"] {
     -oxy-display-tags: none;
 }
