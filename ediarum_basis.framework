@@ -10486,7 +10486,7 @@ and not(//witness[@select])</String>
 											<String>table.drawn</String>
 										</field>
 										<field name="name">
-											<String>Tabelle explizit gezeichnet</String>
+											<String>Tabelle implizit bzw. explizit gezeichnet</String>
 										</field>
 										<field name="description">
 											<String>Tabelle nicht nur implizit durch die Anordnung von Zeilen und Spalten vorhanden, sondern durch explizite Zeichnung der Gitterlinien.</String>
