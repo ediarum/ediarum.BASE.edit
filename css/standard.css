@@ -946,6 +946,11 @@ text foreign {
     background-color: #e0e0e0;
 }
 
+text hi[rendition="#aq"] {
+    font-family: Biolinum;
+    -oxy-display-tags: none;
+}
+
 /* Vorgedruckte Textteile */
 hi[rendition='#mPrint'] {
     -oxy-display-tags: none;
