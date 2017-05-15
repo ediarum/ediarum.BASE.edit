@@ -8550,7 +8550,7 @@ or ancestor-or-self::correspDesc/note</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' key='" + @id + "' />"</String>
+																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='" + @id + "' />"</String>
 															</entry>
 															<entry>
 																<String>expression</String>
