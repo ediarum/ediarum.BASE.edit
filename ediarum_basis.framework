@@ -2417,10 +2417,10 @@ or ancestor-or-self::msContents/p/note</String>
 											<String>Kennzeichnet einen fremdsprachigen Textabschnitt im Manuskript</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/icons/foreign.gif</String>
+											<String></String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/icons/foreign16.gif</String>
+											<String></String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -10889,7 +10889,7 @@ gap_3</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Schriftart', combobox, ('#aq':'Antiqua';'#fr':'Fraktur';), '#aq')}">&lt;/hi></String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Schriftart', combobox, ('#aq':'Antiqua bzw. lateinische Schrift';'#fr':'Fraktur bzw. Kurrent';), '#aq')}">&lt;/hi></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -12083,11 +12083,34 @@ gap_3</String>
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
-											<toolbarItem>
-												<field name="actionID">
-													<String>foreign</String>
+											<toolbar>
+												<field name="id">
+													<String>Sprache und Schriftart</String>
 												</field>
-											</toolbarItem>
+												<field name="type">
+													<Integer>3</Integer>
+												</field>
+												<field name="largeIconPath">
+													<String>${framework}/icons/foreign.gif</String>
+												</field>
+												<field name="smallIconPath">
+													<String>${framework}/icons/foreign16.gif</String>
+												</field>
+												<field name="toolbarEntriesDescriptorList">
+													<toolbarEntry-array>
+														<toolbarItem>
+															<field name="actionID">
+																<String>hi[#aq_#fr]</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>foreign</String>
+															</field>
+														</toolbarItem>
+													</toolbarEntry-array>
+												</field>
+											</toolbar>
 											<toolbarSeparator/>
 											<toolbar>
 												<field name="id">
