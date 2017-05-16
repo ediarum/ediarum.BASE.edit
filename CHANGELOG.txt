@@ -14,6 +14,23 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.24.0 vom 15.05.2016
+
+	BUGFIX #7291: Funktion "Sachanmerkung löschen" fehlerhaft
+	BUGFIX #8315: Verweis auf Sachanmerkung verwendet falsches Attribut (@key statt @target)
+	BUGFIX #8316: Darstellung im Author-Mode für Streichung entfernt vorhandene Formatierung
+	FEATURE #6209: Tabelle sichtbar/unsichtbar
+	FEATURE #7339: Bildunterschrift
+	FEATURE #7367: <hi> darf nicht in <idno> erlaubt sein
+	FEATURE #7548: @hand='unknown'
+	FEATURE #7608: Schriftwechsel in Antiqua
+	FEATURE #7720: Aktion für fette Textstellen
+	FEATURE #7747: <metamark/> in <p/>
+	FEATURE #7833: Erweiterung von @hand in <note/> und <figure/>
+	FEATURE #7910: ediarum für Drucktexte erweitern (Teilimplementierung)
+	FEATURE #8201: Aktion: Link auf externe Website
+	FEATURE #8212: Aktion: Textauslassungen: Unwichtig eingestufter Text
+
 0.23.1 vom 09.12.2016
 
 	* BUGFIX: 7536: Kalliope-URI einfügen
