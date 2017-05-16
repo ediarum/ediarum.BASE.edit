@@ -1058,7 +1058,8 @@ hand</String>
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
 or ancestor-or-self::correspDesc/note
-or ancestor-or-self::note[parent::notesStmt]</String>
+or ancestor-or-self::note[parent::notesStmt]
+or ancestor-or-self::physDesc/p</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
