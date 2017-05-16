@@ -1701,7 +1701,8 @@ or ancestor-or-self::correspDesc/note</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::notesStmt/note</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
