@@ -1058,7 +1058,8 @@ hand</String>
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
 or ancestor-or-self::correspDesc/note
-or ancestor-or-self::note[parent::notesStmt]</String>
+or ancestor-or-self::note[parent::notesStmt]
+or ancestor-or-self::physDesc/p</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -10904,6 +10905,116 @@ gap_3</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>keyword</String>
+										</field>
+										<field name="name">
+											<String>Schlagwort/Thema</String>
+										</field>
+										<field name="description">
+											<String>Fügt ein Schlagwort/Thema für das Dokument hinzu</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/names.gif</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/names16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc/textClass/keywords</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_keyword}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;term xmlns='http://www.tei-c.org/ns/1.0' key='" + @xml:id + "'>" + /span +"&lt;/term>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/textClass/keywords</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>false</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_keyword}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;textClass xmlns='http://www.tei-c.org/ns/1.0'>&lt;keywords>&lt;term key='" + @xml:id + "'>" + /span +"&lt;/term>&lt;/keywords>&lt;/textClass>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>false</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11764,6 +11875,11 @@ gap_3</String>
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
+													<String>keyword</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
 													<String>paragraph</String>
 												</field>
 											</toolbarItem>
@@ -12330,6 +12446,11 @@ gap_3</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>respStmt</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>keyword</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
