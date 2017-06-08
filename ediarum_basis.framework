@@ -10904,6 +10904,56 @@ gap_3</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>textclass</String>
+										</field>
+										<field name="name">
+											<String>Dokument/Brief ist Beilage</String>
+										</field>
+										<field name="description">
+											<String>Dokument oder Brief als Beilage markieren</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc[not(textClass)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;textClass xmlns="http://www.tei-c.org/ns/1.0">&lt;classCode scheme="http://telota.bbaw.de/XXX">Beilage&lt;/classCode>&lt;/textClass></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11764,6 +11814,11 @@ gap_3</String>
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
+													<String>textclass</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
 													<String>paragraph</String>
 												</field>
 											</toolbarItem>
@@ -12330,6 +12385,11 @@ gap_3</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>respStmt</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>textclass</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
