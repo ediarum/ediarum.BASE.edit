@@ -1126,7 +1126,8 @@ text date {
 /*  References */
 
 text ref,
-msContents note ref {
+msContents note ref,
+correspDesc note ref {
     -oxy-display-tags: none;
     border-bottom: 1px dashed #00C6FF;
 }
