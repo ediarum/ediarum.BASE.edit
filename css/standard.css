@@ -304,7 +304,8 @@ profileDesc creation placeName:after {
 physDesc,
 correspDesc,
 profileDesc abstract,
-correspDesc note {
+correspDesc note,
+profileDesc textClass {
     display: block;
     margin: 1em 0 0 0;
     padding: 1em 0 0 0;
@@ -432,7 +433,8 @@ correspContext ref[target^="http://"]:after {
     link: attr(target);
 }
 
-correspDesc note:before {
+/* Anmerkungen zum Brief */
+correspDesc note:before:first-of-type {
     display: block;
     content: "Anmerkungen zum Brief:";
     font-weight: bold;
@@ -442,6 +444,12 @@ correspDesc note {
     display: block;
     -oxy-placeholder-content: "[Hier Anmerkungen zum Brief oder zur Datierung eingeben]";
     -oxy-show-placeholder: always;
+}
+
+correspDesc note:not(:first-of-type) {
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 msDesc[rend="notExtant"] msIdentifier {
@@ -1126,13 +1134,17 @@ text date {
 /*  References */
 
 text ref,
-msContents note ref {
+msContents note ref,
+notesStmt note ref,
+correspDesc note ref {
     -oxy-display-tags: none;
     border-bottom: 1px dashed #00C6FF;
 }
 
 text ref[target]:after,
-msContents note ref[target]:after {
+msContents note ref[target]:after,
+notesStmt note ref[target^="http://"]:after,
+correspDesc note ref[target^="http://"]:after {
     content: " " url('gfx/link.png');
     link: attr(target);
 }
@@ -1301,4 +1313,27 @@ rs[type='artwork'][key]:after {
 measure {
     background-color: #F7D8FF;
     -oxy-display-tags: none;
+}
+
+/* Keywords */
+
+profileDesc textClass:before {
+    content: "Schlagwörter/Themen: ";
+    font-style: normal;
+    font-weight: normal;
+}
+
+profileDesc textClass keywords,
+profileDesc textClass keywords term {
+    -oxy-display-tags: none;
+}
+
+profileDesc textClass keywords term:after {
+    content: " " url('gfx/link.png') ", ";
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_keyword}') "?id=" attr(key);
+}
+
+profileDesc textClass keywords term:last-of-type:after {
+    content: " " url('gfx/link.png');
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_keyword}') "?id=" attr(key);
 }

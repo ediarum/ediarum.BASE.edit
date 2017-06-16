@@ -1058,7 +1058,8 @@ hand</String>
 														<String>ancestor-or-self::text
 or ancestor-or-self::abstract 
 or ancestor-or-self::correspDesc/note
-or ancestor-or-self::note[parent::notesStmt]</String>
+or ancestor-or-self::note[parent::notesStmt]
+or ancestor-or-self::p[parent::physDesc]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1226,7 +1227,8 @@ or ancestor-or-self::quote</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text 
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt] </String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -7204,6 +7206,22 @@ or ancestor-or-self::quote</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::orgName</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::orgName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::persName</String>
 													</field>
 													<field name="argValues">
@@ -8541,7 +8559,8 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::text 
 or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note</String>
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt] </String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -8976,7 +8995,8 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::note[parent::seg] 
 or ancestor-or-self::note[parent::correspDesc] 
-or ancestor-or-self::p[parent::abstract]</String>
+or ancestor-or-self::p[parent::abstract]
+or ancestor-or-self::note[parent::notesStmt] </String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -9134,7 +9154,7 @@ or ancestor-or-self::p[parent::abstract]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x00E3;':'ã';'&amp;#0230;':'æ';'&amp;#0198;':'Æ';'&amp;#x00E7;':'ç';'&amp;#x00C7;':'Ç';'&amp;#x229;':'ȩ';'&amp;#x00EB;':'ë';'&amp;#x00EF;':'ï';'&amp;#x0142;':'ł';'&amp;#x0141;':'Ł';'&amp;#x144;':'ń';'&amp;#x00D1;':'ñ';'&amp;#x00F8;':'ø';'&amp;#0339;':'œ';'&amp;#0338;':'Œ';'&amp;#x0161;':'š';'&amp;#x0160;':'Š';), '&amp;#x00E3;')}</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x00E3;':'ã';'&amp;#0230;':'æ';'&amp;#0198;':'Æ';'&amp;#x00E7;':'ç';'&amp;#x00C7;':'Ç';'&amp;#x229;':'ȩ';'&amp;#x00EB;':'ë';'&amp;#x00EF;':'ï';'&amp;#x0142;':'ł';'&amp;#x0141;':'Ł';'&amp;#x144;':'ń';'&amp;#x00F1;':'ñ';'&amp;#x00F8;':'ø';'&amp;#0339;':'œ';'&amp;#0338;':'Œ';'&amp;#x0161;':'š';'&amp;#x0160;':'Š';), '&amp;#x00E3;')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -10904,6 +10924,258 @@ gap_3</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>keyword</String>
+										</field>
+										<field name="name">
+											<String>Schlagwort/Thema</String>
+										</field>
+										<field name="description">
+											<String>Fügt ein Schlagwort/Thema für das Dokument hinzu</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/names.gif</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/names16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc/textClass/keywords</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_keyword}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;term xmlns='http://www.tei-c.org/ns/1.0' key='" + @xml:id + "'>" + /span +"&lt;/term>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/textClass/keywords</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>false</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_keyword}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;textClass xmlns='http://www.tei-c.org/ns/1.0'>&lt;keywords>&lt;term key='" + @xml:id + "'>" + /span +"&lt;/term>&lt;/keywords>&lt;/textClass>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>false</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ref[attachedTo]</String>
+										</field>
+										<field name="name">
+											<String>Brief/Dokument ist Beilage zu ...</String>
+										</field>
+										<field name="description">
+											<String>Verlinkung zu einem Brief oder Dokument anlegen, zu dem vorliegendes Dokument/Brief als Beilage zugeordnet ist.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[parent::correspDesc]
+														or ancestor-or-self::note[parent::notesStmt]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>altern. element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='attachedTo'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='attachedTo'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>id start prefix</String>
+																<String>start_</String>
+															</entry>
+															<entry>
+																<String>id stop prefix</String>
+																<String>stop_</String>
+															</entry>
+															<entry>
+																<String>id-attribute</String>
+																<String>xml:id</String>
+															</entry>
+															<entry>
+																<String>root-path</String>
+																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+															</entry>
+															<entry>
+																<String>xpath</String>
+																<String>//anchor</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ref[hasAttachement]</String>
+										</field>
+										<field name="name">
+											<String>Verweis auf Beilage</String>
+										</field>
+										<field name="description">
+											<String>Verlinkung zu einem Brief oder Dokument anlegen, das als Beilage überliefert ist.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[parent::correspDesc]
+														or ancestor-or-self::note[parent::notesStmt]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>altern. element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='hasAttachment'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='hasAttachment'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>id start prefix</String>
+																<String>start_</String>
+															</entry>
+															<entry>
+																<String>id stop prefix</String>
+																<String>stop_</String>
+															</entry>
+															<entry>
+																<String>id-attribute</String>
+																<String>xml:id</String>
+															</entry>
+															<entry>
+																<String>root-path</String>
+																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+															</entry>
+															<entry>
+																<String>xpath</String>
+																<String>//anchor</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11377,7 +11649,6 @@ gap_3</String>
 																<String>hi[mPrint]</String>
 															</field>
 														</menuItem>
-														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Transkription gedruckter Texte</String>
@@ -11764,6 +12035,11 @@ gap_3</String>
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
+													<String>keyword</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
 													<String>paragraph</String>
 												</field>
 											</toolbarItem>
@@ -12048,6 +12324,17 @@ gap_3</String>
 																<String>ref[URL]</String>
 															</field>
 														</toolbarItem>
+														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[hasAttachement]</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[attachedTo]</String>
+															</field>
+														</toolbarItem>
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
@@ -12330,6 +12617,11 @@ gap_3</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>respStmt</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>keyword</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
