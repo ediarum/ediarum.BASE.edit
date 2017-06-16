@@ -16,6 +16,7 @@ CHANGELOG
 
 UNRELEASED
 
+    FEATURE #8380: Schlagworte/Themen für Briefe und Dokumente
 	FEATURE #8379: Personenauszeichnung in Handschriftenbeschreibung
 	FEATURE #8485: Aktion: Verlinkung in "Anmerkungen zum Text"
 	BUGFIX #8475: Darstellung von Verweisen in "Anmerkungen zum Brief"

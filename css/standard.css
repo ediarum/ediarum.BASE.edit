@@ -304,7 +304,8 @@ profileDesc creation placeName:after {
 physDesc,
 correspDesc,
 profileDesc abstract,
-correspDesc note {
+correspDesc note,
+profileDesc textClass {
     display: block;
     margin: 1em 0 0 0;
     padding: 1em 0 0 0;
@@ -1305,4 +1306,27 @@ rs[type='artwork'][key]:after {
 measure {
     background-color: #F7D8FF;
     -oxy-display-tags: none;
+}
+
+/* Keywords */
+
+profileDesc textClass:before {
+    content: "Schlagwörter/Themen: ";
+    font-style: normal;
+    font-weight: normal;
+}
+
+profileDesc textClass keywords,
+profileDesc textClass keywords term {
+    -oxy-display-tags: none;
+}
+
+profileDesc textClass keywords term:after {
+    content: " " url('gfx/link.png') ", ";
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_keyword}') "?id=" attr(key);
+}
+
+profileDesc textClass keywords term:last-of-type:after {
+    content: " " url('gfx/link.png');
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_keyword}') "?id=" attr(key);
 }
