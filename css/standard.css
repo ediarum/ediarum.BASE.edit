@@ -1127,14 +1127,16 @@ text date {
 
 text ref,
 msContents note ref,
-notesStmt note ref {
+notesStmt note ref,
+correspDesc note ref {
     -oxy-display-tags: none;
     border-bottom: 1px dashed #00C6FF;
 }
 
 text ref[target]:after,
 msContents note ref[target]:after,
-notesStmt note ref[target^="http://"]:after {
+notesStmt note ref[target^="http://"]:after,
+correspDesc note ref[target^="http://"]:after {
     content: " " url('gfx/link.png');
     link: attr(target);
 }

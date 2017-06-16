@@ -17,6 +17,7 @@ CHANGELOG
 UNRELEASED
 
 	FEATURE #8485: Aktion: Verlinkung in "Anmerkungen zum Text"
+	BUGFIX #8475: Darstellung von Verweisen in "Anmerkungen zum Brief"
 
 0.24.0 vom 15.05.2017
 
