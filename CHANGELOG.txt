@@ -14,7 +14,7 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
-UNRELEASED
+0.25.0 vom 16.06.2017
 
     FEATURE #8380: Schlagworte/Themen für Briefe und Dokumente
 	FEATURE #8379: Personenauszeichnung in Handschriftenbeschreibung
@@ -23,8 +23,9 @@ UNRELEASED
     FEATURE #8448: Mehrfache "Anmerkung zum Brief"
 	BUGFIX #8475: Darstellung von Verweisen in "Anmerkungen zum Brief"
 	BUGFIX #7853: Funktion "Auszeichnung löschen" für Firmennamen fehlerhaft
+	BUGFIX #8478: ñ wird falsch ausgespielt
 
-0.24.0 vom 15.05.2016
+0.24.0 vom 15.05.2017
 
 	BUGFIX #7291: Funktion "Sachanmerkung löschen" fehlerhaft
 	BUGFIX #8315: Verweis auf Sachanmerkung verwendet falsches Attribut (@key statt @target)
