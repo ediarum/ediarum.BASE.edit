@@ -10909,7 +10909,7 @@ gap_3</String>
 											<String>ref[hasAttachement]</String>
 										</field>
 										<field name="name">
-											<String>Verweis auf Beilage einfügen</String>
+											<String>Verweis auf Beilage</String>
 										</field>
 										<field name="description">
 											<String>Verlinkung zu einem Brief oder Dokument anlegen, das als Beilage überliefert ist.</String>
@@ -10980,7 +10980,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 											<String>ref[attachedTo]</String>
 										</field>
 										<field name="name">
-											<String>Brief/Dokument als Beilage zu … markieren</String>
+											<String>Brief/Dokument ist Beilage zu ...</String>
 										</field>
 										<field name="description">
 											<String>Verlinkung zu einem Brief oder Dokument anlegen, zu dem vorliegendes Dokument/Brief als Beilage zugeordnet ist.</String>
@@ -11519,18 +11519,6 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 																<String>hi[mPrint]</String>
 															</field>
 														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>ref[hasAttachement]</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>ref[attachedTo]</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Transkription gedruckter Texte</String>
@@ -12199,6 +12187,17 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>ref[URL]</String>
+															</field>
+														</toolbarItem>
+														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[hasAttachement]</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[attachedTo]</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>
