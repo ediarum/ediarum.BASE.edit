@@ -433,7 +433,8 @@ correspContext ref[target^="http://"]:after {
     link: attr(target);
 }
 
-correspDesc note:before {
+/* Anmerkungen zum Brief */
+correspDesc note:before:first-of-type {
     display: block;
     content: "Anmerkungen zum Brief:";
     font-weight: bold;
@@ -443,6 +444,12 @@ correspDesc note {
     display: block;
     -oxy-placeholder-content: "[Hier Anmerkungen zum Brief oder zur Datierung eingeben]";
     -oxy-show-placeholder: always;
+}
+
+correspDesc note:not(:first-of-type) {
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 msDesc[rend="notExtant"] msIdentifier {

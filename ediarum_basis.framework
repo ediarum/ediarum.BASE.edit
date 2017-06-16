@@ -4617,7 +4617,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//correspDesc[not(note)]
+														<String>//correspDesc
 </String>
 													</field>
 													<field name="argValues">

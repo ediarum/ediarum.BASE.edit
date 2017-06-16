@@ -9,7 +9,7 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 
 Framework (Dokumenttyp Zuordnung) für Oxygen XML 
 
-Entwicklung: Stefan Dumont, dumont@bbaw.de
+Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 
 CHANGELOG
 ------------------------------------------------------------------------------------------------
@@ -19,11 +19,12 @@ UNRELEASED
     FEATURE #8380: Schlagworte/Themen für Briefe und Dokumente
 	FEATURE #8379: Personenauszeichnung in Handschriftenbeschreibung
 	FEATURE #8485: Aktion: Verlinkung in "Anmerkungen zum Text"
-	BUGFIX #8475: Darstellung von Verweisen in "Anmerkungen zum Brief"
 	FEATURE #8449: Verlinkung von Beilagen
+    FEATURE #8448: Mehrfache "Anmerkung zum Brief"
+	BUGFIX #8475: Darstellung von Verweisen in "Anmerkungen zum Brief"
 	BUGFIX #7853: Funktion "Auszeichnung löschen" für Firmennamen fehlerhaft
 
-0.24.0 vom 15.05.2017
+0.24.0 vom 15.05.2016
 
 	BUGFIX #7291: Funktion "Sachanmerkung löschen" fehlerhaft
 	BUGFIX #8315: Verweis auf Sachanmerkung verwendet falsches Attribut (@key statt @target)
