@@ -10907,6 +10907,148 @@ gap_3</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>ref[hasAttachement]</String>
+										</field>
+										<field name="name">
+											<String>Verweis auf Beilage</String>
+										</field>
+										<field name="description">
+											<String>Verlinkung zu einem Brief oder Dokument anlegen, das als Beilage überliefert ist.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[parent::correspDesc]
+or ancestor-or-self::note[parent::notesStmt]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>altern. element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='hasAttachment'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='hasAttachment'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>id start prefix</String>
+																<String>start_</String>
+															</entry>
+															<entry>
+																<String>id stop prefix</String>
+																<String>stop_</String>
+															</entry>
+															<entry>
+																<String>id-attribute</String>
+																<String>xml:id</String>
+															</entry>
+															<entry>
+																<String>root-path</String>
+																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+															</entry>
+															<entry>
+																<String>xpath</String>
+																<String>//anchor</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ref[attachedTo]</String>
+										</field>
+										<field name="name">
+											<String>Brief/Dokument ist Beilage zu ...</String>
+										</field>
+										<field name="description">
+											<String>Verlinkung zu einem Brief oder Dokument anlegen, zu dem vorliegendes Dokument/Brief als Beilage zugeordnet ist.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[parent::correspDesc]
+or ancestor-or-self::note[parent::notesStmt]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>altern. element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='attachedTo'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='$FILE_ID' type='attachedTo'>&lt;/ref></String>
+															</entry>
+															<entry>
+																<String>id start prefix</String>
+																<String>start_</String>
+															</entry>
+															<entry>
+																<String>id stop prefix</String>
+																<String>stop_</String>
+															</entry>
+															<entry>
+																<String>id-attribute</String>
+																<String>xml:id</String>
+															</entry>
+															<entry>
+																<String>root-path</String>
+																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+															</entry>
+															<entry>
+																<String>xpath</String>
+																<String>//anchor</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11380,7 +11522,6 @@ gap_3</String>
 																<String>hi[mPrint]</String>
 															</field>
 														</menuItem>
-														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Transkription gedruckter Texte</String>
@@ -12049,6 +12190,17 @@ gap_3</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>ref[URL]</String>
+															</field>
+														</toolbarItem>
+														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[hasAttachement]</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>ref[attachedTo]</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>

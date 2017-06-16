@@ -5,9 +5,15 @@ http://telotadev.bbaw.de/oxygen/updateSite.xml
 ------------------------------------------------------------------------------------------------
 
 ediarum.BASIS 
+<<<<<<< HEAD
 Digitale Arbeitsumgebung für Editionsvorhaben
 
 Framework (Dokumenttyp Zuordnung) für Oxygen XML 
+=======
+Digitale Arbeitsumgebung f?r Editionsvorhaben
+
+Framework (Dokumenttyp Zuordnung) f?r Oxygen XML 
+>>>>>>> t8449
 
 Entwicklung: Stefan Dumont, dumont@bbaw.de
 
@@ -18,36 +24,57 @@ UNRELEASED
 
 	FEATURE #8485: Aktion: Verlinkung in "Anmerkungen zum Text"
 	BUGFIX #8475: Darstellung von Verweisen in "Anmerkungen zum Brief"
+	FEATURE #8449: Verlinkung von Beilagen
 
 0.24.0 vom 15.05.2017
 
-	BUGFIX #7291: Funktion "Sachanmerkung löschen" fehlerhaft
+	BUGFIX #7291: Funktion "Sachanmerkung l?schen" fehlerhaft
 	BUGFIX #8315: Verweis auf Sachanmerkung verwendet falsches Attribut (@key statt @target)
-	BUGFIX #8316: Darstellung im Author-Mode für Streichung entfernt vorhandene Formatierung
+	BUGFIX #8316: Darstellung im Author-Mode f?r Streichung entfernt vorhandene Formatierung
+>>>>>>> t8449
 	FEATURE #6209: Tabelle sichtbar/unsichtbar
 	FEATURE #7339: Bildunterschrift
 	FEATURE #7367: <hi> darf nicht in <idno> erlaubt sein
 	FEATURE #7548: @hand='unknown'
 	FEATURE #7608: Schriftwechsel in Antiqua
+<<<<<<< HEAD
 	FEATURE #7720: Aktion für fette Textstellen
 	FEATURE #7747: <metamark/> in <p/>
 	FEATURE #7833: Erweiterung von @hand in <note/> und <figure/>
 	FEATURE #7910: ediarum für Drucktexte erweitern (Teilimplementierung)
+=======
+	FEATURE #7720: Aktion f?r fette Textstellen
+	FEATURE #7747: <metamark/> in <p/>
+	FEATURE #7833: Erweiterung von @hand in <note/> und <figure/>
+	FEATURE #7910: ediarum f?r Drucktexte erweitern (Teilimplementierung)
+>>>>>>> t8449
 	FEATURE #8201: Aktion: Link auf externe Website
 	FEATURE #8212: Aktion: Textauslassungen: Unwichtig eingestufter Text
 
 0.23.1 vom 09.12.2016
 
+<<<<<<< HEAD
 	* BUGFIX: 7536: Kalliope-URI einfügen
+=======
+	* BUGFIX: 7536: Kalliope-URI einf?gen
+>>>>>>> t8449
 	* BUGFIX: 7501: Copy & Paste
 
 0.23.0 vom 14.11.2016
 
+<<<<<<< HEAD
 	* FEATURE #6441: Lösung für die Kodierung und Beschreibung von Skizzen, Zeichnungen, etc.
 	* FEATURE #6970: Registerfunktionen erweitern
 	* BUGFIX #6179: Cursor-Position bei Arbeit in Autoransicht
 	* BUGFIX #7131: <note/> in <note/>: Einweisungszeichen, Autoransicht
 	* BUGFIX #7132: <note/>: lb soll gesetzt werden können
+=======
+	* FEATURE #6441: L?sung f?r die Kodierung und Beschreibung von Skizzen, Zeichnungen, etc.
+	* FEATURE #6970: Registerfunktionen erweitern
+	* BUGFIX #6179: Cursor-Position bei Arbeit in Autoransicht
+	* BUGFIX #7131: <note/> in <note/>: Einweisungszeichen, Autoransicht
+	* BUGFIX #7132: <note/>: lb soll gesetzt werden k?nnen
+>>>>>>> t8449
 	* BUGFIX #7220: orgName im Register mit Pfeil angezeigt
 	* BUGFIX #7258: 6. Druckvorlage
 	* FEATURE #6167: Werte von @place erweitern
@@ -63,10 +90,17 @@ UNRELEASED
 	* BUGFIX #6780: <TEI xmlns...> in Registerdateien validiert nicht
 	* BUGFIX #6790: Funktion "Register sortieren" funktioniert nicht
 	* BUGFIX #6871: Negative Jahreszahlen validieren nicht
+<<<<<<< HEAD
 	* BUGFIX #6902: Aktion "Absender (Organisation)" überprüfen
 	* BUGFIX #7086: Darstellung hochgestellter Zeichen in der Handschriftenbeschreibung
 	* FEATURE #6323: Auswahlmenü für "Sicherheit der Datierung"
 	* FEATURE #6402: Funktion für die Dokumentation der editorischen Verantwortung
+=======
+	* BUGFIX #6902: Aktion "Absender (Organisation)" ?berpr?fen
+	* BUGFIX #7086: Darstellung hochgestellter Zeichen in der Handschriftenbeschreibung
+	* FEATURE #6323: Auswahlmen? f?r "Sicherheit der Datierung"
+	* FEATURE #6402: Funktion f?r die Dokumentation der editorischen Verantwortung
+>>>>>>> t8449
 	* FEATURE #6599: Dreipunktzeichen in "Symbole" integrieren
 	* FEATURE #7023: Umgang mit leeren Seiten und Faksimiles (Dateinennung und Workflow ediarum)
 	* FEATURE #7198: ediarum.Register: Rolle einer Person bei musischen Werken
@@ -77,28 +111,46 @@ UNRELEASED
 
 0.20.0 vom 05.09.2016
 
+<<<<<<< HEAD
 	* UPDATE 6838: CSS für AvH-R Nebenrechungen
+=======
+	* UPDATE 6838: CSS f?r AvH-R Nebenrechungen
+>>>>>>> t8449
 	* FEATURE 6243: Druckzeugen als Textgrundlage bestimmen
 	* FEATURE #6683: Vorgedruckter Text in Manuskripten
 	* FEATURE #6653: Anmerkungen zum Text 
 	* FEATURE #6396: Textpassage als erledigt markieren
 	* FEATURE #6630: Identifizierung mit persName als unsicher kennzeichnen
 	* FEATURE #6832: Externe Websites in Register <note> verlinken
+<<<<<<< HEAD
 	* FEATURE #6827: Personen, Orte und Organisationen in Registereinträgen verlinken
 	* BUGFIX #6769: Standortangabe funktionsfähig und optimiert
 	* FEATURE #6738: Randstrich kodieren
 	* FEATURE 6211: Absätze in <note>
+=======
+	* FEATURE #6827: Personen, Orte und Organisationen in Registereintr?en verlinken
+	* BUGFIX #6769: Standortangabe funktionsf?ig und optimiert
+	* FEATURE #6738: Randstrich kodieren
+	* FEATURE 6211: Abs?ze in <note>
+>>>>>>> t8449
 
 
 0.19.0 vom 02.08.2016
 
+<<<<<<< HEAD
 	* BUGFIX #6629: Die GeoNames-Funktion funktioniert nicht für Unterorte
 	* FEATURE #6246: Auszeichnungen von kursiven und gesperrten Wörtern in Drucktexten
 	* FEATURE #6639: Erweiterung des Menüpunktes "Symbole"
+=======
+	* BUGFIX #6629: Die GeoNames-Funktion funktioniert nicht f?r Unterorte
+	* FEATURE #6246: Auszeichnungen von kursiven und gesperrten W?rtern in Drucktexten
+	* FEATURE #6639: Erweiterung des Men?punktes "Symbole"
+>>>>>>> t8449
 
 0.18.0 vom 26.07.2016
 
 	* UPDATE #6264: Author-Erweiterung Status Listener
+<<<<<<< HEAD
 	* BUGFIX #6197: Adresse einfügen in Briefen nicht möglich
 	* BUGFIX #6324: Neueinträge in einrichtungen.xml bekommen unvollständiges Markup
 	* BUGFIX  #6326: Benutzung von "Symbole > Bruchzahlen" derzeit unklar
@@ -110,6 +162,19 @@ UNRELEASED
 	* FEATURE #6515: Menü "ediarum" einrichten
 	* FEATURE #6568: <quote> in Sachanmerkung ermöglichen
 	* FEATURE #6609: Tastenkombination für "Zitat" (<quote>)
+=======
+	* BUGFIX #6197: Adresse einf?gen in Briefen nicht m?glich
+	* BUGFIX #6324: Neueintr?e in einrichtungen.xml bekommen unvollst?diges Markup
+	* BUGFIX  #6326: Benutzung von "Symbole > Bruchzahlen" derzeit unklar
+	* BUGFIX  #6567: Register: Norm-ID kann nicht in Unterorte eingef?gt werden
+	* BUGFIX  #6610: Art der Textgrundlage funktioniert nicht in Textsorte "Dokument"
+	* FEATURE #6178: Kodierung f?r Einf?gezeichen
+	* FEATURE #6262: Tabellen-Ausrichtung
+	* FEATURE #6394: Verweise auf externe Quellen
+	* FEATURE #6515: Men? "ediarum" einrichten
+	* FEATURE #6568: <quote> in Sachanmerkung erm?glichen
+	* FEATURE #6609: Tastenkombination f?r "Zitat" (<quote>)
+>>>>>>> t8449
 	* FEATURE #6611: Vorangehender/nachfolgender Briefe optimieren
 
 
