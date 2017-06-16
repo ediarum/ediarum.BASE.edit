@@ -7205,6 +7205,22 @@ or ancestor-or-self::quote</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::orgName</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::orgName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::persName</String>
 													</field>
 													<field name="argValues">
