@@ -14,6 +14,10 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+UNRELEASED
+
+	FEATURE #8485: Aktion: Verlinkung in "Anmerkungen zum Text"
+
 0.24.0 vom 15.05.2017
 
 	BUGFIX #7291: Funktion "Sachanmerkung löschen" fehlerhaft
