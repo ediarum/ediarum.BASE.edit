@@ -3792,7 +3792,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>Briefschluss</String>
 										</field>
 										<field name="description">
-											<String>Briefschluss mit GruÃŸ und Unterschrift</String>
+											<String>Briefschluss mit Gruß und Unterschrift</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -4654,7 +4654,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>Handschrift  oder Abschrift</String>
 										</field>
 										<field name="description">
-											<String>Ã„ndert die Art der Quelle von Handschrift zu Abschrift bzw. anders herum</String>
+											<String>Ändert die Art der Quelle von Handschrift zu Abschrift bzw. anders herum</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -11262,6 +11262,181 @@ gap_3</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>cb_1</String>
+										</field>
+										<field name="name">
+											<String>Spalte</String>
+										</field>
+										<field name="description">
+											<String>Markiert Beginn einer Spalte</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("cb")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;cb xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ der Spalte', combobox, ('':'Normal';'start':'Beginn des Spaltensatzes';'end':'Ende des Spaltensatzes';), '')}" n="${ask('Spaltennummer', generic, '')}"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>cb</String>
+										</field>
+										<field name="name">
+											<String>Spalte</String>
+										</field>
+										<field name="description">
+											<String>Markiert Beginn einer Spalte</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("cb")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>cb_1
+ediarum_remove_empty_attributes</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ediarum_remove_empty_attributes</String>
+										</field>
+										<field name="name">
+											<String>Entfernt leere Attribute</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::cb</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/remove_empty_attributes.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::cb</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::TEI</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>noattribute</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -12283,6 +12458,12 @@ gap_3</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>fw</String>
+															</field>
+														</toolbarItem>
+														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>cb</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>
