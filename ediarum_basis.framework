@@ -11437,6 +11437,52 @@ ediarum_remove_empty_attributes</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>note[foot]</String>
+										</field>
+										<field name="name">
+											<String>Fußnote</String>
+										</field>
+										<field name="description">
+											<String>Fußnote in einem gedruckten Text</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("note")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="${ask('Referenzierendes Zeichen', generic, '')}">&lt;/note></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11890,6 +11936,58 @@ ediarum_remove_empty_attributes</String>
 											</menu>
 											<menu>
 												<field name="label">
+													<String>Transkription gedruckter Texte</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>cb</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>note[foot]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#i]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#b]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#g]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#aq_#fr]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>head_rendition[c]</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
 													<String>Sonderfunktionen</String>
 												</field>
 												<field name="accessKey">
@@ -11910,46 +12008,6 @@ ediarum_remove_empty_attributes</String>
 																<String>hi[mPrint]</String>
 															</field>
 														</menuItem>
-														<menu>
-															<field name="label">
-																<String>Transkription gedruckter Texte</String>
-															</field>
-															<field name="accessKey">
-																<String></String>
-															</field>
-															<field name="iconPath">
-																<String></String>
-															</field>
-															<field name="menuEntriesDescriptorList">
-																<menuEntry-array>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>head_rendition[c]</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>hi[#i]</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>hi[#b]</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>hi[#g]</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>hi[#aq_#fr]</String>
-																		</field>
-																	</menuItem>
-																</menuEntry-array>
-															</field>
-														</menu>
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
@@ -12458,12 +12516,6 @@ ediarum_remove_empty_attributes</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>fw</String>
-															</field>
-														</toolbarItem>
-														<toolbarSeparator/>
-														<toolbarItem>
-															<field name="actionID">
-																<String>cb</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>
