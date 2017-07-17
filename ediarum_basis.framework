@@ -11483,6 +11483,151 @@ ediarum_remove_empty_attributes</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>note[handwritten]_1</String>
+										</field>
+										<field name="name">
+											<String>note-Element (handwritten in printed text)</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::closer</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" type="handwritten" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::closer</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::opener</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"  type="handwritten" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::opener</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"  type="handwritten" place="${ask('Ort der Anmerkung', combobox, ('right':'Anmerkung am rechten Rand';'left':'Anmerkung am linken Rand';'mTop':'Anmerkung am oberen Rand';'mBottom':'Anmerkung am unteren Rand';'inline':'Anmerkung innerhalb der Zeile';), '')}" hand="${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>note[handwritten]</String>
+										</field>
+										<field name="name">
+											<String>Handschriftliche Anmerkung</String>
+										</field>
+										<field name="description">
+											<String>Handschriftliche Anmerkung in einem gedruckten Text</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>note[handwritten]_1
+hand</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -11954,6 +12099,11 @@ ediarum_remove_empty_attributes</String>
 														<menuItem>
 															<field name="actionID">
 																<String>note[foot]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>note[handwritten]</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
