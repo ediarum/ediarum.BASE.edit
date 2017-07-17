@@ -543,14 +543,20 @@ text space {
     -oxy-display-tags: none;
 }
 
-text pb {
+text pb,
+text cb {
     content: "|";
     padding: 0;
     color: black;
     -oxy-display-tags: none;
 }
 
-text pb[n]:after {
+text cb {
+    content: "||";
+}
+
+text pb[n]:after,
+text cb[n]:after {
     content: "(" attr(n) ")";
     font-family: "BBAWfont-italic";
     color: gray;
@@ -818,6 +824,9 @@ text hi[rendition="#g"] {
     -oxy-display-tags: none;
 }
 
+head[rendition='#c'] {
+    text-align: center;
+}
 
 /* Publishers editing */
 quote supplied,
