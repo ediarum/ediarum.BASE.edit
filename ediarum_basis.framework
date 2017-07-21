@@ -12323,7 +12323,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<menuSeparator/>
 											<menu>
 												<field name="label">
-													<String>Allgemein</String>
+													<String>Metadaten</String>
 												</field>
 												<field name="accessKey">
 													<String></String>
@@ -12390,20 +12390,19 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																<String>abstract</String>
 															</field>
 														</menuItem>
-														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>head</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>milestone</String>
-															</field>
-														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>quote</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>notesStmt</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>keyword</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
