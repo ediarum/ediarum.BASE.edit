@@ -17,6 +17,7 @@ CHANGELOG
 UNRELEASED
 
     FEATURE #8636: Auszeichnung von Firmen in Handschriftenbeschreibung
+    FEATURE #8599: Sonderfunktion Einrückung von Absätzen und Listen
 
 0.25.0 vom 16.06.2017
 

@@ -505,6 +505,10 @@ text p[rendition="#mMM"] {
     padding-left: 0.5em;
 }
 
+text p[rendition="#et"], text list[rendition="#et"] {
+    padding-left: 3em;
+}
+
 text lb {
     display: inline;
     -oxy-display-tags: none;            
