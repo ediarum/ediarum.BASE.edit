@@ -14,6 +14,10 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+UNRELEASED
+
+    FEATURE #8636: Auszeichnung von Firmen in Handschriftenbeschreibung
+
 0.25.0 vom 16.06.2017
 
     FEATURE #8380: Schlagworte/Themen für Briefe und Dokumente
