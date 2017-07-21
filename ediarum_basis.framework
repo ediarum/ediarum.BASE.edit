@@ -2389,6 +2389,26 @@ or ancestor-or-self::msContents/p/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::lg[@type='poem']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;head xmlns="http://www.tei-c.org/ns/1.0">&lt;/head></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::lg[@type='poem']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>oxy:allows-child-element("*:head")</String>
 													</field>
 													<field name="argValues">
@@ -2607,10 +2627,10 @@ or ancestor-or-self::quote</String>
 											<String>lg</String>
 										</field>
 										<field name="name">
-											<String>Gedicht bzw. weitere Versgruppe</String>
+											<String>Gedicht / Strophe</String>
 										</field>
 										<field name="description">
-											<String>Fügt eine Textstruktur zum Notieren eines Gedichtes ein bzw. innerhalb eines Gedichtes eine weitere Strophe</String>
+											<String>Fügt eine Textstruktur zum Notieren eines Gedichtes bzw. innerhalb eines Gedichtes eine weitere Strophe ein</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -2628,20 +2648,20 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::lg[@type="versgruppe"]</String>
+														<String>ancestor-or-self::lg[not(@type)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;lg xmlns="http://www.tei-c.org/ns/1.0" type="verse">
+																<String>&lt;lg xmlns="http://www.tei-c.org/ns/1.0" n="${ask('Strophenummer', generic, '')}">
         &lt;l>&lt;/l>
 &lt;/lg>
 </String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::lg[@type="verse"]</String>
+																<String>ancestor-or-self::lg[not(@type)]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -2662,7 +2682,7 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;lg xmlns="http://www.tei-c.org/ns/1.0" type="poem">
-    &lt;lg type="verse">
+    &lt;lg n="${ask('Strophennummer', generic, '')}">
         &lt;l>&lt;/l>
     &lt;/lg>
 &lt;/lg></String>
@@ -2690,7 +2710,7 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;lg xmlns="http://www.tei-c.org/ns/1.0" type="poem">
-    &lt;lg type="verse">
+    &lt;lg n="${ask('Strophennummer', generic, '')}">
         &lt;l>&lt;/l>
     &lt;/lg>
 &lt;/lg></String>
@@ -11724,11 +11744,6 @@ or ancestor-or-self::list[@rendition='#et']</String>
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array>
-											<menuItem>
-												<field name="actionID">
-													<String>p[renditon=#et]</String>
-												</field>
-											</menuItem>
 											<menu>
 												<field name="label">
 													<String>Textstruktur</String>
@@ -11744,6 +11759,16 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<menuItem>
 															<field name="actionID">
 																<String>paragraph</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>lg</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>head</String>
 															</field>
 														</menuItem>
 														<menu>
@@ -12598,11 +12623,6 @@ or ancestor-or-self::list[@rendition='#et']</String>
 									</field>
 									<field name="toolbarEntriesDescriptorList">
 										<toolbarEntry-array>
-											<toolbarItem>
-												<field name="actionID">
-													<String>keyword</String>
-												</field>
-											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
 													<String>paragraph</String>
