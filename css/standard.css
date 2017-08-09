@@ -1099,6 +1099,7 @@ rs[type='term']:after{
 }
 
 persName[cert="low"]:after,
+placeName[cert="low"]:after,
 rs[type='person'][cert="low"]:after {
     content: " " url('gfx/link.png')"(?)";
 }

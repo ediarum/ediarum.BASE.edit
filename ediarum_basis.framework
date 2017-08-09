@@ -6056,6 +6056,62 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>self::placeName[not(@cert) and parent::correspAction]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/setCert.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::placeName</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>self::placeName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::persName[not(@cert) and parent::correspAction]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/setCert.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::persName</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>self::persName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::persName[not(@cert)]</String>
 													</field>
 													<field name="argValues">
@@ -6105,7 +6161,7 @@ or ancestor-or-self::quote</String>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 									<action>
@@ -9748,6 +9804,62 @@ or ancestor-or-self::notesStmt/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>self::placeName[@cert='low' and parent::correspAction]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/setCert.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::placeName</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>self::placeName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::persName[@cert='low' and parent::correspAction]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/setCert.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::persName</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>self::persName</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::persName[@cert="low"]</String>
 													</field>
 													<field name="argValues">
@@ -9797,7 +9909,7 @@ or ancestor-or-self::notesStmt/note</String>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 									<action>
