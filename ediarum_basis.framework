@@ -11841,6 +11841,56 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>idno</String>
+										</field>
+										<field name="name">
+											<String>Briefnummer für gedruckte Edition</String>
+										</field>
+										<field name="description">
+											<String>Briefnummer für gedruckte Edition vergeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::TEI//correspDesc</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;idno xmlns="http://www.tei-c.org/ns/1.0">${ask('Briefnummer eingeben', generic, '')}&lt;/idno></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//titleStmt/title</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -12610,6 +12660,12 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<menuItem>
 															<field name="actionID">
 																<String>correspContext_ref[text+URL]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>idno</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
