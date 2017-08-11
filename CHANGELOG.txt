@@ -14,6 +14,17 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.26.0 vom 11.08.2017
+
+	FEATURE #8310: Nummerierung der Briefe für print-Ausgabe
+	FEATURE #8493: @cert in Korrespondenz-Metadaten
+	FEATURE #8492: Gedicht/Strophe (lg) im Menü verfügbar
+	FEATURE #7910: ediarum für Drucktexte
+	FEATURE #8636: Auszeichnung von Firmen in Handschriftenbeschreibung
+    FEATURE #8599: Sonderfunktion Einrückung von Absätzen und Listen
+	FEATURE #8653: Rearrangieren der Menüs "Allgemein" und "Brieftext"
+	UPDATE #8703: Update ediarum.jar auf Version 2.2.0    
+
 0.25.0 vom 16.06.2017
 
     FEATURE #8380: Schlagworte/Themen für Briefe und Dokumente
