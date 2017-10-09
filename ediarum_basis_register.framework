@@ -3207,7 +3207,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;bibl xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Art der Publikation', combobox, ('journal':'Zeitschrift';'edited_volumen':'Sammelband';), 'journal')}" xml:id="ed_${id}">
-  &lt;title>${ask('Titel der Zeitschrift bzw. des Sammelbandes', generic, '')}&lt;/title>  
+  &lt;title type="reg">${ask('Titel der Zeitschrift bzw. des Sammelbandes', generic, '')}&lt;/title>  
 &lt;/bibl></String>
 															</entry>
 															<entry>
@@ -4534,6 +4534,64 @@ general_ptr_2</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>bibl_title_alt</String>
+										</field>
+										<field name="name">
+											<String>Alternativer Titel (Zeitschrift)</String>
+										</field>
+										<field name="description">
+											<String>Weiteren/alternativen Titel hinzufügen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::bibl[@type="journal"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;title type="alt" xmlns="http://www.tei-c.org/ns/1.0">${ask('Weiterer Titel für Zeitschrift:', generic, '')}&lt;/title></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::bibl[@type="journal"]/title</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>false</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -4684,6 +4742,11 @@ general_ptr_2</String>
 									</field>
 									<field name="toolbarEntriesDescriptorList">
 										<toolbarEntry-array>
+											<toolbarItem>
+												<field name="actionID">
+													<String>bibl_title_alt</String>
+												</field>
+											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
 													<String>general_new_entry</String>
@@ -4893,6 +4956,11 @@ general_ptr_2</String>
 															</field>
 														</toolbarItem>
 														<toolbarSeparator/>
+														<toolbarItem>
+															<field name="actionID">
+																<String>bibl_title_alt</String>
+															</field>
+														</toolbarItem>
 														<toolbarItem>
 															<field name="actionID">
 																<String>bibl_author</String>
