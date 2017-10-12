@@ -4744,11 +4744,6 @@ general_ptr_2</String>
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
-													<String>bibl_title_alt</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
 													<String>general_new_entry</String>
 												</field>
 											</toolbarItem>
