@@ -12303,6 +12303,156 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>profileDesc_creation_orgName</String>
+										</field>
+										<field name="name">
+											<String>Autor des Manuskripts (Organisation)</String>
+										</field>
+										<field name="description">
+											<String>Fügt eine Insitution als Urheber des Manuskripts ein</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc/creation and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/creation</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;orgName key='" + @xml:id + "' >" + /span +"&lt;/orgName>&lt;/creation>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//profileDesc) and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;orgName key='" + @xml:id + "' >" + /span +"&lt;/orgName>&lt;/creation>&lt;/profileDesc>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//fileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -12936,6 +13086,11 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<menuItem>
 															<field name="actionID">
 																<String>profileDesc_creation_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_creation_orgName</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -13738,6 +13893,11 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>profileDesc_creation_persName</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>profileDesc_creation_orgName</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
