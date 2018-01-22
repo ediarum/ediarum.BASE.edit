@@ -1323,7 +1323,32 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//teiHeader/profileDesc[not(correspDesc) and not(abstract)]</String>
+														<String>//teiHeader/profileDesc[creation and not(abstract)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;abstract xmlns="http://www.tei-c.org/ns/1.0">&lt;p>&lt;/p>&lt;/abstract>
+</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/creation</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//teiHeader/profileDesc[not(abstract)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
