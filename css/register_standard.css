@@ -273,10 +273,16 @@ bibl persName[key] {
     color: #465E7A;
 }
 
-title {
+title, title[type='reg'] {
     display: block;
     font-weight: bold;
     -oxy-placeholder-content: "Publikationstitel";
+}
+
+title[type='alt'] {
+    display: block;
+    font-style: italic;
+    font-weight: normal;
 }
 
 bibl date {
