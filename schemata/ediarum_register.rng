@@ -610,6 +610,14 @@
                     </element>
                 </zeroOrMore>
                 <zeroOrMore>
+                    <element name="bibl">
+                        <attribute name="sameAs">
+                            <text/>
+                        </attribute>
+                        <text/>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
                     <ref name="ref"/>
                 </zeroOrMore>
             </interleave>
