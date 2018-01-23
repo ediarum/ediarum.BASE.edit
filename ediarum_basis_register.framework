@@ -4536,6 +4536,80 @@ general_ptr_2</String>
 									</action>
 									<action>
 										<field name="id">
+											<String>general_bibl_zotero</String>
+										</field>
+										<field name="name">
+											<String>Literaturtitel (Zotero) verlinken</String>
+										</field>
+										<field name="description">
+											<String>Literaturtitel mit Zotero-Register verknüpfen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;bibl xmlns="http://www.tei-c.org/ns/1.0" sameAs='$ITEMS'>&lt;/bibl></String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/tei:span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:item</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>bibl_title_alt</String>
 										</field>
 										<field name="name">
@@ -4673,6 +4747,11 @@ general_ptr_2</String>
 											</menuItem>
 											<menuItem>
 												<field name="actionID">
+													<String>general_bibl_zotero</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
 													<String>ref[URL]</String>
 												</field>
 											</menuItem>
@@ -4792,6 +4871,11 @@ general_ptr_2</String>
 														<toolbarItem>
 															<field name="actionID">
 																<String>general_orgName</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>general_bibl_zotero</String>
 															</field>
 														</toolbarItem>
 														<toolbarItem>

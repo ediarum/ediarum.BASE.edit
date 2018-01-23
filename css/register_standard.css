@@ -116,7 +116,11 @@ linkGrp ref[target] {
 note ref[target],
 note persName,
 note orgName,
-note placeName {
+note placeName,
+note bibl {
+    display: inline;
+    padding: 0;
+    border: 0;
     color: #465E7A;
     -oxy-display-tags: none;
 } 
@@ -124,7 +128,8 @@ note placeName {
 note ref[target]:after,
 note persName:after,
 note orgName:after,
-note placeName:after {
+note placeName:after,
+note bibl:after {
     content: " " url('gfx/link.png');
 }
 
@@ -142,6 +147,11 @@ note orgName[key]:after {
 
 note placeName[key]:after {
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
+}
+
+
+note bibl[sameAs]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(sameAs);
 }
 
 
