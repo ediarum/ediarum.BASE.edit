@@ -7628,7 +7628,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0" n="${ask('Folio bzw. Seitenzahl')}" facs="${ask('URL des Digitalisats', url, '')}" /></String>
+																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0" n="${ask('Folio bzw. Seitenzahl')}" facs="${ask('URL des Digitalisats', generic, '')}" /></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
