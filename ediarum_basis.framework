@@ -9603,7 +9603,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl shift DEAD_CIRCUMFLEX</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -9615,7 +9615,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';), '&amp;#x00A3;')}</String>
+																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';'&amp;#x2032;':'′';'&amp;#x2033;':'″';'&amp;#x2034;':'‴';), '&amp;#x00A3;')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
