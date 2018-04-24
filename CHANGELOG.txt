@@ -14,6 +14,17 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+0.27.0 vom 24.04.2018
+
+	FEATURE #8672: Werktitel aus Zotero in Kommentar eines Personenregistereintrags verlinken
+	FEATURE #9589: Author-Funktion für Notation von Minuten-Zeichen
+	BUGFIX #9245: Schema lässt abstract als first child nicht zu
+	BUGFIX #9313: Fehler im Autormodus, Registerfunktion, Anaphern:
+	BUGFIX #9426: Funktion "Folio mit Link zum Digitalisat" produziert Fehler
+	FEATURE #8724: Schaltfläche zum Handbuch
+	FEATURE #8859: Dokument: Institution als Autor
+	FEATURE #8942: Alternative Titel für Zeitschriften/Periodika	
+	
 0.26.0 vom 11.08.2017
 
 	FEATURE #8310: Nummerierung der Briefe für print-Ausgabe

@@ -127,45 +127,28 @@
                         <optional>
                             <ref name="idno"/>
                         </optional>
-                        <oneOrMore>
+                        <element name="persName">
+                            <attribute name="type">
+                                <value>reg</value>
+                            </attribute>
+                            <ref name="content_persName"/>
+                        </element>
+                        <zeroOrMore>
                             <element name="persName">
-                                <choice>
-                                    <group>
-                                        <attribute name="type">
-                                            <value>reg</value>
-                                        </attribute>
-                                    </group>
-                                    <group>
-                                        <attribute name="type">
-                                            <value>alt</value>
-                                        </attribute>
-                                        <optional>
-                                            <attribute name="subtype">
-                                                <choice>
-                                                  <value>birthname</value>
-                                                  <value>pseudonym</value>
-                                                </choice>
-                                            </attribute>
-                                        </optional>
-                                    </group>
-                                </choice>
-                                <choice>
-                                    <group>
-                                        <element name="name">
-                                            <text/>
-                                        </element>
-                                    </group>
-                                    <group>
-                                        <element name="surname">
-                                            <text/>
-                                        </element>
-                                        <element name="forename">
-                                            <text/>
-                                        </element>
-                                    </group>
-                                </choice>
+                                <attribute name="type">
+                                    <value>alt</value>
+                                </attribute>
+                                <optional>
+                                    <attribute name="subtype">
+                                        <choice>
+                                          <value>birthname</value>
+                                          <value>pseudonym</value>
+                                        </choice>
+                                    </attribute>
+                                </optional>
+                                <ref name="content_persName"/>
                             </element>
-                        </oneOrMore>
+                        </zeroOrMore>
                         <optional>
                             <choice>
                                 <group>
@@ -397,6 +380,11 @@
         <attribute name="xml:id">
             <data type="ID"/>
         </attribute>
+        <optional>
+            <attribute name="oldID">
+                <text/>    
+            </attribute>
+        </optional>
     </define>
     <define name="idno">
         <element name="idno">
@@ -622,6 +610,14 @@
                     </element>
                 </zeroOrMore>
                 <zeroOrMore>
+                    <element name="bibl">
+                        <attribute name="sameAs">
+                            <text/>
+                        </attribute>
+                        <text/>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
                     <ref name="ref"/>
                 </zeroOrMore>
             </interleave>
@@ -640,5 +636,22 @@
                 </choice>
             </attribute>
         </optional>
+    </define>
+    <define name="content_persName">
+        <choice>
+            <group>
+                <element name="name">
+                    <text/>
+                </element>
+            </group>
+            <group>
+                <element name="surname">
+                    <text/>
+                </element>
+                <element name="forename">
+                    <text/>
+                </element>
+            </group>
+        </choice>
     </define>
 </grammar>

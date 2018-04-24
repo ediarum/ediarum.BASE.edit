@@ -302,6 +302,7 @@ profileDesc creation placeName:after {
 
 /* Abstract (Regest) */
 physDesc,
+creation,
 correspDesc,
 profileDesc abstract,
 correspDesc note,
@@ -1080,6 +1081,7 @@ orgName,
 placeName,
 bibl,
 rs[type='person'],
+rs[type='org'],
 rs[type='place'],
 rs[type='bibl'],
 rs[type='term'] {
@@ -1092,6 +1094,7 @@ orgName:after,
 placeName:after,
 bibl:after,
 rs[type='person']:after,
+rs[type='org']:after,
 rs[type='place']:after,
 rs[type='bibl']:after,
 rs[type='term']:after{

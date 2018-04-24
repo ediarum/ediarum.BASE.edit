@@ -1323,7 +1323,32 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//teiHeader/profileDesc[not(correspDesc) and not(abstract)]</String>
+														<String>//teiHeader/profileDesc[creation and not(abstract)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;abstract xmlns="http://www.tei-c.org/ns/1.0">&lt;p>&lt;/p>&lt;/abstract>
+</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/creation</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//teiHeader/profileDesc[not(abstract)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -7603,7 +7628,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0" n="${ask('Folio bzw. Seitenzahl')}" facs="${ask('URL des Digitalisats', url, '')}" /></String>
+																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0" n="${ask('Folio bzw. Seitenzahl')}" facs="${ask('URL des Digitalisats', generic, '')}" /></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -7919,7 +7944,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;rs xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ', combobox, ('person':'Person';'place':'Ort';'bibl':'Werk';), 'person')}">&lt;/rs></String>
+																<String>&lt;rs xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ', combobox, ('person':'Person';'org':'Institution';'place':'Ort';'term':'Sachbegriff';'bibl-zotero':'Literaturtitel (Zotero)';'bibl':'Literaturtitel';), 'person')}">&lt;/rs></String>
 															</entry>
 															<entry>
 																<String>schemaAware</String>
@@ -7968,16 +7993,328 @@ or ancestor-or-self::quote</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>elementLocation</String>
-																<String></String>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
 															</entry>
 															<entry>
-																<String>name</String>
+																<String>attribute name</String>
 																<String>key</String>
 															</entry>
 															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::tei:rs[@type='person']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type='org']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::tei:rs[@type='org']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type='term']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_item}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::tei:rs[@type='term']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type='bibl-zotero']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/tei:span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:item</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::tei:rs[@type='bibl-zotero']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type='bibl']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::tei:rs[@type='bibl']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type='place']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_place}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::tei:rs[@type='place']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>notExistant</String>
+															</entry>
+															<entry>
 																<String>value</String>
-																<String>${ask('Message', generic, 'default_value')}</String>
+																<String></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7988,7 +8325,7 @@ or ancestor-or-self::quote</String>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
-											<Boolean>false</Boolean>
+											<Boolean>true</Boolean>
 										</field>
 									</action>
 									<action>
@@ -8024,7 +8361,8 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>rs_eins
-rs_zwei</String>
+rs_zwei
+rs_drei</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9265,7 +9603,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl shift DEAD_CIRCUMFLEX</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -9277,7 +9615,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';), '&amp;#x00A3;')}</String>
+																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';'&amp;#x2032;':'′';'&amp;#x2033;':'″';'&amp;#x2034;':'‴';), '&amp;#x00A3;')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -11891,6 +12229,276 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>rs_drei</String>
+										</field>
+										<field name="name">
+											<String>Cleaner</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rs[@type='bibl-zotero']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs[@type='bibl-zotero']</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>type</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>bibl</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rs</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>notExistant</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>profileDesc_creation_orgName</String>
+										</field>
+										<field name="name">
+											<String>Autor des Manuskripts (Organisation)</String>
+										</field>
+										<field name="description">
+											<String>Fügt eine Insitution als Urheber des Manuskripts ein</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc/creation and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/creation</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;orgName key='" + @xml:id + "' >" + /span +"&lt;/orgName>&lt;/creation>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//profileDesc) and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>"&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;orgName key='" + @xml:id + "' >" + /span +"&lt;/orgName>&lt;/creation>&lt;/profileDesc>"</String>
+															</entry>
+															<entry>
+																<String>expression</String>
+																<String>/span</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//fileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ediarum_manual</String>
+										</field>
+										<field name="name">
+											<String>Handbuch</String>
+										</field>
+										<field name="description">
+											<String>ediarum-Handbuch online aufrufen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_manual_url}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.OpenURLOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -12524,6 +13132,11 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<menuItem>
 															<field name="actionID">
 																<String>profileDesc_creation_persName</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_creation_orgName</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -13326,6 +13939,11 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>profileDesc_creation_persName</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>profileDesc_creation_orgName</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
