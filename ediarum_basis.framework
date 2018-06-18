@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="17.1" xml:space="preserve">
+<serialized version="20.0" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -4802,15 +4802,11 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/placeName>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -4821,13 +4817,17 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 																<String>Before</String>
 															</entry>
 															<entry>
+																<String>item rendering</String>
+																<String>/span</String>
+															</entry>
+															<entry>
 																<String>node</String>
 																<String>//li</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -4842,11 +4842,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/placeName>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -4857,13 +4853,17 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 																<String>Inside as last child</String>
 															</entry>
 															<entry>
+																<String>item rendering</String>
+																<String>/span</String>
+															</entry>
+															<entry>
 																<String>node</String>
 																<String>//li</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -12576,6 +12576,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menu>
 															<field name="label">
@@ -12600,6 +12603,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																		</field>
 																	</menuItem>
 																</menuEntry-array>
+															</field>
+															<field name="context">
+																<null/>
 															</field>
 														</menu>
 														<menu>
@@ -12685,6 +12691,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menuItem>
 															<field name="actionID">
@@ -12725,8 +12734,14 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -12768,6 +12783,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -12797,6 +12815,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -12876,6 +12897,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menu>
 															<field name="label">
@@ -12906,6 +12930,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menuItem>
 															<field name="actionID">
@@ -12918,6 +12945,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -12974,6 +13004,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13032,6 +13065,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -13089,6 +13125,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menuSeparator/>
@@ -13182,6 +13221,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13284,6 +13326,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -13329,8 +13374,14 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 										</menuEntry-array>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -13400,6 +13451,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												</field>
 											</menuItem>
 										</menuEntry-array>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -14220,16 +14274,28 @@ or ancestor-or-self::list[@rendition='#et']</String>
 							<field name="tableSupportClassName">
 								<null/>
 							</field>
+							<field name="tableCellSeparatorSupportClassName">
+								<null/>
+							</field>
 							<field name="tableColWidthSupportClassName">
 								<null/>
 							</field>
 							<field name="customReferencesResolver">
 								<null/>
 							</field>
+							<field name="editPropertiesHandler">
+								<null/>
+							</field>
 							<field name="authorExtensionStateListener">
 								<null/>
 							</field>
 							<field name="attributesRecognizer">
+								<null/>
+							</field>
+							<field name="authorActionEventHandler">
+								<null/>
+							</field>
+							<field name="authorImageDecorator">
 								<null/>
 							</field>
 						</authorExtension>
@@ -14358,6 +14424,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14376,6 +14445,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14398,6 +14470,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14418,6 +14493,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14436,6 +14514,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14593,6 +14674,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14611,6 +14695,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14633,6 +14720,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14653,6 +14743,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14671,6 +14764,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14828,6 +14924,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14846,6 +14945,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14868,6 +14970,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14888,6 +14993,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14906,6 +15014,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -15083,6 +15194,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 						<null/>
 					</field>
 					<field name="customAttributeValueEditor">
+						<null/>
+					</field>
+					<field name="textModeExternalObjectInsertionHandler">
 						<null/>
 					</field>
 				</documentTypeDescriptor>
