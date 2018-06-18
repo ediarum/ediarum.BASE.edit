@@ -10466,15 +10466,11 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -10485,17 +10481,17 @@ and not(//witness[@select])</String>
 																<String>After</String>
 															</entry>
 															<entry>
-																<String>node</String>
-																<String>//li</String>
+																<String>item rendering</String>
+																<String>/span</String>
 															</entry>
 															<entry>
-																<String>schemaAware</String>
-																<String>true</String>
+																<String>node</String>
+																<String>//li</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -10506,36 +10502,28 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
 																<String>//correspDesc/correspAction[@type="received"]</String>
 															</entry>
 															<entry>
-																<String>insertPosition</String>
-																<String>Inside as first child</String>
+																<String>item rendering</String>
+																<String>/span</String>
 															</entry>
 															<entry>
 																<String>node</String>
 																<String>//li</String>
 															</entry>
-															<entry>
-																<String>schemaAware</String>
-																<String>true</String>
-															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
