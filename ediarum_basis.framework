@@ -26,6 +26,7 @@
 							<String>${framework}/tei.jar</String>
 							<String>${framework}/resources/</String>
 							<String>${framework}/ediarum.jar</String>
+							<String>${framework}/ediarum2018.jar</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
@@ -830,7 +831,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'Gregorianischer';'#Julian':'Julianischer';), '#Gregorian')}" /></String>
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'Gregorianischer';'#Julian':'Julianischer';), '#Gregorian')}">&lt;/date></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
