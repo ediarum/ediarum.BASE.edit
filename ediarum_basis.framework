@@ -10470,11 +10470,11 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName></String>
+																<String>$ITEMS</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>//correspDesc/correspAction[@type="received"]/(orgName|persName)</String>
+																<String>//correspDesc/correspAction[@type="received"]/(persName|orgName)</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -10482,7 +10482,23 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>/span</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
@@ -10506,7 +10522,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/orgName></String>
+																<String>$ITEMS</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -10514,7 +10530,23 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>/span</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
