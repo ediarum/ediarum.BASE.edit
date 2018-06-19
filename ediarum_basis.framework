@@ -8766,36 +8766,44 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='" + @xml:id + "' >" + /span +"&lt;/persName>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>$ITEMS</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
 																<String>//profileDesc/creation</String>
 															</entry>
 															<entry>
-																<String>insertPosition</String>
-																<String>Inside as first child</String>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
 																<String>//li</String>
 															</entry>
-															<entry>
-																<String>schemaAware</String>
-																<String>true</String>
-															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8806,36 +8814,44 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;persName key='" + @xml:id + "' >" + /span +"&lt;/persName>&lt;/creation>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>$ITEMS</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
 																<String>//profileDesc</String>
 															</entry>
 															<entry>
-																<String>insertPosition</String>
-																<String>Inside as first child</String>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;persName key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName>&lt;/creation></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
 																<String>//li</String>
 															</entry>
-															<entry>
-																<String>schemaAware</String>
-																<String>true</String>
-															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8846,15 +8862,11 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;persName key='" + @xml:id + "' >" + /span +"&lt;/persName>&lt;/creation>&lt;/profileDesc>"</String>
-															</entry>
-															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>$ITEMS</String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -8865,17 +8877,33 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 																<String>After</String>
 															</entry>
 															<entry>
-																<String>node</String>
-																<String>//li</String>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
 															</entry>
 															<entry>
-																<String>schemaAware</String>
-																<String>true</String>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;persName key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName>&lt;/creation>&lt;/profileDesc></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterAtOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -12552,7 +12580,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName>&lt;/creation>
+																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;orgName  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName>&lt;/creation>
 </String>
 															</entry>
 															<entry>
