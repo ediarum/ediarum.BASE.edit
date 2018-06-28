@@ -2271,7 +2271,7 @@ or ancestor-or-self::msContents/p/note</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -2280,14 +2280,6 @@ or ancestor-or-self::msContents/p/note</String>
 															<entry>
 																<String>expression</String>
 																<String>/span</String>
-															</entry>
-															<entry>
-																<String>footer</String>
-																<String>"&lt;anchor xmlns='http://www.tei-c.org/ns/1.0' xml:id='${id}' />"</String>
-															</entry>
-															<entry>
-																<String>header</String>
-																<String>"&lt;index xmlns='http://www.tei-c.org/ns/1.0' spanTo='${id}' indexName='personen' corresp='" + @id + "'>&lt;term xmlns='http://www.tei-c.org/ns/1.0'>" + /name + ", " + /vorname + "&lt;/term>&lt;/index>"</String>
 															</entry>
 															<entry>
 																<String>id</String>
@@ -2300,7 +2292,7 @@ or ancestor-or-self::msContents/p/note</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertIndexOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithDifferentFragmentsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
