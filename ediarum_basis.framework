@@ -8187,7 +8187,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -8208,10 +8208,6 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>item variable</String>
 																<String>$XPATH{@xml:id}</String>
-															</entry>
-															<entry>
-																<String>multiple selection</String>
-																<String>true</String>
 															</entry>
 															<entry>
 																<String>namespaces</String>
@@ -8228,7 +8224,7 @@ or ancestor-or-self::quote</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8239,7 +8235,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -8260,10 +8256,6 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>item variable</String>
 																<String>$XPATH{@xml:id}</String>
-															</entry>
-															<entry>
-																<String>multiple selection</String>
-																<String>true</String>
 															</entry>
 															<entry>
 																<String>namespaces</String>
@@ -8280,7 +8272,7 @@ or ancestor-or-self::quote</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8291,7 +8283,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_item}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_item}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -8314,10 +8306,6 @@ or ancestor-or-self::quote</String>
 																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
-																<String>multiple selection</String>
-																<String>true</String>
-															</entry>
-															<entry>
 																<String>namespaces</String>
 																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
@@ -8332,7 +8320,7 @@ or ancestor-or-self::quote</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8343,7 +8331,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -8366,10 +8354,6 @@ or ancestor-or-self::quote</String>
 																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
-																<String>multiple selection</String>
-																<String>true</String>
-															</entry>
-															<entry>
 																<String>namespaces</String>
 																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
@@ -8384,7 +8368,7 @@ or ancestor-or-self::quote</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8395,7 +8379,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -8416,10 +8400,6 @@ or ancestor-or-self::quote</String>
 															<entry>
 																<String>item variable</String>
 																<String>$XPATH{@xml:id}</String>
-															</entry>
-															<entry>
-																<String>multiple selection</String>
-																<String>true</String>
 															</entry>
 															<entry>
 																<String>namespaces</String>
@@ -8436,7 +8416,7 @@ or ancestor-or-self::quote</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -8447,7 +8427,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -8470,10 +8450,6 @@ or ancestor-or-self::quote</String>
 																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
-																<String>multiple selection</String>
-																<String>true</String>
-															</entry>
-															<entry>
 																<String>namespaces</String>
 																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
@@ -8488,7 +8464,7 @@ or ancestor-or-self::quote</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -10072,7 +10048,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -10095,10 +10071,6 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
-																<String>multiple selection</String>
-																<String>false</String>
-															</entry>
-															<entry>
 																<String>namespaces</String>
 																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
@@ -10113,7 +10085,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemAttributeOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -10127,7 +10099,7 @@ or ancestor-or-self::notesStmt/note</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -10146,10 +10118,6 @@ or ancestor-or-self::notesStmt/note</String>
 																<String>$XPATH{@xml:id}</String>
 															</entry>
 															<entry>
-																<String>multiple selection</String>
-																<String>false</String>
-															</entry>
-															<entry>
 																<String>namespaces</String>
 																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
@@ -10160,7 +10128,7 @@ or ancestor-or-self::notesStmt/note</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertListItemOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
