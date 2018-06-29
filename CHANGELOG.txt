@@ -23,6 +23,7 @@ CHANGELOG
 	FEATURE #9309: Option @reason='covered' ergänzen
 	FEATURE #9309: Reihenfolge für Aktion gap otpimiert
 	BUGFIX #9309: @reason='illegible' in del-gap ergänzen
+	BUGFIX #10086: Alternativer Name in Unterort
 
 0.27.0 vom 24.04.2018
 
