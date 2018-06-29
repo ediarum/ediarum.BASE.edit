@@ -1834,7 +1834,7 @@ or ancestor-or-self::notesStmt/note</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0" rendition="#s">&lt;gap quantity="${ask('Anzahl der nicht lesbaren Wörter', generic, '1')}" unit="words" />&lt;/del>${caret}</String>
+																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0" rendition="#s">&lt;gap reason="illegible" quantity="${ask('Anzahl der nicht lesbaren Wörter', generic, '1')}" unit="words" />&lt;/del>${caret}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
