@@ -19,6 +19,7 @@ CHANGELOG
     BREAKING CHANGE: Neue editor variable ${ediarum_projects_directory}
     UPDATE #10121: Neue ediarum.jar
     UPDATE #10121: Migrieren von alten zu den neuen Registeraktionen
+	BUGFIX #10009: Link-Funktion für ref/@target
 
 0.27.0 vom 24.04.2018
 
