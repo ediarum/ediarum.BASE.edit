@@ -14,6 +14,12 @@ Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+1.0.0 [in Arbeit]
+
+    BREAKING CHANGE: Neue editor variable ${ediarum_projects_directory}
+    UPDATE #10121: Neue ediarum.jar
+    UPDATE #10121: Migrieren von alten zu den neuen Registeraktionen
+
 0.27.0 vom 24.04.2018
 
 	FEATURE #8672: Werktitel aus Zotero in Kommentar eines Personenregistereintrags verlinken
