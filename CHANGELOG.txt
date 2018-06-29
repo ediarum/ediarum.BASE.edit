@@ -20,6 +20,9 @@ CHANGELOG
     UPDATE #10121: Neue ediarum.jar
     UPDATE #10121: Migrieren von alten zu den neuen Registeraktionen
 	BUGFIX #10009: Link-Funktion für ref/@target
+	FEATURE #9309: Option @reason='covered' ergänzen
+	FEATURE #9309: Reihenfolge für Aktion gap otpimiert
+	BUGFIX #9309: @reason='illegible' in del-gap ergänzen
 
 0.27.0 vom 24.04.2018
 
