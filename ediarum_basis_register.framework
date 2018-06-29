@@ -1271,7 +1271,7 @@
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>ancestor-or-self::place/placeName[@type="reg"]</String>
+																<String>ancestor-or-self::place[1]/placeName[@type="reg"]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
