@@ -1,0 +1,120 @@
+/* 
+Copyright 2013 Berlin-Brandenburg Academy of Sciences and Humanities
+
+This file is part of ediarum.BASE.
+
+ediarum.BASE is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ediarum.BASE is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@import url("standard.css");
+
+/* nur Abweichungen */
+
+text index {
+    display: none;
+}
+
+text anchor[type="index"] {
+    display: none;
+}
+
+text index term {
+    display: none;
+}
+
+text persName:after,
+text placeName:after,
+text bibl:after {
+    display: none;
+}
+
+text persName,
+text placeName,
+text bibl {
+    background-color: transparent;
+    color: black;
+}
+
+text bibl {
+    font-style: normal;
+}
+
+text anchor[type="verweisziel"] {
+    display: none;
+}
+
+text sic {
+    color: black;
+}
+
+text supplied {
+    font-style: normal;
+    background-color: white;    
+}
+
+text supplied[cert="low"]:before {
+    display: none;
+}
+
+text surplus {
+    text-decoration: none;
+    color: black;
+}
+
+text corr {
+    font-style: normal;
+    color: black;
+}
+
+text corr[cert="high"]:before {
+    display: none;
+}
+
+text corr[cert="low"]:before {
+    display: none;
+}
+
+text corr[cert="low"] {
+    color: black;
+}
+
+text del {
+    display: none;
+}
+
+text add {
+    color: black;
+}
+
+text hi[rendition="#u"] {
+    text-decoration: none;
+}
+
+text gap,
+text unclear {
+    background-color: white;
+}
+
+text gap:after,
+text unclear:after {
+    background-color: white;
+}
+
+text gap {
+    content: "   ";
+}
+
+text ex {
+    font-style: italic;
+}
