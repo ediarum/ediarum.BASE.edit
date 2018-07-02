@@ -1954,7 +1954,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>oxy:allows-child-element("date")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
