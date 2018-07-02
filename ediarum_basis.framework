@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="17.1" xml:space="preserve">
+<serialized version="20.0" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -155,13 +155,13 @@ or ancestor-or-self::quote</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;ex xmlns="http://www.tei-c.org/ns/1.0" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -202,13 +202,13 @@ or ancestor-or-self::quote</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Art der Unterstreichung', combobox, ('#u':'Einfach unterstrichen';'#uu':'Doppelt unterstrichen';'#mMM':'Am Rand angestrichen';), '#u')}"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -645,6 +645,22 @@ or ancestor-or-self::quote</String>
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Art der Streichung', combobox, ('#ow':'Tilgung durch Überschreibung des ursprünglichen Textes';'#s':'Tilgung durch Streichung';'#erased':'Tilgung durch Radieren';), '#s')}">&lt;/del></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -739,6 +755,23 @@ or ancestor-or-self::quote</String>
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund der unsicheren Lesung', combobox, ('illegible':'unleserlich';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';), 'illegible')}" cert="${ask('Wahrscheinlichkeit dass Lesart zutrifft', combobox, ('high':'hohe Sicherheit der Lesart';'low':'geringe Sicherheit der Lesart';), '')}" /></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -830,13 +863,13 @@ or ancestor-or-self::quote</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('Datum im Format JJJJ-MM-TT')}" calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'Gregorianischer';'#Julian':'Julianischer';), '#Gregorian')}">&lt;/date></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -876,13 +909,13 @@ or ancestor-or-self::quote</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="${ask('Art der Hinzufügung', combobox, ('superlinear':'über der Zeile eingetragen';'sublinear':'unter der Zeile eingetragen';'intralinear':'innerhalb der Zeile eingetragen';'across':'über den ursprünglichen Text geschrieben';'left':'am linken Rand eingetragen';'right':'am rechten Rand eingetragen';'mTop':'am oberen Rand eingetragen';'mBottom':'am unteren Rand eingetragen';), 'intralinear')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1015,13 +1048,13 @@ hand</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;damage xmlns="http://www.tei-c.org/ns/1.0" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1213,13 +1246,13 @@ or ancestor-or-self::quote</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0" cert="${ask('Wahrscheinlichkeit dass Ergänzung zutrifft', combobox, ('high':'hoch'; 'low':'niedrig';))}">&lt;/supplied></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1879,14 +1912,14 @@ or ancestor-or-self::notesStmt/note</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" from="${ask('Anfangsdatum im Format JJJJ-MM-TT')}" to="${ask('Endatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit der Datierung', combobox, ('high':'hoch';'low':'niedrig';), 'high')}" 
 calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'Gregorianischer';'#Julian':'Julianischer';), '#Gregorian')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1926,13 +1959,13 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Anfangsdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Endatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit der Datierung', combobox, ('high':'hoch';'low':'niedrig';), 'high')}"  calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'Gregorianischer';'#Julian':'Julianischer';), '#Gregorian')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2502,13 +2535,13 @@ or ancestor-or-self::msContents/p/note</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, ('grc':'Griechisch'; 'Lat':'Latein'; 'heb':'Hebräisch';'deu':'Deutsch';'fra':'Französisch'; 'eng':'Englisch';'rus':'Russisch';'spa':'Spanisch'; ))}">&lt;/foreign></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -12929,6 +12962,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menu>
 															<field name="label">
@@ -12953,6 +12989,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																		</field>
 																	</menuItem>
 																</menuEntry-array>
+															</field>
+															<field name="context">
+																<null/>
 															</field>
 														</menu>
 														<menu>
@@ -13038,6 +13077,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menuItem>
 															<field name="actionID">
@@ -13078,8 +13120,14 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13121,6 +13169,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -13150,6 +13201,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13229,6 +13283,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menu>
 															<field name="label">
@@ -13259,6 +13316,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menuItem>
 															<field name="actionID">
@@ -13271,6 +13331,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13327,6 +13390,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13385,6 +13451,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -13442,6 +13511,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menuSeparator/>
@@ -13535,6 +13607,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -13637,6 +13712,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -13682,8 +13760,14 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 										</menuEntry-array>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -13753,6 +13837,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												</field>
 											</menuItem>
 										</menuEntry-array>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -14573,16 +14660,28 @@ or ancestor-or-self::list[@rendition='#et']</String>
 							<field name="tableSupportClassName">
 								<null/>
 							</field>
+							<field name="tableCellSeparatorSupportClassName">
+								<null/>
+							</field>
 							<field name="tableColWidthSupportClassName">
 								<null/>
 							</field>
 							<field name="customReferencesResolver">
 								<null/>
 							</field>
+							<field name="editPropertiesHandler">
+								<null/>
+							</field>
 							<field name="authorExtensionStateListener">
 								<null/>
 							</field>
 							<field name="attributesRecognizer">
+								<null/>
+							</field>
+							<field name="authorActionEventHandler">
+								<null/>
+							</field>
+							<field name="authorImageDecorator">
 								<null/>
 							</field>
 						</authorExtension>
@@ -14711,6 +14810,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14729,6 +14831,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14751,6 +14856,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14771,6 +14879,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14789,6 +14900,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14946,6 +15060,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -14964,6 +15081,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -14986,6 +15106,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -15006,6 +15129,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -15024,6 +15150,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -15181,6 +15310,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -15199,6 +15331,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -15221,6 +15356,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -15241,6 +15379,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<field name="possibleValues">
 												<null/>
 											</field>
+											<field name="possibleValuesDescriptions">
+												<null/>
+											</field>
 										</antParameter>
 										<antParameter>
 											<field name="name">
@@ -15259,6 +15400,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 												<Integer>5</Integer>
 											</field>
 											<field name="possibleValues">
+												<null/>
+											</field>
+											<field name="possibleValuesDescriptions">
 												<null/>
 											</field>
 										</antParameter>
@@ -15436,6 +15580,9 @@ or ancestor-or-self::list[@rendition='#et']</String>
 						<null/>
 					</field>
 					<field name="customAttributeValueEditor">
+						<null/>
+					</field>
+					<field name="textModeExternalObjectInsertionHandler">
 						<null/>
 					</field>
 				</documentTypeDescriptor>
