@@ -755,6 +755,23 @@ or ancestor-or-self::quote</String>
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text
+or ancestor-or-self::quote</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund der unsicheren Lesung', combobox, ('illegible':'unleserlich';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';), 'illegible')}" cert="${ask('Wahrscheinlichkeit dass Lesart zutrifft', combobox, ('high':'hohe Sicherheit der Lesart';'low':'geringe Sicherheit der Lesart';), '')}" /></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
