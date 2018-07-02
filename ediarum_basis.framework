@@ -1926,13 +1926,13 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" notBefore="${ask('Anfangsdatum im Format JJJJ-MM-TT')}" notAfter="${ask('Endatum im Format JJJJ-MM-TT')}" cert="${ask('Wahrscheinlichkeit der Datierung', combobox, ('high':'hoch';'low':'niedrig';), 'high')}"  calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'Gregorianischer';'#Julian':'Julianischer';), '#Gregorian')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
