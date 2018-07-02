@@ -2518,13 +2518,13 @@ or ancestor-or-self::msContents/p/note</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, ('grc':'Griechisch'; 'Lat':'Latein'; 'heb':'Hebräisch';'deu':'Deutsch';'fra':'Französisch'; 'eng':'Englisch';'rus':'Russisch';'spa':'Spanisch'; ))}">&lt;/foreign></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
