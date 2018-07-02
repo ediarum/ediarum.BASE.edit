@@ -2574,8 +2574,7 @@ or ancestor-or-self::msContents/p/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::quote</String>
+														<String>oxy:allows-child-element("choice")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
