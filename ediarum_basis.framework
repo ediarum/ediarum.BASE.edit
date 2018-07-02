@@ -802,7 +802,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text</String>
+														<String>oxy:allows-child-element("pb")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
