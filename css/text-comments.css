@@ -21,6 +21,14 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 
 /* nur Abweichungen */
 
+text lb {
+    display: none;
+}
+
+text g[ref="#typoHyphen"] {
+    display: none;
+}
+
 text sic {
     display: none;
 }
@@ -86,7 +94,8 @@ text abbr {
     display: none;
 }
 
-text expan {
+text choice expan {
+    font-style: normal;
     background-color: transparent;
 }
 

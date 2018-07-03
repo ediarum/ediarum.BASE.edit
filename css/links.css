@@ -1,4 +1,30 @@
 
+persName:after,
+orgName:after,
+placeName:after,
+bibl:after,
+rs[type='person']:after,
+rs[type='org']:after,
+rs[type='place']:after,
+rs[type='bibl']:after,
+rs[type='term']:after{
+    content: " " url('gfx/link.png');
+}
+
+persName[cert="low"]:after,
+placeName[cert="low"]:after,
+rs[type='person'][cert="low"]:after {
+    content: " " url('gfx/link.png')"(?)";
+}
+
+text ref[target^="http://"]:after,
+msContents note ref[target^="http://"]:after,
+notesStmt note ref[target^="http://"]:after,
+correspDesc note ref[target^="http://"]:after {
+    content: " " url('gfx/link.png');
+    link: attr(target);
+}
+
 
 text note[hand]:after {
     content: " " url('gfx/note_hand.gif');

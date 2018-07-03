@@ -49,10 +49,10 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/alternative.css</String>
+											<String>${framework}/css/text-critical.css</String>
 										</field>
 										<field name="title">
-											<String>Textansicht</String>
+											<String>Kritischer Text</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -60,54 +60,21 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/commentary.css</String>
+											<String>${framework}/css/text-comments.css</String>
 										</field>
 										<field name="title">
-											<String>+ Sachanmerkungen</String>
+											<String>Lesetext mit Kommentar</String>
 										</field>
 										<field name="alternate">
-											<Boolean>true</Boolean>
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/index.css</String>
+											<String>${framework}/css/links.css</String>
 										</field>
 										<field name="title">
-											<String>+ indizierte Stellen</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/names.css</String>
-										</field>
-										<field name="title">
-											<String>+ Namen und Werktitel</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/references.css</String>
-										</field>
-										<field name="title">
-											<String>+ Verweise</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/dates.css</String>
-										</field>
-										<field name="title">
-											<String>+ Datumsangaben</String>
+											<String>+ Links anzeigen</String>
 										</field>
 										<field name="alternate">
 											<Boolean>true</Boolean>
