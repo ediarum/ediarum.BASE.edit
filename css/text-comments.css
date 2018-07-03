@@ -21,53 +21,8 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 
 /* nur Abweichungen */
 
-text p seg orig {
-    background-color: transparent;
-}
-
-text p seg note {
-    display: none;
-}
-
-text index {
-    display: none;
-}
-
-text anchor[type="index"] {
-    display: none;
-}
-
-text index term {
-    display: none;
-}
-
-text persName,
-text placeName,
-text bibl {
-    color: white;
-    background-color: #6585ad;
-}
-
-text persName:after,
-text placeName:after,
-text bibl:after {
-    content: " " url('gfx/link_weiss.png') " ";
-    background-color: #6585ad;
-}
-
-text anchor[type="verweisziel"] {
-    display: none;
-}
-
-text ref {
-    border-bottom: none;
-}
-
-text ref:after {
-    display: none;
-}
 text sic {
-    color: black;
+    display: none;
 }
 
 text supplied {
@@ -102,8 +57,7 @@ text corr[cert="low"] {
 }
 
 text del {
-    color: black;
-    text-decoration: none;
+    display: none;
 }
 
 text add {
@@ -116,18 +70,26 @@ text hi[rendition="#u"] {
 
 text gap,
 text unclear {
-    background-color: white;
+    background-color: transparent;
 }
 
 text gap:after,
 text unclear:after {
-    background-color: white;
+    background-color: transparent;
 }
 
 text gap {
     content: "   ";
 }
 
+text abbr {
+    display: none;
+}
+
+text expan {
+    background-color: transparent;
+}
+
 text ex {
-    font-style: italic;
+    font-style: normal;
 }
