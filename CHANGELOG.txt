@@ -26,6 +26,7 @@ CHANGELOG
 	BUGFIX #10086: Alternativer Name in Unterort
 	UPDATE #10288: Entferne obsoletes ediarum_basis_readonly
 	UPDATE #10289: Update templates
+	UPDATE #10287: CSS-Ansichten restrukturieren, CSS aufräumen
 
 0.27.0 vom 24.04.2018
 
