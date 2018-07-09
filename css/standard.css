@@ -1118,35 +1118,6 @@ facsimile:before {
     font-weight: bold;
 }
 
-/* AvH */
-facsimile graphic[xml|id] {
-    content: oxy_substring(attr(xml|id), 6);
-    link : attr(url);
-    -oxy-display-tags: none;
-    color: blue;
-}
-
-/* Iffland */
-facsimile graphic[url] {
-    content : attr(url);
-    -oxy-display-tags: none;
-}
-
-facsimile graphic:after {
-    content: ", ";
-}
-
-facsimile graphic:last-child:after {
-    content: "";
-}
-
-/* Iffland Adresse */
-
-telota|envelope,
-telota|envPart {
-    display: block;
-}
-
 address,
 addrLine {
     display: block;
@@ -1162,19 +1133,6 @@ addrLine {
     -oxy-placeholder-content: "[Adresszeile]";
 }
 
-/* Hirt */
-rs[type='artwork'] {
-    color: #465E7A;
-    -oxy-display-tags: none;
-} 
-
-rs[type='artwork']:after {
-    content: " " url('gfx/link.png');
-}
-
-rs[type='artwork'][key]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${hirt_website_artwork}') "?id=" attr(key);
-}
 
 measure {
     background-color: #F7D8FF;
