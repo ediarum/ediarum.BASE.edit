@@ -113,6 +113,11 @@ linkGrp ref[target] {
     content: "siehe " attr(target);
 }
 
+desc ref[target],
+desc persName,
+desc orgName,
+desc placeName,
+desc bibl,
 note ref[target],
 note persName,
 note orgName,
@@ -125,6 +130,11 @@ note bibl {
     -oxy-display-tags: none;
 } 
 
+desc ref[target]:after,
+desc persName:after,
+desc orgName:after,
+desc placeName:after,
+desc bibl:after,
 note ref[target]:after,
 note persName:after,
 note orgName:after,
@@ -133,23 +143,27 @@ note bibl:after {
     content: " " url('gfx/link.png');
 }
 
+desc ref[target]:after,
 note ref[target]:after {
     link: attr(target);     
 }
 
+desc persName[key]:after,
 note persName[key]:after {
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);
 }
 
+desc orgName[key]:after, 
 note orgName[key]:after {
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_org}') "?id=" attr(key);
 }
 
+desc placeName[key]:after,
 note placeName[key]:after {
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
 }
 
-
+desc bibl[sameAs]:after
 note bibl[sameAs]:after {
     link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(sameAs);
 }

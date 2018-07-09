@@ -220,7 +220,7 @@
                         </zeroOrMore>
                         <optional>
                             <element name="desc">
-                                <text/>
+                                <ref name="content_note"/>
                             </element>
                         </optional>
                         <optional>
@@ -470,7 +470,7 @@
             </zeroOrMore>
             <optional>
                 <element name="desc">
-                    <text/>
+                    <ref name="content_note"/>
                 </element>
             </optional>
             <optional>
@@ -581,47 +581,50 @@
     </define>
     <define name="note">
         <element name="note">
-            <interleave>
-                <zeroOrMore>
-                    <text/>
-                </zeroOrMore>
-                <zeroOrMore>
-                    <element name="persName">
-                        <attribute name="key">
-                            <text/>
-                        </attribute>
-                        <text/>
-                    </element>
-                </zeroOrMore>
-                <zeroOrMore>
-                    <element name="placeName">
-                        <attribute name="key">
-                            <text/>
-                        </attribute>
-                        <text/>
-                    </element>
-                </zeroOrMore>
-                <zeroOrMore>
-                    <element name="orgName">
-                        <attribute name="key">
-                            <text/>
-                        </attribute>
-                        <text/>
-                    </element>
-                </zeroOrMore>
-                <zeroOrMore>
-                    <element name="bibl">
-                        <attribute name="sameAs">
-                            <text/>
-                        </attribute>
-                        <text/>
-                    </element>
-                </zeroOrMore>
-                <zeroOrMore>
-                    <ref name="ref"/>
-                </zeroOrMore>
-            </interleave>
+            <ref name="content_note"/>
         </element>
+    </define>
+    <define name="content_note">
+        <interleave>
+            <zeroOrMore>
+                <text/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="persName">
+                    <attribute name="key">
+                        <text/>
+                    </attribute>
+                    <text/>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="placeName">
+                    <attribute name="key">
+                        <text/>
+                    </attribute>
+                    <text/>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="orgName">
+                    <attribute name="key">
+                        <text/>
+                    </attribute>
+                    <text/>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="bibl">
+                    <attribute name="sameAs">
+                        <text/>
+                    </attribute>
+                    <text/>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="ref"/>
+            </zeroOrMore>
+        </interleave>
     </define>
     <define name="author_role">
         <optional>

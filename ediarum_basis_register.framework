@@ -3448,7 +3448,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::note</String>
+														<String>ancestor-or-self::note or ancestor-or-self::desc</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -3506,7 +3506,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::note</String>
+														<String>ancestor-or-self::note or ancestor-or-self::desc</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -3564,7 +3564,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::note</String>
+														<String>ancestor-or-self::note or ancestor-or-self::desc</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
