@@ -1034,7 +1034,7 @@ text index {
 
 abstract index:before,
 text index:before {
-    content: url('gfx/index_start2.png');
+    content: url('gfx/index_start.png');
 }
 
 abstract anchor[type="index"],
@@ -1045,7 +1045,7 @@ text anchor[type="index"] {
 
 abstract anchor[type="index"]:after,
 text anchor[type="index"]:after {
-    content: url('gfx/index_ende2.png');
+    content: url('gfx/index_end.png');
 }
 
 abstract index term,
@@ -1100,11 +1100,11 @@ text anchor[type="verweisziel"] {
 }
 
 text anchor[xml|id^="start"]:after {
-    content: url('gfx/verweisziel_start.png');
+    content: url('gfx/link_target_start.png');
 }
 
 text anchor[xml|id^="stop"]:before {
-    content: url('gfx/verweisziel_stop.png');
+    content: url('gfx/link_target_stop.png');
 }
 
 facsimile {
