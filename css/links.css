@@ -1,0 +1,99 @@
+/* 
+Copyright 2012-2018 Berlin-Brandenburg Academy of Sciences and Humanities
+
+This file is part of ediarum.BASE.
+
+ediarum.BASE is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ediarum.BASE is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+persName:after,
+orgName:after,
+placeName:after,
+bibl:after,
+rs[type='person']:after,
+rs[type='org']:after,
+rs[type='place']:after,
+rs[type='bibl']:after,
+rs[type='term']:after{
+    content: " " url('gfx/link.png');
+}
+
+persName[cert="low"]:after,
+placeName[cert="low"]:after,
+rs[type='person'][cert="low"]:after {
+    content: " " url('gfx/link.png')"(?)";
+}
+
+text ref[target^="http://"]:after,
+msContents note ref[target^="http://"]:after,
+notesStmt note ref[target^="http://"]:after,
+correspDesc note ref[target^="http://"]:after {
+    content: " " url('gfx/link.png');
+    link: attr(target);
+}
+
+
+text note[hand]:after {
+    content: " " url('gfx/note_hand.gif');
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(hand);
+}
+
+abstract index[indexName='persons']:before,
+text index[indexName='persons']:before {
+        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(corresp);
+}
+
+abstract index[indexName='places']:before,
+text index[indexName='places']:before {
+        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(corresp);
+}
+
+abstract index[indexName='bibl']:before,
+text index[indexName='bibl']:before {
+        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(corresp);
+}
+
+rs[type='person'][key]:after,
+persName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);
+}
+
+rs[type='org'][key]:after,
+orgName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_org}') "?id=" attr(key);
+}
+
+rs[type='place'][key]:after,
+placeName[key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
+}
+
+rs[type='bibl'][sameAs]:after,
+bibl[sameAs]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(sameAs);
+}
+
+rs[type='term'][key]:after {
+    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_item}') "?id=" attr(key);
+}
+
+text ref[target]:after {
+    content: " " url('gfx/link.png');
+    link: oxy_url('${ediarum_website_base}/${ediarum_project_name}/redirect.xql?id=') attr(target);
+}
+
+text ref[target*='/#']:after {
+    content: " " url('gfx/link.png');
+    link: oxy_url('${ediarum_website_base}/${ediarum_project_name}/redirect.xql?id=') oxy_substring(attr(target), 0, oxy_indexof(attr(target), "/#")) "&page=" oxy_replace(oxy_substring(attr(target), oxy_indexof(attr(target), "#")), '#', '');
+}

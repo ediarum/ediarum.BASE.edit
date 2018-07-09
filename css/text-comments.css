@@ -1,5 +1,5 @@
 /* 
-Copyright 2013 Berlin-Brandenburg Academy of Sciences and Humanities
+Copyright 2012-2018 Berlin-Brandenburg Academy of Sciences and Humanities
 
 This file is part of ediarum.BASE.
 
@@ -19,61 +19,18 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 
 @import url("standard.css");
 
-@namespace xml "http://www.w3.org/XML/1998/namespace";
-
 /* nur Abweichungen */
 
-text p seg {
-    -oxy-display-tags: none;
-}
-
-text p seg orig {
-    background-color: white;
-    -oxy-display-tags: none;
-}
-
-text p seg note {
+text lb {
     display: none;
 }
 
-text index term,
-text index:before {
-    display: inline;
-    background-color: #13305B;
-    color: white;
-    font-family: Arial, Helvetica, Sans;
-    font-size: 0.8em;
-    line-height: 1.2em;
-    -oxy-display-tags: none;    
-}
-
-text index:before {
-    content: " " url('gfx/index_start_weiss.png') " " attr(spanTo) " ";
-}
-
-text anchor[type="indexbereich"]:after {
-    content: " " url('gfx/index_ende_weiss.png') " " attr(xml|id) " ";
-    background-color: #13305B;
-    color: white;
-    font-family: Arial, Helvetica, Sans;
-    font-size: 0.8em;
-    line-height: 1.2em;    
-}
-
-text anchor[type="verweisziel"] {
-    display: none;
-}
-
-text ref {
-    border-bottom: none;
-}
-
-text ref:after {
+text g[ref="#typoHyphen"] {
     display: none;
 }
 
 text sic {
-    color: black;
+    display: none;
 }
 
 text supplied {
@@ -86,7 +43,7 @@ text supplied[cert="low"]:before {
 }
 
 text surplus {
-    text-decoration: normal;
+    text-decoration: none;
     color: black;
 }
 
@@ -108,32 +65,40 @@ text corr[cert="low"] {
 }
 
 text del {
-    color: black;
-    text-decoration: none;
+    display: none;
 }
 
 text add {
     color: black;
 }
 
-text hi[rend="underline"] {
+text hi[rendition="#u"] {
     text-decoration: none;
 }
 
 text gap,
 text unclear {
-    background-color: white;
+    background-color: transparent;
 }
 
 text gap:after,
 text unclear:after {
-    background-color: white;
+    background-color: transparent;
 }
 
 text gap {
     content: "   ";
 }
 
+text abbr {
+    display: none;
+}
+
+text choice expan {
+    font-style: normal;
+    background-color: transparent;
+}
+
 text ex {
-    font-style: italic;
+    font-style: normal;
 }

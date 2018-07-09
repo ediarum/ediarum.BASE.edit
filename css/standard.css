@@ -1,5 +1,5 @@
 ﻿/* 
-Copyright 2016-2017 Berlin-Brandenburg Academy of Sciences and Humanities
+Copyright 2012-2018 Berlin-Brandenburg Academy of Sciences and Humanities
 
 This file is part of ediarum.BASE.
 
@@ -645,10 +645,7 @@ text note {
     -oxy-show-placeholder: always;
 }
 
-text note[hand]:after {
-    content: " " url('gfx/note_hand.gif');
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(hand);
-}
+
 
 text note[hand='#author']:after,
 text note[hand='#addressee']:after {
@@ -805,9 +802,6 @@ text hi[rendition="#mMM"] {
     border-right: 3px solid #000;
     -oxy-display-tags: none;
 }
-
-
-/* link:  oxy_url('${ediarum_project_domain}', '${ediarum_project_rest}${ediarum_path_persons}'); */
 
 hi[rendition="#sup"],
 g[rendition="#sup"] {
@@ -1040,22 +1034,7 @@ text index {
 
 abstract index:before,
 text index:before {
-    content: url('gfx/index_start2.png');
-}
-
-abstract index[indexName='persons']:before,
-text index[indexName='persons']:before {
-        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(corresp);
-}
-
-abstract index[indexName='places']:before,
-text index[indexName='places']:before {
-        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(corresp);
-}
-
-abstract index[indexName='bibl']:before,
-text index[indexName='bibl']:before {
-        link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(corresp);
+    content: url('gfx/index_start.png');
 }
 
 abstract anchor[type="index"],
@@ -1066,7 +1045,7 @@ text anchor[type="index"] {
 
 abstract anchor[type="index"]:after,
 text anchor[type="index"]:after {
-    content: url('gfx/index_ende2.png');
+    content: url('gfx/index_end.png');
 }
 
 abstract index term,
@@ -1088,48 +1067,6 @@ rs[type='term'] {
     color: #465E7A;
     -oxy-display-tags: none;
 } 
-
-persName:after,
-orgName:after,
-placeName:after,
-bibl:after,
-rs[type='person']:after,
-rs[type='org']:after,
-rs[type='place']:after,
-rs[type='bibl']:after,
-rs[type='term']:after{
-    content: " " url('gfx/link.png');
-}
-
-persName[cert="low"]:after,
-placeName[cert="low"]:after,
-rs[type='person'][cert="low"]:after {
-    content: " " url('gfx/link.png')"(?)";
-}
-
-rs[type='person'][key]:after,
-persName[key]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_person}') "?id=" attr(key);
-}
-
-rs[type='org'][key]:after,
-orgName[key]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_org}') "?id=" attr(key);
-}
-
-rs[type='place'][key]:after,
-placeName[key]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_place}') "?id=" attr(key);
-}
-
-rs[type='bibl'][sameAs]:after,
-bibl[sameAs]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_bibl}') "?id=" attr(sameAs);
-}
-
-rs[type='term'][key]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_item}') "?id=" attr(key);
-}
 
 witness bibl {
     color: black;
@@ -1158,109 +1095,16 @@ correspDesc note ref {
     border-bottom: 1px dashed #00C6FF;
 }
 
-text ref[target]:after {
-    content: " " url('gfx/link.png');
-    link: oxy_url('${ediarum_website_base}/${ediarum_project_name}/redirect.xql?id=') attr(target);
-}
-
-text ref[target*='/#']:after {
-    content: " " url('gfx/link.png');
-    link: oxy_url('${ediarum_website_base}/${ediarum_project_name}/redirect.xql?id=') oxy_substring(attr(target), 0, oxy_indexof(attr(target), "/#")) "&page=" oxy_replace(oxy_substring(attr(target), oxy_indexof(attr(target), "#")), '#', '');
-}
-
-text ref[target^="http://"]:after,
-msContents note ref[target^="http://"]:after,
-notesStmt note ref[target^="http://"]:after,
-correspDesc note ref[target^="http://"]:after {
-    content: " " url('gfx/link.png');
-    link: attr(target);
-}
-
 text anchor[type="verweisziel"] {
     -oxy-display-tags: none;
 }
 
 text anchor[xml|id^="start"]:after {
-    content: url('gfx/verweisziel_start.png');
+    content: url('gfx/link_target_start.png');
 }
 
 text anchor[xml|id^="stop"]:before {
-    content: url('gfx/verweisziel_stop.png');
-}
-
-/* AvH-R */
-div[ana] {
-    border-bottom: 1px solid silver;
-    padding: 0 0 1em 0;
-    margin: 0 0 1em 0;
-}
-
-div[ana]:before {
-    font-family: Arial, Helvetica;
-    font-size: 0.8em;
-    background-color: #e0e0e0;
-    content: 
-        oxy_popup(
-            edit, "@ana",
-            values, "#geophysics,#geography,#geology,#cartography,#astronomy,#phytology,#phytogeography,#climate,#zoology,#ethnology ,#languages,#politics,#economics,#religion,#history,#bioscience,#chemistry,#private,#biography,#body,#old,#france,#spain,#sea1,#tenerife,#sea2,#venezuela,#sea3,#cuba1,#sea4,#colombia,#ecuador,#peru,#sea5,#guayaquil,#sea6,#newSpain,#sea7,#cuba2,#sea8,#usa,#sea9,#italy,#later,#prussia,#russia,#petersburg1,#moscow1,#journeyOut,#urals1,#siberia1,#altai1,#altai2,#irtysh,#siberia2,#urals2,#volga,#returnJourney,#moscow2,#petersburg2",
-            labels, "Erdmagnetismus,Geographie,Geognosie\\, Bau der Erde\\, Erdgeschichte,Kartographie\\, Entdeckungsgeschichte\\,  Meeresströmungen,Messungen\\, Messinstrumente\\, Messtechnik,Botanische Specimen und Beschreibungen,Pflanzengeographie,Temperaturmessungen\\, Isotherme\\, Klimazonen,Tierbeschreibungen\\, Zoologie,Kulturen der neuen Welt\\, Anthropologie,Vokabellisten und Sprachvergleiche,Politisch-moralische Urteile,Landwirtschaft\\, Bergbau\\, Produktion\\, Ökonomie,Missionen\\, Kirche und Religion,Sprach- und Kulturgeschichte\\,  Examen Critique,Biowissenschaften außer Botanik und Pflanzengeographie,Chemische Untersuchungen\\, Laborversuche,Humboldts Ausgaben- und Einkaufslisten etc.,Persönliche oder familiäre Beziehungen\\, Autobiographisches,eigene Gesundheit oder die anderer\\, Körperempfinden,Altes vor der Reise: Dresden\\, Salzburg\\, Ungarn 1797/98,Paris-Toulon 20.10.1798-5.1.1799,Spanien 5.1.-5.6.1799,La Coruña -Teneriffa 5.-19.6.1799,Teneriffa 19.-25.6.1799,Teneriffa - Venezuela 25.6.-16.7.1799,Venezuela 16.7.1799-23.11.1800,Venezuela - Havana 24.11.-19.12.1800,Cuba 19.12.1800-5.3.1801,Havanna-Cartagena 5.-30.3.1801,Kolumbien 30.3.1801—3.1.1802,Ecuador 3.1.1802-1.8.1802,Peru 1.8.1802-24.12.1802,Lima-Guayaquil 24.12.1802-4.1.1803,Guayaquil 4.1.-17.2.1803,Guayaquil-Neuspanien 17.2.1803-22.3.1803,Neuspanien 22.3.1803-7.3.1804,Neuspanien – Cuba 7.-19.3.1804,Kuba 20.3.-29.4.1804,Cuba – USA 29.4.-20.5.1804,USA 20.5.-30.6.1804,Rückreise USA-Bordeaux 30.6.-3.8.1804 ,Paris-Italien-Berlin 11.3.-16.11.1805,Aufzeichnungen nach der Italienreise,Berlin-Polangen 12.4.-22.4.1829 ,Polangen-Narwa 22.4.-30.4.1829,St. Petersburg\\, Reise n. Moskau 1.5.-24.5.1829 ,Moskau 24.5.-27.5.1829 ,u. a. Nizniij Novgorod-Kazan 28.6.-14.6.1829 ,Ekaterinburg u. nördl. Ural 15.6.-18.7.1829,Westsibirien\\, Tobolsk 18.7.-2.8.1829,Barnaul\\, Ob\\, Kolyvansee 2.8.-5.8.1829,Kolyvan-Schlangenberg-Baty 6.8.-17.8.1829,Krasnojarsk-Omsk 17.8.-28.8.1829,Petropawlowsk-Troick 29.8.-2.9.1829,Miass\\, Zlatoust und Umgebung 3.9.-15.9.1829,Miass-Astrachan 16.9.-20.10.1829,Rückreise Zarizyn\\, Woronesch 21.10.-3.11.1829,Moskau\\, Reise n. Petersburg 3.11.-13.11.1829,St. Petersburg 13.11-15.12.1829",
-            resultSeparator, " ",
-            rendererSeparator, " ● ",
-            columns, 90,
-            selectionMode, "multiple",
-            color, #555,
-            fontInherit, true);
-}
-
-div[ana='#later']:before {
-    content: "Aufzeichnungen nach der Italienreise";
-}
-
-div[ana][type]:before {
-    content: 
-    oxy_popup(
-            edit, "@ana",
-            values, "#geophysics,#geography,#geology,#cartography,#astronomy,#phytology,#phytogeography,#climate,#zoology,#ethnology ,#languages,#politics,#economics,#religion,#history,#bioscience,#chemistry,#private,#biography,#body,#old,#france,#spain,#sea1,#tenerife,#sea2,#venezuela,#sea3,#cuba1,#sea4,#colombia,#ecuador,#peru,#sea5,#guayaquil,#sea6,#newSpain,#sea7,#cuba2,#sea8,#usa,#sea9,#italy,#later,#prussia,#russia,#petersburg1,#moscow1,#journeyOut,#urals1,#siberia1,#altai1,#altai2,#irtysh,#siberia2,#urals2,#volga,#returnJourney,#moscow2,#petersburg2",
-            labels, "Erdmagnetismus,Geographie,Geognosie\\, Bau der Erde\\, Erdgeschichte,Kartographie\\, Entdeckungsgeschichte\\,  Meeresströmungen,Messungen\\, Messinstrumente\\, Messtechnik,Botanische Specimen und Beschreibungen,Pflanzengeographie,Temperaturmessungen\\, Isotherme\\, Klimazonen,Tierbeschreibungen\\, Zoologie,Kulturen der neuen Welt\\, Anthropologie,Vokabellisten und Sprachvergleiche,Politisch-moralische Urteile,Landwirtschaft\\, Bergbau\\, Produktion\\, Ökonomie,Missionen\\, Kirche und Religion,Sprach- und Kulturgeschichte\\,  Examen Critique,Biowissenschaften außer Botanik und Pflanzengeographie,Chemische Untersuchungen\\, Laborversuche,Humboldts Ausgaben- und Einkaufslisten etc.,Persönliche oder familiäre Beziehungen\\, Autobiographisches,eigene Gesundheit oder die anderer\\, Körperempfinden,Altes vor der Reise: Dresden\\, Salzburg\\, Ungarn 1797/98,Paris-Toulon 20.10.1798-5.1.1799,Spanien 5.1.-5.6.1799,La Coruña -Teneriffa 5.-19.6.1799,Teneriffa 19.-25.6.1799,Teneriffa - Venezuela 25.6.-16.7.1799,Venezuela 16.7.1799-23.11.1800,Venezuela - Havana 24.11.-19.12.1800,Cuba 19.12.1800-5.3.1801,Havanna-Cartagena 5.-30.3.1801,Kolumbien 30.3.1801—3.1.1802,Ecuador 3.1.1802-1.8.1802,Peru 1.8.1802-24.12.1802,Lima-Guayaquil 24.12.1802-4.1.1803,Guayaquil 4.1.-17.2.1803,Guayaquil-Neuspanien 17.2.1803-22.3.1803,Neuspanien 22.3.1803-7.3.1804,Neuspanien – Cuba 7.-19.3.1804,Kuba 20.3.-29.4.1804,Cuba – USA 29.4.-20.5.1804,USA 20.5.-30.6.1804,Rückreise USA-Bordeaux 30.6.-3.8.1804 ,Paris-Italien-Berlin 11.3.-16.11.1805,Aufzeichnungen nach der Italienreise,Berlin-Polangen 12.4.-22.4.1829 ,Polangen-Narwa 22.4.-30.4.1829,St. Petersburg\\, Reise n. Moskau 1.5.-24.5.1829 ,Moskau 24.5.-27.5.1829 ,u. a. Nizniij Novgorod-Kazan 28.6.-14.6.1829 ,Ekaterinburg u. nördl. Ural 15.6.-18.7.1829,Westsibirien\\, Tobolsk 18.7.-2.8.1829,Barnaul\\, Ob\\, Kolyvansee 2.8.-5.8.1829,Kolyvan-Schlangenberg-Baty 6.8.-17.8.1829,Krasnojarsk-Omsk 17.8.-28.8.1829,Petropawlowsk-Troick 29.8.-2.9.1829,Miass\\, Zlatoust und Umgebung 3.9.-15.9.1829,Miass-Astrachan 16.9.-20.10.1829,Rückreise Zarizyn\\, Woronesch 21.10.-3.11.1829,Moskau\\, Reise n. Petersburg 3.11.-13.11.1829,St. Petersburg 13.11-15.12.1829",
-            resultSeparator, " ",
-            rendererSeparator, " ● ",
-            columns, 90,
-            selectionMode, "multiple",
-            color, #555,
-            fontInherit, true)
-    oxy_popup(
-            edit, "@type",
-            values, "appendix,chapter,diaryEntry,edition,index,letter,poem,session,travelReport,essay,letter,excerpt,note,measurement,calculation",
-            labels, "Anhang,Kapitel,Tagebucheintrag,Abdruck einer Textquelle,Verzeichnis,Brief,Gedicht,Vorlesungsstunde/Lehreinheit/Vortrag,Reisebeschreibung,Wissenschaftliche Abhandlungen\\, z. B. 'Geognosie von Amerika',Abschrift\\, Entwurf oder Auszug eines Briefes oder einer Briefkorrespondenz,Auszüge oder Kommentare aus Werken anderer Autoren,Eingeklebte Zettel, Höhenunterschiede\\, etc.).,Einfache Rechenoperationen (Additionen\\, Substraktionen\\, Mittelwerte\\, Brüche)",
-            columns, 90,
-            selectionMode, "single",
-            color, #555,
-            fontInherit, true);            
-}
-
-div[type="measurement"]:before {
-    display: block;
-    width: 5%;
-    padding: 0.2em;
-    content: "Messung";
-    font-family: Arial, sans-serif;
-    font-size: 0.7em;
-    background-color: gray;
-    color: white;
-}
-
-div[type="measurement"] {
-    display: table-row;
-}
-
-div[type="measurement"] div {
-    padding: 0.3em;
-    border: 1px solid gray;
-    -oxy-display-tags: none;
-}
-
-div[type="measurement"] p {
-    display: inline;
+    content: url('gfx/link_target_stop.png');
 }
 
 facsimile {
@@ -1272,40 +1116,6 @@ facsimile:before {
     display: block;
     content: "Digitalisate";
     font-weight: bold;
-}
-
-/* AvH */
-facsimile graphic[xml|id] {
-    content: oxy_substring(attr(xml|id), 6);
-    link : attr(url);
-    -oxy-display-tags: none;
-    color: blue;
-}
-
-note[type="auxCalc"]:before {
-    content: "[NR:] ";
-    font-style: italic;
-}
-
-/* Iffland */
-facsimile graphic[url] {
-    content : attr(url);
-    -oxy-display-tags: none;
-}
-
-facsimile graphic:after {
-    content: ", ";
-}
-
-facsimile graphic:last-child:after {
-    content: "";
-}
-
-/* Iffland Adresse */
-
-telota|envelope,
-telota|envPart {
-    display: block;
 }
 
 address,
@@ -1323,19 +1133,6 @@ addrLine {
     -oxy-placeholder-content: "[Adresszeile]";
 }
 
-/* Hirt */
-rs[type='artwork'] {
-    color: #465E7A;
-    -oxy-display-tags: none;
-} 
-
-rs[type='artwork']:after {
-    content: " " url('gfx/link.png');
-}
-
-rs[type='artwork'][key]:after {
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${hirt_website_artwork}') "?id=" attr(key);
-}
 
 measure {
     background-color: #F7D8FF;

@@ -1,5 +1,5 @@
 /* 
-Copyright 2013 Berlin-Brandenburg Academy of Sciences and Humanities
+Copyright 2012-2018 Berlin-Brandenburg Academy of Sciences and Humanities
 
 This file is part of ediarum.BASE.
 
@@ -19,23 +19,55 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 
 @import url("standard.css");
 
-@namespace xml "http://www.w3.org/XML/1998/namespace";
-
 /* nur Abweichungen */
 
-text date {
-    background-color: #FFDEA5;
+text p seg {
     -oxy-display-tags: none;
 }
 
-text date[when]:after {
-    content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd');
+text p seg[type="comment"] orig {
+    background-color: white;
+    -oxy-display-tags: none;
 }
 
-text date[from]:after {
-    content: oxy_editor(type,datePicker,edit,'@from',format,'yyyy-MM-dd') " bis " oxy_editor(type,datePicker,edit,'@to',format,'yyyy-MM-dd');   
+text p seg[type="comment"] note {
+    display: none;
 }
 
-text date[notBefore]:after {
-    content: "Nicht vor" oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd');   
+text persName:after,
+text placeName:after,
+text bibl:after {
+    display: none;
 }
+
+text persName,
+text placeName,
+text bibl {
+    color: black;
+    background-color: transparent;
+}
+
+text index {
+    display: none;
+}
+
+text anchor[type="index"] {
+    display: none;
+}
+
+text index term {
+    display: none;
+}
+
+text ref {
+    border-bottom: none;
+}
+
+text ref:after {
+    display: none;
+}
+
+text anchor[type="verweisziel"] {
+    display: none;
+}
+
