@@ -13933,29 +13933,6 @@ or ancestor-or-self::list[@rendition='#et']</String>
 									</toolbar>
 									<toolbar>
 										<field name="id">
-											<String>Website</String>
-										</field>
-										<field name="type">
-											<Integer>2</Integer>
-										</field>
-										<field name="largeIconPath">
-											<null/>
-										</field>
-										<field name="smallIconPath">
-											<null/>
-										</field>
-										<field name="toolbarEntriesDescriptorList">
-											<toolbarEntry-array>
-												<toolbarItem>
-													<field name="actionID">
-														<String>website</String>
-													</field>
-												</toolbarItem>
-											</toolbarEntry-array>
-										</field>
-									</toolbar>
-									<toolbar>
-										<field name="id">
 											<String>Sonderzeichen</String>
 										</field>
 										<field name="type">
@@ -14030,6 +14007,29 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
+									<toolbar>
+										<field name="id">
+											<String>Website</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>website</String>
+													</field>
+												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
