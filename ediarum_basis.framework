@@ -4143,17 +4143,21 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>elements</String>
-																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="verweisziel" xml:id="start_$[ID]"/>$[SELECTION]&lt;anchor type="verweisziel" xmlns="http://www.tei-c.org/ns/1.0" xml:id="stop_$[ID]"/></String>
+																<String>first element</String>
+																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="verweisziel" xml:id="start_$ID"/></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>${id}</String>
 															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor type="verweisziel" xmlns="http://www.tei-c.org/ns/1.0" xml:id="stop_$ID"/></String>
+															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.SurroundWithElementsOperation</String>
+														<String>org.bbaw.telota.ediarum.SurroundWithDifferentFragmentsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
