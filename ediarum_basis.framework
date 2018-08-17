@@ -26,7 +26,6 @@
 							<String>${framework}/tei.jar</String>
 							<String>${framework}/resources/</String>
 							<String>${framework}/ediarum.jar</String>
-							<String>${framework}/ediarum2018.jar</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
