@@ -4143,7 +4143,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>first element</String>
-																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="verweisziel" xml:id="start_$ID"/></String>
+																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="target" xml:id="start_$ID"/></String>
 															</entry>
 															<entry>
 																<String>id</String>
@@ -4151,7 +4151,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>second element</String>
-																<String>&lt;anchor type="verweisziel" xmlns="http://www.tei-c.org/ns/1.0" xml:id="stop_$ID"/></String>
+																<String>&lt;anchor type="target" xmlns="http://www.tei-c.org/ns/1.0" xml:id="stop_$ID"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
