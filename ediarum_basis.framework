@@ -26,7 +26,6 @@
 							<String>${framework}/tei.jar</String>
 							<String>${framework}/resources/</String>
 							<String>${framework}/ediarum.jar</String>
-							<String>${framework}/ediarum2018.jar</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
@@ -2139,9 +2138,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::summary 
-or ancestor-or-self::msContents/p/note</String>
+														<String>oxy:allows-child-element("index")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -2155,15 +2152,27 @@ or ancestor-or-self::msContents/p/note</String>
 															</entry>
 															<entry>
 																<String>expression</String>
-																<String>/span</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>first element</String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="persons" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>i${id}</String>
 															</entry>
 															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
 																<String>node</String>
 																<String>//li</String>
+															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor xmlns='http://www.tei-c.org/ns/1.0' type='index' xml:id="$ID" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -2253,9 +2262,7 @@ or ancestor-or-self::msContents/p/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::summary 
-or ancestor-or-self::msContents/p/note</String>
+														<String>oxy:allows-child-element("index")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -2269,15 +2276,27 @@ or ancestor-or-self::msContents/p/note</String>
 															</entry>
 															<entry>
 																<String>expression</String>
-																<String>/span</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>first element</String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spantTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>i${id}</String>
 															</entry>
 															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
 																<String>node</String>
 																<String>//li</String>
+															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" xml:id="$ID" type="index" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -2317,9 +2336,7 @@ or ancestor-or-self::msContents/p/note</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::summary 
-or ancestor-or-self::msContents/p/note</String>
+														<String>oxy:allows-child-element("index")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -2333,15 +2350,27 @@ or ancestor-or-self::msContents/p/note</String>
 															</entry>
 															<entry>
 																<String>expression</String>
-																<String>/span</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>first element</String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="bibl" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>i${id}</String>
 															</entry>
 															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
 																<String>node</String>
 																<String>//li</String>
+															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="index" xml:id="$ID" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -4113,17 +4142,21 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>elements</String>
-																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="verweisziel" xml:id="start_$[ID]"/>$[SELECTION]&lt;anchor type="verweisziel" xmlns="http://www.tei-c.org/ns/1.0" xml:id="stop_$[ID]"/></String>
+																<String>first element</String>
+																<String>&lt;anchor xmlns="http://www.tei-c.org/ns/1.0" type="target" xml:id="start_$ID"/></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>${id}</String>
 															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor type="target" xmlns="http://www.tei-c.org/ns/1.0" xml:id="stop_$ID"/></String>
+															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.SurroundWithElementsOperation</String>
+														<String>org.bbaw.telota.ediarum.SurroundWithDifferentFragmentsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -9997,17 +10030,21 @@ or ancestor-or-self::notesStmt/note</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>elements</String>
-																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0" function="used" spanTo="#$[ID]"/>$[SELECTION]&lt;anchor type="used" xmlns="http://www.tei-c.org/ns/1.0" xml:id="$[ID]"/></String>
+																<String>first element</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0" function="used" spanTo="#$ID"/></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>${id}</String>
 															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor type="used" xmlns="http://www.tei-c.org/ns/1.0" xml:id="$ID"/></String>
+															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.SurroundWithElementsOperation</String>
+														<String>org.bbaw.telota.ediarum.SurroundWithDifferentFragmentsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
