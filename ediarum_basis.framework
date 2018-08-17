@@ -3810,7 +3810,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>${ask('Art der Textgrundlage', combobox, ('notExtant':'Erschlossen';'concept':'Entwurf';'manuscript':'Manuskript';'copy':'Abschrift';'print':'Druck';), 'manuscript')}</String>
+																<String>${ask('Art der Textgrundlage', combobox, ('notExtant':'Erschlossen';'concept':'Entwurf';'manuscript':'Manuskript';'copy':'Abschrift';'print':'Druck';'print-as-print':'Druck als solcher'), 'manuscript')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>

@@ -160,6 +160,10 @@ sourceDesc msDesc[rend="concept"] {
     content: "Entwurf: ";
 }
 
+sourceDesc msDesc[rend="print-as-print"] {
+    content: "Druck (als solcher): ";
+}
+
 sourceDesc msDesc[rend="notExtant"] {
     content: "Erschlossen";
 }
