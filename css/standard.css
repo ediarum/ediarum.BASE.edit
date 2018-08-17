@@ -606,7 +606,7 @@ text figure {
 }
 
 text figure[facs] {
-    content: url(oxy_base-uri() '/exist/webdav/db/projects/${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
+    content: url(oxy_base-uri()'${ediarum_projects_directory}${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
     width: 250px;
 }
 
