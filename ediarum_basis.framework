@@ -10031,17 +10031,21 @@ or ancestor-or-self::notesStmt/note</String>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>elements</String>
-																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0" function="used" spanTo="#$[ID]"/>$[SELECTION]&lt;anchor type="used" xmlns="http://www.tei-c.org/ns/1.0" xml:id="$[ID]"/></String>
+																<String>first element</String>
+																<String>&lt;metamark xmlns="http://www.tei-c.org/ns/1.0" function="used" spanTo="#$ID"/></String>
 															</entry>
 															<entry>
 																<String>id</String>
 																<String>${id}</String>
 															</entry>
+															<entry>
+																<String>second element</String>
+																<String>&lt;anchor type="used" xmlns="http://www.tei-c.org/ns/1.0" xml:id="$ID"/></String>
+															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.SurroundWithElementsOperation</String>
+														<String>org.bbaw.telota.ediarum.SurroundWithDifferentFragmentsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
