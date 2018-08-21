@@ -1,15 +1,18 @@
-Berlin-Brandenburgische Akademie der Wissenschaften 
-TELOTA - The electronic Life of the Academy
-http://telotadev.bbaw.de/oxygen/updateSite.xml
-
 ------------------------------------------------------------------------------------------------
-
-ediarum.BASIS 
+ediarum.BASE.edit 
 Digitale Arbeitsumgebung für Editionsvorhaben
 
 Framework (Dokumenttyp Zuordnung) für Oxygen XML 
 
-Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
+Entwicklung: 
+Stefan Dumont, dumont@bbaw.de
+Sascha Grabsch, grabsch@bbaw.de
+Martin Fechner, fechner@bbaw.de
+
+© 2011-2018 
+Berlin-Brandenburgische Akademie der Wissenschaften 
+TELOTA - The electronic Life of the Academy
+
 
 CHANGELOG
 ------------------------------------------------------------------------------------------------
