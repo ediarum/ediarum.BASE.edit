@@ -1,18 +1,41 @@
-Berlin-Brandenburgische Akademie der Wissenschaften 
-TELOTA - The electronic Life of the Academy
-http://telotadev.bbaw.de/oxygen/updateSite.xml
-
 ------------------------------------------------------------------------------------------------
-
-ediarum.BASIS 
+ediarum.BASE.edit 
 Digitale Arbeitsumgebung für Editionsvorhaben
-
-Framework (Dokumenttyp Zuordnung) für Oxygen XML 
-
-Entwicklung: Stefan Dumont, dumont@bbaw.de; Sascha Grabsch, grabsch@bbaw.de
 
 CHANGELOG
 ------------------------------------------------------------------------------------------------
+
+1.0.0 vom 22.08.2018
+
+	BREAKING CHANGE: Neue Editorvariablen ${ediarum_projects_directory} und ${ediarum_website_path}
+
+	UPDATE #8744: Neue Benutzervariable wegen Rewrite
+	UPDATE #8745: Reihenfolge der Toolbars
+	BUGFIX #9309: @reason='illegible' in del-gap ergänzen
+	FEATURE #9309: Reihenfolge für Aktion gap otpimiert
+	FEATURE #9309: Option @reason='covered' ergänzen
+	BUGFIX #9578: ediarum Autormodus: Bei unlesbarer Streichung @reason für <gap/> abfragen!
+	FEATURE #9971: Kennzeichnung von gedruckten Textvorlagen
+	BUGFIX #10009: Link-Funktion für ref/@target
+	BUGFIX #10086: Alternativer Name in Unterort
+	UPDATE #10121: Neue ediarum.jar
+	UPDATE #10121: Migrieren von alten zu den neuen Registeraktionen
+	FEATURE #10252: ediarum.jar: Funktionen auf neue Funktionssyntax umstellen
+	UPDATE #10287: CSS-Ansichten restrukturieren, CSS aufräumen
+	UPDATE #10288: Entferne obsoletes ediarum_basis_readonly
+	UPDATE #10289: Update templates
+	UPDATE #10290: Überflüssige Aktionen in ediarum.BASIS entfernen
+	BUGFIX #10339: Sortierung Werkregister
+	FEATURE #10344: Verlinkungen im Institutions- und Sachregister ermöglichen
+	UPDATE #10348: ediarum.REGISTER in eigenes Add-on packen
+	UPDATE #10349: Registerfunktionen in ediarum.REGISTER updaten
+	FEATURE #10370: Sachregister: Alternative Bennenung eines Stichworts
+	UPDATE #10587: ediarum-Komponenten umbenennen
+	BUGFIX #10086: Fehler beim Einfügen von Unterorten im Register
+	BUGFIX #10289: Templates aktualisieren
+	UPDATE #10569: Pfadangabe in CSS durch Editorvariable ersetzen
+	UPDATE #6371: Im Basisframework die Aktionen mit oxy:allows-child-element versehen
+	FEATURE #7376: Operation zum Einfügen XML-Fragmenten in korrekter Reihenfolge
 
 0.27.0 vom 24.04.2018
 

@@ -1,61 +1,36 @@
 /* 
-Copyright 2013 Berlin-Brandenburg Academy of Sciences and Humanities
+Copyright 2011-2018 Berlin-Brandenburg Academy of Sciences and Humanities
 
-This file is part of ediarum.BASE.
+This file is part of ediarum.BASE.edit.edit.
 
-ediarum.BASE is free software: you can redistribute it and/or modify
+ediarum.BASE.edit is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published 
 by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-ediarum.BASE is distributed in the hope that it will be useful,
+ediarum.BASE.edit is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
-along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
+along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 */
 
 @import url("standard.css");
 
 /* nur Abweichungen */
 
-text index {
+text lb {
     display: none;
 }
 
-text anchor[type="indexbereich"] {
-    display: none;
-}
-
-text index term {
-    display: none;
-}
-
-text persName:after,
-text placeName:after,
-text bibl:after {
-    display: none;
-}
-
-text persName,
-text placeName,
-text bibl {
-    background-color: none;
-    color: black;
-}
-
-text bibl {
-    font-style: normal;
-}
-
-text anchor[type="verweisziel"] {
+text g[ref="#typoHyphen"] {
     display: none;
 }
 
 text sic {
-    color: black;
+    display: none;
 }
 
 text supplied {
@@ -68,7 +43,7 @@ text supplied[cert="low"]:before {
 }
 
 text surplus {
-    text-decoration: normal;
+    text-decoration: none;
     color: black;
 }
 
@@ -97,24 +72,33 @@ text add {
     color: black;
 }
 
-text hi[rend="underline"] {
+text hi[rendition="#u"] {
     text-decoration: none;
 }
 
 text gap,
 text unclear {
-    background-color: white;
+    background-color: transparent;
 }
 
 text gap:after,
 text unclear:after {
-    background-color: white;
+    background-color: transparent;
 }
 
 text gap {
     content: "   ";
 }
 
+text abbr {
+    display: none;
+}
+
+text choice expan {
+    font-style: normal;
+    background-color: transparent;
+}
+
 text ex {
-    font-style: italic;
+    font-style: normal;
 }

@@ -1,72 +1,77 @@
-<oXygen/>-Framework "ediarum.BASIS" for divers research projects at the 
-Berlin-Brandenburg Academy of Sciences and Humanities
+# ediarum.BASE.edit
 
-Version 0.1.0 (2016-01-19)
-Published 2016-00-00
+© 2011-2018 by Berlin-Brandenburg Academey of Sciences and Humanities
 
-Copyright 2016 by Berlin-Brandenburg Academey of Sciences and Humanities
+Developed by TELOTA, a DH working group of the Berlin-Brandenburg Academey of Sciences and Humanities
+http://www.bbaw.de/telota
+telota@bbaw.de
 
+Lead Developer:
 
-RESPONSIBILITY
-Published by TELOTA - The electronic Life of the Academy
-Development: Stefan Dumont and Martin Fechner (TELOTA)
+* Stefan Dumont
+* Martin Fechner
+* Sascha Grabsch
 
-Contact: telota@bbaw.de
+## What does it do?
 
+ediarum.BASE.edit is an oXygen framework designed for the Author mode of the oXygen XML-Editor 
+(http://www.oxygenxml.com). It is optimized for oXygen XML version 20.1. With the help of
+ediarum.BASE.edit, scholars can create and edit TEI-XML based transcriptions of historical
+documents. The transcriptions can be enriched in ediarum.BASE.edit with text critic, comments 
+and links to an index. ediarum.BASE.edit is largely based on the TEI-XML subset "DTA Base 
+format" of the German Text Archive.
 
-DESCRIPTION
-The framework ediarum.FS is designed for the Author mode of the <<oXygen/>-XML-Editor 
-(http://www.oxygenxml.com). It is optimized for <oXygen/> version 17.1. 
+## Components
 
-
-COMPONENTS AND DOCUMENTATION
-The <oXygen/>-Framework ediarum.BASIS comes as a .zip-archive containing the following 
+The oXygen framework ediarum.BASE.edit comes as a ZIP archive containing the following 
 components: 
 
-- Framework files (*.framework) for <oXygen/> XML
-- two JAVA files ediarum.jar and tei.jar
-- Cascading Stylesheets
-- Icons for the toolbar
-- Resources, i.e. XSLT-Stylesheets
-- XML-Templates
+* framework files (.framework) for oXygen XML Author
+* two JAVA files ediarum.jar and tei.jar
+* Cascading Stylesheets
+* icons for the toolbar
+* resources, i.e. XSLT-Stylesheets
+* XML file templates
 
+## Documentation
 
-LICENSE
-ediarum.FS is free software: you can redistribute it and/or modify
+tba
+
+## License
+
+ediarum.BASE.edit is free software: you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-ediarum.FS is distributed in the hope that it will be useful,
+ediarum.BASE.edit is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with ediarum.FS.  If not, see <http://www.gnu.org/licenses/>.
+along with ediarum.BASE.edit.  If not, see <http://www.gnu.org/licenses/>.
 
 
-THIRD PARTY LICENSES
-ediarum.FS includes and makes use of software from third parties, which are 
+## Third party licences
+
+ediarum.BASE.edit includes and makes use of software from third parties, which are 
 licensed seperately. 
 
-The <oXygen/>-Framework ediarum.FS makes partly use of the <oXygen/>-TEI P5-Framework 
+### tei.jar
+
+The oXygen framework ediarum.BASE.edit makes partly use of the oXygen TEI P5-Framework 
 (all files with copryright statement of Syncro Soft SRL and the file tei.jar), which 
 is distributed under the New BSD License (http://opensource.org/licenses/BSD-3-Clause):
 
-
-##########################################################################
 Copyright 2011 Syncro Soft SRL, Romania. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are
 permitted provided that the following conditions are met:
 
-   1. Redistributions of source code must retain the above copyright notice, this list of
-      conditions and the following disclaimer.
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
 
-   2. Redistributions in binary form must reproduce the above copyright notice, this list
-      of conditions and the following disclaimer in the documentation and/or other materials
-      provided with the distribution.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY Syncro Soft SRL ''AS IS'' AND ANY EXPRESS OR IMPLIED
 WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
@@ -88,4 +93,8 @@ The following libraries are redistributed in this package, and subject to their 
 Name: Text Encoding Initiative (TEI) Consortium materials
 Link: http://www.tei-c.org/Guidelines/access.xml
 License: Dual-licensed: Creative Commons Attribution-ShareAlike 3.0 Unported License or BSD 2-Clause license.
-##########################################################################
+
+### Font Linux Libertine
+
+ediarum.BASE.edit contains also the fonts Linux Libertine and Biolinum. You'll find their respective 
+licences in the font directory.
