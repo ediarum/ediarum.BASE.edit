@@ -9,7 +9,7 @@
 						<null/>
 					</field>
 					<field name="name">
-						<String>ediarum.BASIS</String>
+						<String>ediarum.BASE.edit</String>
 					</field>
 					<field name="schemaDescriptor">
 						<docTypeSchema>
@@ -14106,7 +14106,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 						<String-array/>
 					</field>
 					<field name="description">
-						<String>Oxygen XML Framework für ediarum mit Elementen aus dem Basisformat für Manuskripte des Deutschen Textarchivs (DTA-BfM)</String>
+						<String>Oxygen XML Framework for ediarum.BASE, built on the "DTA Base Format" of the German Text Archive</String>
 					</field>
 					<field name="doctypeRules">
 						<documentTypeRule-array>
