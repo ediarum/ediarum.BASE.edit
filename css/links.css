@@ -51,41 +51,41 @@ text note[hand]:after {
 
 abstract index[indexName='persons']:before,
 text index[indexName='persons']:before {
-        link: oxy_url('${ediarum_website_base}', '${ediarum_website_person}') "?id=" attr(corresp);
+        link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" attr(corresp);
 }
 
 abstract index[indexName='places']:before,
 text index[indexName='places']:before {
-        link: oxy_url('${ediarum_website_base}', '${ediarum_website_place}') "?id=" attr(corresp);
+        link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_place}') "?id=" attr(corresp);
 }
 
 abstract index[indexName='bibl']:before,
 text index[indexName='bibl']:before {
-        link: oxy_url('${ediarum_website_base}', '${ediarum_website_bibl}') "?id=" attr(corresp);
+        link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_bibl}') "?id=" attr(corresp);
 }
 
 rs[type='person'][key]:after,
 persName[key]:after {
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_person}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" attr(key);
 }
 
 rs[type='org'][key]:after,
 orgName[key]:after {
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_org}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_org}') "?id=" attr(key);
 }
 
 rs[type='place'][key]:after,
 placeName[key]:after {
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_place}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_place}') "?id=" attr(key);
 }
 
 rs[type='bibl'][sameAs]:after,
 bibl[sameAs]:after {
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_bibl}') "?id=" attr(sameAs);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_bibl}') "?id=" attr(sameAs);
 }
 
 rs[type='term'][key]:after {
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_item}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_item}') "?id=" attr(key);
 }
 
 text ref[target]:after {

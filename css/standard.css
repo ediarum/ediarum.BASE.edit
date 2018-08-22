@@ -1152,10 +1152,10 @@ profileDesc textClass keywords term {
 
 profileDesc textClass keywords term:after {
     content: " " url('gfx/link.png') ", ";
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_keyword}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_keyword}') "?id=" attr(key);
 }
 
 profileDesc textClass keywords term:last-of-type:after {
     content: " " url('gfx/link.png');
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_keyword}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_keyword}') "?id=" attr(key);
 }
