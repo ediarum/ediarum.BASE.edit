@@ -1,20 +1,20 @@
 ﻿/* 
-Copyright 2012-2018 Berlin-Brandenburg Academy of Sciences and Humanities
+Copyright 2011-2018 Berlin-Brandenburg Academy of Sciences and Humanities
 
-This file is part of ediarum.BASE.
+This file is part of ediarum.BASE.edit.edit.
 
-ediarum.BASE is free software: you can redistribute it and/or modify
+ediarum.BASE.edit is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published 
 by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-ediarum.BASE is distributed in the hope that it will be useful,
+ediarum.BASE.edit is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
-along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
+along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 */
 
 @namespace xml "http://www.w3.org/XML/1998/namespace";
@@ -430,7 +430,7 @@ correspContext ref[type="next"][target^="http://"] {
 
 correspContext ref[target]:after {
     content: " " url('gfx/link.png');
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_letter}') "?id=" attr(target);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_letter}') "?id=" attr(target);
 }
 
 correspContext ref[target^="http://"]:after {
@@ -1152,10 +1152,10 @@ profileDesc textClass keywords term {
 
 profileDesc textClass keywords term:after {
     content: " " url('gfx/link.png') ", ";
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_keyword}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_keyword}') "?id=" attr(key);
 }
 
 profileDesc textClass keywords term:last-of-type:after {
     content: " " url('gfx/link.png');
-    link: oxy_url('${ediarum_website_base}', '/${ediarum_project_name}${ediarum_website_keyword}') "?id=" attr(key);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_keyword}') "?id=" attr(key);
 }
