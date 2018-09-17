@@ -5,6 +5,11 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+1.0.1 vom 17.09.2018
+
+	BUGFIX #10692: Aktion bibl korrigiert; Aktionen ref, ref[note] und rs[term] auf ediarum.jar Version 2018 geupdated
+	UPDATE #10692: New editor variabe ${ediarum_projects_directory_webdav}
+
 1.0.0 vom 22.08.2018
 
 	BREAKING CHANGE: Neue Editorvariablen ${ediarum_projects_directory} und ${ediarum_website_path}
