@@ -1717,7 +1717,7 @@ or ancestor-or-self::notesStmt/note</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>&lt;bibl xmlns='http://www.tei-c.org/ns/1.0'  key='$ITEMS'>&lt;/bibl></String>
+																<String>&lt;bibl xmlns='http://www.tei-c.org/ns/1.0'  sameAs='$ITEMS'>&lt;/bibl></String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
