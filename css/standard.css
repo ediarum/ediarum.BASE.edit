@@ -430,7 +430,7 @@ correspContext ref[type="next"][target^="http://"] {
 
 correspContext ref[target]:after {
     content: " " url('gfx/link.png');
-    link: oxy_url('${ediarum_website_base}', '${ediarum_website_letter}') "?id=" attr(target);
+    link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_letter}') "?id=" attr(target);
 }
 
 correspContext ref[target^="http://"]:after {
