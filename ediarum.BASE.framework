@@ -1232,7 +1232,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>root-path</String>
-																<String>/exist/webdav/db/projects/${ediarum_project_name}/data/</String>
+																<String>${ediarum_projects_directory_webdav}${ediarum_project_name}/data/</String>
 															</entry>
 															<entry>
 																<String>xpath</String>
@@ -1241,7 +1241,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+														<String>org.bbaw.telota.ediarum.InsertReferenceForLinkTargetOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -11395,7 +11395,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>root-path</String>
-																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+																<String>${ediarum_projects_directory_webdav}${ediarum_project_name}/data</String>
 															</entry>
 															<entry>
 																<String>xpath</String>
@@ -11404,7 +11404,7 @@ gap_3</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+														<String>org.bbaw.telota.ediarum.InsertReferenceForLinkTargetOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -11466,7 +11466,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>root-path</String>
-																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+																<String>${ediarum_projects_directory_webdav}${ediarum_project_name}/data</String>
 															</entry>
 															<entry>
 																<String>xpath</String>
@@ -11475,7 +11475,7 @@ gap_3</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+														<String>org.bbaw.telota.ediarum.InsertReferenceForLinkTargetOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
