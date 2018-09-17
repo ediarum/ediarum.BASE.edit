@@ -8725,15 +8725,31 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_comments}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_comments}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='" + @id + "' />"</String>
+																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0" target="$ITEMS">&lt;/ref></String>
 															</entry>
 															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
@@ -8742,7 +8758,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
