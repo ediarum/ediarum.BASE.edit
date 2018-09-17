@@ -1232,7 +1232,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>root-path</String>
-																<String>/exist/webdav/db/projects/${ediarum_project_name}/data/</String>
+																<String>${ediarum_projects_directory_webdav}${ediarum_project_name}/data/</String>
 															</entry>
 															<entry>
 																<String>xpath</String>
@@ -1241,7 +1241,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+														<String>org.bbaw.telota.ediarum.InsertReferenceForLinkTargetOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1717,7 +1717,7 @@ or ancestor-or-self::notesStmt/note</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>&lt;bibl xmlns='http://www.tei-c.org/ns/1.0'  key='$ITEMS'>&lt;/bibl></String>
+																<String>&lt;bibl xmlns='http://www.tei-c.org/ns/1.0'  sameAs='$ITEMS'>&lt;/bibl></String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
@@ -8725,15 +8725,31 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_comments}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_comments}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;ref xmlns='http://www.tei-c.org/ns/1.0' target='" + @id + "' />"</String>
+																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0" target="$ITEMS">&lt;/ref></String>
 															</entry>
 															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
@@ -8742,7 +8758,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -8945,15 +8961,27 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}/exist/rest/db/projects/${ediarum_project_name}${ediarum_index_item}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_item}</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>"&lt;rs type="term" xmlns='http://www.tei-c.org/ns/1.0' key='" + @xml:id + "' />"</String>
+																<String>&lt;rs type="term" xmlns="http://www.tei-c.org/ns/1.0" key="$ITEMS">&lt;/rs></String>
 															</entry>
 															<entry>
-																<String>expression</String>
-																<String>/span</String>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
 															</entry>
 															<entry>
 																<String>node</String>
@@ -8962,7 +8990,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertRegisterOperation</String>
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -11395,7 +11423,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>root-path</String>
-																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+																<String>${ediarum_projects_directory_webdav}${ediarum_project_name}/data</String>
 															</entry>
 															<entry>
 																<String>xpath</String>
@@ -11404,7 +11432,7 @@ gap_3</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+														<String>org.bbaw.telota.ediarum.InsertReferenceForLinkTargetOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -11466,7 +11494,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>root-path</String>
-																<String>/exist/webdav/db/projects/${ediarum_project_name}/data</String>
+																<String>${ediarum_projects_directory_webdav}${ediarum_project_name}/data</String>
 															</entry>
 															<entry>
 																<String>xpath</String>
@@ -11475,7 +11503,7 @@ gap_3</String>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>org.bbaw.telota.ediarum.InsertLinkOperation</String>
+														<String>org.bbaw.telota.ediarum.InsertReferenceForLinkTargetOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
