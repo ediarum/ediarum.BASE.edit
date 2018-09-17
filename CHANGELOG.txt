@@ -5,6 +5,10 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+1.0.2 vom 17.09.2018
+
+	BUGFIX #10692: Link für correspContext/ref in CSS korrigiert
+
 1.0.1 vom 17.09.2018
 
 	BUGFIX #10692: Aktion bibl korrigiert; Aktionen ref, ref[note] und rs[term] auf ediarum.jar Version 2018 geupdated
