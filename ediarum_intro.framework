@@ -36,7 +36,7 @@
 										<field name="value">
 											<cssFile>
 												<field name="href">
-													<String>${frameworks}/ediarum_basis/css/nurIndex.css</String>
+													<String>${framework}/css/nurIndex.css</String>
 												</field>
 												<field name="title">
 													<String>+ Index hervorheben</String>
@@ -63,7 +63,7 @@
 										<field name="value">
 											<cssFile>
 												<field name="href">
-													<String>${frameworks}/ediarum_basis/css/nurVerweise.css</String>
+													<String>${framework}/css/nurVerweise.css</String>
 												</field>
 												<field name="title">
 													<String>+ Verweise hervorheben</String>
@@ -124,7 +124,7 @@
 										<field name="value">
 											<cssFile>
 												<field name="href">
-													<String>${frameworks}/ediarum_basis/css/standard_intro.css</String>
+													<String>${framework}/css/standard_intro.css</String>
 												</field>
 												<field name="title">
 													<String>Standardansicht</String>
@@ -160,10 +160,10 @@
 													<String>Fettgedruckter Text (nur bei Transkription gedruckter Texte)</String>
 												</field>
 												<field name="largeIconPath">
-													<String>${frameworks}/ediarum_basis/icons/bold20.png</String>
+													<String>${framework}/icons/bold20.png</String>
 												</field>
 												<field name="smallIconPath">
-													<String>${frameworks}/ediarum_basis/icons/bold16.png</String>
+													<String>${framework}/icons/bold16.png</String>
 												</field>
 												<field name="accessKey">
 													<String></String>
@@ -222,10 +222,10 @@
 													<String>In gedrucktem Text hervorgehoben</String>
 												</field>
 												<field name="largeIconPath">
-													<String>${frameworks}/ediarum_basis/icons/ex20.png</String>
+													<String>${framework}/icons/ex20.png</String>
 												</field>
 												<field name="smallIconPath">
-													<String>${frameworks}/ediarum_basis/icons/ex16.png</String>
+													<String>${framework}/icons/ex16.png</String>
 												</field>
 												<field name="accessKey">
 													<String></String>
@@ -1951,7 +1951,7 @@
 																		<Integer>4</Integer>
 																	</field>
 																	<field name="uri">
-																		<String>${frameworks}/ediarum_basis/schemata/einleitung.rng</String>
+																		<String>${framework}/schemata/einleitung.rng</String>
 																	</field>
 																</validationUnitSchema>
 															</field>
