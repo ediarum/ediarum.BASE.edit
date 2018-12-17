@@ -3,7 +3,11 @@
 
     <start> <!-- Start von eigentliches TEI Dokument -->
         <element name="TEI">
-            <a:documentation>Wurzelelement, wird immer benötigt</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(TEI
+                document) contains a single TEI-conformant document, containing a single TEI header, a
+                single text, one or more members of the model.resourceLike class, or a combination of
+                these. A series of TEI elements may be combined together to form a teiCorpus element.
+                [4. Default Text Structure 15.1. Varieties of Composite Text]</a:documentation>
             <attribute name="doctype" ns="http://www.telota.de">
                 <value>introduction</value>
             </attribute>
@@ -13,11 +17,16 @@
 
             <!-- Header -->
             <element name="teiHeader">
-                <a:documentation>Beinhaltet die Metadaten zur Einleitung</a:documentation>
+                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(TEI header)
+                    supplies the descriptive and declarative information making up an electronic title page
+                    for every TEI-conformant document. [2.1.1. The TEI Header and Its Components 15.1.
+                    Varieties of Composite Text]</a:documentation>
                 <element name="fileDesc">
                     <element name="titleStmt">
                         <element name="title">
-                            <a:documentation>Titel der Einleitung</a:documentation>
+                            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a
+                                title for any kind of work. [3.11.2.2. Titles, Authors, and Editors 2.2.1. The Title
+                                Statement 2.2.5. The Series Statement]</a:documentation>
                             <text/>
                            <interleave>
                                <optional>
@@ -38,7 +47,9 @@
                         </optional>
                     </element>
                     <element name="editionStmt">
-                        <a:documentation>Angaben zur Edition</a:documentation>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(edition
+                            statement) groups information relating to one edition of a text. [2.2.2. The Edition
+                            Statement 2.2. The File Description]</a:documentation>
                         <element name="edition">
                            <oneOrMore>    
                             <element name="title">
@@ -58,15 +69,16 @@
                         <optional>
                         <oneOrMore>
                             <element name="respStmt">
-                                <a:documentation>Beinhaltet Name und Tätigkeit der Autoren,
-                                    Bearbeiter und Herausgeber</a:documentation>
+                                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(statement of responsibility) supplies a statement of responsibility for the intellectual content of a text, edition, recording, or series, where the specialized elements for authors, editors, etc. do not suffice or do not apply. May also be used to encode information about individuals or organizations which have played a role in the production or distribution of a bibliographic work. [3.11.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement 2.2.2. The Edition Statement 2.2.5. The Series Statement]</a:documentation>
                                 <element name="name">
                                     <text/>
-                                    <a:documentation>Name</a:documentation>
+                                    <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(name,
+                                        proper noun) contains a proper noun or noun phrase. [3.5.1. Referring
+                                        Strings]</a:documentation>
                                 </element>
                                 <element name="resp">
                                     <text/>
-                                    <a:documentation>Tätigkeit</a:documentation>
+                                    <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsibility) contains a phrase describing the nature of a person's intellectual responsibility, or an organization's role in the production or distribution of a work. [3.11.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement 2.2.2. The Edition Statement 2.2.5. The Series Statement]</a:documentation>
                                 </element>
                             </element>
                         </oneOrMore>
@@ -187,7 +199,9 @@
     </define>
     <define name="div">
         <element name="div">
-            <a:documentation>Element für Unterteilung des Textes</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(text
+                division) contains a subdivision of the front, body, or back of a text. [4.1. Divisions
+                of the Body]</a:documentation>
             <attribute name="type">
                 <choice>
                     <value>chapter</value>
@@ -204,7 +218,10 @@
     </define>
     <define name="head">
         <element name="head">
-            <a:documentation>Überschriften innerhalb Text</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(heading)
+                contains any type of heading, for example the title of a section, or the heading of a
+                list, glossary, manuscript description, etc. [4.2.1. Headings and
+                Trailers]</a:documentation>
             <optional><attribute name="type">
                 <choice>
                     <value>h1</value>
@@ -221,7 +238,8 @@
     </define>
     <define name="p">
         <element name="p">
-            <a:documentation>Element für normale Absätze</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph)
+                marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
             <zeroOrMore>
                 <interleave>
                     <text/>
@@ -232,7 +250,8 @@
     </define>
     <define name="list">
         <element name="list">
-            <a:documentation>Liste</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains any
+                sequence of items organized as a list. [3.7. Lists]</a:documentation>
             <attribute name="type">
                 <choice>
                     <value>ordered</value>
@@ -251,11 +270,14 @@
     </define>
     <define name="ref">
         <element name="ref">
-            <a:documentation>Expliziter Verweis im Text oder Link zu Brief</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference)
+                defines a reference to another location, possibly modified by additional text or
+                comment. [3.6. Simple Links and Cross-References 16.1. Links]</a:documentation>
             <interleave>
                 <optional>
                     <attribute name="type"> <!-- for url links -->
-                            <value>url_link</value>
+                            <choice><value>hasAttachement</value>
+                        <value>attachedTo</value></choice>
                     </attribute>
                 </optional>
                 <optional>
@@ -277,6 +299,9 @@
     </define>
     <define name="orgName"> <!-- Schleiermacher braucht nicht -->
         <element name="orgName">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                >(organization name) contains an organizational name. [13.2.2. Organizational
+                Names]</a:documentation>
             <optional>
                 <attribute name="key">
                     <text/>
@@ -288,8 +313,8 @@
     </define>
     <define name="placeName">
         <element name="placeName">
-            <a:documentation>Geographischer Ort, in der Regel ein Dorf oder eine
-                Stadt</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains an
+                absolute or relative place name. [13.2.3. Place Names]</a:documentation>
            <interleave>
             <attribute name="key">
                 <text/>
@@ -306,25 +331,19 @@
     </define>
     <define name="persName">
         <element name="persName">
-            <a:documentation>Personenname</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal
+                name) contains a proper noun or proper-noun phrase referring to a person, possibly
+                including one or more of the person's forenames, surnames, honorifics, added names, etc.
+                [13.2.1. Personal Names]</a:documentation>
             <interleave>
-            <attribute name="key">
-                <text/>
-            </attribute>
-            <optional>
-                <attribute name="corresp">
+                <attribute name="key">
                     <text/>
                 </attribute>
-            </optional>
-            <optional>
-                <attribute name="type"><!-- für Tagebücher, um Briefkorrespondenzpartner auszuzeichnen -->
-                    <choice>
-                        <value>normal</value>
-                        <value>recipient</value>
-                        <value>sender</value>
-                    </choice>
-                </attribute>
-            </optional>
+                <optional>
+                    <attribute name="corresp">
+                        <text/>
+                    </attribute>
+                </optional>
             </interleave>
             <interleave>
                 <text/>
@@ -334,7 +353,11 @@
     </define>
     <define name="bibl">
         <element name="bibl">
-            <a:documentation>Titel eines Werkes</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                >(bibliographic citation) contains a loosely-structured bibliographic citation of which
+                the sub-components may or may not be explicitly tagged. [3.11.1. Methods of Encoding
+                Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2.
+                Declarable Elements]</a:documentation>
             <interleave>
             <optional>
                 <attribute name="sameAs">
@@ -358,7 +381,10 @@
     </define>
     <define name="hi">
         <element name="hi">
-            <a:documentation>Hervorhebungen, z.B. Unterstreichungen</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+                >(highlighted) marks a word or phrase as graphically distinct from the surrounding text,
+                for reasons concerning which no claim is made. [3.3.2.2. Emphatic Words and Phrases
+                3.3.2. Emphasis, Foreign Words, and Unusual Language]</a:documentation>
             <optional>
                 <attribute name="rendition">
                     <choice>
@@ -378,8 +404,9 @@
    <!-- Seitenwechsel -->
     <define name="pb">
         <element name="pb">
-            <a:documentation>Folio- oder Seitenwechsel mit Angabe der nun folgenden
-                Seite</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(page break)
+                marks the start of a new page in a paginated document. [3.10.3. Milestone
+                Elements]</a:documentation>
             <optional>
                 <attribute name="ed">
                         <value>einleitung</value>
@@ -393,14 +420,19 @@
     <!-- Zeilenumbruch-->
     <define name="lb">
         <element name="lb">
-            <a:documentation>Zeilenumbruch</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(line break)
+                marks the start of a new (typographic) line in some edition or version of a text.
+                [3.10.3. Milestone Elements 7.2.5. Speech Contents]</a:documentation>
             <empty/>
         </element>
     </define>
     <!-- kommentar -->
     <define name="note">
         <element name="note">
-            <a:documentation>Fußnote des Editors</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains a
+                note or annotation. [3.8.1. Notes and Simple Annotation 2.2.6. The Notes Statement
+                3.11.2.8. Notes and Statement of Language 9.3.5.4. Notes within
+                Entries]</a:documentation>
             <attribute name="resp">
                     <value>editor</value>
             </attribute>
@@ -424,11 +456,11 @@
     <!-- Verweisziele & Indexbereiche -->
     <define name="anchor">
         <element name="anchor">
-            <a:documentation>Markiert Verweisziele</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(anchor point) attaches an identifier to a point within a text, whether or not it corresponds with a textual element. [8.4.2. Synchronization and Overlap 16.4. Correspondence and Alignment]</a:documentation>
             <attribute name="type">
                 <choice>
-                    <value>verweisziel</value>
-                    <value>indexbereich</value>
+                    <value>target</value>
+                    <value>index</value>
                 </choice>
             </attribute>
             <attribute name="xml:id">
@@ -446,9 +478,9 @@
                    <interleave>
                     <attribute name="indexName">
                         <choice>
-                            <value>personen</value>
-                            <value>orte</value>
-                            <value>werke</value>
+                            <value>persons</value>
+                            <value>places</value>
+                            <value>bibl</value>
                         </choice>
                     </attribute>
                     <attribute name="spanTo">
