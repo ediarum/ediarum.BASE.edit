@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:telota="http://www.telota.de" telota:doctype="introduction" xml:id="prov_${id}">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Einleitung der Herausgeber</title>
+            </titleStmt>
+            <editionStmt>
+                <edition>
+                    <title/>
+                </edition>
+            </editionStmt>
+            <publicationStmt>
+                <publisher/>
+            </publicationStmt>
+            <sourceDesc>
+                <p>born-digital</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="chapter">
+                <head></head>
+                <p></p>
+            </div>
+        </body>
+    </text>
+</TEI>
