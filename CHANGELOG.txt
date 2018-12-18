@@ -5,6 +5,13 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+1.1.0 vom 18.12.2018
+
+	BUGFIX #10670: Verweis auf Brief (Author-Modus Funktion) funktioniert nicht
+	BUGFIX #11059: Falsche Pfade in CSS für Verlinkung von <ref>-Elementen (links.css)
+	BUGFIX #11082: Fehler in der Aktion "correspAction[received]_placeName" (Empfangsort)
+	FEATURE #11171: ediarum.INTRO für Einleitungstexte
+
 1.0.2 vom 17.09.2018
 
 	BUGFIX #10692: Link für correspContext/ref in CSS korrigiert
