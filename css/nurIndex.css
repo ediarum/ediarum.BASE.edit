@@ -1,0 +1,155 @@
+/* 
+Copyright 2013 Berlin-Brandenburg Academy of Sciences and Humanities
+
+This file is part of ediarum.FS.
+
+ediarum.FS is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ediarum.FS is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ediarum.FS. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@import url("standard.css");
+
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+
+/* nur Abweichungen */
+
+text seg {
+    -oxy-display-tags: none;
+}
+
+text seg orig {
+    background-color: white;
+    -oxy-display-tags: none;
+}
+
+text seg note {
+    display: none;
+}
+
+text index term,
+text index:before {
+    display: inline;
+    background-color: #13305B;
+    color: white;
+    font-family: Arial, Helvetica, Sans;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    -oxy-display-tags: none;    
+}
+
+text index:before {
+    content: " " url('gfx/index_start_weiss.png') " " attr(spanTo) " ";
+}
+
+text anchor[type="index"]:after {
+    content: " " url('gfx/index_ende_weiss.png') " " attr(xml|id) " ";
+    background-color: #13305B;
+    color: white;
+    font-family: Arial, Helvetica, Sans;
+    font-size: 0.8em;
+    line-height: 1.2em;    
+}
+
+text anchor[type="verweisziel"] {
+    display: none;
+}
+
+text ref {
+    border-bottom: none;
+}
+
+text ref:after {
+    display: none;
+}
+
+quote choice sic,
+text choice sic {
+    color: black;
+}
+
+quote supplied,
+text supplied {
+    font-style: normal;
+    background-color: white;    
+}
+
+quote supplied[cert="low"]:before,
+text supplied[cert="low"]:before {
+    display: none;
+}
+
+quote surplus,
+text surplus {
+    text-decoration: none;/*normal*/
+    color: black;
+}
+
+quote choice corr,
+text choice corr {
+    font-style: normal;
+    color: black;
+}
+
+quote choice corr[cert="high"]:before,
+text choice corr[cert="high"]:before {
+    display: none;
+}
+
+quote choice corr[cert="low"]:before,
+text choice corr[cert="low"]:before {
+    display: none;
+}
+
+quote choice corr[cert="low"],
+text choice corr[cert="low"] {
+    color: black;
+}
+
+quote del,
+text del {
+    color: black;
+    text-decoration: none;
+}
+
+quote add,
+text add {
+    color: black;
+}
+
+quote hi[rend="#u"],
+text hi[rend="#u"] {
+    text-decoration: none;
+}
+
+quote gap,
+quote unclear,
+text gap,
+text unclear {
+    background-color: white;
+}
+
+quote gap:after,
+quote unclear:after,
+text gap:after,
+text unclear:after {
+    background-color: white;
+}
+
+quote gap,
+text gap {
+    content: "   ";
+}
+quote ex,
+text ex {
+    font-style: italic;
+}

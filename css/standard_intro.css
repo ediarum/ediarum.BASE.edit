@@ -1,0 +1,95 @@
+/* 
+Copyright 2012-2018 Berlin-Brandenburg Academy of Sciences and Humanities
+
+This file is part of ediarum.BASE.
+
+ediarum.BASE is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ediarum.BASE is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+/* Anpassungen für ediarum.INTRO */
+
+/* teiHeader */
+
+editionStmt {
+    display:block;
+    -oxy-display-tags: none;
+}
+
+edition title{
+    -oxy-placeholder-content: "Editionstitel eingeben";
+    -oxy-show-placeholder: always;
+    -oxy-display-tags: none;
+}
+
+publicationStmt {
+    display:block;
+    -oxy-display-tags: none;
+    margin: 1em 0 1em 0;
+}
+
+publisher {
+    -oxy-placeholder-content: "Herausgebende Institution eintragen";
+}
+
+/* text */
+quote hi[rendition="#b"],
+text hi[rendition="#b"] {
+    font-weight: bold;
+    -oxy-display-tags: none;
+}
+
+/* Überschriften */
+
+/* h1 */
+text div[type='chapter'] head  {
+    -oxy-placeholder-content: "Kapitelüberschrift";
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* h2 */
+text div[type='chapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Abschnittsüberschrift";
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* h3 */
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Abschnittsüberschrift";
+    font-size: 1.2em;
+}
+
+/* h4 */
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Abschnittsüberschrift";
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+/* h5 */
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Abschnittsüberschrift";
+    font-size: 1em;
+    font-style:italic
+}
+
+/* h6 */
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Abschnittsüberschrift";
+    font-size: 1em;
+    font-style:italic;
+    text-decoration: underline;
+}
