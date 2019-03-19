@@ -5,6 +5,10 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+1.1.1 vom 19.03.2019
+
+	BUGFIX #9728: Update Action head for inserting list/head
+
 1.1.0 vom 18.12.2018
 
 	BUGFIX #10670: Verweis auf Brief (Author-Modus Funktion) funktioniert nicht
