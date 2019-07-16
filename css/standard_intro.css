@@ -20,15 +20,88 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 
 /* Anpassungen für ediarum.INTRO */
 
-/* teiHeader */
+/* #####################
+ * ##### teiHeader #####
+ * ##################### */
+
+title[type='main']{
+    -oxy-placeholder-content: "Titel eintragen";
+   -oxy-show-placeholder: always;
+    
+}
+
+title[type='sub']{
+   font-size: 1.3em;
+   -oxy-placeholder-content: "Untertitel eintragen";
+   -oxy-show-placeholder: always;
+}
+
+title:after{
+    content: "\A"
+}
+author{
+     -oxy-display-tags: none;
+     display: block;
+     margin:0 0 0.5em 0;
+}
+
+affiliation,
+email,
+note{
+    -oxy-display-tags: none;
+}
+
+author affiliation:before{
+    content: "(";
+}
+author affiliation:after{
+    content: ")";
+}
+
+author email:before,
+author note:before{
+    content: "\A";
+    /*display: block;*/
+}
+
+author email,
+author note{
+    margin-left: 10px;
+}
+
+author affiliation{
+    -oxy-placeholder-content: "Zugehörigkeit";
+    -oxy-show-placeholder: always;
+}
+
+author email{
+    -oxy-placeholder-content: "E-Mail";
+    -oxy-show-placeholder: always;
+}
+
+author note{
+    -oxy-placeholder-content: "Anmerkung";
+    -oxy-show-placeholder: always;
+}
+
 
 editionStmt {
     display:block;
     -oxy-display-tags: none;
 }
 
-edition title{
+edition{
+    -oxy-display-tags: none;
+}
+
+edition title[type='main']{
     -oxy-placeholder-content: "Editionstitel eingeben";
+    -oxy-show-placeholder: always;
+    -oxy-display-tags: none;
+}
+edition title[type='sub']{
+    font-size:small;
+    -oxy-placeholder-content: "Untertitel der Edition eingeben";
     -oxy-show-placeholder: always;
     -oxy-display-tags: none;
 }
@@ -40,56 +113,222 @@ publicationStmt {
 }
 
 publisher {
+    -oxy-display-tags: none;
     -oxy-placeholder-content: "Herausgebende Institution eintragen";
+    -oxy-show-placeholder: always;
 }
 
-/* text */
+pubPlace {
+    -oxy-placeholder-content: "Erscheinungsort eintragen";
+    -oxy-show-placeholder: always;
+    -oxy-display-tags: none;
+}
+
+publicationStmt pubPlace:before{
+    content: ", "
+}
+
+/* ################
+ * ##### TEXT #####
+ * ################ */
+text sic{
+    -oxy-display-tags: none;
+}
+text sic:after{
+    content:" [sic!]"
+}
+
+name{
+    background-color: #f3fccc;
+    -oxy-display-tags: none;
+}
+
+/* #########################
+ * ##### ÜBERSCHRIFTEN #####
+ * ######################### */
+
+/* h1 */
+text div head,
+text div[type='chapter'] head{
+    -oxy-placeholder-content: "Überschrift (≙ h1)";
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+/* h2 */
+text div > div head,
+text div[type='chapter'] div[type='subchapter'] head{
+    -oxy-placeholder-content: "Überschrift (≙ h2)";
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* h3 */
+text div > div > div head,
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] head{
+    -oxy-placeholder-content: "Überschrift ≙ h3";
+    font-size: 1.1em;
+    text-decoration:underline;
+}
+
+/* h4 */
+text div > div > div > div head,
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Überschrift (≙ h4)";
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+/* h5 */
+text div > div > div > div > div head,
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Überschrift (≙ h5)";
+    font-size: 1em;
+    font-style:italic
+}
+
+/* h6 */
+text div > div > div > div > div > div head,
+text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
+    -oxy-placeholder-content: "Überschrift (≙ h6)";
+    font-size: 1em;
+    font-style:italic;
+    text-decoration: underline;
+}
+
+/* ##################
+ * ##### LISTEN #####
+ * ################## */
+text list,
+text list item {
+    display: block;
+    -oxy-display-tags: none;
+    font-family:arial, helvetica, sans-serif;
+}
+
+text list item {
+    display: list-item;
+    -oxy-display-tags: none;
+}
+
+text list[rendition='bulleted']{
+    list-style-type:disc;
+}
+
+text list[rendition='ordered']{
+    list-style-type:circle;
+}
+
+text list[rendition='ordered decimal']{
+    list-style-type:decimal;
+}
+text list[rendition='ordered_num']{
+    list-style-type:decimal;
+}
+
+text list[rendition='ordered upperRoman']{
+    list-style-type:upper-roman;
+}
+
+text list[rendition='ordered lowerLatin']{
+    list-style-type:lower-latin;
+}
+
+text list[rendition='ordered upperLatin']{
+    list-style-type:upper-latin;
+}
+
+text list[rendition='ordered lowerRoman']{
+    list-style-type:lower-roman;
+}
+
+text list[rendition='none']{
+    list-style-type:none;
+}
+
+text list {
+    margin: 1em 0 0 2em;
+}
+
+/* ##################
+ * ##### ZITATE #####
+ * ################## */
+
+quote[type='introQuote']{
+    font-family: BBAWfont;
+    -oxy-display-tags: none;
+    display: block;
+    margin:0.5em 10em 0.5em 1.5em;
+    -oxy-placeholder-content: "Einführungszitat";
+    -oxy-show-placeholder: always;
+}
+
+quote[rendition='inline']{
+    font-family: BBAWfont;
+    -oxy-display-tags: none;
+    font-style: italic;
+    -oxy-placeholder-content: "Inline-Zitat";
+    -oxy-show-placeholder: always;
+    background-color:#F4E4BC;
+}
+
+quote[rendition='block']{
+    font-family: BBAWfont;
+    -oxy-display-tags: none;
+    display: block;
+    margin:0.5em 10em 0.5em 5em;
+    -oxy-placeholder-content: "Blockzitat";
+    -oxy-show-placeholder: always;
+}
+
+/* hier weitermachen!!! */
+note ref[target]:after {
+content: " " url(gfx/link.png) ;
+-oxy-link: attr(target) ;
+}
+
+/* ##################
+ * ##### FIGURE #####
+ * ################## 
+ * Kopie von ediarum.BASE.edit . notwendig?*/
+/*text figure {
+    display: block;
+    margin: 0 0 0 2em;
+    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Zeichnung o.ä.]";
+}
+
+text figure[facs] {
+    content: url(oxy_base-uri()'${ediarum_projects_directory}${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
+    width: 250px;
+}
+
+text figure head {
+    -oxy-display-tags: none;
+    -oxy-placeholder-content: "[Überschrift der Abbildung]";
+}
+
+text figure figDesc {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Bildbeschreibung durch den Bearbeiter]"
+}
+
+text figure p {
+    -oxy-placeholder-content: "[Bildunterschrift des Autors]"
+}
+
+text figure note {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]"
+}*/
+
 quote hi[rendition="#b"],
 text hi[rendition="#b"] {
     font-weight: bold;
     -oxy-display-tags: none;
 }
 
-/* Überschriften */
 
-/* h1 */
-text div[type='chapter'] head  {
-    -oxy-placeholder-content: "Kapitelüberschrift";
-    font-size: 1.4em;
-    font-weight: bold;
-}
-
-/* h2 */
-text div[type='chapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Abschnittsüberschrift";
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-/* h3 */
-text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Abschnittsüberschrift";
-    font-size: 1.2em;
-}
-
-/* h4 */
-text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Abschnittsüberschrift";
-    font-size: 1.2em;
-    font-style: italic;
-}
-
-/* h5 */
-text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Abschnittsüberschrift";
-    font-size: 1em;
-    font-style:italic
-}
-
-/* h6 */
-text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Abschnittsüberschrift";
-    font-size: 1em;
-    font-style:italic;
-    text-decoration: underline;
-}

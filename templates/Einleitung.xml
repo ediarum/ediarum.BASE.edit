@@ -3,15 +3,16 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Einleitung der Herausgeber</title>
+                <title type="main">Einleitung der Herausgeber</title>
             </titleStmt>
             <editionStmt>
                 <edition>
-                    <title/>
+                    <title type="main"/>
                 </edition>
             </editionStmt>
             <publicationStmt>
-                <publisher/>
+                <publisher>Berlin-Brandenburgische Akademie der Wissenschaften</publisher>
+                <pubPlace ref="http://www.geonames.org/2950159">Berlin</pubPlace>
             </publicationStmt>
             <sourceDesc>
                 <p>born-digital</p>
@@ -20,8 +21,8 @@
     </teiHeader>
     <text>
         <body>
-            <div type="chapter">
-                <head></head>
+            <div>
+                <head/>
                 <p></p>
             </div>
         </body>
