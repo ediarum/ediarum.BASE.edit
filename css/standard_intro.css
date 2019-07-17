@@ -80,7 +80,7 @@ author email{
 }
 
 author note{
-    -oxy-placeholder-content: "Anmerkung";
+    -oxy-placeholder-content: "weitere Informationen";
     -oxy-show-placeholder: always;
 }
 
@@ -131,6 +131,13 @@ publicationStmt pubPlace:before{
 /* ################
  * ##### TEXT #####
  * ################ */
+
+text p[n]:before,
+text note[n]:before{
+    content:"(" attr(n) ") ";
+    color:gray;
+}
+
 text sic{
     -oxy-display-tags: none;
 }
@@ -150,7 +157,7 @@ name{
 /* h1 */
 text div head,
 text div[type='chapter'] head{
-    -oxy-placeholder-content: "Überschrift (≙ h1)";
+    -oxy-placeholder-content: "Überschrift (≙ Ebene h1)";
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 0.5em;
@@ -159,7 +166,7 @@ text div[type='chapter'] head{
 /* h2 */
 text div > div head,
 text div[type='chapter'] div[type='subchapter'] head{
-    -oxy-placeholder-content: "Überschrift (≙ h2)";
+    -oxy-placeholder-content: "Überschrift (≙ Ebene h2)";
     font-size: 1.3em;
     font-weight: bold;
 }
@@ -167,7 +174,7 @@ text div[type='chapter'] div[type='subchapter'] head{
 /* h3 */
 text div > div > div head,
 text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] head{
-    -oxy-placeholder-content: "Überschrift ≙ h3";
+    -oxy-placeholder-content: "Überschrift ≙ Ebene h3";
     font-size: 1.1em;
     text-decoration:underline;
 }
@@ -175,7 +182,7 @@ text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] head{
 /* h4 */
 text div > div > div > div head,
 text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Überschrift (≙ h4)";
+    -oxy-placeholder-content: "Überschrift (≙ Ebene h4)";
     font-size: 1.1em;
     font-style: italic;
 }
@@ -183,7 +190,7 @@ text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type=
 /* h5 */
 text div > div > div > div > div head,
 text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Überschrift (≙ h5)";
+    -oxy-placeholder-content: "Überschrift (≙ Ebene h5)";
     font-size: 1em;
     font-style:italic
 }
@@ -191,7 +198,7 @@ text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type=
 /* h6 */
 text div > div > div > div > div > div head,
 text div[type='chapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] div[type='subchapter'] head {
-    -oxy-placeholder-content: "Überschrift (≙ h6)";
+    -oxy-placeholder-content: "Überschrift (≙ Ebene h6)";
     font-size: 1em;
     font-style:italic;
     text-decoration: underline;
@@ -287,43 +294,6 @@ note ref[target]:after {
 content: " " url(gfx/link.png) ;
 -oxy-link: attr(target) ;
 }
-
-/* ##################
- * ##### FIGURE #####
- * ################## 
- * Kopie von ediarum.BASE.edit . notwendig?*/
-/*text figure {
-    display: block;
-    margin: 0 0 0 2em;
-    -oxy-display-tags: none;
-    -oxy-placeholder-content: "[Zeichnung o.ä.]";
-}
-
-text figure[facs] {
-    content: url(oxy_base-uri()'${ediarum_projects_directory}${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
-    width: 250px;
-}
-
-text figure head {
-    -oxy-display-tags: none;
-    -oxy-placeholder-content: "[Überschrift der Abbildung]";
-}
-
-text figure figDesc {
-    display: block;
-    font-style: italic;
-    -oxy-placeholder-content: "[Bildbeschreibung durch den Bearbeiter]"
-}
-
-text figure p {
-    -oxy-placeholder-content: "[Bildunterschrift des Autors]"
-}
-
-text figure note {
-    display: block;
-    font-style: italic;
-    -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]"
-}*/
 
 quote hi[rendition="#b"],
 text hi[rendition="#b"] {
