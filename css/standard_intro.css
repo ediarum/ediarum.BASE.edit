@@ -132,10 +132,19 @@ publicationStmt pubPlace:before{
  * ##### TEXT #####
  * ################ */
 
-text p[n]:before,
+
+text p[n]:before{
+    content:"(" attr(n) ") ";
+    color:gray;
+    }
+
 text note[n]:before{
     content:"(" attr(n) ") ";
     color:gray;
+    position: relative; 
+    top: -0.5em;
+    font-size: 0.8em;
+    -oxy-display-tags: none;
 }
 
 text sic{

@@ -36,10 +36,10 @@
 										<field name="value">
 											<cssFile>
 												<field name="href">
-													<String>${framework}/css/nurIndex.css</String>
+													<String>${framework}/css/nurVerweise.css</String>
 												</field>
 												<field name="title">
-													<String>+ Index hervorheben</String>
+													<String>+ Verweise hervorheben</String>
 												</field>
 												<field name="alternate">
 													<Boolean>true</Boolean>
@@ -63,10 +63,10 @@
 										<field name="value">
 											<cssFile>
 												<field name="href">
-													<String>${framework}/css/nurVerweise.css</String>
+													<String>${framework}/css/nurVerweise_p_note.css</String>
 												</field>
 												<field name="title">
-													<String>+ Verweise hervorheben</String>
+													<String>+ Absatz- und Fußnotenverweise</String>
 												</field>
 												<field name="alternate">
 													<Boolean>true</Boolean>
@@ -146,7 +146,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>161</Integer>
+											<Integer>165</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -208,7 +208,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>162</Integer>
+											<Integer>166</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -270,7 +270,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>163</Integer>
+											<Integer>167</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -348,7 +348,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>164</Integer>
+											<Integer>168</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -580,7 +580,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>165</Integer>
+											<Integer>169</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -642,7 +642,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>166</Integer>
+											<Integer>170</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -704,7 +704,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>167</Integer>
+											<Integer>171</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -798,7 +798,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>168</Integer>
+											<Integer>172</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -882,7 +882,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>169</Integer>
+											<Integer>173</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1029,7 +1029,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>170</Integer>
+											<Integer>174</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1091,7 +1091,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>171</Integer>
+											<Integer>175</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1157,7 +1157,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>172</Integer>
+											<Integer>176</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1261,7 +1261,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>173</Integer>
+											<Integer>177</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1331,7 +1331,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>174</Integer>
+											<Integer>178</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1425,7 +1425,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>175</Integer>
+											<Integer>179</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1495,7 +1495,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>176</Integer>
+											<Integer>180</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1567,7 +1567,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>177</Integer>
+											<Integer>181</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1641,7 +1641,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>178</Integer>
+											<Integer>182</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1873,7 +1873,7 @@ or ancestor-or-self::note</String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>179</Integer>
+											<Integer>183</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1939,7 +1939,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 																	</entry>
 																	<entry>
 																		<String>node</String>
-																		<String>//tei:body//tei:p</String>
+																		<String>//tei:div/tei:p</String>
 																	</entry>
 																</serializableOrderedMap>
 															</field>
@@ -2013,7 +2013,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>180</Integer>
+											<Integer>184</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -2132,6 +2132,195 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</field>
 															<field name="operationID">
 																<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
+															</field>
+														</actionMode>
+													</actionMode-array>
+												</field>
+												<field name="enabledInReadOnlyContext">
+													<Boolean>false</Boolean>
+												</field>
+											</action>
+										</field>
+										<field name="patchHandling">
+											<String>addIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>authorExtensionDescriptor/actionDescriptors</String>
+										</field>
+										<field name="index">
+											<Integer>185</Integer>
+										</field>
+										<field name="value">
+											<action>
+												<field name="id">
+													<String>INTRO_revisionDesc[1]</String>
+												</field>
+												<field name="name">
+													<String>Bearbeitungshistorie hinzufügen</String>
+												</field>
+												<field name="description">
+													<String>Dokumentiert eine neue Bearbeitung des Dokuments</String>
+												</field>
+												<field name="largeIconPath">
+													<String></String>
+												</field>
+												<field name="smallIconPath">
+													<String></String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="accelerator">
+													<null/>
+												</field>
+												<field name="actionModes">
+													<actionMode-array>
+														<actionMode>
+															<field name="xpathCondition">
+																<String>//revisionDesc</String>
+															</field>
+															<field name="argValues">
+																<serializableOrderedMap>
+																	<entry>
+																		<String>fragment</String>
+																		<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd)}" who="${ask('Kürzel Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change></String>
+																	</entry>
+																	<entry>
+																		<String>insertLocation</String>
+																		<String>//listChange</String>
+																	</entry>
+																	<entry>
+																		<String>insertPosition</String>
+																		<String>Inside as first child</String>
+																	</entry>
+																</serializableOrderedMap>
+															</field>
+															<field name="operationID">
+																<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+															</field>
+														</actionMode>
+														<actionMode>
+															<field name="xpathCondition">
+																<String>not(//revisionDesc) and not (//profileDesc)</String>
+															</field>
+															<field name="argValues">
+																<serializableOrderedMap>
+																	<entry>
+																		<String>fragment</String>
+																		<String>&lt;revisionDesc xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;listChange>
+    &lt;change when="${date(yyyy-MM-dd)}" who="${ask('Kürzel Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change>
+  &lt;/listChange>
+&lt;/revisionDesc></String>
+																	</entry>
+																	<entry>
+																		<String>insertLocation</String>
+																		<String>//fileDesc</String>
+																	</entry>
+																	<entry>
+																		<String>insertPosition</String>
+																		<String>After</String>
+																	</entry>
+																</serializableOrderedMap>
+															</field>
+															<field name="operationID">
+																<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+															</field>
+														</actionMode>
+														<actionMode>
+															<field name="xpathCondition">
+																<String>//profileDesc not(//revisionDesc)</String>
+															</field>
+															<field name="argValues">
+																<serializableOrderedMap>
+																	<entry>
+																		<String>fragment</String>
+																		<String>&lt;revisionDesc xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;listChange>
+    &lt;change when="${date(yyyy-MM-dd)}" who="${ask('Kürzel Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change>
+  &lt;/listChange>
+&lt;/revisionDesc></String>
+																	</entry>
+																	<entry>
+																		<String>insertLocation</String>
+																		<String>//profileDesc</String>
+																	</entry>
+																	<entry>
+																		<String>insertPosition</String>
+																		<String>After</String>
+																	</entry>
+																</serializableOrderedMap>
+															</field>
+															<field name="operationID">
+																<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+															</field>
+														</actionMode>
+													</actionMode-array>
+												</field>
+												<field name="enabledInReadOnlyContext">
+													<Boolean>false</Boolean>
+												</field>
+											</action>
+										</field>
+										<field name="patchHandling">
+											<String>addIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>authorExtensionDescriptor/actionDescriptors</String>
+										</field>
+										<field name="index">
+											<Integer>186</Integer>
+										</field>
+										<field name="value">
+											<action>
+												<field name="id">
+													<String>INTRO_revisionDesc</String>
+												</field>
+												<field name="name">
+													<String>Bearbeitungshistorie hinzufügen</String>
+												</field>
+												<field name="description">
+													<String>Dokumentiert eine neue Bearbeitung des Dokuments</String>
+												</field>
+												<field name="largeIconPath">
+													<String></String>
+												</field>
+												<field name="smallIconPath">
+													<String></String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="accelerator">
+													<null/>
+												</field>
+												<field name="actionModes">
+													<actionMode-array>
+														<actionMode>
+															<field name="xpathCondition">
+																<String></String>
+															</field>
+															<field name="argValues">
+																<serializableOrderedMap>
+																	<entry>
+																		<String>actionIDs</String>
+																		<String>INTRO_revisionDesc[1]
+revisionDesc[2]</String>
+																	</entry>
+																</serializableOrderedMap>
+															</field>
+															<field name="operationID">
+																<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
 															</field>
 														</actionMode>
 													</actionMode-array>
@@ -2510,10 +2699,48 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 									</poPatch>
 									<poPatch>
 										<field name="fieldPath">
+											<String>authorExtensionDescriptor/menubarDescriptor/menuEntriesDescriptorList/[8]/menuEntriesDescriptorList/[16]/menuEntriesDescriptorList</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<null/>
+										</field>
+										<field name="patchHandling">
+											<String>removeIndex</String>
+										</field>
+										<field name="anchor">
+											<String>revisionDesc</String>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
+											<String>authorExtensionDescriptor/menubarDescriptor/menuEntriesDescriptorList/[8]/menuEntriesDescriptorList/[16]/menuEntriesDescriptorList</String>
+										</field>
+										<field name="index">
+											<Integer>0</Integer>
+										</field>
+										<field name="value">
+											<menuItem>
+												<field name="actionID">
+													<String>INTRO_revisionDesc</String>
+												</field>
+											</menuItem>
+										</field>
+										<field name="patchHandling">
+											<String>addIndex</String>
+										</field>
+										<field name="anchor">
+											<null/>
+										</field>
+									</poPatch>
+									<poPatch>
+										<field name="fieldPath">
 											<String>authorExtensionDescriptor/menubarDescriptor/menuEntriesDescriptorList/[8]/menuEntriesDescriptorList</String>
 										</field>
 										<field name="index">
-											<Integer>16</Integer>
+											<Integer>17</Integer>
 										</field>
 										<field name="value">
 											<null/>
@@ -16573,6 +16800,243 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>revisionDesc[1]</String>
+										</field>
+										<field name="name">
+											<String>Bearbeitungshistorie hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>Dokumentiert eine neue Bearbeitung des Dokuments</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//revisionDesc</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd)}" who="${ask('Kürzel Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//listChange</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//revisionDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;revisionDesc xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;listChange>
+    &lt;change when="${date(yyyy-MM-dd)}" who="${ask('Kürzel Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change>
+  &lt;/listChange>
+&lt;/revisionDesc></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>revisionDesc[2]</String>
+										</field>
+										<field name="name">
+											<String>change @who</String>
+										</field>
+										<field name="description">
+											<String>Setzt leeres @who auf "anonymus"</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::change[@who='']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::change[1]</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>who</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>anonymus</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>revisionDesc</String>
+										</field>
+										<field name="name">
+											<String>Bearbeitungshistorie hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>Dokumentiert eine neue Bearbeitung des Dokuments</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>revisionDesc[1]
+revisionDesc[2]</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>revisionDesc[@status]</String>
+										</field>
+										<field name="name">
+											<String>Status hinzufügen oder ändern</String>
+										</field>
+										<field name="description">
+											<String>Status hinzufügen oder ändern</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::revisionDesc</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::revisionDesc</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>status</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Status', radio, ('draft':'Entwurf';'final':'Final';), 'draft')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -17288,6 +17752,34 @@ or ancestor-or-self::list[@rendition='#et']</String>
 																<String>notesStmt</String>
 															</field>
 														</menuItem>
+														<menu>
+															<field name="label">
+																<String>Revision und Status</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>revisionDesc</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>revisionDesc[@status]</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+															<field name="context">
+																<null/>
+															</field>
+														</menu>
 														<menuItem>
 															<field name="actionID">
 																<String>keyword</String>

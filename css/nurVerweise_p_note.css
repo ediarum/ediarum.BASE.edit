@@ -1,0 +1,41 @@
+/* 
+Copyright 2013 Berlin-Brandenburg Academy of Sciences and Humanities
+
+This file is part of ediarum.FS.
+
+ediarum.INTRO is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published 
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ediarum.INTRO is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with ediarum.INTRO. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/* INTRO */
+
+
+text ref[target^='ftn']:after{
+    content:" (\2192  " attr(target) ") ";
+    background-color: #00C6FF;    
+}
+
+text ref[target^='p']:after{
+    content: " (\2192  " attr(target) ") ";
+    background-color: #EC58E0;
+}
+
+
+/* INTRO */
+text ref[target*='ftn']{
+    background-color: #00C6FF;    
+}
+
+text ref[target*='p']{
+    background-color: #EC58E0;
+}

@@ -31,7 +31,7 @@ along with ediarum.INTRO. If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
     
        
-    <xsl:template match="tei:p[parent::div]"><!-- jeder Absatz vs. Absatz[parent::div] -->
+    <xsl:template match="tei:p[parent::div]">
         <xsl:variable name="cur-id">
             <xsl:number level="any" from="tei:body" count="tei:p[parent::div]"/>
         </xsl:variable>
