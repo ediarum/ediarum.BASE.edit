@@ -31,26 +31,26 @@ along with ediarum.INTRO. If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
     
        
-    <xsl:template match="tei:p"><!-- jeder Absatz vs. Absatz[parent::div] -->
+    <xsl:template match="tei:p[parent::div]"><!-- jeder Absatz vs. Absatz[parent::div] -->
         <xsl:variable name="cur-id">
-            <xsl:number level="any"/>
+            <xsl:number level="any" from="tei:body" count="tei:p[parent::div]"/>
         </xsl:variable>
         <xsl:variable name="new-xml-id" select="concat('p', format-number($cur-id, '0000'))"/>
         <xsl:copy>
-            <xsl:copy-of select="@*"/>
+            <xsl:copy-of select="@* except (@xml:id, @n)"/>
             <xsl:attribute name="xml:id" select="$new-xml-id"/>
             <xsl:attribute name="n" select="$cur-id"/>
             <xsl:apply-templates select="node()"/>
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="tei:note">
+    <xsl:template match="tei:div//tei:note">
         <xsl:variable name="cur-id">
-            <xsl:number level="any"/>
+            <xsl:number level="any" from="tei:body"/>
         </xsl:variable>
         <xsl:variable name="new-xml-id" select="concat('ftn', format-number($cur-id, '0000'))"/>
         <xsl:copy>
-            <xsl:copy-of select="@*"/>
+            <xsl:copy-of select="@* except (@xml:id, @n)"/>
             <xsl:attribute name="xml:id" select="$new-xml-id"/>
             <xsl:attribute name="n" select="$cur-id"/>
             <xsl:apply-templates select="node()"/>
