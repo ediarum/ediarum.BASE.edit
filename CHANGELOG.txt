@@ -5,6 +5,11 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+1.2.0 vom 19.07.2019
+
+    FEATURE #12170: Revisionshistorie kann angelegt werden
+    FEATURE #12198: Anpassungen in ediarum.INTRO
+
 1.1.1 vom 19.03.2019
 
 	BUGFIX #9728: Update Action head for inserting list/head
