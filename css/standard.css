@@ -1159,3 +1159,92 @@ profileDesc textClass keywords term:last-of-type:after {
     content: " " url('gfx/link.png');
     link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_keyword}') "?id=" attr(key);
 }
+
+/* revisionDesc */
+
+revisionDesc listChange {
+-oxy-foldable : true ;
+-oxy-folded : true ;
+
+}
+
+revisionDesc change {
+display : block ;
+margin-top : 0.4em ;
+margin-right : 0 ;
+margin-bottom : 0 ;
+margin-left : 0 ;
+border-bottom-width : 1px ;
+border-bottom-style : solid ;
+border-bottom-color : rgb(127 , 157 , 185) ;
+border-left-width : 1px ;
+border-left-style : solid ;
+border-left-color : rgb(127 , 157 , 185) ;
+border-right-width : 1px ;
+border-right-style : solid ;
+border-right-color : rgb(127 , 157 , 185) ;
+border-top-width : 1px ;
+border-top-style : solid ;
+border-top-color : rgb(127 , 157 , 185) ;
+padding-top : 0.4em ;
+padding-right : 0.4em ;
+padding-left : 0.4em ;
+padding-bottom : 0.4em ;
+background-color : white ;
+max-width : 50rem ;
+-oxy-display-tags : none ;
+
+line-height : 1.4 ;
+-oxy-show-placeholder : always ;
+-oxy-placeholder-content : "[Kommentar zur Änderung eingeben]" ;
+}
+
+
+revisionDesc[status='draft']:before {
+        content:
+        "Status: " url('gfx/status_draft.gif')
+    }
+    
+revisionDesc[status='final']:before {
+        content:
+        "Status: " url('gfx/status_final.gif')
+         }
+ revisionDesc {
+        display: block;
+        margin: 1em 0 0.5em 0;
+         color : rgb(70 , 94 , 122) ;
+    }
+ 
+revisionDesc:after {
+        content: oxy_editor(type,button,actionID,revisionDesc);
+    }
+
+
+revisionDesc listChange:before {
+                display: block;
+               margin: 1em 0 0.5em 0;
+               font-family : "BBAWfont-italic" ;     
+               
+               color : rgb(70 , 94 , 122) ;
+    	content: "Bearbeitungshistorie";
+    	margin: 0.5em 0 0 0;
+    	
+    }
+    
+revisionDesc listChange{  
+    -oxy-foldable: true;
+	-oxy-folded: true;
+	
+  }
+
+revisionDesc change {
+    -oxy-show-placeholder: always;
+    -oxy-placeholder-content: "[Kommentar zur Änderung eingeben]";
+    }
+revisionDesc change:before {
+    	content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd');
+    }
+ revisionDesc change[who]:before {
+    	content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
+        	     " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
+    }
