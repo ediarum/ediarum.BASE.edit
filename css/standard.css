@@ -244,6 +244,76 @@ sourceDesc witness[select='#this'] {
     font-weight: bold;
 }
 
+
+/* TEXTZEUGEN METADATEN */
+listWit[n='textWitnesses']{
+    -oxy-foldable: true;
+    -oxy-folded: true;
+    margin-top: 1em;
+}
+
+listWit[n='textWitnesses']:before{
+    content: "Liste der Textzeugen";
+}
+
+listWit[n='textWitnesses'] listWit head,
+listWit[n='textWitnesses'] listWit head title,
+listWit[n='textWitnesses'] listWit witness,
+listWit[n='textWitnesses'] title,
+listWit[n='textWitnesses'] idno{
+    -oxy-display-tags: none;
+}
+
+listWit[n='textWitnesses'] witness:first-child{
+    margin-top: 0.5em;
+}
+
+/* #NA: nochmal anschauen
+ * listWit[n='textWitnesses']:nth-child(2)>listWit[xml|id] {
+    content: "TZG-2: ";
+}*/
+
+
+listWit[n='textWitnesses'] listWit:before{
+    content: "\A Textzeugengruppe: ";
+    display:block;
+}
+
+listWit[n='textWitnesses'] listWit witness{
+    display:inline-block;
+    margin-top: 15em;
+}
+
+listWit[n='textWitnesses'] listWit head:after{
+    content: " --- "
+}
+
+listWit[n='textWitnesses'] listWit witness:after{
+    content: ", ";
+}
+
+listWit[n='textWitnesses'] listWit witness:last-child:after{
+    content: ".";
+}
+
+listWit[n='textWitnesses'] title{
+    -oxy-placeholder-content:"kein Titel vergeben";
+}
+
+listWit[n='textWitnesses'] idno:before{
+    content: " (Sigle: ";
+}
+
+listWit[n='textWitnesses'] idno:after{
+    content: ")";
+}
+
+
+
+listWit[n='textWitnesses'] listWit witness{
+    content: oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/witness[contains('",attr("sameAs"),"',@xml:id)]/idno[@type='siglum']/string(), ' ')")) " ";
+}
+
 /* Creation */
 
 text {

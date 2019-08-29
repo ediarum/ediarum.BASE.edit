@@ -12759,6 +12759,121 @@ ancestor-or-self::cell[not(@rendition)]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>var_listWit[@n=textWitnesses]</String>
+										</field>
+										<field name="name">
+											<String>Metadaten: Textzeugen hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>fügt in den Metadaten einen Textzeugen hinzu</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//listWit[@n='textWitnesses']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" xml:id="v_${id}">
+  &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+  &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+&lt;/witness></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::witness</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//listWit[@n='textWitnesses']) and not(//sourceDesc/listWit)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;listWit xmlns="http://www.tei-c.org/ns/1.0" n="textWitnesses">
+  &lt;witness xml:id="v_${id}">
+    &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+    &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+  &lt;/witness>
+&lt;/listWit></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//sourceDesc/msDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//listWit[@n='textWitnesses'])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;listWit xmlns="http://www.tei-c.org/ns/1.0" n="textWitnesses">
+  &lt;witness xml:id="v_${id}">
+    &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+    &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+  &lt;/witness>
+&lt;/listWit></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//sourceDesc/listWit</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -14542,6 +14657,29 @@ ancestor-or-self::cell[not(@rendition)]</String>
 												<toolbarItem>
 													<field name="actionID">
 														<String>website</String>
+													</field>
+												</toolbarItem>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
+									<toolbar>
+										<field name="id">
+											<String>Varianpparat_Entwicklung</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>var_listWit[@n=textWitnesses]</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>
