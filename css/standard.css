@@ -750,6 +750,10 @@ text cell[rendition='#right'] {
     text-align: right;
 }
 
+text cell[rendition='#c'] {
+    text-align: center;
+}
+
 text cell[role='label'] {
    color: inherit;
    background-color: #bbb;
