@@ -1349,3 +1349,7 @@ text app rdg:nth-child(2n){
     border-bottom: 2px solid #99999f;
 }
 
+text app rdg:after{
+    content: " (" oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/witness[contains('",attr("wit"),"',@xml:id)]/idno[@type='siglum']/string(), ' ')")) ") " " ";
+}
+
