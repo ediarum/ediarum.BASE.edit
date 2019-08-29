@@ -31,4 +31,11 @@ along with ediarum.EDIT. If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates/>
         </xsl:copy>
     </xsl:template>
+    
+    <xsl:template match="tei:rdg[@cause='noValue']">
+        <xsl:copy>
+            <xsl:apply-templates select="@* except @cause"/>
+            <xsl:apply-templates/>
+        </xsl:copy>
+    </xsl:template>
 </xsl:stylesheet>

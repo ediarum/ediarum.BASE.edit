@@ -1322,3 +1322,30 @@ revisionDesc change:before {
     	content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
         	     " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
     }
+
+
+/* Variantenapparat */
+text app,
+text app lem,
+text app rdg{
+    -oxy-display-tags: none;
+    }
+    
+text app lem{
+    background-color: #ffeeff;
+    color: black;
+}
+
+text app rdg:before{
+    content: " ";
+}
+
+text app rdg{
+    background-color: #e9ffc0;;
+}
+
+text app rdg:nth-child(2n){
+    background-color: #eeeecf;
+    border-bottom: 2px solid #99999f;
+}
+
