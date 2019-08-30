@@ -38,4 +38,11 @@ along with ediarum.EDIT. If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates/>
         </xsl:copy>
     </xsl:template>
+    
+    <xsl:template match="tei:app[@n]">
+        <xsl:copy>
+            <xsl:apply-templates select="@* except @n"/>
+            <xsl:apply-templates/>
+        </xsl:copy>
+    </xsl:template>
 </xsl:stylesheet>
