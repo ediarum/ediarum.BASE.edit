@@ -1327,7 +1327,9 @@ revisionDesc change:before {
 /* Variantenapparat */
 text app,
 text app lem,
-text app rdg{
+text app rdg,
+text app rdg lacunaStart,
+text app rdg witStart{
     -oxy-display-tags: none;
     }
     
@@ -1350,6 +1352,13 @@ text app rdg:nth-child(2n){
 }
 
 text app rdg:after{
-    content: " (" oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/witness[contains('",attr("wit"),"',@xml:id)]/idno[@type='siglum']/string(), ' ')")) ") " " ";
+    content: " (" oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/(witness[contains('",attr("wit"),"',@xml:id)]|listWit[contains('",attr("wit"),"',@xml:id)])//idno[@type='siglum']/string(), ' ')")) ") " " ";
 }
 
+text app rdg lacunaStart{
+    content:"[...]";
+}
+
+text app rdg witStart{
+    content: "†";
+}
