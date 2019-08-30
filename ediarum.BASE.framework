@@ -13437,13 +13437,13 @@ ancestor-or-self::cell[not(@rendition)]</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>var_app_lem_FINAL</String>
+											<String>var_app_all</String>
 										</field>
 										<field name="name">
-											<String>finales Lemma</String>
+											<String>Variante einfügen</String>
 										</field>
 										<field name="description">
-											<String></String>
+											<String>fügt eine Variante ein</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -15526,7 +15526,7 @@ remove_attr</String>
 														<toolbarEntry-array>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>var_app_lem_FINAL</String>
+																	<String>var_app_all</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
