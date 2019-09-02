@@ -1336,6 +1336,8 @@ text app rdg witStart{
 text app lem{
     background-color: #ffeeff;
     color: black;
+    -oxy-placeholder-content: "Lemma";
+    
 }
 
 text app rdg:before{
@@ -1343,7 +1345,9 @@ text app rdg:before{
 }
 
 text app rdg{
-    background-color: #e9ffc0;;
+    background-color: #e9ffc0;
+    -oxy-placeholder-content: "Variante";
+    -oxy-show-placeholder: always;
 }
 
 text app rdg:nth-child(2n){
@@ -1352,7 +1356,7 @@ text app rdg:nth-child(2n){
 }
 
 text app rdg:after{
-    content: " (" oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/(witness[contains('",attr("wit"),"',@xml:id)]|listWit[contains('",attr("wit"),"',@xml:id)])//idno[@type='siglum']/string(), ' ')")) ") " " ";
+    content: " (" oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/(witness[contains('",attr("wit"),"',@xml:id)]|listWit[contains('",attr("wit"),"',@xml:id)])//idno[@type='siglum']/string(), ', ')")) ") " " ";
 }
 
 text app rdg lacunaStart{
