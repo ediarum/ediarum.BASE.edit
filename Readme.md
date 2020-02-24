@@ -11,6 +11,7 @@ Lead Developer:
 * Stefan Dumont
 * Martin Fechner
 * Sascha Grabsch
+* Nadine Arndt
 
 ## What does it do?
 

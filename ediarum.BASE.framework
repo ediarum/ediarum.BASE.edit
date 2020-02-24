@@ -13293,7 +13293,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;lem xmlns="http://www.tei-c.org/ns/1.0">&lt;/lem>
-&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Absweichung durch Screibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -13309,7 +13309,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Absweichung durch Screibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">&lt;/rdg></String>
+																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">&lt;/rdg></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -13325,7 +13325,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Absweichung durch Screibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -13350,7 +13350,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;lem xmlns="http://www.tei-c.org/ns/1.0">${ask('Lemma eintragen', generic, '')}&lt;/lem>
-&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Absweichung durch Screibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -13374,7 +13374,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Absweichung durch Screibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelene Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
