@@ -5,6 +5,10 @@ Digitale Arbeitsumgebung für Editionsvorhaben
 CHANGELOG
 ------------------------------------------------------------------------------------------------
 
+UNRELEASED
+
+    BUGFIX #13280: Fehler in Aktion `index_places`
+
 1.2.0 vom 19.07.2019
 
     FEATURE #12170: Revisionshistorie kann angelegt werden
