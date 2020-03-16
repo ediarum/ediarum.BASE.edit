@@ -2280,7 +2280,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 															</entry>
 															<entry>
 																<String>first element</String>
-																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spantTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
