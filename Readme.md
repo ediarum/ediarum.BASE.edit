@@ -35,7 +35,7 @@ components:
 
 ## Documentation
 
-tba
+https://ediarum.org/docs.html (in German)
 
 ## License
 
