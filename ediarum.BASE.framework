@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="20.1" xml:space="preserve">
+<serialized version="21.1" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -16065,105 +16065,6 @@ var_tokenWitnessGroup</String>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
-									<toolbar>
-										<field name="id">
-											<String>Varianpparat_Entwicklung</String>
-										</field>
-										<field name="type">
-											<Integer>2</Integer>
-										</field>
-										<field name="largeIconPath">
-											<null/>
-										</field>
-										<field name="smallIconPath">
-											<null/>
-										</field>
-										<field name="toolbarEntriesDescriptorList">
-											<toolbarEntry-array>
-												<toolbar>
-													<field name="id">
-														<String>Neue Varianten testen</String>
-													</field>
-													<field name="type">
-														<Integer>3</Integer>
-													</field>
-													<field name="largeIconPath">
-														<String>${framework}/icons/app.png</String>
-													</field>
-													<field name="smallIconPath">
-														<String></String>
-													</field>
-													<field name="toolbarEntriesDescriptorList">
-														<toolbarEntry-array>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_app_all</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_app_note</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_app_rdg_note</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_witStart</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_lacunaStart</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_listWit[@n=textWitnesses]</String>
-																</field>
-															</toolbarItem>
-														</toolbarEntry-array>
-													</field>
-												</toolbar>
-												<toolbar>
-													<field name="id">
-														<String>Metadaten:Varianten</String>
-													</field>
-													<field name="type">
-														<Integer>3</Integer>
-													</field>
-													<field name="largeIconPath">
-														<String></String>
-													</field>
-													<field name="smallIconPath">
-														<String></String>
-													</field>
-													<field name="toolbarEntriesDescriptorList">
-														<toolbarEntry-array>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_listWit[@n=textWitnesses]</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_get_group</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>var_get_witness</String>
-																</field>
-															</toolbarItem>
-														</toolbarEntry-array>
-													</field>
-												</toolbar>
-											</toolbarEntry-array>
-										</field>
-									</toolbar>
 								</toolbar-array>
 							</field>
 							<field name="contextualItems">
@@ -16490,9 +16391,6 @@ var_tokenWitnessGroup</String>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -16740,9 +16638,6 @@ var_tokenWitnessGroup</String>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -16989,9 +16884,6 @@ var_tokenWitnessGroup</String>
 								</field>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
-								</field>
-								<field name="outputFile">
-									<null/>
 								</field>
 								<field name="outputResource">
 									<null/>
