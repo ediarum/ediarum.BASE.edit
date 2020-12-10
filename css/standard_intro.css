@@ -299,10 +299,18 @@ quote[rendition='block']{
 }
 
 /* hier weitermachen!!! */
+text ref[target]:after,
 note ref[target]:after {
 content: " " url(gfx/link.png) ;
--oxy-link: attr(target) ;
+link: attr(target)!important; 
 }
+
+/* Falls ein Platzhalter doch noch benötigt wird (NA) 
+text ref[target],
+note ref[target]{
+    -oxy-placeholder-content:"[Platzhalter: Link auf externe Webseite]";
+    -oxy-show-placeholder : always ;
+}*/
 
 quote hi[rendition="#b"],
 text hi[rendition="#b"] {

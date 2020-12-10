@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="20.1" xml:space="preserve">
+<serialized version="22.0" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -1120,11 +1120,7 @@
 													<actionMode-array>
 														<actionMode>
 															<field name="xpathCondition">
-																<String>ancestor-or-self::note[parent::seg] 
-or ancestor-or-self::note[parent::correspDesc] 
-or ancestor-or-self::p[parent::abstract]
-or ancestor-or-self::note[parent::notesStmt]
-or ancestor-or-self::note</String>
+																<String>oxy:allows-child-element("ref")</String>
 															</field>
 															<field name="argValues">
 																<serializableOrderedMap>
@@ -19150,9 +19146,6 @@ revisionDesc[2]</String>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -19400,9 +19393,6 @@ revisionDesc[2]</String>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -19649,9 +19639,6 @@ revisionDesc[2]</String>
 								</field>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
-								</field>
-								<field name="outputFile">
-									<null/>
 								</field>
 								<field name="outputResource">
 									<null/>
