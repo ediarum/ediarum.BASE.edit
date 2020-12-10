@@ -1881,13 +1881,13 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <value>ordered decimal</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered upperRoman</value>
+               <value>ordered upper-roman</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered lowerRoman</value>
+               <value>ordered lower-roman</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered upperLatin</value>
+               <value>ordered upper-latin</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered lowerLatin</value>
+               <value>ordered lower-latin</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             </choice>
          </attribute>

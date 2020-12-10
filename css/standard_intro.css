@@ -243,19 +243,19 @@ text list[rendition='ordered_num']{
     list-style-type:decimal;
 }
 
-text list[rendition='ordered upperRoman']{
+text list[rendition='ordered upper-roman']{
     list-style-type:upper-roman;
 }
 
-text list[rendition='ordered lowerLatin']{
+text list[rendition='ordered lower-latin']{
     list-style-type:lower-latin;
 }
 
-text list[rendition='ordered upperLatin']{
+text list[rendition='ordered upper-latin']{
     list-style-type:upper-latin;
 }
 
-text list[rendition='ordered lowerRoman']{
+text list[rendition='ordered lower-roman']{
     list-style-type:lower-roman;
 }
 
@@ -305,7 +305,7 @@ content: " " url(gfx/link.png) ;
 link: attr(target)!important; 
 }
 
-/* Falls ein Platzhalter doch noch benötigt wird (NA) 
+/* Falls ein Platzhalter doch noch benötigt wird 
 text ref[target],
 note ref[target]{
     -oxy-placeholder-content:"[Platzhalter: Link auf externe Webseite]";
