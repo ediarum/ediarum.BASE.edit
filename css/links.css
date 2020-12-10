@@ -97,3 +97,13 @@ text ref[target*='/#']:after {
     content: " " url('gfx/link.png');
     link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}/redirect.xql?id=') oxy_substring(attr(target), 0, oxy_indexof(attr(target), "/#")) "&page=" oxy_replace(oxy_substring(attr(target), oxy_indexof(attr(target), "#")), '#', '');
 }
+
+
+/* INTRO */
+teiHeader ref[target]:after,
+licence:after
+{
+    content: " " url('gfx/link.png');
+    link: attr(target)!important; 
+}
+

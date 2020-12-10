@@ -18,12 +18,15 @@ along with ediarum.FS. If not, see <http://www.gnu.org/licenses/>.
 */
 
 @import url("standard.css");
+@import url("standard_intro.css");
 
 /* nur Abweichungen */
 
 /* ref */
 
-text ref {
+teiHeader ref[target],
+text ref,
+availability licence{
     background-color: #00C6FF;
 }
 
@@ -33,6 +36,17 @@ text ref:after {
 
 text ref[target*="/#"]:after {
     content: url('gfx/ref_black.png');
+}
+
+publisher ref[target]:after{
+    background-color: #6585ad;
+    content: " " url(gfx/link.png) ;
+    link: attr(target)!important; 
+}
+
+licence[target]:after{
+    content: " " url(gfx/link.png) ;
+    link: attr(target); 
 }
 
 

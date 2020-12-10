@@ -11,7 +11,7 @@
                 </edition>
             </editionStmt>
             <publicationStmt>
-                <publisher>Berlin-Brandenburgische Akademie der Wissenschaften</publisher>
+                <publisher><ref target="https://www.bbaw.de/">Berlin-Brandenburgische Akademie der Wissenschaften</ref></publisher>
                 <pubPlace ref="http://www.geonames.org/2950159">Berlin</pubPlace>
             </publicationStmt>
             <sourceDesc>

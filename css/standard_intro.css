@@ -118,6 +118,10 @@ publisher {
     -oxy-show-placeholder: always;
 }
 
+publisher ref{
+    -oxy-display-tags: none;
+}
+
 pubPlace {
     -oxy-placeholder-content: "Erscheinungsort eintragen";
     -oxy-show-placeholder: always;
@@ -126,6 +130,16 @@ pubPlace {
 
 publicationStmt pubPlace:before{
     content: ", "
+}
+
+availability,
+licence{
+    -oxy-display-tags: none;
+    display: block;
+}
+
+licence:before{
+    content: "Lizenz: "
 }
 
 /* ################
@@ -271,34 +285,30 @@ text list {
  * ##### ZITATE #####
  * ################## */
 
-quote[type='introQuote']{
+quote[rendition]{
     font-family: BBAWfont;
     -oxy-display-tags: none;
-    display: block;
-    margin:0.5em 10em 0.5em 1.5em;
-    -oxy-placeholder-content: "Einführungszitat";
     -oxy-show-placeholder: always;
 }
 
+quote[rendition='introQuote']{
+    display: block;
+    margin:0.5em 10em 0.5em 1.5em;
+    -oxy-placeholder-content: "Einführungszitat";
+}
+
 quote[rendition='inline']{
-    font-family: BBAWfont;
-    -oxy-display-tags: none;
     font-style: italic;
     -oxy-placeholder-content: "Inline-Zitat";
-    -oxy-show-placeholder: always;
     background-color:#F4E4BC;
 }
 
 quote[rendition='block']{
-    font-family: BBAWfont;
-    -oxy-display-tags: none;
     display: block;
     margin:0.5em 10em 0.5em 5em;
     -oxy-placeholder-content: "Blockzitat";
-    -oxy-show-placeholder: always;
 }
 
-/* hier weitermachen!!! */
 text ref[target]:after,
 note ref[target]:after {
 content: " " url(gfx/link.png) ;

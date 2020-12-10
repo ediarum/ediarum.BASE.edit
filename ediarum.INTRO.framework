@@ -146,7 +146,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>165</Integer>
+											<Integer>167</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -208,7 +208,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>166</Integer>
+											<Integer>168</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -270,7 +270,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>167</Integer>
+											<Integer>169</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -348,7 +348,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>168</Integer>
+											<Integer>170</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -580,7 +580,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>169</Integer>
+											<Integer>171</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -642,7 +642,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>170</Integer>
+											<Integer>172</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -704,7 +704,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>171</Integer>
+											<Integer>173</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -798,7 +798,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>172</Integer>
+											<Integer>174</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -882,7 +882,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>173</Integer>
+											<Integer>175</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1029,7 +1029,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>174</Integer>
+											<Integer>176</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1064,7 +1064,7 @@
 																<serializableOrderedMap>
 																	<entry>
 																		<String>fragment</String>
-																		<String>&lt;quote xmlns="http://www.tei-c.org/ns/1.0" type="introQuote">&lt;/quote></String>
+																		<String>&lt;quote xmlns="http://www.tei-c.org/ns/1.0" rendition="introQuote">&lt;/quote></String>
 																	</entry>
 																</serializableOrderedMap>
 															</field>
@@ -1091,7 +1091,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>175</Integer>
+											<Integer>177</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1153,7 +1153,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>176</Integer>
+											<Integer>178</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1257,7 +1257,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>177</Integer>
+											<Integer>179</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1327,7 +1327,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>178</Integer>
+											<Integer>180</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1421,7 +1421,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>179</Integer>
+											<Integer>181</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1491,7 +1491,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>180</Integer>
+											<Integer>182</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1563,7 +1563,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>181</Integer>
+											<Integer>183</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1637,7 +1637,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>182</Integer>
+											<Integer>184</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -1869,7 +1869,7 @@
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>183</Integer>
+											<Integer>185</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -2009,7 +2009,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>184</Integer>
+											<Integer>186</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -2149,7 +2149,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>185</Integer>
+											<Integer>187</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -2275,7 +2275,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>authorExtensionDescriptor/actionDescriptors</String>
 										</field>
 										<field name="index">
-											<Integer>186</Integer>
+											<Integer>188</Integer>
 										</field>
 										<field name="value">
 											<action>
@@ -6663,7 +6663,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 															</entry>
 															<entry>
 																<String>first element</String>
-																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spantTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
@@ -11520,7 +11520,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>Ausrichtung ändern</String>
 										</field>
 										<field name="description">
-											<String>Ändert die Ausrichtung nach rechts bzw. links</String>
+											<String>Ändert die Ausrichtung nach rechts, links oder mittig</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -11538,114 +11538,21 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::dateline[@rendition="#right"]</String>
+														<String>ancestor-or-self::cell[@rendition="#right"] or
+ancestor-or-self::cell[@rendition="#c"] or
+ancestor-or-self::cell[not(@rendition)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>elementLocation</String>
-																<String>ancestor-or-self::dateline</String>
-															</entry>
-															<entry>
-																<String>name</String>
-																<String>rendition</String>
-															</entry>
-															<entry>
-																<String>namespace</String>
-																<String></String>
-															</entry>
-															<entry>
-																<String>value</String>
-																<String></String>
+																<String>actionIDs</String>
+																<String>@rendition[align]_1
+@rendition[remove_#leftl]</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::dateline[not(@rendition)]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>elementLocation</String>
-																<String>ancestor-or-self::dateline</String>
-															</entry>
-															<entry>
-																<String>name</String>
-																<String>rendition</String>
-															</entry>
-															<entry>
-																<String>namespace</String>
-																<String></String>
-															</entry>
-															<entry>
-																<String>value</String>
-																<String>#right</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::cell[@rendition="#right"]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>elementLocation</String>
-																<String>ancestor-or-self::cell</String>
-															</entry>
-															<entry>
-																<String>name</String>
-																<String>rendition</String>
-															</entry>
-															<entry>
-																<String>namespace</String>
-																<String></String>
-															</entry>
-															<entry>
-																<String>value</String>
-																<String></String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>ancestor-or-self::cell[not(@rendition)]</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap>
-															<entry>
-																<String>elementLocation</String>
-																<String>ancestor-or-self::cell</String>
-															</entry>
-															<entry>
-																<String>name</String>
-																<String>rendition</String>
-															</entry>
-															<entry>
-																<String>namespace</String>
-																<String></String>
-															</entry>
-															<entry>
-																<String>value</String>
-																<String>#right</String>
-															</entry>
-														</serializableOrderedMap>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -17033,6 +16940,208 @@ revisionDesc[2]</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>@rendition[remove_#leftl]</String>
+										</field>
+										<field name="name">
+											<String>entfernt @rendition=#left in cell</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::cell</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/delete_attrValue_left_in_cell.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::cell</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>self::cell</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>@rendition[align]_1</String>
+										</field>
+										<field name="name">
+											<String>Ausrichtung ändern</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::dateline[@rendition="#right"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::dateline</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::dateline[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::dateline</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>#right</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::cell[@rendition="#right"] or
+ancestor-or-self::cell[@rendition="#c"] or
+ancestor-or-self::cell[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::cell</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Ausrichtung ändern', editable_combobox, ('#left':'linksbündig';'#right':'rechtsbündig';'#c':'zentriert';'':'';), '#left')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::cell[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::cell</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Ausrichtung ändern', editable_combobox, ('':'linksbündig';'#right':'rechtsbündig';'#c':'zentriert';'':'';), '')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -17614,6 +17723,7 @@ revisionDesc[2]</String>
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>@rendition="mPrint"</String>
