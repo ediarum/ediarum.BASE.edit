@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="21.1" xml:space="preserve">
+<serialized version="22.0" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -13179,10 +13179,10 @@ ancestor-or-self::cell[not(@rendition)]</String>
 											<String>markiert eine Überlieferungslücke im Textzeugen</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/lacunaStart.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/lacunaStart.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -13225,10 +13225,10 @@ ancestor-or-self::cell[not(@rendition)]</String>
 											<String>markiert eine Wiederaufnahme des Textes im Textzeugen</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/witStart.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/witStart.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
