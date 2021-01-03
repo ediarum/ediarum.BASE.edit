@@ -1161,7 +1161,7 @@
 													<String>INTRO_author</String>
 												</field>
 												<field name="name">
-													<String>Autor</String>
+													<String>Autor*in</String>
 												</field>
 												<field name="description">
 													<String>Autor*in des Textes eintragen</String>
