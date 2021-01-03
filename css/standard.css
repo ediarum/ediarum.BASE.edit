@@ -1350,6 +1350,14 @@ text app rdg{
     -oxy-show-placeholder: always;
 }
 
+text app rdg[cause='omission'],
+text app rdg[cause='erasion']{
+    content: "["attr(cause)"] ";
+    -oxy-placeholder-content: "";
+    color:gray;
+    font-size: 90%;
+}
+
 text app rdg:nth-child(2n){
     background-color: #eeeecf;
     border-bottom: 2px solid #99999f;
@@ -1366,3 +1374,4 @@ text app rdg lacunaStart{
 text app rdg witStart{
     content: "†";
 }
+
