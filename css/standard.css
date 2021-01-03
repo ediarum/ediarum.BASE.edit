@@ -311,7 +311,7 @@ listWit[n='textWitnesses'] idno:after{
 
 
 listWit[n='textWitnesses'] listWit witness{
-    content: oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/witness[contains('",attr("sameAs"),"',@xml:id)]/idno[@type='siglum']/string(), ' ')")) " ";
+    content: oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/witness[contains('",attr("corresp"),"',@xml:id)]/idno[@type='siglum']/string(), ' ')")) " ";
 }
 
 /* Creation */

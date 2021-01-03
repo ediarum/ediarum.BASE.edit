@@ -26,10 +26,10 @@ along with ediarum.EDIT. If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
     
     <xsl:template match="tei:witness[parent::tei:listWit[@xml:id]]">
-        <xsl:variable name="tokenWitness" select="tokenize(@sameAs, '\s')"/>
+        <xsl:variable name="tokenWitness" select="tokenize(@corresp, '\s')"/>
         <xsl:for-each select="$tokenWitness">
             <witness xmlns="http://www.tei-c.org/ns/1.0">
-                <xsl:attribute name="sameAs">
+                <xsl:attribute name="corresp">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
             </witness>

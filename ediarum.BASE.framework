@@ -13851,7 +13851,7 @@ not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
     &lt;title>${ask('Titel für die Textzeugen-Gruppe vergeben', generic, '')}&lt;/title>
     &lt;idno type="siglum">${ask('Sigle für die Textzeugen-Gruppe vergeben', generic, '')}&lt;/idno>
   &lt;/head>
-  &lt;witness sameAs="$ITEMS">&lt;/witness>
+  &lt;witness corresp="$ITEMS">&lt;/witness>
 &lt;/listWit></String>
 															</entry>
 															<entry>
@@ -13900,7 +13900,7 @@ not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" sameAs="$ITEMS">&lt;/witness></String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" corresp="$ITEMS">&lt;/witness></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -13978,7 +13978,7 @@ not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
 															</entry>
 															<entry>
 																<String>element</String>
-																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" sameAs="$ITEMS">&lt;/witness></String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" corresp="$ITEMS">&lt;/witness></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
