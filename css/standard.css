@@ -262,8 +262,10 @@ profileDesc creation date {
 
 profileDesc creation persName,
 profileDesc creation placeName,
+profileDesc creation orgName,
 profileDesc correspAction persName,
-profileDesc correspAction placeName {
+profileDesc correspAction placeName,
+profileDesc correspAction orgName {
     display: block;
     -oxy-editable: false;
 }
