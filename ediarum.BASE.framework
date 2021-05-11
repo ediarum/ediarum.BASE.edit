@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="20.1" xml:space="preserve">
+<serialized version="21.1" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -1381,6 +1381,33 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::witness[parent::listWit] and //listWit[@n='textWitnesses']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;bibl type="print">${ask('Drucknachweis')}&lt;/bibl>
+&lt;/witness>
+</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//listWit[@n='textWitnesses']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>ancestor-or-self::witness[parent::listWit]</String>
 													</field>
 													<field name="argValues">
@@ -1408,7 +1435,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//teiHeader/fileDesc/sourceDesc/listWit</String>
+														<String>//teiHeader/fileDesc/sourceDesc/listWit[not(@*)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1421,7 +1448,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>//teiHeader/fileDesc/sourceDesc/listWit</String>
+																<String>//teiHeader/fileDesc/sourceDesc/listWit[not(@*)]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -1513,7 +1540,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
-																<String>//teiHeader/fileDesc/sourceDesc/listWit</String>
+																<String>//teiHeader/fileDesc/sourceDesc/listWit[parent::sourceDesc]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
@@ -7164,7 +7191,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>@rendition[align]_1
-@rendition[remove_#leftl]</String>
+remove_attr</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -12559,10 +12586,10 @@ revisionDesc[2]</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>@rendition[remove_#leftl]</String>
+											<String>remove_attr</String>
 										</field>
 										<field name="name">
-											<String>entfernt @rendition=#left in cell</String>
+											<String>entfernt Attribute aus Elementen</String>
 										</field>
 										<field name="description">
 											<String></String>
@@ -12592,7 +12619,7 @@ revisionDesc[2]</String>
 																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="2.0">
-    &lt;xsl:import href="${framework}/resources/delete_attrValue_left_in_cell.xsl"/>
+    &lt;xsl:import href="${framework}/resources/delete_attrValue.xsl"/>
 &lt;/xsl:stylesheet></String>
 															</entry>
 															<entry>
@@ -12602,6 +12629,118 @@ revisionDesc[2]</String>
 															<entry>
 																<String>targetLocation</String>
 																<String>self::cell</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@n]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/delete_attrValue.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>ancestor-or-self::app[@n]</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>ancestor-or-self::app[@n]</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app/rdg[@cause]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/delete_attrValue.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>ancestor-or-self::app/rdg[@cause]</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>ancestor-or-self::app/rdg[@cause]</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app/rdg</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/delete_attrValue.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>ancestor-or-self::app/rdg</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>ancestor-or-self::app/rdg</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app/lem</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/delete_attrValue.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>ancestor-or-self::app/lem</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>ancestor-or-self::app/lem</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -12751,6 +12890,1288 @@ ancestor-or-self::cell[not(@rendition)]</String>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_listWit[@n=textWitnesses]</String>
+										</field>
+										<field name="name">
+											<String>Textzeuge hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>fügt in den Metadaten einen Textzeugen hinzu</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//listWit[@n='textWitnesses'] and //listWit[@n='textWitnesses']/listWit[@xml:id]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" xml:id="v_${id}">
+  &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+  &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+&lt;/witness></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//listWit[@n='textWitnesses']/listWit[@xml:id]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//listWit[@n='textWitnesses'] and not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" xml:id="v_${id}">
+  &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+  &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+&lt;/witness></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//listWit[@n='textWitnesses']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//listWit[@n='textWitnesses']) and not(//sourceDesc/listWit)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;listWit xmlns="http://www.tei-c.org/ns/1.0" n="textWitnesses">
+  &lt;witness xml:id="v_${id}">
+    &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+    &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+  &lt;/witness>
+&lt;/listWit></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//sourceDesc/msDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//listWit[@n='textWitnesses'])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;listWit xmlns="http://www.tei-c.org/ns/1.0" n="textWitnesses">
+  &lt;witness xml:id="v_${id}">
+    &lt;title>${ask('Titel für den Textzeugen vergeben', generic, '')}&lt;/title>
+    &lt;idno type="siglum">${ask('Sigle für den Textzeugen vergeben', generic, '')}&lt;/idno>
+  &lt;/witness>
+&lt;/listWit></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//sourceDesc/listWit</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_app_note</String>
+										</field>
+										<field name="name">
+											<String>Variantenapparat kommentieren</String>
+										</field>
+										<field name="description">
+											<String>kommentiert den gesamten Apparateintrag</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@type="variants"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" type="editorial">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::app[@type="variants"]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_app_rdg_note</String>
+										</field>
+										<field name="name">
+											<String>(Textkritische) Anmerkung zur Variante</String>
+										</field>
+										<field name="description">
+											<String>kommentiert die einzelne Variante oder gibt textrktische Anmerkungen an der Cursorposition an</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" type="editorial">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" type="editorial">&lt;/note></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>self::rdg</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_lacunaStart</String>
+										</field>
+										<field name="name">
+											<String>Überlieferungslücke eines Textzeugen markieren</String>
+										</field>
+										<field name="description">
+											<String>markiert eine Überlieferungslücke im Textzeugen</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/lacunaStart.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/lacunaStart.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;lacunaStart xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_witStart</String>
+										</field>
+										<field name="name">
+											<String>Wiederaufnahme eines Textzeugen markieren</String>
+										</field>
+										<field name="description">
+											<String>markiert eine Wiederaufnahme des Textes im Textzeugen</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/witStart.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/witStart.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;witStart xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_insert_lem_or_rdg</String>
+										</field>
+										<field name="name">
+											<String>var_insert_lem_or_rdg</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@n='yes']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;lem xmlns="http://www.tei-c.org/ns/1.0">&lt;/lem>
+&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelne Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@n='no']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelne Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">&lt;/rdg></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[not(@n)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelne Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::app[not(@n)]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@n='yes']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;lem xmlns="http://www.tei-c.org/ns/1.0">${ask('Lemma eintragen', generic, '')}&lt;/lem>
+&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelne Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::app[@n='yes']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@n='no']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;rdg xmlns="http://www.tei-c.org/ns/1.0" cause="${ask('Grund für die Variante eingeben', combobox, ('transposition':'Ersetzung';'addition':'Hinzufügung';'omission':'Auslassung';'orthographic':'Abweichung durch Schreibfehler';'margin':'Lesart steht am Rand';'erasion':'Auslassung aufgrund einer Löschung';'noValue':'keine Angabe';), 'noValue')}" wit="${ask('Auf welchen Textzeugen möchten Sie verweisen?', radio, ('witness':'einzelne Textzeugen';'listWitGroup':'Gruppe von Textzeugen';), 'witness')}">${ask('Variante eintragen', generic, '')}&lt;/rdg></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::app[@n='no']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_change_and_get_attr[@wit]</String>
+										</field>
+										<field name="name">
+											<String>var_change_and_get_attr[@wit]</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg[@wit='listWitGroup']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${currentFileURL}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>wit</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{#normalize-space(tei:head/tei:idno[@type='siglum'])}: $XPATH{#normalize-space(tei:head/tei:title)}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:listWit[@n='textWitnesses']/tei:listWit</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>./self::rdg[@wit='listWitGroup']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg[@wit='witness']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${currentFileURL}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>wit</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:listWit[@n='textWitnesses']/tei:witness</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>./self::rdg[@wit='witness']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_app_all</String>
+										</field>
+										<field name="name">
+											<String>Variante einfügen</String>
+										</field>
+										<field name="description">
+											<String>fügt eine Variante ein</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[not(@n)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>var_insert_lem_or_rdg
+move_caret
+var_change_and_get_attr[@wit]
+remove_attr</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("app")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>var_insert_app
+var_insert_lem_or_rdg
+move_caret
+var_change_and_get_attr[@wit]
+remove_attr</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>move_caret</String>
+										</field>
+										<field name="name">
+											<String>move_caret</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::rdg</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>xpathLocation</String>
+																<String>following-sibling::rdg[1]</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.MoveCaretOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::lem and parent::app[@type='variants']/rdg[@wit='witness']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>xpathLocation</String>
+																<String>parent::app[@type='variants']/rdg[@wit='witness']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.MoveCaretOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::lem and parent::app[@type='variants']/rdg[@wit='listWitGroup']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>xpathLocation</String>
+																<String>parent::app[@type='variants']/rdg[@wit='listWitGroup']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.MoveCaretOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_delete_@n[app]</String>
+										</field>
+										<field name="name">
+											<String>var_delete_@n[app]</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::app[@n]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::app[@n]</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>n</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::rdg[@cause]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::rdg[@cause]</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>cause</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_insert_app</String>
+										</field>
+										<field name="name">
+											<String>var_insert_app</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;app xmlns="http://www.tei-c.org/ns/1.0" type='variants' n="${ask('Ist ein Basistext vorhanden?', radio, ('yes':'ja';'no':'nein';), 'yes')}">&lt;/app></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;app xmlns="http://www.tei-c.org/ns/1.0" type='variants' n="${ask('Ist ein Basistext vorhanden?', radio, ('yes':'ja';'no':'nein';), 'yes')}">&lt;/app></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_get_group_1</String>
+										</field>
+										<field name="name">
+											<String>Textzeugen-Gruppe erstellen</String>
+										</field>
+										<field name="description">
+											<String>fasst mehrere Textzeugen zu einer Gruppe zusammen, um auf diese Gruppe verweisen zu können</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//listWit[@n='textWitnesses']/listWit[@xml:id] or
+not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${currentFileURL}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;listWit xmlns="http://www.tei-c.org/ns/1.0" xml:id="g_${id}">
+  &lt;head>
+    &lt;title>${ask('Titel für die Textzeugen-Gruppe vergeben', generic, '')}&lt;/title>
+    &lt;idno type="siglum">${ask('Sigle für die Textzeugen-Gruppe vergeben', generic, '')}&lt;/idno>
+  &lt;/head>
+  &lt;witness corresp="$ITEMS">&lt;/witness>
+&lt;/listWit></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//listWit[@n='textWitnesses']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:listWit[@n='textWitnesses']/tei:witness</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::listWit[@n='textWitnesses']/listWit[@xml:id]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${currentFileURL}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" corresp="$ITEMS">&lt;/witness></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//listWit[@xml:id]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:listWit[@n='textWitnesses']/tei:witness</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_get_witness_1</String>
+										</field>
+										<field name="name">
+											<String>weitere Textzeugen hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>fügt weitere Textzeugen zur Gruppe hinzu</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::listWit[@xml:id]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${currentFileURL}</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;witness xmlns="http://www.tei-c.org/ns/1.0" corresp="$ITEMS">&lt;/witness></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::listWit[@xml:id]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//tei:listWit[@n='textWitnesses']/tei:witness</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_tokenWitnessGroup</String>
+										</field>
+										<field name="name">
+											<String>var_tokenWitnessGroup</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::listWit</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>expandEditorVariables</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/tokenWitnessGroup.xsl"/>
+&lt;/xsl:stylesheet>
+
+
+</String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>ancestor-or-self::listWit</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>ancestor-or-self::listWit</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_get_group</String>
+										</field>
+										<field name="name">
+											<String>Gruppe von Textzeugen erstellen</String>
+										</field>
+										<field name="description">
+											<String>fasst mehrere Textzeugen zu einer Gruppe zusammen, um auf diese Gruppe verweisen zu können</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//listWit[@n='textWitnesses']/listWit[@xml:id] or
+not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>var_get_group_1
+var_tokenWitnessGroup</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>var_get_witness</String>
+										</field>
+										<field name="name">
+											<String>Weitere Textzeugen der Gruppe hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>fügt weitere Textzeugen zur Gruppe hinzu</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::listWit[@xml:id]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>var_get_witness_1
+var_tokenWitnessGroup</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -13660,6 +15081,103 @@ ancestor-or-self::cell[not(@rendition)]</String>
 																<String>postscript</String>
 															</field>
 														</menuItem>
+													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
+												</field>
+											</menu>
+											<menuSeparator/>
+											<menu>
+												<field name="label">
+													<String>Variantenapparat</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String>${framework}/icons/app.png</String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menu>
+															<field name="label">
+																<String>Metadaten</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_listWit[@n=textWitnesses]</String>
+																		</field>
+																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_get_group_1</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_get_witness</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+															<field name="context">
+																<null/>
+															</field>
+														</menu>
+														<menu>
+															<field name="label">
+																<String>Text</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_app_all</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_app_note</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_app_rdg_note</String>
+																		</field>
+																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_lacunaStart</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>var_witStart</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+															<field name="context">
+																<null/>
+															</field>
+														</menu>
 													</menuEntry-array>
 												</field>
 												<field name="context">
@@ -14873,9 +16391,6 @@ ancestor-or-self::cell[not(@rendition)]</String>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -15123,9 +16638,6 @@ ancestor-or-self::cell[not(@rendition)]</String>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -15372,9 +16884,6 @@ ancestor-or-self::cell[not(@rendition)]</String>
 								</field>
 								<field name="openInBrowser">
 									<Boolean>true</Boolean>
-								</field>
-								<field name="outputFile">
-									<null/>
 								</field>
 								<field name="outputResource">
 									<null/>

@@ -19,16 +19,20 @@ along with ediarum.EDIT. If not, see <http://www.gnu.org/licenses/>.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:saxon="http://saxon.sf.net/" exclude-result-prefixes="saxon">
-
+    xmlns:saxon="http://saxon.sf.net/" exclude-result-prefixes="#all">
+    
     <xsl:template match="@*|node()">
         <xsl:copy><xsl:apply-templates select="@*|node()" /></xsl:copy>
     </xsl:template>
-
-    <xsl:template match="tei:cell[@rendition='#left']">
-        <xsl:copy>
-            <xsl:apply-templates select="@* except @rendition"/>
-            <xsl:apply-templates/>
-        </xsl:copy>
+    
+    <xsl:template match="tei:witness[parent::tei:listWit[@xml:id]]">
+        <xsl:variable name="tokenWitness" select="tokenize(@corresp, '\s')"/>
+        <xsl:for-each select="$tokenWitness">
+            <witness xmlns="http://www.tei-c.org/ns/1.0">
+                <xsl:attribute name="corresp">
+                    <xsl:value-of select="."/>
+                </xsl:attribute>
+            </witness>
+        </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>

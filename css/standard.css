@@ -244,6 +244,76 @@ sourceDesc witness[select='#this'] {
     font-weight: bold;
 }
 
+
+/* TEXTZEUGEN METADATEN */
+listWit[n='textWitnesses']{
+    -oxy-foldable: true;
+    -oxy-folded: true;
+    margin-top: 1em;
+}
+
+listWit[n='textWitnesses']:before{
+    content: "Liste der Textzeugen";
+}
+
+listWit[n='textWitnesses'] listWit head,
+listWit[n='textWitnesses'] listWit head title,
+listWit[n='textWitnesses'] listWit witness,
+listWit[n='textWitnesses'] title,
+listWit[n='textWitnesses'] idno{
+    -oxy-display-tags: none;
+}
+
+listWit[n='textWitnesses'] witness:first-child{
+    margin-top: 0.5em;
+}
+
+/* #NA: nochmal anschauen
+ * listWit[n='textWitnesses']:nth-child(2)>listWit[xml|id] {
+    content: "TZG-2: ";
+}*/
+
+
+listWit[n='textWitnesses'] listWit:before{
+    content: "\A Textzeugengruppe: ";
+    display:block;
+}
+
+listWit[n='textWitnesses'] listWit witness{
+    display:inline-block;
+    margin-top: 15em;
+}
+
+listWit[n='textWitnesses'] listWit head:after{
+    content: " --- "
+}
+
+listWit[n='textWitnesses'] listWit witness:after{
+    content: ", ";
+}
+
+listWit[n='textWitnesses'] listWit witness:last-child:after{
+    content: ".";
+}
+
+listWit[n='textWitnesses'] title{
+    -oxy-placeholder-content:"kein Titel vergeben";
+}
+
+listWit[n='textWitnesses'] idno:before{
+    content: " (Sigle: ";
+}
+
+listWit[n='textWitnesses'] idno:after{
+    content: ")";
+}
+
+
+
+listWit[n='textWitnesses'] listWit witness{
+    content: oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/witness[contains('",attr("corresp"),"',@xml:id)]/idno[@type='siglum']/string(), ' ')")) " ";
+}
+
 /* Creation */
 
 text {
@@ -1252,3 +1322,56 @@ revisionDesc change:before {
     	content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
         	     " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
     }
+
+
+/* Variantenapparat */
+text app,
+text app lem,
+text app rdg,
+text app rdg lacunaStart,
+text app rdg witStart{
+    -oxy-display-tags: none;
+    }
+    
+text app lem{
+    background-color: #ffeeff;
+    color: black;
+    -oxy-placeholder-content: "Lemma";
+    
+}
+
+text app rdg:before{
+    content: " ";
+}
+
+text app rdg{
+    background-color: #e9ffc0;
+    -oxy-placeholder-content: "Variante";
+    -oxy-show-placeholder: always;
+}
+
+text app rdg[cause='omission'],
+text app rdg[cause='erasion']{
+    content: "["attr(cause)"] ";
+    -oxy-placeholder-content: "";
+    color:gray;
+    font-size: 90%;
+}
+
+text app rdg:nth-child(2n){
+    background-color: #eeeecf;
+    border-bottom: 2px solid #99999f;
+}
+
+text app rdg:after{
+    content: " (" oxy_xpath(oxy_concat("string-join(//listWit[@n='textWitnesses']/(witness[contains('",attr("wit"),"',@xml:id)]|listWit[contains('",attr("wit"),"',@xml:id)])//idno[@type='siglum']/string(), ', ')")) ") " " ";
+}
+
+text app rdg lacunaStart{
+    content:"[...]";
+}
+
+text app rdg witStart{
+    content: "†";
+}
+
