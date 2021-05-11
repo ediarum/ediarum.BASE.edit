@@ -71,3 +71,20 @@ text anchor[type="verweisziel"] {
     display: none;
 }
 
+text div[type="writingSession"]:before {
+padding: 1em 0 1em 0;
+ color: #465E7A;
+content: "Schreibakt " 
+oxy_textfield(
+          edit, "@n"
+          )
+	": "
+ oxy_combobox(
+          edit, "@hand"
+          editable, false
+          values, " #author , #unknown , #index , #addressee ");
+}
+
+
+
+

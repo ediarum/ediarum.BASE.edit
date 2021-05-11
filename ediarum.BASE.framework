@@ -14180,6 +14180,406 @@ var_tokenWitnessGroup</String>
 											<Boolean>false</Boolean>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>writingSession_writer</String>
+										</field>
+										<field name="name">
+											<String>Schreibakt Schreiber zuweisen</String>
+										</field>
+										<field name="description">
+											<String>Bestehendem Schreibakt einen Schreiber zuweisen.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::div[@type="writingSession"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>writingSession_writer_1
+writingSession_hand</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::TEI[@telota:doctype="document"] and ancestor-or-self::div[@type="writingSession"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>writingSession_writer_1
+writingSession_hand</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::TEI[@telota:doctype="document"] and ancestor-or-self::div</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>writingSession_2
+writingSession_writer_1
+writingSession_hand</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>writingSession_writer_1</String>
+										</field>
+										<field name="name">
+											<String>Schreibakt Schreiber zuweisen</String>
+										</field>
+										<field name="description">
+											<String>Bestehendem Schreibakt einen Schreiber zuweisen.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::div[@type="writingSession"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::div[@type="writingSession"]</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>writingSession_2</String>
+										</field>
+										<field name="name">
+											<String>Neuen Schreibakt beginnen</String>
+										</field>
+										<field name="description">
+											<String>Weiterer Schreibakt, d.h. nicht unerhebliche Ergänzung des Briefs nach geraumer Zeit => Nr. 2 fügt das Attribut type="writingSession" für div hinzu, wenn dieses noch nicht vorhanden ist.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::TEI[@telota:doctype="document"] and ancestor-or-self::div</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::div</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>type</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>writingSession</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>writingSession_hand</String>
+										</field>
+										<field name="name">
+											<String>@hand mit Register</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::figure[@hand='#index']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::figure</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::note[@hand='#index']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::note</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::div[@hand='#index']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::div</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::* </String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>notexistant</String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -15064,6 +15464,11 @@ var_tokenWitnessGroup</String>
 														<menuItem>
 															<field name="actionID">
 																<String>writingSession</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>writingSession_writer</String>
 															</field>
 														</menuItem>
 														<menuItem>
