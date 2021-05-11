@@ -13200,7 +13200,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;lacunaStart xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;lacunaStart xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
