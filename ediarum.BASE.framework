@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="22.0" xml:space="preserve">
+<serialized version="21.1" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -1435,7 +1435,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//teiHeader/fileDesc/sourceDesc/listWit</String>
+														<String>//teiHeader/fileDesc/sourceDesc/listWit[not(@*)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
