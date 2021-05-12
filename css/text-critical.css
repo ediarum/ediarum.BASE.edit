@@ -72,19 +72,32 @@ text anchor[type="verweisziel"] {
 }
 
 text div[type="writingSession"]:before {
-padding: 1em 0 1em 0;
+/*padding: 1em 0 1em 0;*/
  color: #465E7A;
-content: "Schreibakt " 
+content: "Schreibakt "  
 oxy_textfield(
           edit, "@n"
-          )
-	": "
- oxy_combobox(
-          edit, "@hand"
-          editable, false
-          values, " #author , #unknown , #index , #addressee ");
+          );
 }
 
+text div[hand] {
+ color: #465E7A;
+ content: ", Schreiber: " attr(hand) ;
+ link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id="  oxy_substring(attr(hand), 1);
+}
 
+text div[hand='#addressee']{
+	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName/@key)")) ;
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName/@key)"));
 
+}
+text div[hand='#author']{
+	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName/@key)")) ;
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName/@key)"));
+
+}
+text div[hand='#unknown']{
+	content: ", Schreiber: Unbekannt" ;
+	link: none;
+}
 
