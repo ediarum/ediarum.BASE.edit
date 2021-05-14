@@ -23,6 +23,13 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 /* #####################
  * ##### teiHeader #####
  * ##################### */
+ 
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+oxy|comment{
+    visibility:-oxy-collapse-text;
+    -oxy-display-tags: none;
+}
 
 title[type='main']{
     -oxy-placeholder-content: "Titel eintragen";
