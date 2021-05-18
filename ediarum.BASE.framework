@@ -10737,6 +10737,58 @@ and not(//witness[@select])</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::div[@hand='#index']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>hand</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{/span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>#$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::div</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String></String>
 													</field>
 													<field name="argValues">
@@ -14213,7 +14265,7 @@ var_tokenWitnessGroup</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>writingSession_writer_1
-writingSession_hand</String>
+hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -14230,7 +14282,7 @@ writingSession_hand</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>writingSession_writer_1
-writingSession_hand</String>
+hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -14248,7 +14300,7 @@ writingSession_hand</String>
 																<String>actionIDs</String>
 																<String>writingSession_2
 writingSession_writer_1
-writingSession_hand</String>
+hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
