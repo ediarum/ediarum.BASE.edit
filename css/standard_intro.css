@@ -316,6 +316,11 @@ quote[rendition='block']{
     -oxy-placeholder-content: "Blockzitat";
 }
 
+quote hi[rendition="#i"]{
+    font-style: normal;
+    -oxy-display-tags: none;
+}
+
 text ref[target]:after,
 note ref[target]:after {
 content: " " url(gfx/link.png) ;
