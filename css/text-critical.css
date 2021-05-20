@@ -72,12 +72,12 @@ text anchor[type="verweisziel"] {
 }
 
 text div[type="writingSession"]:before {
-/*padding: 1em 0 1em 0;*/
- color: #465E7A;
-content: "Schreibakt "  
-oxy_textfield(
-          edit, "@n"
-          );
+color: #465E7A;
+content: "Schreibakt 1"}
+
+text div[type="writingSession"][n]:before {
+color: #465E7A;
+content: "Schreibakt " attr(n)
 }
 
 text div[hand] {
