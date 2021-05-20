@@ -72,32 +72,26 @@ text anchor[type="verweisziel"] {
 }
 
 text div[type="writingSession"]:before {
-color: #465E7A;
+/*color: #465E7A;*/
 content: "Schreibakt 1"}
 
 text div[type="writingSession"][n]:before {
-color: #465E7A;
+/*color: #465E7A;*/
 content: "Schreibakt " attr(n)
 }
 
-text div[hand] {
- color: #465E7A;
- content: ", Schreiber: " attr(hand) ;
- link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id="  oxy_substring(attr(hand), 1);
+[hand] {
+ content: ", Schreiber: Person aus dem Register";
 }
 
-text div[hand='#addressee']{
-	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName/@key)")) ;
-	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName/@key)"));
 
+[hand='#addressee']{
+	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName)")) ;
 }
-text div[hand='#author']{
-	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName/@key)")) ;
-	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName/@key)"));
-
+[hand='#author']{
+	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName)")) ;
 }
-text div[hand='#unknown']{
+[hand='#unknown']{
 	content: ", Schreiber: Unbekannt" ;
-	link: none;
 }
 
