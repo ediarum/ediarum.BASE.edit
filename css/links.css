@@ -98,7 +98,7 @@ text ref[target*='/#']:after {
     link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}/redirect.xql?id=') oxy_substring(attr(target), 0, oxy_indexof(attr(target), "/#")) "&page=" oxy_replace(oxy_substring(attr(target), oxy_indexof(attr(target), "#")), '#', '');
 }
 
-[hand] {
+/*[hand] {
 content: ", Schreiber: Person aus dem Register " url('gfx/link.png');
  link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id="  oxy_substring(attr(hand), 1);
 }
@@ -115,5 +115,49 @@ content: ", Schreiber: Person aus dem Register " url('gfx/link.png');
 }
 text div[hand='#unknown']{
 	content: ", Schreiber: Unbekannt" ;
+	link: none;
+}*/
+
+/*SCHREIBAKT UND SCHREIBER*/
+text div[type="writingSession"][hand]:before {
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: Person aus dem Register " url('gfx/link.png');
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id="  oxy_substring(attr(hand), 1);
+}
+text div[type="writingSession"][hand='#addressee']:before{
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName)")) " "  url('gfx/link.png') ;
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName/@key)"));
+}
+text div[type="writingSession"][hand='#author']:before{
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName)")) " " url('gfx/link.png');
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName/@key)"));
+}
+text div[type="writingSession"][hand='#unknown']:before{
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: Unbekannt" ;
+	link: none;
+}
+
+text div[type="writingSession"][n][hand]:before {
+	color: #465E7A;
+	content: "Schreibakt " attr(n) ", Schreiber: Person aus dem Register "  url('gfx/link.png');
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id="  oxy_substring(attr(hand), 1);
+}
+
+text div[type="writingSession"][n][hand='#addressee']:before{
+	color: #465E7A;
+	content: "Schreibakt " attr(n)", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName)")) " "  url('gfx/link.png');
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName/@key)"));
+}
+text div[type="writingSession"][n][hand='#author']:before{
+	color: #465E7A;
+	content: "Schreibakt " attr(n)", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName)")) " "  url('gfx/link.png');
+	link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_person}') "?id=" oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName/@key)"));
+}
+text div[type="writingSession"][n][hand='#unknown']:before{
+	color: #465E7A;
+	content: "Schreibakt " attr(n)", Schreiber: Unbekannt";
 	link: none;
 }

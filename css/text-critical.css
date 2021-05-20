@@ -71,27 +71,37 @@ text anchor[type="verweisziel"] {
     display: none;
 }
 
-text div[type="writingSession"]:before {
-/*color: #465E7A;*/
-content: "Schreibakt 1"}
-
-text div[type="writingSession"][n]:before {
-/*color: #465E7A;*/
-content: "Schreibakt " attr(n)
+/*SCHREIBAKT UND SCHREIBER*/
+text div[type="writingSession"][hand]:before {
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: Person aus dem Register";
 }
-
-[hand] {
- content: ", Schreiber: Person aus dem Register";
+text div[type="writingSession"][hand='#addressee']:before{
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName)")) ;
 }
-
-
-[hand='#addressee']{
-	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName)")) ;
+text div[type="writingSession"][hand='#author']:before{
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName)")) ;
 }
-[hand='#author']{
-	content: ", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName)")) ;
+text div[type="writingSession"][hand='#unknown']:before{
+	color: #465E7A;
+	content: "Schreibakt 1, Schreiber: Unbekannt" ;
 }
-[hand='#unknown']{
-	content: ", Schreiber: Unbekannt" ;
+text div[type="writingSession"][n][hand]:before {
+	color: #465E7A;
+	content: "Schreibakt " attr(n) ", Schreiber: Person aus dem Register";
+}
+text div[type="writingSession"][n][hand='#addressee']:before{
+	color: #465E7A;
+	content: "Schreibakt " attr(n)", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='received']/persName)")) ;
+}
+text div[type="writingSession"][n][hand='#author']:before{
+	color: #465E7A;
+	content: "Schreibakt " attr(n)", Schreiber: " oxy_xpath(oxy_concat("string-join(//correspAction[@type='sent']/persName)")) ;
+}
+text div[type="writingSession"][n][hand='#unknown']:before{
+	color: #465E7A;
+	content: "Schreibakt " attr(n)", Schreiber: Unbekannt" ;
 }
 
