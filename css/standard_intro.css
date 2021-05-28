@@ -23,6 +23,13 @@ along with ediarum.BASE. If not, see <http://www.gnu.org/licenses/>.
 /* #####################
  * ##### teiHeader #####
  * ##################### */
+ 
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+oxy|comment{
+    visibility:-oxy-collapse-text;
+    -oxy-display-tags: none;
+}
 
 title[type='main']{
     -oxy-placeholder-content: "Titel eintragen";
@@ -118,6 +125,10 @@ publisher {
     -oxy-show-placeholder: always;
 }
 
+publisher ref{
+    -oxy-display-tags: none;
+}
+
 pubPlace {
     -oxy-placeholder-content: "Erscheinungsort eintragen";
     -oxy-show-placeholder: always;
@@ -126,6 +137,16 @@ pubPlace {
 
 publicationStmt pubPlace:before{
     content: ", "
+}
+
+availability,
+licence{
+    -oxy-display-tags: none;
+    display: block;
+}
+
+licence:before{
+    content: "Lizenz: "
 }
 
 /* ################
@@ -243,19 +264,19 @@ text list[rendition='ordered_num']{
     list-style-type:decimal;
 }
 
-text list[rendition='ordered upperRoman']{
+text list[rendition='ordered upper-roman']{
     list-style-type:upper-roman;
 }
 
-text list[rendition='ordered lowerLatin']{
+text list[rendition='ordered lower-latin']{
     list-style-type:lower-latin;
 }
 
-text list[rendition='ordered upperLatin']{
+text list[rendition='ordered upper-latin']{
     list-style-type:upper-latin;
 }
 
-text list[rendition='ordered lowerRoman']{
+text list[rendition='ordered lower-roman']{
     list-style-type:lower-roman;
 }
 
@@ -271,38 +292,47 @@ text list {
  * ##### ZITATE #####
  * ################## */
 
-quote[type='introQuote']{
+quote[rendition]{
     font-family: BBAWfont;
     -oxy-display-tags: none;
-    display: block;
-    margin:0.5em 10em 0.5em 1.5em;
-    -oxy-placeholder-content: "Einführungszitat";
     -oxy-show-placeholder: always;
 }
 
+quote[rendition='introQuote']{
+    display: block;
+    margin:0.5em 10em 0.5em 1.5em;
+    -oxy-placeholder-content: "Einführungszitat";
+}
+
 quote[rendition='inline']{
-    font-family: BBAWfont;
-    -oxy-display-tags: none;
     font-style: italic;
     -oxy-placeholder-content: "Inline-Zitat";
-    -oxy-show-placeholder: always;
     background-color:#F4E4BC;
 }
 
 quote[rendition='block']{
-    font-family: BBAWfont;
-    -oxy-display-tags: none;
     display: block;
     margin:0.5em 10em 0.5em 5em;
     -oxy-placeholder-content: "Blockzitat";
-    -oxy-show-placeholder: always;
 }
 
-/* hier weitermachen!!! */
+quote hi[rendition="#i"]{
+    font-style: normal;
+    -oxy-display-tags: none;
+}
+
+text ref[target]:after,
 note ref[target]:after {
 content: " " url(gfx/link.png) ;
--oxy-link: attr(target) ;
+link: attr(target)!important; 
 }
+
+/* Falls ein Platzhalter doch noch benötigt wird 
+text ref[target],
+note ref[target]{
+    -oxy-placeholder-content:"[Platzhalter: Link auf externe Webseite]";
+    -oxy-show-placeholder : always ;
+}*/
 
 quote hi[rendition="#b"],
 text hi[rendition="#b"] {

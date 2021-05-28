@@ -1232,7 +1232,7 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
       </choice>
    </define>
    <define name="tei_model.availabilityPart">
-      <notAllowed/>
+      <ref name="tei_licence"/>
    </define>
    <define name="tei_model.quoteLike">
       <choice>
@@ -1675,18 +1675,11 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
                         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                         <value> block</value>
                         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                        <value>introQuote</value>
+                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                      </choice>
                   </oneOrMore>
                </list>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="type">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.</a:documentation>
-               <choice>
-                  <value>introQuote</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               </choice>
             </attribute>
          </optional>
          <empty/>
@@ -1881,13 +1874,13 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <value>ordered decimal</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered upperRoman</value>
+               <value>ordered upper-roman</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered lowerRoman</value>
+               <value>ordered lower-roman</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered upperLatin</value>
+               <value>ordered upper-latin</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <value>ordered lowerLatin</value>
+               <value>ordered lower-latin</value>
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             </choice>
          </attribute>
@@ -3524,6 +3517,13 @@ Suggested values include: 1] label; 2] data</a:documentation>
          <ref name="tei_macro.limitedContent"/>
          <ref name="tei_att.global.attributes"/>
          <empty/>
+      </element>
+   </define>
+   
+   <define name="tei_licence">
+      <element name="licence">
+         <ref name="tei_att.pointing.attributes"/>
+         <text/>
       </element>
    </define>
    <start>
