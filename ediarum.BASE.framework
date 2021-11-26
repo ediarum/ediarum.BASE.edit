@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="21.1" xml:space="preserve">
+<serialized version="22.0" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -10611,7 +10611,7 @@ and not(//witness[@select])</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>hand</String>
+											<String>@hand</String>
 										</field>
 										<field name="name">
 											<String>@hand mit Register</String>
@@ -14267,7 +14267,7 @@ var_tokenWitnessGroup</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>writingSession_writer_1
-hand</String>
+@hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -14284,7 +14284,7 @@ hand</String>
 															<entry>
 																<String>actionIDs</String>
 																<String>writingSession_writer_1
-hand</String>
+@hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -14302,7 +14302,7 @@ hand</String>
 																<String>actionIDs</String>
 																<String>writingSession_2
 writingSession_writer_1
-hand</String>
+@hand</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
