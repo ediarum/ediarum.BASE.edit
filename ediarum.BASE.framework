@@ -14356,7 +14356,7 @@ writingSession_writer_1
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>${ask('Schreiber der Anmerkung', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}</String>
+																<String>${ask('Schreiber', combobox, ('#author':'Autor dieses Textes';'#addressee':'Empfänger des Briefes';'#index':'Person aus dem Register';'#unknown':'Unbekannt'), '#author')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
