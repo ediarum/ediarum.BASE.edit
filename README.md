@@ -18,8 +18,8 @@ Authors:
 
 Contributors:
 
-* Philipp Linß
 * Esther Asef
+* Philipp Linß
 * Ruth Sander
 
 ## Cite this software
