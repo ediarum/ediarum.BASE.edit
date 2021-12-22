@@ -1,17 +1,29 @@
 # ediarum.BASE.edit
 
-© 2011-2018 by Berlin-Brandenburg Academey of Sciences and Humanities
+Version: 2.0.0
+
+© 2011-2021 by Berlin-Brandenburg Academey of Sciences and Humanities
 
 Developed by TELOTA, a DH working group of the Berlin-Brandenburg Academey of Sciences and Humanities
 http://www.bbaw.de/telota
 telota@bbaw.de
 
-Lead Developer:
+Authors:
 
 * Stefan Dumont
-* Martin Fechner
-* Sascha Grabsch
 * Nadine Arndt
+* Sascha Grabsch
+* Lou Klappenbach
+
+Contributors:
+
+* Philipp Linß
+* Esther Asef
+* Ruth Sander
+
+## Cite this software
+
+If you use this software, please cite it using the metadata in the file CITATION.CFF (for more information about CFF see https://citation-file-format.github.io/).
 
 ## What does it do?
 
@@ -36,7 +48,9 @@ components:
 
 ## Documentation
 
-tba
+See ediarum.BASE.manual[https://www.ediarum.org/docs/ediarum.BASE.manual/](https://www.ediarum.org/docs/ediarum.BASE.manual/) for an user manual of ediarum.BASE.edit. 
+
+Information for developers can be found in [https://www.ediarum.org/docs/set-up/](https://www.ediarum.org/docs/set-up/). Further information: https://www.ediarum.org.
 
 ## License
 
