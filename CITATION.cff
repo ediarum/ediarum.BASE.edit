@@ -14,6 +14,7 @@ authors:
     orcid: "https://orcid.org/0000-0001-6587-3353"
 title: ediarum.BASE.edit 
 abstract: "ediarum.BASE.edit is an input interface for New Germanic editions in Oxygen XML Author. It enables easy and convenient transcription and annotation of manuscripts or prints in TEI-XML. The data model is largely based on the Base format of the German Text Archive (DTA), a subset of the TEI guidelines."
+type: software
 date-released: "2021-12-22"
 version: 2.0.0
 repository-code: "https://github.com/ediarum/ediarum.BASE.edit"
@@ -22,6 +23,7 @@ identifiers:
     type: doi
     value: 10.5281/zenodo.2394140
 license: "GPL-3.0"
+url: "https://www.ediarum.org"
 references: 
   - authors:
       - family-names: Fechner
