@@ -4,9 +4,10 @@ Version: 2.0.0
 
 © 2011-2021 by Berlin-Brandenburg Academey of Sciences and Humanities
 
+https://www.ediarum.org
+ediarum@bbaw.de
+
 Developed by TELOTA, a DH working group of the Berlin-Brandenburg Academey of Sciences and Humanities
-http://www.bbaw.de/telota
-telota@bbaw.de
 
 Authors:
 
