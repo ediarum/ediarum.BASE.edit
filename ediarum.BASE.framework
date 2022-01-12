@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="22.0" xml:space="preserve">
+<serialized xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
 			<documentTypeDescriptor-array>
 				<documentTypeDescriptor>
+					<field name="webResources">
+						<null/>
+					</field>
 					<field name="extensionPatch">
 						<null/>
 					</field>
@@ -7683,7 +7686,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>xpath to element of the attribute</String>
-																<String>ancestor-or-self::tei:rs[@type='person']</String>
+																<String>ancestor-or-self::rs[@type='person']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7731,7 +7734,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>xpath to element of the attribute</String>
-																<String>ancestor-or-self::tei:rs[@type='org']</String>
+																<String>ancestor-or-self::rs[@type='org']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7779,7 +7782,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>xpath to element of the attribute</String>
-																<String>ancestor-or-self::tei:rs[@type='term']</String>
+																<String>ancestor-or-self::rs[@type='term']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7827,7 +7830,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>xpath to element of the attribute</String>
-																<String>ancestor-or-self::tei:rs[@type='bibl-zotero']</String>
+																<String>ancestor-or-self::rs[@type='bibl-zotero']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7875,7 +7878,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>xpath to element of the attribute</String>
-																<String>ancestor-or-self::tei:rs[@type='bibl']</String>
+																<String>ancestor-or-self::rs[@type='bibl']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7923,7 +7926,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>xpath to element of the attribute</String>
-																<String>ancestor-or-self::tei:rs[@type='place']</String>
+																<String>ancestor-or-self::rs[@type='place']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
