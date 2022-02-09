@@ -1,0 +1,417 @@
+
+/* pdf_print.css - XXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx */
+
+
+/* Print */
+html{
+    counter-reset:page;
+}
+
+body {
+ hyphens: auto;
+}
+
+
+@page {
+    size: A4;
+    counter-reset: footnote 1;
+    margin-right:50mm;
+    @footnote {
+        /* Add a separator above the footnote */
+        content: leader(solid);
+        color:black;
+        margin:15px;
+        /*border-top:solid black thin; leider keinerlei Auswirkung*/
+        /*float: bottom;*/
+        }
+    /*@top-center{
+        content: "Created: " oxy_xpath("//head/title/text()")
+        oxy_xpath("./body/div[@class='minute']/h2/text()");
+        }*/
+    @top-left{
+        content : string(minute_title);
+        font-style:italic;
+        font-size:75%;
+    }
+    @bottom-left {
+    content: counter(page);
+    font-size:90%;
+  }
+    
+}
+
+/* running header */
+
+.heading{
+    string-set: minute_title content();
+    display:none;
+}
+
+/* nach jedem Protokoll soll ein Seitenumbruch eingefügt werden */
+div[class='minute']{
+    page-break-after: always;
+    counter-reset:footnote 1;
+    text-align:justify;
+}
+
+/* direkte Seitenumbrüche hinter Überschriften und diesen Klassen (Dokumentenkopf) sollen vermieden werden */
+h1, h2, h3, h4, h5,
+.more_info,
+.time,
+.agenda{
+  page-break-after: avoid;
+}
+
+
+/* Fußnoten */
+
+
+/* This element is for a single footnote body */
+.footnote { 
+    float:footnote;
+    counter-increment:footnote;/* Auswirkung auf mehrere Dateien? */
+    text-align: justify;
+    /*display:block;*/
+    hyphens: auto;
+    font-size:95%;
+}
+
+/* As the name says this is the footnote call */
+.footnote::footnote-call {
+    content: counter(footnote);
+    vertical-align:super;
+    font-size:0.8em;
+}
+
+/* And the footnote marker */
+.footnote::footnote-marker {
+    content: counter(footnote, decimal);
+    font-size: 80%;
+}
+
+/* ### Agenda */
+
+.agenda,
+.doc_head{
+    font-style:italic;
+}
+
+.agenda_item_label{
+    vertical-align:top;
+    padding-bottom: 0.75em;
+}
+
+.agenda_item{
+    padding-bottom: 0.75em;
+}
+
+/* ### TOP */
+
+/* F+r Testzwecke */
+/*.top{
+    background-color:pink
+}
+
+.top_added{
+    background-color:green;
+}*/
+
+.top_added h2.added:before{
+    content: "["
+}
+
+.top_added p:last-of-type:after{
+    content: "]"
+}
+
+.ressort{
+    text-align:right;
+    font-size:1em;
+    font-weight:bold;
+}
+
+.time{
+    text-align: right
+}
+
+/* Umlaufverfahren */
+
+div[class='circulation_procedure'] p:first-child:before{
+    content: "["
+}
+
+div[class='circulation_procedure'] li:last-child:after{
+    content: "]"
+}
+
+/* @NA weiterarbeiten */
+/*div[class='attachement']{
+    background-color:yellow;
+}*/
+
+
+
+/* Tabellen */
+
+table {
+    display: table;
+    width:100%;
+    hyphens: auto;
+    border: 1px solid white;
+    border-collapse: collapse;
+    max-width: 160mm;
+}
+
+tr {
+    display: table-row;
+}
+
+td {
+    display: table-cell;
+}
+
+table.table,
+table.table tr,
+table.table td{
+    hyphens: auto;
+}
+
+table.table td:first-of-type{
+    padding: 0 0 0.5em 0;
+    text-align: left;
+}
+
+table.table td{
+    padding: 0 0 0.5em 0.5em;
+    text-align: left;
+}
+
+table.tableDrawn,
+table.tableDrawn th,
+table.tableDrawn td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    max-width: 160mm;
+}
+
+table caption span.tableCaption {
+    display: block;
+    text-align: left;
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* Listen */
+/* funzt noch nicht bei weiteren Listen -> liegt aber wohl am Prozessor */
+ul.list{
+    list-style-type:none;
+}
+
+ul.list li{
+    padding-bottom:0.5em;
+}
+
+ul.list li:before{
+   content: attr(content)" "; 
+}
+
+ul.list li.none{
+    list-style-type:none
+}
+
+/* geschützes Leerzeichen für Tranchenbesprechung entfernt, evtl. später einbinden */
+/*.non-breaking-space{
+    background-color:#e9e9e9;
+}*/
+
+
+
+/* ############################################## */
+/* Layout */
+
+/* # Allgemein */
+.infoTitle {
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+/* # Header */
+
+header {
+    font-size: 80%;                 /* Header-Angaben etwas kleiner, da sonst sehr umfangreich. */
+}
+
+.title {
+    display: block;
+}
+
+/* ## Header-Abschnitte */
+
+.contentInfo,
+.facsimileInfo,
+.headerInfo,
+.revisionInfo {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-style: italic;
+}
+
+/* ## Header-Absätze */
+
+.abstract,
+.correspContext,
+.creationalData,
+.editor,
+.headerNote,
+.keywords,
+.respStmt,
+.revision {
+    display: block;
+    font-style: italic;
+}
+
+div.abstract p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+/* # Content */
+
+.textDiv {
+    padding-bottom: 0.5em;
+}
+
+
+/* # Text */
+
+.alignRight {
+    /* Textausrichtung rechts */
+    text-align: right;
+}
+
+.bold {
+    /* fett */
+    font-weight: bold;
+}
+
+.center {
+    /* zentriert */
+    text-align: center;
+}
+
+.corr {
+    /* Normalisierte Schreibung */
+    font-style: italic;
+}
+
+.dateline {
+    /* Datumsangabe */
+    text-align: right;
+}
+
+.deleted {
+    /* gestrichen */
+    text-decoration: line-through;
+}
+
+.ex {
+    /* Ergänzung durch Herausgeber */
+    font-style: italic;
+}
+
+.expan {
+    /* Abkürzungsauflösung durch Herausgeber */
+    font-style: italic;
+}
+
+.fraktur {
+    /* Frakturschrift */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
+    
+}
+
+.foreign {
+    /* fremdsprachiger Text */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
+    
+}
+
+.indentation {
+    /* Einrückung */
+    padding-left: 3em;
+}
+
+.italic {
+    /* kursiv */
+    font-style: italic;
+}
+
+.letterspace {
+    /* gesperrt */
+    letter-spacing: 0.1em;
+}
+
+.marginLine {
+    /* Anstreichung am Rand */
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
+.printed {
+    /* vorgedruckt */
+    font-family: Helvetica;
+    font-size: 0.9em;
+}
+
+.quoteInItalicPart {
+    /* Zitat innerhalb von kursivem Abschnitt */
+    font-style: normal;
+}
+
+.regLink {
+    /* Verlinkung ins Register */
+    color: black;
+    text-decoration: none;
+}
+
+.sic {
+    /* Original der normalisierten Schreibung */
+    font-style: normal;
+}
+
+.strophe {
+    /* Strophe */
+    display: block;
+    padding-bottom: 0.5em;
+}
+
+.sub {
+    /* tiefergestellt */
+    vertical-align: sub;
+    font-size: 70%;
+}
+
+.sup {
+    /* hochgestellt */
+    vertical-align: super;
+    font-size: 70%;
+}
+
+.supplied {
+    font-style: italic;
+}
+
+.underline {
+    /* Unterstrich -- border-bottom, um mit doppeltem Unterstrich auf gleicher Höhe zu sein. */
+    border-bottom: black 1px solid;
+}
+
+.underlineDouble {
+    /* Doppelter Unterstrich */
+    border-bottom: black 3px double;
+}
+
