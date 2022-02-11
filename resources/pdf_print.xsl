@@ -10,17 +10,26 @@
     exclude-result-prefixes="#all"
     version="2.0">
     
-    <xsl:strip-space elements="*"/>
-    
+    <!-- # Allgemeine Einstellungen -->
+    <xsl:strip-space elements="*"/>    
     <xsl:output method="html"/>
     <xsl:variable name="heute" select="fn:current-date()"/>
     <xsl:variable name="uhrzeit" select="fn:current-time()"/>
     
-    <!-- Einstellung Fußnoten -->
-    <xsl:param name="notesAsFootnotes" select="true()"/>
+    <!-- # Einbinden der Stylesheets -->
+    <xsl:import href="pdf_print_header.xsl"/>
+    <xsl:import href="pdf_print_content_templates.xsl"/>
+    <xsl:import href="pdf_print_project.xsl"/>
+    
+    <!-- # Parameter und globale Variablen -->
+    
+    <!-- ## Einstellung Fußnoten -->
+    <!-- notesAsFootnotes/placeOfNotes - Erhält vom Parameter notesAsFootnotes einen bool-Wert, ob Sachanmerkungen 
+        als Fußnoten (true) oder Endnoten (false) dargestellt werden. Verarbeitung zur leichteren Lesbarkeit im 
+        restlichen Code und Weiterverwendung über Variable placeOfNotes. -->
     <xsl:variable name="placeOfNotes">
         <xsl:choose>
-            <xsl:when test="$notesAsFootnotes = true()">
+            <xsl:when test="$p_notesAsFootnotes = true()">
                 <xsl:text>foot</xsl:text>
             </xsl:when>
             <xsl:otherwise>
@@ -28,14 +37,8 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="pathToRegister">
-        <xsl:text>https://xmledit.bbaw.de/mop/rest/db/projects/mop/web/register/</xsl:text>
-    </xsl:variable>
-    
-    <!-- Einbinden der Stylesheets -->
-    <xsl:include href="pdf_print_header.xsl"/>
-    <xsl:include href="pdf_print_content_templates.xsl"/>
-    <!--<xsl:include href="pdf_print_content_functions.xsl"/>-->        <!-- Include über pdf_print_content_templates.xsl -->
+
+
     
 
     <!-- ###################### -->
@@ -46,147 +49,237 @@
     <xsl:template match="tei:TEI">
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html>
-            <head>
-                <meta name="author" content="Nadine Arndt, Jan Wierzoch"/>
-                <meta name="description">
-                    <xsl:attribute name="content">
-                        <xsl:text>PDF-Vorschau vom </xsl:text><xsl:value-of select="format-date($heute,'[D01].[M01].[Y0001]')"/>, <xsl:value-of select="format-time($uhrzeit,'[H01]:[m01]')"/>
-                    </xsl:attribute>
-                </meta>
-                <title><xsl:value-of select="//tei:titleStmt/tei:title"/></title>
-            </head>
+            
+            <xsl:choose>
+                <xsl:when test="$p_structureHeadDefault = true()">
+                    <xsl:call-template name="ediarum_structure_head_default">
+                        <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="ediarum_structure_head_project">
+                        <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+            
             <body>
-                <header>
-                    <xsl:call-template name="ediarum_headerTitle"/>
-                    <div class="headerInfo">
-                        <!-- ## Informationen zum Vorhaben -->
-                        <xsl:call-template name="ediarum_headerEditor"/>
-                        <xsl:call-template name="ediarum_headerResp"/>
-                        <xsl:call-template name="ediarum_headerEditionStmt"/>
-                        <xsl:call-template name="ediarum_headerPublicationStmt"/>
-                    </div>
-                    <div class="headerInfo">
-                        <!-- ## Hinweise (noteStmt) -->
-                        <xsl:call-template name="ediarum_headerNote"/>
-                    </div>
-                    <div class="headerInfo">
-                        <!-- ## Informationen zur Herkunft -->
-                        <xsl:call-template name="ediarum_headerMsDesc"/>
-                    </div>
-                    <div class="contentInfo">
-                        <!-- ## Informationen zu Absender/Empfänger, Ort, Datum -->
-                        <xsl:choose>
-                            <xsl:when test=".//tei:profileDesc/tei:correspDesc">
-                                <xsl:call-template name="ediarum_headerCorresp"/>
-                            </xsl:when>
-                            <xsl:when test=".//tei:profileDesc/tei:creation">
-                                <xsl:call-template name="ediarum_headerCreation"/>
-                            </xsl:when>
-                        </xsl:choose>
-                        <xsl:call-template name="ediarum_headerAbstract"/>
-                        <xsl:call-template name="ediarum_headerKeywords"/>
-                    </div>
-                    <div class="revisionInfo">
-                        <!-- ## Informationen zum Bearbeitungsstatus und Änderungen -->
-                        <xsl:call-template name="ediarum_headerRevisionDesc"/>
-                    </div>
-                    <div class="facsimileInfo">
-                        <!-- ## Zugehörige Faksimiles -->
-                        <xsl:call-template name="ediarum_facsimile"/>
-                    </div>
-                    <hr/>
-                </header>
-                <div>
-                    <!-- ## Klasse des Inhalts-Div -->
-                    <xsl:attribute name="class">
-                        <xsl:choose>
-                            <xsl:when test=".//tei:text/@type">
-                                <xsl:value-of select=".//tei:text/@type"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:text>content</xsl:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:attribute>
-                    
-                    <!-- ## Opener kann außerhalb von div stehen. -->
-                    <xsl:apply-templates select=".//tei:body/tei:opener">
-                        <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                        <xsl:with-param name="pathToRegister" tunnel="yes" select="$pathToRegister"/>
-                    </xsl:apply-templates>
-                    
-                    <!-- ## Inhalt über jedes div aufrufen, ggf. Schreibakte -->
-                    <xsl:for-each select=".//tei:text/tei:body/tei:div">
-                        <div class="textDiv">
-                            
-                            <!-- ### Ggf. Schreibakt (oder anderen Typ) ausgeben. -->
-                            <xsl:call-template name="ediarum_contentDivType"/>                            
-                            
-                            <!-- ### Templates ausführen -->
-                            <xsl:apply-templates select=".">
-                                <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                                <xsl:with-param name="pathToRegister" tunnel="yes" select="$pathToRegister"/>
-                            </xsl:apply-templates>
-                        
-                        </div>
-                    </xsl:for-each>
-                    
-                    <!-- ## Closer kann außerhalb von div stehen. -->
-                    <xsl:apply-templates select=".//tei:body/tei:closer">
-                        <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                        <xsl:with-param name="pathToRegister" tunnel="yes" select="$pathToRegister"/>
-                    </xsl:apply-templates>
-                    
-                    <!-- ## Postscript kann außerhalb von div stehen -->
-                    <xsl:apply-templates select=".//tei:body/tei:postscript">
-                        <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                        <xsl:with-param name="pathToRegister" tunnel="yes" select="$pathToRegister"/>
-                    </xsl:apply-templates>                  
-                    
-                    
-                    <!-- ## Erstellen des kritischen Apparats am Ende des Dokuments -->
-                    <br/>
-                    <hr/>
-                    <h4>Kritischer Apparat</h4>
-                    <ul class="criticalApp">
-                        
-                        <xsl:choose>
-                            <!-- ### Bearbeitungsanmerkungen als Endnoten -->
-                            <xsl:when test="$placeOfNotes = 'foot'">
-                                <xsl:apply-templates mode="criticalApp" select=".//tei:add |
-                                                                                .//tei:choice[tei:corr | tei:abbr | tei:orig] |
-                                                                                .//tei:del |
-                                                                                .//tei:gap |
-                                                                                .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                                                                .//tei:unclear"/>
-                            </xsl:when>
-                            <!-- ### Sachanmerkungen als Endnoten -->
-                            <xsl:otherwise>
-                                <xsl:apply-templates mode="criticalApp" select=".//tei:note[ancestor-or-self::tei:div and @place='foot'] |
-                                                                                .//tei:seg |
-                                                                                .//tei:persName[ancestor-or-self::tei:body] |
-                                                                                .//tei:placeName[ancestor-or-self::tei:body] |
-                                                                                .//tei:orgName[ancestor-or-self::tei:body] |
-                                                                                .//tei:bibl[ancestor-or-self::tei:body] |
-                                                                                .//tei:item[ancestor-or-self::tei:body and @xml:id]">
-                                    <xsl:with-param name="pathToRegister" tunnel="yes" select="$pathToRegister"/>
-                                </xsl:apply-templates>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        
-                    </ul>
-                    
-                </div>
+                
+                <xsl:choose>
+                    <xsl:when test="$p_structureHeaderDefault = true()">
+                        <xsl:call-template name="ediarum_structure_header_default">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="ediarum_structure_header_project">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+                <xsl:choose>
+                    <xsl:when test="$p_structureContentDefault = true()">
+                        <xsl:call-template name="ediarum_structure_content_default">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="ediarum_structure_content_project">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+            
             </body>
         </html>
     </xsl:template>
     
+
+
+
     
+    <!-- ####################################### -->
+    <!-- ### Default - Template-Definitionen ### -->
+    <!-- ####################################### -->
     
+    <!-- # Struktur-Templates -->
+    <!-- ## Struktur der Aufrufe für den Head -->
+    <xsl:template name="ediarum_structure_head_default">
+        <xsl:param name="placeOfNotes"/>
+        
+        <head>
+            <meta name="author" content="Nadine Arndt, Jan Wierzoch"/>
+            <meta name="description">
+                <xsl:attribute name="content">
+                    <xsl:text>PDF-Vorschau vom </xsl:text><xsl:value-of select="format-date($heute,'[D01].[M01].[Y0001]')"/>, <xsl:value-of select="format-time($uhrzeit,'[H01]:[m01]')"/>
+                </xsl:attribute>
+            </meta>
+            <title><xsl:value-of select="//tei:titleStmt/tei:title"/></title>
+        </head>
+        
+    </xsl:template>
     
+    <!-- ## Struktur der Aufrufe für den Header -->
+    <xsl:template name="ediarum_structure_header_default">
+        <xsl:param name="placeOfNotes"/>
+        
+        <header>
+            <xsl:call-template name="ediarum_headerTitle"/>
+            <div class="headerInfo">
+                <!-- ## Informationen zum Vorhaben -->
+                <xsl:call-template name="ediarum_headerEditor"/>
+                <xsl:call-template name="ediarum_headerResp"/>
+                <xsl:call-template name="ediarum_headerEditionStmt"/>
+                <xsl:call-template name="ediarum_headerPublicationStmt"/>
+            </div>
+            <div class="headerInfo">
+                <!-- ## Hinweise (noteStmt) -->
+                <xsl:call-template name="ediarum_headerNote"/>
+            </div>
+            <div class="headerInfo">
+                <!-- ## Informationen zur Herkunft -->
+                <xsl:call-template name="ediarum_headerMsDesc"/>
+            </div>
+            <div class="contentInfo">
+                <!-- ## Informationen zu Absender/Empfänger, Ort, Datum -->
+                <xsl:choose>
+                    <xsl:when test=".//tei:profileDesc/tei:correspDesc">
+                        <xsl:call-template name="ediarum_headerCorresp"/>
+                    </xsl:when>
+                    <xsl:when test=".//tei:profileDesc/tei:creation">
+                        <xsl:call-template name="ediarum_headerCreation"/>
+                    </xsl:when>
+                </xsl:choose>
+                <xsl:call-template name="ediarum_headerAbstract"/>
+                <xsl:call-template name="ediarum_headerKeywords"/>
+            </div>
+            <div class="revisionInfo">
+                <!-- ## Informationen zum Bearbeitungsstatus und Änderungen -->
+                <xsl:call-template name="ediarum_headerRevisionDesc"/>
+            </div>
+            <div class="facsimileInfo">
+                <!-- ## Zugehörige Faksimiles -->
+                <xsl:call-template name="ediarum_facsimile"/>
+            </div>
+            <hr/>
+        </header>
+        
+    </xsl:template>
     
-    
-    
+    <!-- ## Struktur der Aufrufe für den Content -->
+    <xsl:template name="ediarum_structure_content_default">
+        <xsl:param name="placeOfNotes"/>
+        
+            <div>
+                <!-- ## Klasse des Inhalts-Div -->
+                <xsl:attribute name="class">
+                    <xsl:choose>
+                        <xsl:when test=".//tei:text/@type">
+                            <xsl:value-of select=".//tei:text/@type"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text>content</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+                
+                <!-- ## Opener kann außerhalb von div stehen. -->
+                <xsl:apply-templates select=".//tei:body/tei:opener">
+                    <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
+                    <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
+                    <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
+                    <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
+                    <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
+                    <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
+                    <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
+                </xsl:apply-templates>
+                
+                <!-- ## Inhalt über jedes div aufrufen, ggf. Schreibakte -->
+                <xsl:for-each select=".//tei:text/tei:body/tei:div">
+                    <div class="textDiv">
+                        
+                        <!-- ### Ggf. Schreibakt (oder anderen Typ) ausgeben. -->
+                        <xsl:if test="$p_showWritingSession = true()">
+                            <xsl:call-template name="ediarum_contentWritingSession"/>
+                        </xsl:if>
+                        
+                        <!-- ### Templates ausführen -->
+                        <xsl:apply-templates select=".">
+                            <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
+                            <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
+                            <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
+                            <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
+                            <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
+                            <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
+                            <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
+                        </xsl:apply-templates>
+                        
+                    </div>
+                </xsl:for-each>
+                
+                <!-- ## Closer kann außerhalb von div stehen. -->
+                <xsl:apply-templates select=".//tei:body/tei:closer">
+                    <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
+                    <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
+                    <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
+                    <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
+                    <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
+                    <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
+                    <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
+                </xsl:apply-templates>
+                
+                <!-- ## Postscript kann außerhalb von div stehen -->
+                <xsl:apply-templates select=".//tei:body/tei:postscript">
+                    <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
+                    <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
+                    <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
+                    <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
+                    <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
+                    <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
+                    <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
+                </xsl:apply-templates>                  
+                
+                
+                <!-- ## Erstellen des kritischen Apparats am Ende des Dokuments -->
+                <br/>
+                <hr/>
+                <h4>Kritischer Apparat</h4>
+                <ul class="criticalApp">
+                    
+                    <xsl:choose>
+                        <!-- ### Bearbeitungsanmerkungen als Endnoten -->
+                        <xsl:when test="$placeOfNotes = 'foot'">
+                            <xsl:apply-templates mode="criticalApp" select=".//tei:add |
+                                .//tei:choice[tei:corr | tei:abbr | tei:orig] |
+                                .//tei:del |
+                                .//tei:gap |
+                                .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                .//tei:unclear"/>
+                        </xsl:when>
+                        <!-- ### Sachanmerkungen als Endnoten -->
+                        <xsl:otherwise>
+                            <xsl:apply-templates mode="criticalApp" select=".//tei:note[ancestor-or-self::tei:div and @place='foot'] |
+                                .//tei:seg |
+                                .//tei:persName[ancestor-or-self::tei:body] |
+                                .//tei:placeName[ancestor-or-self::tei:body] |
+                                .//tei:orgName[ancestor-or-self::tei:body] |
+                                .//tei:bibl[ancestor-or-self::tei:body] |
+                                .//tei:item[ancestor-or-self::tei:body and @xml:id]">
+                                <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
+                                <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
+                                <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
+                                <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
+                                <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
+                                <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
+                            </xsl:apply-templates>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    
+                </ul>
+            </div>
+        
+    </xsl:template>
     
     
     

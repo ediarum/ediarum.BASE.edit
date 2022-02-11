@@ -96,19 +96,16 @@
     </xsl:template>
     
     <!-- ## Schreibakt - ACHTUNG: Aufruf über named-template! -->
-    <xsl:template name="ediarum_contentDivType">
-        <xsl:choose>
-            <xsl:when test="./@type = 'writingSession'">
-                <h4>
-                    <xsl:text>Schreibakt </xsl:text>
-                    <xsl:if test="./@n">
-                        <xsl:text>Nr. </xsl:text>
-                        <xsl:value-of select="./@n"/>
-                    </xsl:if>
-                </h4>
-            </xsl:when>
-            <xsl:otherwise/>
-        </xsl:choose>
+    <xsl:template name="ediarum_contentWritingSession">
+        <xsl:if test="./@type = 'writingSession'">
+            <h4>
+                <xsl:text>Schreibakt </xsl:text>
+                <xsl:if test="./@n">
+                    <xsl:text>Nr. </xsl:text>
+                    <xsl:value-of select="./@n"/>
+                </xsl:if>
+            </h4>
+        </xsl:if>
     </xsl:template>
     
     <!-- ## Liste -->
@@ -208,7 +205,12 @@
                                      tei:item[ancestor-or-self::tei:body and @xml:id]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
-        <xsl:param name="pathToRegister" tunnel="yes"/>
+        <xsl:param name="p_pathToRegister" tunnel="yes"/>
+        <xsl:param name="p_registerPersons" tunnel="yes"/>
+        <xsl:param name="p_registerPlaces" tunnel="yes"/>
+        <xsl:param name="p_registerInstitutions" tunnel="yes"/>
+        <xsl:param name="p_registerBibls" tunnel="yes"/>
+        <xsl:param name="p_registerItems" tunnel="yes"/>
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:note[ancestor-or-self::tei:div and @place='foot'] |
@@ -244,7 +246,7 @@
                 <xsl:apply-templates/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_persName(., $pathToRegister)"/>
+                        <xsl:copy-of select="telota:ediarum_noteContent_reg_persName(., $p_registerPersons)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
@@ -252,7 +254,7 @@
                 <xsl:apply-templates/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_placeName(., $pathToRegister)"/>
+                        <xsl:copy-of select="telota:ediarum_noteContent_reg_placeName(., $p_registerPlaces)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
@@ -260,14 +262,14 @@
                 <xsl:apply-templates/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_orgName(., $pathToRegister)"/>
+                        <xsl:copy-of select="telota:ediarum_noteContent_reg_orgName(., $p_registerInstitutions)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
             <xsl:when test="local-name() eq 'bibl'">
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_bibl(., $pathToRegister)"/>
+                        <xsl:copy-of select="telota:ediarum_noteContent_reg_bibl(., $p_registerBibls)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
@@ -275,7 +277,7 @@
                 <xsl:apply-templates/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_item(., $pathToRegister)"/>
+                        <xsl:copy-of select="telota:ediarum_noteContent_reg_item(., $p_registerItems)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
@@ -298,7 +300,13 @@
                                             tei:bibl[ancestor-or-self::tei:body] |
                                             tei:item[ancestor-or-self::tei:body and @xml:id]">
         
-        <xsl:param name="pathToRegister" tunnel="yes"/>
+        <xsl:param name="placeOfNotes" tunnel="yes"/>
+        <xsl:param name="p_pathToRegister" tunnel="yes"/>
+        <xsl:param name="p_registerPersons" tunnel="yes"/>
+        <xsl:param name="p_registerPlaces" tunnel="yes"/>
+        <xsl:param name="p_registerInstitutions" tunnel="yes"/>
+        <xsl:param name="p_registerBibls" tunnel="yes"/>
+        <xsl:param name="p_registerItems" tunnel="yes"/>
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:note[ancestor-or-self::tei:div and @place='foot'] |
@@ -326,19 +334,19 @@
                 </xsl:when>
                 <!-- #### Verweise auf Register -->
                 <xsl:when test="local-name() eq 'persName'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_persName(., $pathToRegister)"/>
+                    <xsl:copy-of select="telota:ediarum_noteContent_reg_persName(., $p_registerPersons)"/>
                 </xsl:when>
                 <xsl:when test="local-name() eq 'placeName'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_placeName(., $pathToRegister)"/>
+                    <xsl:copy-of select="telota:ediarum_noteContent_reg_placeName(., $p_registerPlaces)"/>
                 </xsl:when>
                 <xsl:when test="local-name() eq 'orgName'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_orgName(., $pathToRegister)"/>
+                    <xsl:copy-of select="telota:ediarum_noteContent_reg_orgName(., $p_registerInstitutions)"/>
                 </xsl:when>
                 <xsl:when test="local-name() eq 'bibl'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_bibl(., $pathToRegister)"/>
+                    <xsl:copy-of select="telota:ediarum_noteContent_reg_bibl(., $p_registerBibls)"/>
                 </xsl:when>
                 <xsl:when test="local-name() eq 'item'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_item(., $pathToRegister)"/>
+                    <xsl:copy-of select="telota:ediarum_noteContent_reg_item(., $p_registerItems)"/>
                 </xsl:when>
             </xsl:choose>
         </li>

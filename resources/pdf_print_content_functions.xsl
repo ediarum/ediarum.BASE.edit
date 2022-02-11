@@ -294,13 +294,14 @@
     </xsl:function>
     
     <!-- ## ediarum_noteContent_reg_bibl - Ausgabe Fußnote eines Werkregistereintrags (tei:bibl) -->
+    <!-- TODO: Anpassen -->
     <xsl:function name="telota:ediarum_noteContent_reg_bibl">
         <xsl:param name="node"/>
-        <xsl:param name="pathToRegister"/>
+        <xsl:param name="p_registerBibls"/>
         
         <xsl:value-of select="$node"/>
         <xsl:text> (</xsl:text>
-        <xsl:value-of select="$pathToRegister"/>
+        <xsl:value-of select="$p_registerBibls"/>
         <xsl:text>)</xsl:text>
         
     </xsl:function>
@@ -309,18 +310,14 @@
     <!-- ## ediarum_noteContent_reg_item - Ausgabe Fußnote eines Sachregistereintrags (tei:item) -->
     <xsl:function name="telota:ediarum_noteContent_reg_item">
         <xsl:param name="node"/>
-        <xsl:param name="pathToRegister"/>
-        
-        <xsl:variable name="registerType">
-            <xsl:text>hoefe</xsl:text>
-        </xsl:variable>
-        
+        <xsl:param name="p_registerItems"/>
+                
         <xsl:variable name="key">
             <xsl:value-of select="$node/@key/data()"/>
         </xsl:variable>
         
         <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$pathToRegister||$registerType||'/detail.xql?id='||$key"/>
+            <xsl:value-of select="$p_registerItems||'?id='||$key"/>
         </xsl:variable>
         
         <xsl:text>Sachregister: </xsl:text>
@@ -331,18 +328,14 @@
     <!-- ## ediarum_noteContent_reg_orgName - Ausgabe Fußnote eines Institutionenregistereintrags (tei:orgName) -->
     <xsl:function name="telota:ediarum_noteContent_reg_orgName">
         <xsl:param name="node"/>
-        <xsl:param name="pathToRegister"/>
-        
-        <xsl:variable name="registerType">
-            <xsl:text>institutionen</xsl:text>
-        </xsl:variable>
+        <xsl:param name="p_registerInstitutions"/>
         
         <xsl:variable name="key">
             <xsl:value-of select="$node/@key/data()"/>
         </xsl:variable>
         
         <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$pathToRegister||$registerType||'/detail.xql?id='||$key"/>
+            <xsl:value-of select="$p_registerInstitutions||'/?id='||$key"/>
         </xsl:variable>
         
         <xsl:text>Institution: </xsl:text>
@@ -353,18 +346,14 @@
     <!-- ## ediarum_noteContent_reg_persName - Ausgabe Fußnote eines Personenregistereintrags (tei:persName) -->
     <xsl:function name="telota:ediarum_noteContent_reg_persName">
         <xsl:param name="node"/>
-        <xsl:param name="pathToRegister"/>
-        
-        <xsl:variable name="registerType">
-            <xsl:text>personen</xsl:text>
-        </xsl:variable>
-        
+        <xsl:param name="p_registerPersons"/>
+                
         <xsl:variable name="key">
             <xsl:value-of select="$node/@key/data()"/>
         </xsl:variable>
         
         <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$pathToRegister||$registerType||'/detail.xql?id='||$key"/>
+            <xsl:value-of select="$p_registerPersons||'?id='||$key"/>
         </xsl:variable>
         
         <xsl:if test="$node[@cert='low']">
@@ -379,18 +368,14 @@
     <!-- ## ediarum_noteContent_reg_placeName - Ausgabe Fußnote eines Ortsregistereintrags (tei:placeName) -->
     <xsl:function name="telota:ediarum_noteContent_reg_placeName">
         <xsl:param name="node"/>
-        <xsl:param name="pathToRegister"/>
-        
-        <xsl:variable name="registerType">
-            <xsl:text>orte</xsl:text>
-        </xsl:variable>
+        <xsl:param name="p_registerPlaces"/>
         
         <xsl:variable name="key">
             <xsl:value-of select="$node/@key/data()"/>
         </xsl:variable>
         
         <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$pathToRegister||$registerType||'/detail.xql?id='||$key"/>
+            <xsl:value-of select="$p_registerPlaces||'?id='||$key"/>
         </xsl:variable>
         
         <xsl:text>Ort: </xsl:text>
