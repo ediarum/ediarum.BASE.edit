@@ -11,6 +11,7 @@
     <!-- pdf_print_content_templates.xsl - Sammlung der Templates, die die Elemente im Text verarbeiten.              -->
     <!--                                   Werden über <apply-templates (select="XXX")/> in pdf_print.xsl aufgerufen. -->
     
+    <xsl:include href="pdf_print_project.xsl"/>
     <xsl:include href="pdf_print_content_functions.xsl"/>
 
 
@@ -47,6 +48,26 @@
         </p>
     </xsl:template>
     
+    <!-- ## Seiten- oder Foliowechsel -->
+    <xsl:template mode="#all" match="tei:pb">
+        <span class="pb">
+            <xsl:text>|</xsl:text>
+            <xsl:if test="@n">
+                <xsl:text>(</xsl:text>
+                <xsl:value-of select="@n/data()"/>
+                <xsl:text>) </xsl:text>
+            </xsl:if>
+        </span>
+    </xsl:template>
+    
+    <xsl:template mode="#all" match="tei:fw[@type='folNum']">
+        <span class="fw">
+            <xsl:text>|(</xsl:text>
+            <xsl:value-of select="./text()"/>
+            <xsl:text>) </xsl:text>
+        </span>
+    </xsl:template>
+    
     <!-- ## Einrückungen -->
     <xsl:template mode="#all" match="tei:p[@rendition='#et']">
         <p class="indentation">
@@ -71,7 +92,16 @@
     </xsl:template>
     <xsl:template mode="#all" match="tei:dateline">
         <p class="dateline">
-            <xsl:apply-templates mode="#current"/>
+            <xsl:choose>
+                <xsl:when test="@rendition='#left'">
+                    <div class="alignLeft">
+                        <xsl:apply-templates mode="#current"/>
+                    </div>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="#current"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </p>
     </xsl:template>
     <xsl:template mode="#all" match="tei:opener">
@@ -205,12 +235,6 @@
                                      tei:item[ancestor-or-self::tei:body and @xml:id]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
-        <xsl:param name="p_pathToRegister" tunnel="yes"/>
-        <xsl:param name="p_registerPersons" tunnel="yes"/>
-        <xsl:param name="p_registerPlaces" tunnel="yes"/>
-        <xsl:param name="p_registerInstitutions" tunnel="yes"/>
-        <xsl:param name="p_registerBibls" tunnel="yes"/>
-        <xsl:param name="p_registerItems" tunnel="yes"/>
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:note[ancestor-or-self::tei:div and @place='foot'] |
@@ -225,7 +249,7 @@
         <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
         <xsl:choose>
             <!-- #### Sachanmerkungen -->
-            <xsl:when test="local-name() eq 'seg'">
+            <xsl:when test="self::tei:seg">
                 <xsl:apply-templates select="./tei:orig"/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
@@ -234,7 +258,7 @@
                 </xsl:if>
             </xsl:when>
             <!-- #### Hinweise in Fußnoten -->
-            <xsl:when test="local-name() eq 'note'">
+            <xsl:when test="self::tei:note">
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
                         <xsl:copy-of select="telota:ediarum_noteContent_noteFoot(.)"/>
@@ -242,42 +266,11 @@
                 </xsl:if>
             </xsl:when>
             <!-- #### Verweise auf Register -->
-            <xsl:when test="local-name() eq 'persName'">
+            <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl]">
                 <xsl:apply-templates/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_persName(., $p_registerPersons)"/>
-                    </span>
-                </xsl:if>
-            </xsl:when>
-            <xsl:when test="local-name() eq 'placeName'">
-                <xsl:apply-templates/>
-                <xsl:if test="$placeOfNotes eq 'foot'">
-                    <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_placeName(., $p_registerPlaces)"/>
-                    </span>
-                </xsl:if>
-            </xsl:when>
-            <xsl:when test="local-name() eq 'orgName'">
-                <xsl:apply-templates/>
-                <xsl:if test="$placeOfNotes eq 'foot'">
-                    <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_orgName(., $p_registerInstitutions)"/>
-                    </span>
-                </xsl:if>
-            </xsl:when>
-            <xsl:when test="local-name() eq 'bibl'">
-                <xsl:if test="$placeOfNotes eq 'foot'">
-                    <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_bibl(., $p_registerBibls)"/>
-                    </span>
-                </xsl:if>
-            </xsl:when>
-            <xsl:when test="local-name() eq 'item'">
-                <xsl:apply-templates/>
-                <xsl:if test="$placeOfNotes eq 'foot'">
-                    <span class="footnote">
-                        <xsl:copy-of select="telota:ediarum_noteContent_reg_item(., $p_registerItems)"/>
+                        <xsl:copy-of select="telota:project_getRegisterLink(.)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
@@ -301,12 +294,6 @@
                                             tei:item[ancestor-or-self::tei:body and @xml:id]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
-        <xsl:param name="p_pathToRegister" tunnel="yes"/>
-        <xsl:param name="p_registerPersons" tunnel="yes"/>
-        <xsl:param name="p_registerPlaces" tunnel="yes"/>
-        <xsl:param name="p_registerInstitutions" tunnel="yes"/>
-        <xsl:param name="p_registerBibls" tunnel="yes"/>
-        <xsl:param name="p_registerItems" tunnel="yes"/>
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:note[ancestor-or-self::tei:div and @place='foot'] |
@@ -325,28 +312,16 @@
             <!-- ### Hier Text, der in Endnote ausgegeben wird. -->
             <xsl:choose>
                 <!-- #### Sachanmerkungen -->
-                <xsl:when test="local-name() eq 'seg'">
+                <xsl:when test="self::tei:seg">
                     <xsl:copy-of select="telota:ediarum_noteContent_seg(.)"/>
                 </xsl:when>
                 <!-- #### Hinweise in Fußnoten -->
-                <xsl:when test="local-name() eq 'note'">
+                <xsl:when test="self::tei:note">
                     <xsl:copy-of select="telota:ediarum_noteContent_noteFoot(.)"/>
                 </xsl:when>
                 <!-- #### Verweise auf Register -->
-                <xsl:when test="local-name() eq 'persName'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_persName(., $p_registerPersons)"/>
-                </xsl:when>
-                <xsl:when test="local-name() eq 'placeName'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_placeName(., $p_registerPlaces)"/>
-                </xsl:when>
-                <xsl:when test="local-name() eq 'orgName'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_orgName(., $p_registerInstitutions)"/>
-                </xsl:when>
-                <xsl:when test="local-name() eq 'bibl'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_bibl(., $p_registerBibls)"/>
-                </xsl:when>
-                <xsl:when test="local-name() eq 'item'">
-                    <xsl:copy-of select="telota:ediarum_noteContent_reg_item(., $p_registerItems)"/>
+                <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl]">
+                    <xsl:copy-of select="telota:project_getRegisterLink(.)"/>
                 </xsl:when>
             </xsl:choose>
         </li>
@@ -366,7 +341,7 @@
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:add |
                                                        tei:choice[tei:abbr | tei:corr | tei:orig] |
-                                                       tei:del |
+                                                       tei:del[not(tei:gap)] |
                                                        tei:gap |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
                                                        tei:unclear"/>
@@ -375,7 +350,7 @@
         <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
         <xsl:choose>
             <!-- #### Hinzufügung -->
-            <xsl:when test="local-name() eq 'add'">
+            <xsl:when test="self::tei:add">
                 <xsl:apply-templates mode="#current"/>
                 <xsl:if test="$placeOfNotes eq 'end'">
                     <span class="footnote">
@@ -384,7 +359,7 @@
                 </xsl:if>
             </xsl:when>
             <!-- #### Herausgeberkorrekturen -->
-            <xsl:when test="local-name() eq 'choice'">
+            <xsl:when test="self::tei:choice">
                 <xsl:choose>
                     <!-- ##### Abkürzungsauflösung -->
                     <xsl:when test=".[tei:abbr]">
@@ -432,18 +407,19 @@
                 </xsl:choose>
             </xsl:when>
             <!-- #### Streichung -->
-            <xsl:when test="local-name() eq 'del'">
+            <xsl:when test="self::tei:del">
+                <!-- Wenn tei:del/tei:gap, dann nicht ausgeben. Streichung des Textes in del trotzdem. -->
                 <span class="deleted">
                     <xsl:apply-templates mode="#current"/>
                 </span>
-                <xsl:if test="$placeOfNotes eq 'end'">
+                <xsl:if test="$placeOfNotes eq 'end' and not(.[tei:gap])">
                     <span class="footnote">
                         <xsl:copy-of select="telota:ediarum_noteContent_del(.)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
             <!-- #### Schäden -->
-            <xsl:when test="local-name() eq 'gap'">
+            <xsl:when test="self::tei:gap">
                 [...]
                 <xsl:if test="$placeOfNotes eq 'end'">
                     <span class="footnote">
@@ -452,7 +428,7 @@
                 </xsl:if>
             </xsl:when>
             <!-- #### Anmerkung -->
-            <xsl:when test="local-name() eq 'note'">
+            <xsl:when test="self::tei:note">
                 <xsl:apply-templates mode="#current"/>
                 <xsl:if test="$placeOfNotes eq 'end'">
                     <span class="footnote">
@@ -461,7 +437,7 @@
                 </xsl:if>
             </xsl:when>
             <!-- #### Unleserlich -->
-            <xsl:when test="local-name() eq 'unclear'">
+            <xsl:when test="self::tei:unclear">
                 <xsl:choose>
                     <xsl:when test="child::*|text()">
                         <span class="unclear">
@@ -490,7 +466,13 @@
 
         <!-- ### Endnotenreferenzen Fließtext -->
         <xsl:if test="$placeOfNotes eq 'foot'">
-            <xsl:copy-of select="telota:endnoteInText($criticalAppCounter)"/>
+            <xsl:choose>
+                <!-- Wenn tei:del/tei:gap, dann nicht ausgeben. -->
+                <xsl:when test="self::tei:del and .[tei:gap]"/>
+                <xsl:otherwise>
+                    <xsl:copy-of select="telota:endnoteInText($criticalAppCounter)"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:if>
         
     </xsl:template>
@@ -498,7 +480,7 @@
     <!-- ## Kritischer Apparat - Endnoten -->
     <xsl:template mode="criticalApp" match="tei:add |
                                             tei:choice[tei:abbr | tei:corr | tei:orig] |
-                                            tei:del |
+                                            tei:del[not(tei:gap)] |
                                             tei:gap |
                                             tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
                                             tei:unclear">
@@ -506,7 +488,7 @@
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:add |
                                                        tei:choice[tei:abbr | tei:corr | tei:orig] |
-                                                       tei:del |
+                                                       tei:del[not(tei:gap)] |
                                                        tei:gap |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
                                                        tei:unclear"/>
@@ -519,27 +501,27 @@
             <!-- ### Hier Text, der in Endnote ausgegeben wird. -->
             <xsl:choose>
                 <!-- #### Hinzufügung -->
-                <xsl:when test="local-name() eq 'add'">
+                <xsl:when test="self::tei:add">
                     <xsl:copy-of select="telota:ediarum_noteContent_add(.)"/>
                 </xsl:when>
                 <!-- #### Herausgeberkorrekturen -->
-                <xsl:when test="local-name() eq 'choice'">
+                <xsl:when test="self::tei:choice">
                     <xsl:copy-of select="telota:ediarum_noteContent_choice(.)"/>
                 </xsl:when>
                 <!-- #### Streichung -->
-                <xsl:when test="local-name() eq 'del'">
+                <xsl:when test="self::tei:del">
                     <xsl:copy-of select="telota:ediarum_noteContent_del(.)"/>
                 </xsl:when>
                 <!-- #### Schäden -->
-                <xsl:when test="local-name() eq 'gap'">
+                <xsl:when test="self::tei:gap">
                     <xsl:copy-of select="telota:ediarum_noteContent_gap(.)"/>
                 </xsl:when>
                 <!-- #### Anmerkung -->
-                <xsl:when test="local-name() eq 'note'">
+                <xsl:when test="self::tei:note">
                     <xsl:copy-of select="telota:ediarum_noteContent_note(.)"/>
                 </xsl:when>
                 <!-- #### Unsichere Lesart -->
-                <xsl:when test="local-name() eq 'unclear'">
+                <xsl:when test="self::tei:unclear">
                     <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
                 </xsl:when>
             </xsl:choose>

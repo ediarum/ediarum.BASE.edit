@@ -197,56 +197,90 @@
         </xsl:choose>
         
     </xsl:function>
-    
+        
     <!-- ## ediarum_noteContent_gap - Ausgabe Fußnote von Schäden (tei:gap) -->
     <xsl:function name="telota:ediarum_noteContent_gap">
         <xsl:param name="node"/>
         
-        <xsl:text>Schadhafte Passage</xsl:text>
+        <xsl:if test="$node[ancestor::tei:del]">
+            <xsl:text>||]&#8970;</xsl:text>
+        </xsl:if>
+        
         <xsl:choose>
             <xsl:when test="$node[@reason = 'lost']">
-                <xsl:text>; Grund: Verlust</xsl:text>
+                <xsl:text>Verlust</xsl:text>
             </xsl:when>
             <xsl:when test="$node[@reason = 'illegible']">
-                <xsl:text>; Grund: unleserlich</xsl:text>
+                <xsl:text>unleserlich</xsl:text>
             </xsl:when>
             <xsl:when test="$node[@reason = 'covered']">
-                <xsl:text>; Grund: schwer leserlich duch Überschreibung</xsl:text>
+                <xsl:text>schwer leserlich duch Überschreibung/Überzeichnung</xsl:text>
             </xsl:when>
             <xsl:when test="$node[@reason = 'empty']">
-                <xsl:text>; Grund: Leerraum</xsl:text>
+                <xsl:text>Leerraum</xsl:text>
             </xsl:when>
             <xsl:when test="$node[@reason = 'fm']">
-                <xsl:text>; Grund: fremdsprachlicher Text</xsl:text>
+                <xsl:text>fremdsprachlicher Text</xsl:text>
             </xsl:when>
             <xsl:when test="$node[@reason = 'insignificant']">
-                <xsl:text>; Grund: Für das Korpus unwichtiger Text</xsl:text>
+                <xsl:text>Für das Korpus unwichtiger Text</xsl:text>
             </xsl:when>
         </xsl:choose>
+        
+        <xsl:if test="$node[ancestor::tei:del]">
+            <xsl:text>]</xsl:text>
+        </xsl:if>
+        
         <xsl:if test="$node[@unit and @quantity]">
             <xsl:choose>
                 <xsl:when test="$node[@unit = 'chars']">
-                    <xsl:text>; Umfang: </xsl:text>
+                    <xsl:text>: </xsl:text>
                     <xsl:value-of select="$node/@quantity/data()"/>
                     <xsl:text> Zeichen</xsl:text>
                 </xsl:when>
                 <xsl:when test="$node[@unit = 'lines']">
-                    <xsl:text>; Umfang: </xsl:text>
+                    <xsl:text>: </xsl:text>
                     <xsl:value-of select="$node/@quantity/data()"/>
-                    <xsl:text> Zeilen</xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="$node/@quantity = 1">
+                            <xsl:text> Zeile</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> Zeilen</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:when>
                 <xsl:when test="$node[@unit = 'words']">
-                    <xsl:text>; Umfang: </xsl:text>
+                    <xsl:text>: </xsl:text>
                     <xsl:value-of select="$node/@quantity/data()"/>
-                    <xsl:text> Wörter</xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="$node/@quantity = 1">
+                            <xsl:text> Wort</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> Wörter</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:when>
                 <xsl:when test="$node[@unit = 'pages']">
-                    <xsl:text>; Umfang: </xsl:text>
+                    <xsl:text>: </xsl:text>
                     <xsl:value-of select="$node/@quantity/data()"/>
-                    <xsl:text> Seiten</xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="$node/@quantity = 1">
+                            <xsl:text> Seite</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> Seiten</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:when>
             </xsl:choose>
-        </xsl:if>        
+        </xsl:if>
+        
+        <xsl:if test="$node[ancestor::tei:del]">
+            <xsl:text>&#8969; </xsl:text>
+            <xsl:copy-of select="telota:ediarum_noteContent_del($node//ancestor::tei:del)"/>
+        </xsl:if>
         
     </xsl:function>
     
@@ -303,83 +337,6 @@
         <xsl:text> (</xsl:text>
         <xsl:value-of select="$p_registerBibls"/>
         <xsl:text>)</xsl:text>
-        
-    </xsl:function>
-
-    
-    <!-- ## ediarum_noteContent_reg_item - Ausgabe Fußnote eines Sachregistereintrags (tei:item) -->
-    <xsl:function name="telota:ediarum_noteContent_reg_item">
-        <xsl:param name="node"/>
-        <xsl:param name="p_registerItems"/>
-                
-        <xsl:variable name="key">
-            <xsl:value-of select="$node/@key/data()"/>
-        </xsl:variable>
-        
-        <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$p_registerItems||'?id='||$key"/>
-        </xsl:variable>
-        
-        <xsl:text>Sachregister: </xsl:text>
-        <a class="regLink" href="{$linkToRegister}"><xsl:value-of select="$key"/></a>
-        
-    </xsl:function>
-    
-    <!-- ## ediarum_noteContent_reg_orgName - Ausgabe Fußnote eines Institutionenregistereintrags (tei:orgName) -->
-    <xsl:function name="telota:ediarum_noteContent_reg_orgName">
-        <xsl:param name="node"/>
-        <xsl:param name="p_registerInstitutions"/>
-        
-        <xsl:variable name="key">
-            <xsl:value-of select="$node/@key/data()"/>
-        </xsl:variable>
-        
-        <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$p_registerInstitutions||'/?id='||$key"/>
-        </xsl:variable>
-        
-        <xsl:text>Institution: </xsl:text>
-        <a class="regLink" href="{$linkToRegister}"><xsl:value-of select="$key"/></a>
-        
-    </xsl:function>
-    
-    <!-- ## ediarum_noteContent_reg_persName - Ausgabe Fußnote eines Personenregistereintrags (tei:persName) -->
-    <xsl:function name="telota:ediarum_noteContent_reg_persName">
-        <xsl:param name="node"/>
-        <xsl:param name="p_registerPersons"/>
-                
-        <xsl:variable name="key">
-            <xsl:value-of select="$node/@key/data()"/>
-        </xsl:variable>
-        
-        <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$p_registerPersons||'?id='||$key"/>
-        </xsl:variable>
-        
-        <xsl:if test="$node[@cert='low']">
-            <xsl:text>Identifizierung der Person unsicher; </xsl:text>
-        </xsl:if>
-        
-        <xsl:text>Person: </xsl:text>
-        <a class="regLink" href="{$linkToRegister}"><xsl:value-of select="$key"/></a>
-        
-    </xsl:function>
-    
-    <!-- ## ediarum_noteContent_reg_placeName - Ausgabe Fußnote eines Ortsregistereintrags (tei:placeName) -->
-    <xsl:function name="telota:ediarum_noteContent_reg_placeName">
-        <xsl:param name="node"/>
-        <xsl:param name="p_registerPlaces"/>
-        
-        <xsl:variable name="key">
-            <xsl:value-of select="$node/@key/data()"/>
-        </xsl:variable>
-        
-        <xsl:variable name="linkToRegister">
-            <xsl:value-of select="$p_registerPlaces||'?id='||$key"/>
-        </xsl:variable>
-        
-        <xsl:text>Ort: </xsl:text>
-        <a class="regLink" href="{$linkToRegister}"><xsl:value-of select="$key"/></a>
         
     </xsl:function>
     

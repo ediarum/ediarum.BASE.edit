@@ -39,10 +39,11 @@
     <!-- Welche Verbindungen in die DB (data, register, ...) werden genutzt. -->
     
     <!-- ## Datenbankverbindung -->
+    <!-- TODO: Fallback definieren -->
     <xsl:param name="p_pathToProject">
         <xsl:text>https://xmledit.bbaw.de/mop/rest/db/projects/mop/</xsl:text>
         <!-- ${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name} -->
-    </xsl:param>    
+    </xsl:param>
     
     <!-- ## Registerdaten -->
     <!-- ### dataFromRegister -->
@@ -58,35 +59,73 @@
         <xsl:text>web/register/</xsl:text>
     </xsl:param>
     
-    <!-- ## Pfad Personenregister -->
-    <xsl:param name="p_registerPersons">
-        <xsl:value-of select="$p_pathToRegister"/>
-        <xsl:text>personen/detail.xql</xsl:text>
-    </xsl:param>
+    <!-- ### project_getRegisterLink - Gibt den Link ins jeweilige Register aus. (In Projekt-XSLT definiert, damit leicht anpassbar.) -->
+    <xsl:function name="telota:project_getRegisterLink">
+        <xsl:param name="node"/>
+        
+        <xsl:variable name="registerMapWeb">
+            <register>
+                <pers>
+                    <dir>personen/detail.xql</dir>
+                    <desc>Person</desc>
+                </pers>
+                <place>
+                    <dir>orte/detail.xql</dir>
+                    <desc>Ort</desc>
+                </place>
+                <org>
+                    <dir>institutionen/detail.xql</dir>
+                    <desc>Institution</desc>
+                </org>
+                <bibl>
+                    <dir>werke/detail.xql</dir>
+                    <desc>Werk</desc>
+                </bibl>
+                <item>
+                    <dir>hoefe/detail.xql</dir>
+                    <desc>Sachregister</desc>
+                </item>
+            </register>
+        </xsl:variable>        
+        
+        <xsl:variable name="registerType">
+            <xsl:choose>
+                <xsl:when test="$node[self::tei:persName]">
+                    <xsl:copy-of select="$registerMapWeb/register/pers"/>
+                </xsl:when>
+                <xsl:when test="$node[self::tei:placeName]">
+                    <xsl:copy-of select="$registerMapWeb/register/place"/>
+                </xsl:when>
+                <xsl:when test="$node[self::tei:orgName]">
+                    <xsl:copy-of select="$registerMapWeb/register/org"/>
+                </xsl:when>
+                <xsl:when test="$node[self::tei:bibl]">
+                    <xsl:copy-of select="$registerMapWeb/register/bibl"/>
+                </xsl:when>
+                <xsl:when test="$node[self::tei:item]">
+                    <xsl:copy-of select="$registerMapWeb/register/item"/>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+        
+        <xsl:variable name="key">
+            <xsl:value-of select="$node/@key/data()"/>
+        </xsl:variable>
+        
+        <xsl:variable name="linkToRegister">
+            <xsl:value-of select="$p_pathToRegister"/>
+            <xsl:value-of select="$registerType//dir/text()"/>
+            <xsl:text>?id=</xsl:text>
+            <xsl:value-of select="$key"/>
+        </xsl:variable>
+        
+        <xsl:value-of select="$registerType//desc/text()"/><xsl:text>: </xsl:text>
+        <a class="regLink" href="{$linkToRegister}"><xsl:value-of select="$key"/></a>
+        
+    </xsl:function>
     
-    <!-- ## Pfad Orteregister -->
-    <xsl:param name="p_registerPlaces">
-        <xsl:value-of select="$p_pathToRegister"/>
-        <xsl:text>orte/detail.xql</xsl:text>
-    </xsl:param>
     
-    <!-- ## Pfad Einrichtungsregister -->
-    <xsl:param name="p_registerInstitutions">
-        <xsl:value-of select="$p_pathToRegister"/>
-        <xsl:text>institutionen/detail.xql</xsl:text>
-    </xsl:param>
     
-    <!-- ## Pfad Werkeregister -->
-    <xsl:param name="p_registerBibls">
-        <xsl:value-of select="$p_pathToRegister"/>
-        <xsl:text>werke/detail.xql</xsl:text>
-    </xsl:param>
-    
-    <!-- ## Pfad Sachbegriffsregister -->
-    <xsl:param name="p_registerItems">
-        <xsl:value-of select="$p_pathToRegister"/>
-        <xsl:text>hoefe/detail.xql</xsl:text>
-    </xsl:param>
     
     
     <!-- # Parameter Anpassungen -->
@@ -98,18 +137,6 @@
     <!-- ## Kennzeichnung Schreibakt: p_showWritingSession - Soll jeder Schreibakt mit einer Zwischenüberschrift "Schreibakt Nr. " begonnen werden? -->
     <xsl:param name="p_showWritingSession" select="true()"/>
     
-    
-    
-    <!-- TEST -->
-    <xsl:variable name="test">
-        <test>
-            <key1>VAL1</key1>
-            <key2>VAL2</key2>
-            <key3>VAL3</key3>
-        </test>
-    </xsl:variable>
-    
-    <!-- TEST ENDE -->
     
     
     

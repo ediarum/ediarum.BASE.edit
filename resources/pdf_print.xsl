@@ -187,12 +187,6 @@
                 <!-- ## Opener kann außerhalb von div stehen. -->
                 <xsl:apply-templates select=".//tei:body/tei:opener">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                    <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
-                    <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
-                    <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
-                    <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
-                    <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
-                    <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
                 </xsl:apply-templates>
                 
                 <!-- ## Inhalt über jedes div aufrufen, ggf. Schreibakte -->
@@ -207,12 +201,6 @@
                         <!-- ### Templates ausführen -->
                         <xsl:apply-templates select=".">
                             <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                            <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
-                            <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
-                            <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
-                            <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
-                            <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
-                            <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
                         </xsl:apply-templates>
                         
                     </div>
@@ -221,23 +209,11 @@
                 <!-- ## Closer kann außerhalb von div stehen. -->
                 <xsl:apply-templates select=".//tei:body/tei:closer">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                    <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
-                    <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
-                    <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
-                    <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
-                    <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
-                    <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
                 </xsl:apply-templates>
                 
                 <!-- ## Postscript kann außerhalb von div stehen -->
                 <xsl:apply-templates select=".//tei:body/tei:postscript">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                    <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
-                    <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
-                    <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
-                    <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
-                    <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
-                    <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
                 </xsl:apply-templates>                  
                 
                 
@@ -252,7 +228,7 @@
                         <xsl:when test="$placeOfNotes = 'foot'">
                             <xsl:apply-templates mode="criticalApp" select=".//tei:add |
                                 .//tei:choice[tei:corr | tei:abbr | tei:orig] |
-                                .//tei:del |
+                                .//tei:del[not(tei:gap)] |
                                 .//tei:gap |
                                 .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
                                 .//tei:unclear"/>
@@ -266,12 +242,6 @@
                                 .//tei:orgName[ancestor-or-self::tei:body] |
                                 .//tei:bibl[ancestor-or-self::tei:body] |
                                 .//tei:item[ancestor-or-self::tei:body and @xml:id]">
-                                <xsl:with-param name="p_pathToRegister" tunnel="yes" select="$p_pathToRegister"/>
-                                <xsl:with-param name="p_registerPersons" tunnel="yes" select="$p_registerPersons"/>
-                                <xsl:with-param name="p_registerPlaces" tunnel="yes" select="$p_registerPlaces"/>
-                                <xsl:with-param name="p_registerInstitutions" tunnel="yes" select="$p_registerInstitutions"/>
-                                <xsl:with-param name="p_registerBibls" tunnel="yes" select="$p_registerBibls"/>
-                                <xsl:with-param name="p_registerItems" tunnel="yes" select="$p_registerItems"/>
                             </xsl:apply-templates>
                         </xsl:otherwise>
                     </xsl:choose>

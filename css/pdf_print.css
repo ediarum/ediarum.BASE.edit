@@ -286,6 +286,11 @@ div.abstract p {
 
 /* # Text */
 
+.alignLeft {
+    /* Textausrichtung links */
+    text-align: left;
+}
+
 .alignRight {
     /* Textausrichtung rechts */
     text-align: right;
@@ -335,7 +340,16 @@ div.abstract p {
 .foreign {
     /* fremdsprachiger Text */
     /* In ediarum.PDF standardmäßig nicht dargestellt. */
-    
+    font-family: Helvetica;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.fw {
+    /* Foliowechsel */
+    font-family: Helvetica;
+    font-size: 0.9em;
+    font-style: italic;
 }
 
 .indentation {
@@ -359,6 +373,11 @@ div.abstract p {
     border-right: 2px solid black;
     padding-left: 0.25em;
     padding-right: 0.25em;
+}
+
+.pb {
+    /* Seitenumbruch */
+    font-style: italic;
 }
 
 .printed {
