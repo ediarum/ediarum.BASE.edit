@@ -15718,7 +15718,6 @@ ediarum.BASE.pdf_css</String>
 													<String>printPDF</String>
 												</field>
 											</menuItem>
-											<menuSeparator/>
 											<menuItem>
 												<field name="actionID">
 													<String>@select</String>
@@ -17483,7 +17482,7 @@ ediarum.BASE.pdf_css</String>
 									<String></String>
 								</field>
 								<field name="inputXSLURL">
-									<String>${framework}/resources/pdf_print.xsl</String>
+									<String>${framework}/resources/pdf_print_project.xsl</String>
 								</field>
 								<field name="inputXMLURL">
 									<String>${currentFileURL}</String>
@@ -17519,7 +17518,7 @@ ediarum.BASE.pdf_css</String>
 									<Boolean>false</Boolean>
 								</field>
 								<field name="showInXMLPane">
-									<Boolean>false</Boolean>
+									<Boolean>true</Boolean>
 								</field>
 								<field name="showInSVGPane">
 									<Boolean>false</Boolean>

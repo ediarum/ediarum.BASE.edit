@@ -8,6 +8,14 @@
     version="2.0">
     
     
+    <!-- ############################## -->
+    <!-- ### Project - Einbindungen ### -->
+    <!-- ############################## -->
+    
+    <xsl:import href="pdf_print.xsl"/>
+        
+    
+    
     <!-- ########################### -->
     <!-- ### Project - Parameter ### -->
     <!-- ########################### -->
@@ -33,9 +41,14 @@
         <xsl:value-of select="true()"/>
     </xsl:param>
     
+    <!-- ## CriticalApp-Template (Default/Projekt) -->
+    <xsl:param name="p_structureCriticalAppDefault">
+        <xsl:value-of select="true()"/>
+    </xsl:param>
     
     
-    <!-- Parameter Verbindungen -->
+    
+    <!-- # Parameter Verbindungen -->
     <!-- Welche Verbindungen in die DB (data, register, ...) werden genutzt. -->
     
     <!-- ## Datenbankverbindung -->
@@ -59,7 +72,141 @@
         <xsl:text>web/register/</xsl:text>
     </xsl:param>
     
-    <!-- ### project_getRegisterLink - Gibt den Link ins jeweilige Register aus. (In Projekt-XSLT definiert, damit leicht anpassbar.) -->
+    
+    
+    <!-- # Parameter Anpassungen -->
+    <!-- Parameter zur weiteren Anpassung der Ausgabe. -->
+    
+    <!-- ## Einstellung Fußnoten: notesAsFootnotes - Erhält einen bool-Wert, ob Sachanmerkungen als Fußnoten (true) oder Endnoten (false) dargestellt werden. -->
+    <xsl:param name="p_notesAsFootnotes" select="true()"/>
+    
+    
+    <!-- ## Kennzeichnung Schreibakt: p_showWritingSession - Soll jeder Schreibakt mit einer Zwischenüberschrift "Schreibakt Nr. " begonnen werden? -->
+    <xsl:param name="p_showWritingSession" select="true()"/>
+    
+    
+    
+    
+    
+    <!-- ############################ -->
+    <!-- ### Project - Funktionen ### -->
+    <!-- ############################ -->
+    
+    
+    
+    
+    
+    <!-- ####################################### -->
+    <!-- ### Project - Template-Definitionen ### -->
+    <!-- ####################################### -->
+    
+    <xsl:template name="ediarum_structure_head_project">
+        <xsl:param name="placeOfNotes"/>
+        
+    </xsl:template>
+    
+    <xsl:template name="ediarum_structure_header_project">
+        <xsl:param name="placeOfNotes"/>
+        
+    </xsl:template>
+    
+    <xsl:template name="ediarum_structure_content_project">
+        <xsl:param name="placeOfNotes"/>
+                
+    </xsl:template>
+    
+    <xsl:template name="ediarum_structure_criticalApp_project">
+        <xsl:param name="placeOfNotes"/>
+        
+    </xsl:template>
+    
+    
+    
+    
+    <!-- ###################### -->
+    <!-- ### Transformation ### -->
+    <!-- ###################### -->
+    
+    <!-- # Für Transformation einer Einzeldatei notwendig -->
+    <xsl:template match="tei:TEI">
+        <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
+        <html>
+            
+            <!-- ## Transformationsstruktur für head -->
+            <xsl:choose>
+                <xsl:when test="$p_structureHeadDefault = true()">
+                    <xsl:call-template name="ediarum_structure_head_default">
+                        <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="ediarum_structure_head_project">
+                        <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+            
+            <body>
+                
+                <!-- ## Transformationsstruktur für header -->
+                <xsl:choose>
+                    <xsl:when test="$p_structureHeaderDefault = true()">
+                        <xsl:call-template name="ediarum_structure_header_default">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="ediarum_structure_header_project">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+                <!-- ## Transformationsstruktur für content -->
+                <xsl:choose>
+                    <xsl:when test="$p_structureContentDefault = true()">
+                        <xsl:call-template name="ediarum_structure_content_default">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="ediarum_structure_content_project">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+                <!-- ## Erstellen des kritischen Apparats am Ende des Dokuments -->
+                <xsl:choose>
+                    <xsl:when test="$p_structureCriticalAppDefault = true()">
+                        <xsl:call-template name="ediarum_structure_criticalApp_default">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="ediarum_structure_criticalApp_project">
+                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+            </body>
+        </html>
+    </xsl:template>
+    
+    
+    
+    
+    
+    <!-- ########################################################################################################################### -->
+    <!-- ########################################################################################################################### -->
+    <!-- ########################################################################################################################### -->
+    
+    <!-- ############################## -->
+    <!-- ### Footnotes - Funktionen ### -->
+    <!-- ############################## -->
+    
+    <!-- # project_getRegisterLink - Gibt den Link ins jeweilige Register aus. (In Projekt-XSLT definiert, damit leicht anpassbar.) -->
     <xsl:function name="telota:project_getRegisterLink">
         <xsl:param name="node"/>
         
@@ -124,48 +271,374 @@
         
     </xsl:function>
     
-    
-    
-    
-    
-    <!-- # Parameter Anpassungen -->
-    <!-- Parameter zur weiteren Anpassung der Ausgabe. -->
-    
-    <!-- ## Einstellung Fußnoten: notesAsFootnotes - Erhält einen bool-Wert, ob Sachanmerkungen als Fußnoten (true) oder Endnoten (false) dargestellt werden. -->
-    <xsl:param name="p_notesAsFootnotes" select="true()"/>
-    
-    <!-- ## Kennzeichnung Schreibakt: p_showWritingSession - Soll jeder Schreibakt mit einer Zwischenüberschrift "Schreibakt Nr. " begonnen werden? -->
-    <xsl:param name="p_showWritingSession" select="true()"/>
-    
-    
-    
-    
-    
-    
-    <!-- ############################ -->
-    <!-- ### Project - Funktionen ### -->
-    <!-- ############################ -->
-    
 
 
-
-    <!-- ####################################### -->
-    <!-- ### Project - Template-Definitionen ### -->
-    <!-- ####################################### -->
     
-    <xsl:template name="ediarum_structure_head_project">
+    
+    <!-- ######################################### -->
+    <!-- ### Footnotes - Fußnoteneinstellungen ### -->
+    <!-- ######################################### -->
+    
+    <!-- # Einstellung Fußnoten -->
+    <!-- notesAsFootnotes/placeOfNotes - Erhält vom Parameter notesAsFootnotes einen bool-Wert, ob Sachanmerkungen 
+        als Fußnoten (true) oder Endnoten (false) dargestellt werden. Verarbeitung zur leichteren Lesbarkeit im 
+        restlichen Code und Weiterverwendung über Variable placeOfNotes. -->
+    <xsl:variable name="placeOfNotes">
+        <xsl:choose>
+            <xsl:when test="$p_notesAsFootnotes = true()">
+                <xsl:text>foot</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>end</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    
+    
+    <!-- # Default-Einstellungen für Erstellen des kritischen Apparats -->
+    <xsl:template name="ediarum_structure_criticalApp_default">
         <xsl:param name="placeOfNotes"/>
         
-    </xsl:template>
-    
-    <xsl:template name="ediarum_structure_header_project">
-        <xsl:param name="placeOfNotes"/>
-        
-    </xsl:template>
-    
-    <xsl:template name="ediarum_structure_content_project">
-        <xsl:param name="placeOfNotes"/>
+        <div>
+            <br/>
+            <hr/>
+            <h4>Kritischer Apparat</h4>
+            <ul class="criticalApp">
                 
+                <xsl:choose>
+                    <!-- ### Bearbeitungsanmerkungen als Endnoten -->
+                    <xsl:when test="$placeOfNotes = 'foot'">
+                        <xsl:apply-templates mode="criticalApp" select="
+                            .//tei:add |
+                            .//tei:choice[tei:corr | tei:abbr | tei:orig] |
+                            .//tei:del[not(tei:gap)] |
+                            .//tei:gap |
+                            .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                            .//tei:unclear"/>
+                    </xsl:when>
+                    <!-- ### Sachanmerkungen als Endnoten -->
+                    <xsl:otherwise>
+                        <xsl:apply-templates mode="criticalApp" select="
+                            .//tei:note[ancestor-or-self::tei:div and @place='foot'] |
+                            .//tei:seg |
+                            .//tei:persName[ancestor-or-self::tei:body] |
+                            .//tei:placeName[ancestor-or-self::tei:body] |
+                            .//tei:orgName[ancestor-or-self::tei:body] |
+                            .//tei:bibl[ancestor-or-self::tei:body] |
+                            .//tei:item[ancestor-or-self::tei:body and @xml:id]">
+                        </xsl:apply-templates>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+            </ul>
+        </div>
+        
+    </xsl:template>
+    
+    
+    <!-- # Sachanmerkungen und Bearbeitungsanmerkungen -->
+    <!-- ## Sachanmerkungen - Fließtext -->
+    <xsl:template mode="#all" match="tei:note[ancestor-or-self::tei:div and @place='foot'] |
+                                     tei:seg |
+                                     tei:persName[ancestor-or-self::tei:body] |
+                                     tei:placeName[ancestor-or-self::tei:body] |
+                                     tei:orgName[ancestor-or-self::tei:body] |
+                                     tei:bibl[ancestor-or-self::tei:body] |
+                                     tei:item[ancestor-or-self::tei:body and @xml:id]">
+        
+        <xsl:param name="placeOfNotes" tunnel="yes"/>
+        
+        <xsl:variable name="criticalAppCounter">
+            <xsl:number level="any" format="aa" count="tei:note[ancestor-or-self::tei:div and @place='foot'] |
+                                                       tei:seg |
+                                                       tei:persName[ancestor-or-self::tei:body] |
+                                                       tei:placeName[ancestor-or-self::tei:body] |
+                                                       tei:orgName[ancestor-or-self::tei:body] |
+                                                       tei:bibl[ancestor-or-self::tei:body] |
+                                                       tei:item[ancestor-or-self::tei:body and @xml:id]"/>
+        </xsl:variable>
+        
+        <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
+        <xsl:choose>
+            <!-- #### Sachanmerkungen -->
+            <xsl:when test="self::tei:seg">
+                <xsl:apply-templates select="./tei:orig"/>
+                <xsl:if test="$placeOfNotes eq 'foot'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_seg(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Hinweise in Fußnoten -->
+            <xsl:when test="self::tei:note">
+                <xsl:if test="$placeOfNotes eq 'foot'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_noteFoot(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Verweise auf Register -->
+            <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl]">
+                <xsl:apply-templates/>
+                <xsl:if test="$placeOfNotes eq 'foot'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:project_getRegisterLink(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+        </xsl:choose>
+        
+        <!-- ### Endnotenreferenzen Fließtext -->
+        <xsl:if test="$placeOfNotes eq 'end'">
+            <xsl:copy-of select="telota:endnoteInText($criticalAppCounter)"/>
+        </xsl:if>
+        
+    </xsl:template>
+    
+    
+    <!-- ## Sachanmerkungen - Endnotentext -->
+    <xsl:template mode="criticalApp" match="tei:note[ancestor-or-self::tei:div and @place='foot'] |
+                                            tei:seg |
+                                            tei:persName[ancestor-or-self::tei:body] |
+                                            tei:placeName[ancestor-or-self::tei:body] |
+                                            tei:orgName[ancestor-or-self::tei:body] |
+                                            tei:bibl[ancestor-or-self::tei:body] |
+                                            tei:item[ancestor-or-self::tei:body and @xml:id]">
+        
+        <xsl:param name="placeOfNotes" tunnel="yes"/>
+        
+        <xsl:variable name="criticalAppCounter">
+            <xsl:number level="any" format="aa" count="tei:note[ancestor-or-self::tei:div and @place='foot'] |
+                                                       tei:seg |
+                                                       tei:persName[ancestor-or-self::tei:body] |
+                                                       tei:placeName[ancestor-or-self::tei:body] |
+                                                       tei:orgName[ancestor-or-self::tei:body] |
+                                                       tei:bibl[ancestor-or-self::tei:body] |
+                                                       tei:item[ancestor-or-self::tei:body and @xml:id]"/>
+        </xsl:variable>
+        
+        <li>
+            <!-- ### Endnotenreferenz Endnoten -->
+            <xsl:copy-of select="telota:endnoteAtEnd($criticalAppCounter)"/>
+            
+            <!-- ### Hier Text, der in Endnote ausgegeben wird. -->
+            <xsl:choose>
+                <!-- #### Sachanmerkungen -->
+                <xsl:when test="self::tei:seg">
+                    <xsl:copy-of select="telota:ediarum_noteContent_seg(.)"/>
+                </xsl:when>
+                <!-- #### Hinweise in Fußnoten -->
+                <xsl:when test="self::tei:note">
+                    <xsl:copy-of select="telota:ediarum_noteContent_noteFoot(.)"/>
+                </xsl:when>
+                <!-- #### Verweise auf Register -->
+                <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl]">
+                    <xsl:copy-of select="telota:project_getRegisterLink(.)"/>
+                </xsl:when>
+            </xsl:choose>
+        </li>
+        
+    </xsl:template>
+    
+    <!-- ## Kritischer Apparat - Fließtext -->
+    <xsl:template match="tei:add |
+                         tei:choice[tei:abbr | tei:corr | tei:orig] |
+                         tei:del |
+                         tei:gap |
+                         tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                         tei:unclear">
+        
+        <xsl:param name="placeOfNotes" tunnel="yes"/>
+        
+        <xsl:variable name="criticalAppCounter">
+            <xsl:number level="any" format="aa" count="tei:add |
+                                                       tei:choice[tei:abbr | tei:corr | tei:orig] |
+                                                       tei:del[not(tei:gap)] |
+                                                       tei:gap |
+                                                       tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                                       tei:unclear"/>
+        </xsl:variable>
+
+        <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
+        <xsl:choose>
+            <!-- #### Hinzufügung -->
+            <xsl:when test="self::tei:add">
+                <xsl:apply-templates mode="#current"/>
+                <xsl:if test="$placeOfNotes eq 'end'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_add(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Herausgeberkorrekturen -->
+            <xsl:when test="self::tei:choice">
+                <xsl:choose>
+                    <!-- ##### Abkürzungsauflösung -->
+                    <xsl:when test=".[tei:abbr]">
+                        <span class="expan">
+                            <xsl:apply-templates mode="#current" select="tei:expan"/>
+                        </span>
+                        <xsl:if test="$placeOfNotes eq 'end'">
+                            <span class="footnote">
+                                <xsl:copy-of select="telota:ediarum_noteContent_choice(.)"/>
+                            </span>
+                        </xsl:if>
+                    </xsl:when>
+                    <!-- ##### Korrektur -->
+                    <xsl:when test=".[tei:corr]">
+                        <span class="corr">
+                            <span class="sic">
+                                <xsl:text> ([sic]: „</xsl:text>
+                                <xsl:apply-templates mode="#current" select="tei:sic"/>
+                                <xsl:text>“) </xsl:text>
+                            </span>
+                            <xsl:apply-templates mode="#current" select="tei:corr"/>
+                        </span>
+                        <xsl:if test="$placeOfNotes eq 'end'">
+                            <span class="footnote">
+                                <xsl:copy-of select="telota:ediarum_noteContent_choice(.)"/>
+                            </span>
+                        </xsl:if>
+                    </xsl:when>
+                    <!-- ##### Normalisierung -->
+                    <xsl:when test=".[tei:orig]">
+                        <span class="corr">
+                            <span class="sic">
+                                <xsl:text> ([sic]: „</xsl:text>
+                                <xsl:apply-templates mode="#current" select="tei:orig"/>
+                                <xsl:text>“) </xsl:text>
+                            </span>
+                            <xsl:apply-templates mode="#current" select="tei:reg"/>
+                        </span>
+                        <xsl:if test="$placeOfNotes eq 'end'">
+                            <span class="footnote">
+                                <xsl:copy-of select="telota:ediarum_noteContent_choice(.)"/>
+                            </span>
+                        </xsl:if>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:when>
+            <!-- #### Streichung -->
+            <xsl:when test="self::tei:del">
+                <!-- Wenn tei:del/tei:gap, dann nicht ausgeben. Streichung des Textes in del trotzdem. -->
+                <span class="deleted">
+                    <xsl:apply-templates mode="#current"/>
+                </span>
+                <xsl:if test="$placeOfNotes eq 'end' and not(.[tei:gap])">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_del(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Schäden -->
+            <xsl:when test="self::tei:gap">
+                [...]
+                <xsl:if test="$placeOfNotes eq 'end'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_gap(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Anmerkung -->
+            <xsl:when test="self::tei:note">
+                <xsl:apply-templates mode="#current"/>
+                <xsl:if test="$placeOfNotes eq 'end'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_note(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Unleserlich -->
+            <xsl:when test="self::tei:unclear">
+                <xsl:choose>
+                    <xsl:when test="child::*|text()">
+                        <span class="unclear">
+                            <xsl:apply-templates mode="#current"/>
+                            <span class="symbol">(?)</span>
+                        </span>
+                        <xsl:if test="$placeOfNotes eq 'end'">
+                            <span class="footnote">
+                                <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
+                            </span>
+                        </xsl:if>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="unclear">
+                            [...]<span class="symbol">(?)</span>
+                        </span>
+                        <xsl:if test="$placeOfNotes eq 'end'">
+                            <span class="footnote">
+                                <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
+                            </span>
+                        </xsl:if>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+        </xsl:choose>
+
+        <!-- ### Endnotenreferenzen Fließtext -->
+        <xsl:if test="$placeOfNotes eq 'foot'">
+            <xsl:choose>
+                <!-- Wenn tei:del/tei:gap, dann nicht ausgeben. -->
+                <xsl:when test="self::tei:del and .[tei:gap]"/>
+                <xsl:otherwise>
+                    <xsl:copy-of select="telota:endnoteInText($criticalAppCounter)"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+        
+    </xsl:template>
+    
+    <!-- ## Kritischer Apparat - Endnoten -->
+    <xsl:template mode="criticalApp" match="tei:add |
+                                            tei:choice[tei:abbr | tei:corr | tei:orig] |
+                                            tei:del[not(tei:gap)] |
+                                            tei:gap |
+                                            tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                            tei:unclear">
+        
+        <xsl:variable name="criticalAppCounter">
+            <xsl:number level="any" format="aa" count="tei:add |
+                                                       tei:choice[tei:abbr | tei:corr | tei:orig] |
+                                                       tei:del[not(tei:gap)] |
+                                                       tei:gap |
+                                                       tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                                       tei:unclear"/>
+        </xsl:variable>
+        
+        <li>
+            <!-- ### Endnotenreferenz Endnoten -->
+            <xsl:copy-of select="telota:endnoteAtEnd($criticalAppCounter)"/>
+            
+            <!-- ### Hier Text, der in Endnote ausgegeben wird. -->
+            <xsl:choose>
+                <!-- #### Hinzufügung -->
+                <xsl:when test="self::tei:add">
+                    <xsl:copy-of select="telota:ediarum_noteContent_add(.)"/>
+                </xsl:when>
+                <!-- #### Herausgeberkorrekturen -->
+                <xsl:when test="self::tei:choice">
+                    <xsl:copy-of select="telota:ediarum_noteContent_choice(.)"/>
+                </xsl:when>
+                <!-- #### Streichung -->
+                <xsl:when test="self::tei:del">
+                    <xsl:copy-of select="telota:ediarum_noteContent_del(.)"/>
+                </xsl:when>
+                <!-- #### Schäden -->
+                <xsl:when test="self::tei:gap">
+                    <xsl:copy-of select="telota:ediarum_noteContent_gap(.)"/>
+                </xsl:when>
+                <!-- #### Anmerkung -->
+                <xsl:when test="self::tei:note">
+                    <xsl:copy-of select="telota:ediarum_noteContent_note(.)"/>
+                </xsl:when>
+                <!-- #### Unsichere Lesart -->
+                <xsl:when test="self::tei:unclear">
+                    <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
+                </xsl:when>
+            </xsl:choose>
+        </li>
+        
     </xsl:template>
     
     

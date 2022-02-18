@@ -19,85 +19,11 @@
     <!-- # Einbinden der Stylesheets -->
     <xsl:import href="pdf_print_header.xsl"/>
     <xsl:import href="pdf_print_content_templates.xsl"/>
-    <xsl:import href="pdf_print_project.xsl"/>
-    
+
     <!-- # Parameter und globale Variablen -->
+    <xsl:param name="p_showWritingSession"/>
     
-    <!-- ## Einstellung Fußnoten -->
-    <!-- notesAsFootnotes/placeOfNotes - Erhält vom Parameter notesAsFootnotes einen bool-Wert, ob Sachanmerkungen 
-        als Fußnoten (true) oder Endnoten (false) dargestellt werden. Verarbeitung zur leichteren Lesbarkeit im 
-        restlichen Code und Weiterverwendung über Variable placeOfNotes. -->
-    <xsl:variable name="placeOfNotes">
-        <xsl:choose>
-            <xsl:when test="$p_notesAsFootnotes = true()">
-                <xsl:text>foot</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>end</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
-
-
     
-
-    <!-- ###################### -->
-    <!-- ### Transformation ### -->
-    <!-- ###################### -->
-    
-    <!-- # Für Transformation einer Einzeldatei notwendig -->
-    <xsl:template match="tei:TEI">
-        <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-        <html>
-            
-            <xsl:choose>
-                <xsl:when test="$p_structureHeadDefault = true()">
-                    <xsl:call-template name="ediarum_structure_head_default">
-                        <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
-                    </xsl:call-template>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:call-template name="ediarum_structure_head_project">
-                        <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-            
-            <body>
-                
-                <xsl:choose>
-                    <xsl:when test="$p_structureHeaderDefault = true()">
-                        <xsl:call-template name="ediarum_structure_header_default">
-                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
-                        </xsl:call-template>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="ediarum_structure_header_project">
-                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
-                        </xsl:call-template>
-                    </xsl:otherwise>
-                </xsl:choose>
-                
-                <xsl:choose>
-                    <xsl:when test="$p_structureContentDefault = true()">
-                        <xsl:call-template name="ediarum_structure_content_default">
-                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
-                        </xsl:call-template>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="ediarum_structure_content_project">
-                            <xsl:with-param name="placeOfNotes" select="$placeOfNotes"/>
-                        </xsl:call-template>
-                    </xsl:otherwise>
-                </xsl:choose>
-            
-            </body>
-        </html>
-    </xsl:template>
-    
-
-
-
     
     <!-- ####################################### -->
     <!-- ### Default - Template-Definitionen ### -->
@@ -214,39 +140,7 @@
                 <!-- ## Postscript kann außerhalb von div stehen -->
                 <xsl:apply-templates select=".//tei:body/tei:postscript">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
-                </xsl:apply-templates>                  
-                
-                
-                <!-- ## Erstellen des kritischen Apparats am Ende des Dokuments -->
-                <br/>
-                <hr/>
-                <h4>Kritischer Apparat</h4>
-                <ul class="criticalApp">
-                    
-                    <xsl:choose>
-                        <!-- ### Bearbeitungsanmerkungen als Endnoten -->
-                        <xsl:when test="$placeOfNotes = 'foot'">
-                            <xsl:apply-templates mode="criticalApp" select=".//tei:add |
-                                .//tei:choice[tei:corr | tei:abbr | tei:orig] |
-                                .//tei:del[not(tei:gap)] |
-                                .//tei:gap |
-                                .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                .//tei:unclear"/>
-                        </xsl:when>
-                        <!-- ### Sachanmerkungen als Endnoten -->
-                        <xsl:otherwise>
-                            <xsl:apply-templates mode="criticalApp" select=".//tei:note[ancestor-or-self::tei:div and @place='foot'] |
-                                .//tei:seg |
-                                .//tei:persName[ancestor-or-self::tei:body] |
-                                .//tei:placeName[ancestor-or-self::tei:body] |
-                                .//tei:orgName[ancestor-or-self::tei:body] |
-                                .//tei:bibl[ancestor-or-self::tei:body] |
-                                .//tei:item[ancestor-or-self::tei:body and @xml:id]">
-                            </xsl:apply-templates>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    
-                </ul>
+                </xsl:apply-templates>
             </div>
         
     </xsl:template>
