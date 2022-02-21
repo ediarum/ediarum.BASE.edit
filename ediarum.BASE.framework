@@ -17530,7 +17530,56 @@ ediarum.BASE.pdf_css</String>
 									<Boolean>true</Boolean>
 								</field>
 								<field name="xsltParams">
-									<list/>
+									<list>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>p_pathToOxygen</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}/oxygen</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+											<field name="isStatic">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>p_pathToRegister</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${ediarum_website_base}${ediarum_projects_directory}${ediarum_project_name}/web/register</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+											<field name="isStatic">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+									</list>
 								</field>
 								<field name="cascadingStylesheets">
 									<String-array/>

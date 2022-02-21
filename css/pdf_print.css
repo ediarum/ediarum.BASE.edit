@@ -286,6 +286,11 @@ div.abstract p {
 
 /* # Text */
 
+.additionLabel {
+    /* Label Hinzufügung */
+    font-style: italic;
+}
+
 .alignLeft {
     /* Textausrichtung links */
     text-align: left;
@@ -317,8 +322,8 @@ div.abstract p {
 }
 
 .deleted {
-    /* gestrichen */
-    text-decoration: line-through;
+    /* Streichung */
+    font-style: italic;
 }
 
 .ex {
@@ -414,6 +419,11 @@ div.abstract p {
     font-size: 70%;
 }
 
+.substition {
+    /* Zeitgenössische Korrektur */
+    font-style: italic;
+}
+
 .sup {
     /* hochgestellt */
     vertical-align: super;
@@ -433,4 +443,11 @@ div.abstract p {
     /* Doppelter Unterstrich */
     border-bottom: black 3px double;
 }
+
+
+/* # Endnotes */
+.criticalApp {
+    list-style-type: none;
+}
+
 

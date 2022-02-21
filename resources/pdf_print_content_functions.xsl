@@ -66,7 +66,7 @@
     <!-- ## endnoteAtEnd - Referenzzeichen (Buchstabe; aus Parameter criticalAppCounter) in den Endnoten -->
     <xsl:function name="telota:endnoteAtEnd">
         <xsl:param name="criticalAppCounter"/>
-        <a>
+        <span>
             <xsl:attribute name="name">
                 <xsl:text>criticalAppRef_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
             </xsl:attribute>
@@ -74,14 +74,14 @@
                 <xsl:text>#criticalApp_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
             </xsl:attribute>
             <xsl:value-of select="$criticalAppCounter"/>
-        </a>
+        </span>
         <xsl:text> </xsl:text>
     </xsl:function>
     
     <!-- ## endnoteInText - Im Fließtext hochgestelltes Referenzzeichen (Buchstabe; aus Parameter criticalAppCounter) auf Endnote. -->
     <xsl:function name="telota:endnoteInText">
         <xsl:param name="criticalAppCounter"/>
-        <a>
+        <span>
             <xsl:attribute name="name">
                 <xsl:text>criticalAppRef_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
             </xsl:attribute>
@@ -89,7 +89,7 @@
                 <xsl:text>#criticalApp_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
             </xsl:attribute>
             <span class="sup"><xsl:value-of select="$criticalAppCounter"/><xsl:text> </xsl:text></span>
-        </a>
+        </span>
     </xsl:function>
     
     
@@ -110,37 +110,42 @@
         
     </xsl:function> 
     
+    
     <!-- # Funktionen Verarbeitung Bearbeitungsanmerkungen in Fußnoten/Kritischem Apparat -->
     <!-- ## ediarum_noteContent_add - Ausgabe Fußnote von Hinzufügungen (tei:add) -->
     <xsl:function name="telota:ediarum_noteContent_add">
         <xsl:param name="node"/>
         
-        <xsl:choose>
-            <xsl:when test="$node[@place = 'superlinear']">
-                <xsl:text>über der Zeile eingetragen</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'sublinear']">
-                <xsl:text>unter der Zeile eingetragen</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'intralinear']">
-                <xsl:text>innerhalb der Zeile eingetragen</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'across']">
-                <xsl:text>über den ursprünglichen Text geschrieben</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'left']">
-                <xsl:text>am linken Rand eingetragen</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'right']">
-                <xsl:text>am rechten Rand eingetragen</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'mTop']">
-                <xsl:text>am oberen Rand eingetragen</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@place = 'mBottom']">
-                <xsl:text>am unteren Rand eingetragen</xsl:text>
-            </xsl:when>
-        </xsl:choose>
+        <xsl:apply-templates select="$node"/>
+        <xsl:text>] </xsl:text>
+        <span class="additionLabel">
+            <xsl:choose>
+                <xsl:when test="$node[@place = 'superlinear']">
+                    <xsl:text>über der Zeile eingetragen</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'sublinear']">
+                    <xsl:text>unter der Zeile eingetragen</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'intralinear']">
+                    <xsl:text>innerhalb der Zeile eingetragen</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'across']">
+                    <xsl:text>über den ursprünglichen Text geschrieben</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'left']">
+                    <xsl:text>am linken Rand eingetragen</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'right']">
+                    <xsl:text>am rechten Rand eingetragen</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'mTop']">
+                    <xsl:text>am oberen Rand eingetragen</xsl:text>
+                </xsl:when>
+                <xsl:when test="$node[@place = 'mBottom']">
+                    <xsl:text>am unteren Rand eingetragen</xsl:text>
+                </xsl:when>
+            </xsl:choose>
+        </span>
         
     </xsl:function>
     
@@ -153,28 +158,24 @@
             <xsl:when test="$node[tei:abbr]">
                 <xsl:text>Abkürzung durch Herausgeber aufgelöst.</xsl:text>
             </xsl:when>
-            <!-- ### Korrektur -->
-            <xsl:when test="$node[tei:corr]">
-                <xsl:text>Korrektur durch Herausgeber</xsl:text>
-                <xsl:choose>
-                    <xsl:when test="$node[tei:corr/@type='deleted']">
-                        <xsl:text> mittels Streichung</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="$node[tei:corr/@cert='high']">
-                        <xsl:text> mit hoher Wahrscheinlichkeit</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="$node[tei:corr/@cert='medium']">
-                        <xsl:text> mit mittlerer Wahrscheinlichkeit</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="$node[tei:corr/@cert='low']">
-                        <xsl:text> mit geringer Wahrscheinlichkeit</xsl:text>
-                    </xsl:when>
-                </xsl:choose>
-                <xsl:text>.</xsl:text>
+            <!-- ### Hrsg.-Korrekturen -->
+            <xsl:when test="$node[tei:corr[not(@type='deleted')]]">
+                <xsl:value-of select="$node/tei:corr"/>
+                <xsl:text>] </xsl:text>
+                <xsl:value-of select="$node/tei:sic"/>
+            </xsl:when>
+            <!-- ### Streichung durch Hrsg. -->
+            <xsl:when test="$node[tei:corr[(@type='deleted')]]">
+                <xsl:value-of select="$node/tei:corr"/>
+                <xsl:text>] folgt &lt;&lt;</xsl:text>
+                <xsl:value-of select="$node/tei:sic"/>
+                <xsl:text>&gt;&gt;</xsl:text>
             </xsl:when>
             <!-- ### Normalisierung -->
             <xsl:when test="$node[tei:orig]">
-                <xsl:text>Durch Herausgeber normalisierte Schreibung.</xsl:text>
+                <xsl:value-of select="$node/tei:reg"/>
+                <xsl:text>] </xsl:text>
+                <xsl:value-of select="$node/tei:orig"/>
             </xsl:when>
         </xsl:choose>
         
@@ -184,6 +185,11 @@
     <xsl:function name="telota:ediarum_noteContent_del">
         <xsl:param name="node"/>
         
+        <xsl:text>||] </xsl:text>
+        <span class="deleted">
+            <xsl:value-of select="$node/text()"/>
+        </span>
+        <xsl:text> </xsl:text>
         <xsl:choose>
             <xsl:when test="$node[@rendition = '#s']">
                 <xsl:text>Tilgung durch Streichung</xsl:text>
@@ -337,6 +343,20 @@
         <xsl:text> (</xsl:text>
         <xsl:value-of select="$p_registerBibls"/>
         <xsl:text>)</xsl:text>
+        
+    </xsl:function>
+    
+    <!-- ## ediarum_noteContent_subst - Ausgabe Fußnote einer zeitgenössischen Korrektur (tei:subst) -->
+    <xsl:function name="telota:ediarum_noteContent_subst">
+        <xsl:param name="node"/>
+        
+        <xsl:value-of select="$node/tei:add"/>
+        <span class="substition">
+            <xsl:text> korr. aus </xsl:text>
+        </span>
+        <xsl:text>&#x2329; </xsl:text>
+        <xsl:value-of select="$node/tei:del"/>
+        <xsl:text> &#x232A;</xsl:text>
         
     </xsl:function>
     
