@@ -88,7 +88,7 @@
     <!-- Parameter zur weiteren Anpassung der Ausgabe. -->
     
     <!-- ## Einstellung Fußnoten: notesAsFootnotes - Erhält einen bool-Wert, ob Sachanmerkungen als Fußnoten (true) oder Endnoten (false) dargestellt werden. -->
-    <xsl:param name="p_notesAsFootnotes" select="false()"/>
+    <xsl:param name="p_notesAsFootnotes" select="true()"/>
     
     
     <!-- ## Kennzeichnung Schreibakt: p_showWritingSession - Soll jeder Schreibakt mit einer Zwischenüberschrift "Schreibakt Nr. " begonnen werden? -->
@@ -330,7 +330,7 @@
     <xsl:template name="ediarum_structure_criticalApp_default">
         <xsl:param name="placeOfNotes"/>
         
-        <div>
+        <div class="criticalAppNextPage">
             <br/>
             <hr/>
             <h4>Kritischer Apparat</h4>
@@ -342,11 +342,11 @@
                         <xsl:apply-templates mode="criticalApp" select="
                             .//tei:add[not(ancestor::tei:subst)] |
                             .//tei:choice[tei:corr | tei:abbr | tei:orig] |
-                            .//tei:del[not(tei:gap)][not(ancestor::tei:subst)] |
-                            .//tei:gap |
+                            .//tei:del[not(ancestor::tei:subst)] |
+                            .//tei:gap[not(ancestor::tei:del)] |
+                            .//tei:metamark |
                             .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                            .//tei:subst |
-                            .//tei:unclear"/>
+                            .//tei:subst"/>
                     </xsl:when>
                     <!-- ### Sachanmerkungen als Endnoten -->
                     <xsl:otherwise>
@@ -477,20 +477,20 @@
                          tei:choice[tei:abbr | tei:corr | tei:orig] |
                          tei:del[not(ancestor::tei:subst)] |
                          tei:gap |
+                         tei:metamark |
                          tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                         tei:subst |
-                         tei:unclear">
+                         tei:subst">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:add[not(ancestor::tei:subst)] |
                                                        tei:choice[tei:abbr | tei:corr | tei:orig] |
-                                                       tei:del[not(tei:gap)][not(ancestor::tei:subst)] |
-                                                       tei:gap |
+                                                       tei:del[not(ancestor::tei:subst)] |
+                                                       tei:gap[not(ancestor::tei:del)] |
+                                                       tei:metamark |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                                       tei:subst |
-                                                       tei:unclear"/>
+                                                       tei:subst"/>
         </xsl:variable>
 
         <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
@@ -544,8 +544,8 @@
             </xsl:when>
             <!-- #### Streichung -->
             <xsl:when test="self::tei:del[not(ancestor::tei:subst)]">
-                <!-- Wenn tei:del/tei:gap, dann nicht ausgeben. Streichung des Textes in del trotzdem. -->
-                <xsl:if test="$placeOfNotes eq 'end' and not(.[tei:gap])">
+                <xsl:text>||</xsl:text>
+                <xsl:if test="$placeOfNotes eq 'end'">
                     <span class="footnote">
                         <xsl:copy-of select="telota:ediarum_noteContent_del(.)"/>
                     </span>
@@ -553,10 +553,24 @@
             </xsl:when>
             <!-- #### Schäden -->
             <xsl:when test="self::tei:gap">
-                [...]
+                <xsl:choose>
+                    <!-- Wenn tei:del/tei:gap, dann nicht ausgeben. -->
+                    <xsl:when test="self::tei:gap[ancestor::tei:del]"/>
+                    <xsl:otherwise>
+                        <xsl:text> &#8970;&#8969; </xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:if test="$placeOfNotes eq 'end'">
                     <span class="footnote">
                         <xsl:copy-of select="telota:ediarum_noteContent_gap(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
+            <!-- #### Einweisungszeichen -->
+            <xsl:when test="self::tei:metamark">
+                <xsl:if test="$placeOfNotes eq 'end'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_metamark(.)"/>
                     </span>
                 </xsl:if>
             </xsl:when>
@@ -578,32 +592,6 @@
                     </span>
                 </xsl:if>
             </xsl:when>
-            <!-- #### Unleserlich -->
-            <xsl:when test="self::tei:unclear">
-                <xsl:choose>
-                    <xsl:when test="child::*|text()">
-                        <span class="unclear">
-                            <xsl:apply-templates mode="#current"/>
-                            <span class="symbol">(?)</span>
-                        </span>
-                        <xsl:if test="$placeOfNotes eq 'end'">
-                            <span class="footnote">
-                                <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
-                            </span>
-                        </xsl:if>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <span class="unclear">
-                            [...]<span class="symbol">(?)</span>
-                        </span>
-                        <xsl:if test="$placeOfNotes eq 'end'">
-                            <span class="footnote">
-                                <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
-                            </span>
-                        </xsl:if>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:when>
         </xsl:choose>
 
         <!-- ### Endnotenreferenzen Fließtext -->
@@ -622,20 +610,20 @@
     <!-- ## Kritischer Apparat - Endnoten -->
     <xsl:template mode="criticalApp" match="tei:add[not(ancestor::tei:subst)] |
                                             tei:choice[tei:abbr | tei:corr | tei:orig] |
-                                            tei:del[not(tei:gap)][not(ancestor::tei:subst)] |
-                                            tei:gap |
+                                            tei:del[not(ancestor::tei:subst)] |
+                                            tei:gap[not(ancestor::tei:del)] |
+                                            tei:metamark |
                                             tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                            tei:subst |
-                                            tei:unclear">
+                                            tei:subst">
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:add[not(ancestor::tei:subst)] |
                                                        tei:choice[tei:abbr | tei:corr | tei:orig] |
-                                                       tei:del[not(tei:gap)][not(ancestor::tei:subst)] |
-                                                       tei:gap |
+                                                       tei:del[not(ancestor::tei:subst)] |
+                                                       tei:gap[not(ancestor::tei:del)] |
+                                                       tei:metamark |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                                       tei:subst |
-                                                       tei:unclear"/>
+                                                       tei:subst"/>
         </xsl:variable>
         
         <li>
@@ -660,6 +648,10 @@
                 <xsl:when test="self::tei:gap">
                     <xsl:copy-of select="telota:ediarum_noteContent_gap(.)"/>
                 </xsl:when>
+                <!-- #### Einweisungszeichen -->
+                <xsl:when test="self::tei:metamark">
+                    <xsl:copy-of select="telota:ediarum_noteContent_metamark(.)"/>
+                </xsl:when>
                 <!-- #### Anmerkung -->
                 <xsl:when test="self::tei:note">
                     <xsl:copy-of select="telota:ediarum_noteContent_note(.)"/>
@@ -668,16 +660,10 @@
                 <xsl:when test="self::tei:subst">
                     <xsl:copy-of select="telota:ediarum_noteContent_subst(.)"/>
                 </xsl:when>
-                <!-- #### Unsichere Lesart -->
-                <xsl:when test="self::tei:unclear">
-                    <xsl:copy-of select="telota:ediarum_noteContent_unclear(.)"/>
-                </xsl:when>
             </xsl:choose>
         </li>
         
     </xsl:template>
-    
-    
     
 </xsl:stylesheet>
 

@@ -186,20 +186,37 @@
         <xsl:param name="node"/>
         
         <xsl:text>||] </xsl:text>
-        <span class="deleted">
-            <xsl:value-of select="$node/text()"/>
-        </span>
-        <xsl:text> </xsl:text>
         <xsl:choose>
-            <xsl:when test="$node[@rendition = '#s']">
-                <xsl:text>Tilgung durch Streichung</xsl:text>
+            <xsl:when test="$node[tei:gap]">
+                
+                <span class="deletedGap">
+                    <xsl:text>&#x2329; </xsl:text>
+                    <xsl:apply-templates select="$node/tei:gap//preceding-sibling::node()"/>
+                    <span class="gapSymbol"> &#8970;&#8969; </span>
+                    <xsl:apply-templates select="$node/tei:gap//following-sibling::node()"/>
+                    <xsl:text> &#x232A;</xsl:text>
+                </span>
+                
             </xsl:when>
-            <xsl:when test="$node[@rendition = '#ow']">
-                <xsl:text>Tilgung durch Überschreibung des ursprünglichen Textes</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@rendition = '#erased']">
-                <xsl:text>Tilgung durch Radieren</xsl:text>
-            </xsl:when>
+            <xsl:otherwise>
+                
+                <span class="deleted">
+                    <xsl:apply-templates select="$node"/>
+                </span>
+                <xsl:text> </xsl:text>
+                <xsl:choose>
+                    <xsl:when test="$node[@rendition = '#s']">
+                        <xsl:text>Tilgung durch Streichung</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$node[@rendition = '#ow']">
+                        <xsl:text>Tilgung durch Überschreibung des ursprünglichen Textes</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$node[@rendition = '#erased']">
+                        <xsl:text>Tilgung durch Radieren</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+                
+            </xsl:otherwise>
         </xsl:choose>
         
     </xsl:function>
@@ -208,10 +225,8 @@
     <xsl:function name="telota:ediarum_noteContent_gap">
         <xsl:param name="node"/>
         
-        <xsl:if test="$node[ancestor::tei:del]">
-            <xsl:text>||]&#8970;</xsl:text>
-        </xsl:if>
-        
+        <span class="gapSymbol">&#8970;&#8969;</span>
+        <xsl:text>] </xsl:text>
         <xsl:choose>
             <xsl:when test="$node[@reason = 'lost']">
                 <xsl:text>Verlust</xsl:text>
@@ -232,10 +247,6 @@
                 <xsl:text>Für das Korpus unwichtiger Text</xsl:text>
             </xsl:when>
         </xsl:choose>
-        
-        <xsl:if test="$node[ancestor::tei:del]">
-            <xsl:text>]</xsl:text>
-        </xsl:if>
         
         <xsl:if test="$node[@unit and @quantity]">
             <xsl:choose>
@@ -283,10 +294,15 @@
             </xsl:choose>
         </xsl:if>
         
-        <xsl:if test="$node[ancestor::tei:del]">
-            <xsl:text>&#8969; </xsl:text>
-            <xsl:copy-of select="telota:ediarum_noteContent_del($node//ancestor::tei:del)"/>
-        </xsl:if>
+    </xsl:function>
+    
+    <!-- ## telota:ediarum_noteContent_metamark - Ausgabe Fußnote von Einweisungszeichen (tei:metamark) -->
+    <xsl:function name="telota:ediarum_noteContent_metamark">
+        <xsl:param name="node"/>
+        
+        <span class="metamark">
+            <xsl:text>folgt Einweisungszeichen</xsl:text>
+        </span>
         
     </xsl:function>
     
@@ -357,32 +373,6 @@
         <xsl:text>&#x2329; </xsl:text>
         <xsl:value-of select="$node/tei:del"/>
         <xsl:text> &#x232A;</xsl:text>
-        
-    </xsl:function>
-    
-    <!-- ## ediarum_noteContent_unclear - Ausgabe Fußnote von Unleserlich (tei:unclear) -->
-    <xsl:function name="telota:ediarum_noteContent_unclear">
-        <xsl:param name="node"/>
-        
-        <xsl:choose>
-            <xsl:when test="$node[@reason = 'illegible']">
-                <xsl:text>Handschrift unleserlich</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@reason = 'covered']">
-                <xsl:text>Text überschrieben</xsl:text>
-            </xsl:when>
-        </xsl:choose>
-        <xsl:if test="$node[@reason and @cert]">
-            <xsl:text>; </xsl:text>
-        </xsl:if>
-        <xsl:choose>
-            <xsl:when test="$node[@cert = 'high']">
-                <xsl:text>hohe Wahrscheinlichkeit</xsl:text>
-            </xsl:when>
-            <xsl:when test="$node[@cert = 'low']">
-                <xsl:text>niedrige Wahrscheinlichkeit</xsl:text>
-            </xsl:when>
-        </xsl:choose>
         
     </xsl:function>
         

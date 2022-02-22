@@ -58,7 +58,9 @@ div[class='minute']{
 h1, h2, h3, h4, h5,
 .more_info,
 .time,
-.agenda{
+.agenda 
+.criticalAppNextPage,
+.criticalAppNextPage hr {
   page-break-after: avoid;
 }
 
@@ -306,6 +308,16 @@ div.abstract p {
     font-weight: bold;
 }
 
+.cb {
+    /* Spalte */
+    
+}
+
+.cbNum {
+    /* Nummerierung bei Spalten */
+    font-size: smaller;
+}
+
 .center {
     /* zentriert */
     text-align: center;
@@ -323,6 +335,11 @@ div.abstract p {
 
 .deleted {
     /* Streichung */
+    font-style: italic;
+}
+
+.deletedGap {
+    /* Unlesbar in Streichung */
     font-style: italic;
 }
 
@@ -354,7 +371,16 @@ div.abstract p {
     /* Foliowechsel */
     font-family: Helvetica;
     font-size: 0.9em;
-    font-style: italic;
+}
+
+.fwNum {
+    /* Seitennummer im Foliowechsel */
+    font-size: smaller;
+}
+
+.gapSymbol {
+    /* Zeichen bei Auslassungen */
+    
 }
 
 .indentation {
@@ -380,9 +406,19 @@ div.abstract p {
     padding-right: 0.25em;
 }
 
+.metamark {
+    /* Einweisungszeichen */
+    font-style: italic;
+}
+
 .pb {
     /* Seitenumbruch */
-    font-style: italic;
+    
+}
+
+.pbNum {
+    /* Nummer des Seitenumbruchs */
+    font-size: smaller;
 }
 
 .printed {

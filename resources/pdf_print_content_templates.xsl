@@ -34,8 +34,33 @@
     
     <!-- # Textstruktur -->
     
+    <!-- ## Spalten -->
+    <xsl:template mode="#all" match="tei:cb">
+        <span class="cb">
+            <xsl:text>|</xsl:text>
+            <xsl:if test="@n">
+                <span class="cbNum">
+                    <xsl:text>(</xsl:text>
+                    <xsl:value-of select="@n/data()"/>
+                    <xsl:text>) </xsl:text>
+                </span>
+            </xsl:if>
+        </span>
+    </xsl:template>
+    
+    <!-- ## Bindestrich -->
+    <xsl:template mode="#all" match="tei:g[@ref='#typoHyphen']">
+        <xsl:text>-</xsl:text>
+    </xsl:template>
+    
+    <!-- ## Zeilenumbruch -->
     <xsl:template mode="#all" match="tei:lb">
-        <br/>
+        <xsl:choose>
+            <xsl:when test=".[@break='no']"/>
+            <xsl:otherwise>
+                <br/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template mode="#all" match="tei:milestone[@unit='section' and @rendition='#hr']">
@@ -48,23 +73,29 @@
         </p>
     </xsl:template>
     
-    <!-- ## Seiten- oder Foliowechsel -->
+    <!-- ## Seitenwechsel -->
     <xsl:template mode="#all" match="tei:pb">
         <span class="pb">
             <xsl:text>|</xsl:text>
             <xsl:if test="@n">
-                <xsl:text>(</xsl:text>
-                <xsl:value-of select="@n/data()"/>
-                <xsl:text>) </xsl:text>
+                <span class="pbNum">
+                    <xsl:text>(</xsl:text>
+                    <xsl:value-of select="@n/data()"/>
+                    <xsl:text>) </xsl:text>
+                </span>
             </xsl:if>
         </span>
     </xsl:template>
     
+    <!-- ## Foliowechsel -->
     <xsl:template mode="#all" match="tei:fw[@type='folNum']">
         <span class="fw">
-            <xsl:text>|(</xsl:text>
-            <xsl:value-of select="./text()"/>
-            <xsl:text>) </xsl:text>
+            <xsl:text>|</xsl:text>
+            <span class="fwNum">
+                <xsl:text>(</xsl:text>
+                <xsl:value-of select="./text()"/>
+                <xsl:text>) </xsl:text>
+            </span>            
         </span>
     </xsl:template>
     
@@ -140,9 +171,20 @@
     
     <!-- ## Liste -->
     <xsl:template mode="#all" match="tei:list">
-        <ul>
-            <xsl:apply-templates mode="#current"/>
-        </ul>
+        <xsl:choose>
+            <!-- ### Sortierte Liste -->
+            <xsl:when test=".[@type='ordered']">
+                <ol>
+                    <xsl:apply-templates mode="#current"/>
+                </ol>
+            </xsl:when>
+            <!-- ### Unsortierte Liste (type="bulleted" als default) -->
+            <xsl:otherwise>
+                <ul>
+                    <xsl:apply-templates mode="#current"/>
+                </ul>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template mode="#all" match="tei:item[not(.//tei:list)]">
@@ -319,7 +361,15 @@
         <span class="printed">
             <xsl:apply-templates mode="#current"/>
         </span>
-    </xsl:template>    
+    </xsl:template>
+    
+    <!-- ## Unleserlich -->
+    <xsl:template mode="#all" match="tei:unclear">
+        <span class="gapSymbol">&#8970;</span>
+        <xsl:apply-templates mode="#current"/>
+        <span class="gapSymbol">&#8969;</span>
+    </xsl:template>
+    
     
     
     
@@ -339,11 +389,7 @@
         </span>
     </xsl:template>
     
-    <!-- ## Einweisungszeichen -->
-    <xsl:template mode="#all" match="tei:metamark[not(@function='used')]">
-        <xsl:text>⎡</xsl:text>
-    </xsl:template>
-
+    
 
     
     <!-- # Register-Verknüpfung -->
