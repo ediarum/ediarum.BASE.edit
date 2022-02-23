@@ -166,8 +166,7 @@
             </xsl:when>
             <!-- ### Streichung durch Hrsg. -->
             <xsl:when test="$node[tei:corr[(@type='deleted')]]">
-                <xsl:value-of select="$node/tei:corr"/>
-                <xsl:text>] folgt &lt;&lt;</xsl:text>
+                <xsl:text>folgt &lt;&lt;</xsl:text>
                 <xsl:value-of select="$node/tei:sic"/>
                 <xsl:text>&gt;&gt;</xsl:text>
             </xsl:when>
@@ -201,7 +200,7 @@
             <xsl:otherwise>
                 
                 <span class="deleted">
-                    <xsl:apply-templates select="$node"/>
+                    <xsl:apply-templates select="$node/text()"/>
                 </span>
                 <xsl:text> </xsl:text>
                 <xsl:choose>
@@ -370,9 +369,9 @@
         <span class="substition">
             <xsl:text> korr. aus </xsl:text>
         </span>
-        <xsl:text>&#x2329; </xsl:text>
+        <xsl:text>&#x2329;</xsl:text>
         <xsl:value-of select="$node/tei:del"/>
-        <xsl:text> &#x232A;</xsl:text>
+        <xsl:text>&#x232A;</xsl:text>
         
     </xsl:function>
         
