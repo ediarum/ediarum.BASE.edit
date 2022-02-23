@@ -166,7 +166,8 @@
             </xsl:when>
             <!-- ### Streichung durch Hrsg. -->
             <xsl:when test="$node[tei:corr[(@type='deleted')]]">
-                <xsl:text>folgt &lt;&lt;</xsl:text>
+                <span class="italic"><xsl:text>folgt </xsl:text></span>
+                <xsl:text>&lt;&lt;</xsl:text>
                 <xsl:value-of select="$node/tei:sic"/>
                 <xsl:text>&gt;&gt;</xsl:text>
             </xsl:when>
