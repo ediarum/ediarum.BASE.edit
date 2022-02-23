@@ -15718,7 +15718,6 @@ ediarum.BASE.pdf_css</String>
 													<String>printPDF</String>
 												</field>
 											</menuItem>
-											<menuSeparator/>
 											<menuItem>
 												<field name="actionID">
 													<String>@select</String>

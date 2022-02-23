@@ -94,6 +94,14 @@
     
     
     <!-- # Funktionen Verarbeitung Sachanmerkungen in Fußnoten/Kritischem Apparat -->
+    <!-- ## ediarum_noteContent_anchor - Ausgabe des referenzierten Index-Elements (tei:index/tei:term) eines Ankers (tei:anchor). -->
+    <xsl:function name="telota:ediarum_noteContent_anchor">
+        <xsl:param name="node"/>
+        
+        <xsl:value-of select="$node//ancestor::node()//tei:index[contains(@spanTo, $node/@xml:id)]/tei:term"/>
+        
+    </xsl:function>
+    
     <!-- ## ediarum_noteContent_noteFoot - Ausgabe Fußnote von Hinweisen in Fußnoten (tei:note[@place='foot']) -->
     <xsl:function name="telota:ediarum_noteContent_noteFoot">
         <xsl:param name="node"/>
@@ -190,18 +198,18 @@
             <xsl:when test="$node[tei:gap]">
                 
                 <span class="deletedGap">
-                    <xsl:text>&#x2329; </xsl:text>
+                    <span class="angleBracket">&#x2329;</span>
                     <xsl:apply-templates select="$node/tei:gap//preceding-sibling::node()"/>
                     <span class="gapSymbol"> &#8970;&#8969; </span>
                     <xsl:apply-templates select="$node/tei:gap//following-sibling::node()"/>
-                    <xsl:text> &#x232A;</xsl:text>
+                    <span class="angleBracket">&#x232A;</span>
                 </span>
                 
             </xsl:when>
             <xsl:otherwise>
                 
                 <span class="deleted">
-                    <xsl:apply-templates select="$node/text()"/>
+                    <xsl:apply-templates select="$node/string()"/>
                 </span>
                 <xsl:text> </xsl:text>
                 <xsl:choose>
@@ -301,7 +309,14 @@
         <xsl:param name="node"/>
         
         <span class="metamark">
-            <xsl:text>folgt Einweisungszeichen</xsl:text>
+            <xsl:choose>
+                <xsl:when test="$node[@function='used']">
+                    <xsl:text>Textpassage im Manuskript als erledigt markiert</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>folgt Einweisungszeichen</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
         </span>
         
     </xsl:function>
@@ -370,9 +385,9 @@
         <span class="substition">
             <xsl:text> korr. aus </xsl:text>
         </span>
-        <xsl:text>&#x2329;</xsl:text>
+        <span class="angleBracket">&#x2329;</span>
         <xsl:value-of select="$node/tei:del"/>
-        <xsl:text>&#x232A;</xsl:text>
+        <span class="angleBracket">&#x232A;</span>
         
     </xsl:function>
         

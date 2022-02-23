@@ -13,8 +13,11 @@
     
 
     <xsl:include href="pdf_print_content_functions.xsl"/>
-
-
+    
+    
+    
+    
+    
     <!-- ####################################### -->
     <!-- ### Content - Template-Definitionen ### -->
     <!-- ####################################### -->
@@ -25,7 +28,7 @@
     <!-- # Kommentare -->
     <xsl:template mode="#all" match="tei:comment"/>
     
-    <!-- # Indexierung -->
+    <!-- # Indexierung - Index-Elemente sollen nicht verarbeitet werden. Verarbeitung erfolgt beim zugehörigen anchor-Element. -->
     <xsl:template mode="#all" match="tei:index"/>
     
     
@@ -393,9 +396,8 @@
 
     
     <!-- # Register-Verknüpfung -->
-    <!-- Für Verarbeitung aller Registereinträge (persName, placeName, orgName, bibl, item[@xml:id]) siehe Fußnoten. -->
+    <!-- Für Verarbeitung aller Registereinträge (persName, placeName, orgName, bibl, item[@xml:id], rs) siehe Fußnoten. -->
     
-
 
 
     
