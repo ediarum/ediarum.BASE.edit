@@ -305,7 +305,7 @@
     </xsl:template>
     
     <xsl:template name="ediarumIntro_author">
-        <xsl:if test=".//tei:titleStmt/tei:author">
+        <xsl:if test=".//tei:titleStmt/tei:author[ancestor::tei:TEI[@telota:doctype='introduction']]">
             <xsl:for-each select=".//tei:titleStmt/tei:author">
                 <xsl:value-of select="./tei:persName/tei:surname"/><xsl:text>, </xsl:text><xsl:value-of select="./tei:persName/tei:forename"/>
                 <xsl:if test="./tei:affiliation"><xsl:text> (</xsl:text><xsl:value-of select="./tei:affiliation"/><xsl:text>)</xsl:text></xsl:if>
