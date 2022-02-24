@@ -53,6 +53,10 @@
         <header>
             <xsl:call-template name="ediarum_headerTitle"/>
             <div class="headerInfo">
+                <!-- ## ediarum.INTRO Autor*in -->
+                <xsl:call-template name="ediarumIntro_author"/>
+            </div>
+            <div class="headerInfo">
                 <!-- ## Informationen zum Vorhaben -->
                 <xsl:call-template name="ediarum_headerEditor"/>
                 <xsl:call-template name="ediarum_headerResp"/>

@@ -304,4 +304,14 @@
         </xsl:if>
     </xsl:template>
     
+    <xsl:template name="ediarumIntro_author">
+        <xsl:if test=".//tei:titleStmt/tei:author">
+            <xsl:for-each select=".//tei:titleStmt/tei:author">
+                <xsl:value-of select="./tei:persName/tei:surname"/><xsl:text>, </xsl:text><xsl:value-of select="./tei:persName/tei:forename"/>
+                <xsl:if test="./tei:affiliation"><xsl:text> (</xsl:text><xsl:value-of select="./tei:affiliation"/><xsl:text>)</xsl:text></xsl:if>
+                <xsl:if test="./tei:email"><br/><xsl:value-of select="./tei:email"/></xsl:if>
+                <xsl:if test="./tei:note"><br/><xsl:value-of select="./tei:note"/></xsl:if>
+            </xsl:for-each>
+        </xsl:if>
+    </xsl:template>
 </xsl:stylesheet>
