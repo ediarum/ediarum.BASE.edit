@@ -85,7 +85,9 @@
     <xsl:param name="p_index_bibl_zotero">
         <xsl:text>/ediarum.xql?index=mop</xsl:text>
     </xsl:param>
-    
+    <xsl:param name="p_references">
+        <xsl:text>/ediarum.xql?index=letters</xsl:text>
+    </xsl:param>
     
     
     <!-- # Parameter Anpassungen -->
@@ -257,6 +259,11 @@
                     <data><xsl:value-of select="$p_index_items"/></data>
                     <desc>Sachregister</desc>
                 </item>
+                <ref>
+                    <dir>/index.xql</dir>
+                    <data><xsl:value-of select="$p_references"/></data>
+                    <desc>Verweis</desc>
+                </ref>
             </register>
         </xsl:variable>        
         
@@ -286,6 +293,9 @@
                 <xsl:when test="$node[self::tei:item] or $node[self::tei:rs[@type='term']]">
                     <xsl:copy-of select="$registerMapWeb/register/item"/>
                 </xsl:when>
+                <xsl:when test="$node[self::tei:ref]">
+                    <xsl:copy-of select="$registerMapWeb/register/ref"/>
+                </xsl:when>
             </xsl:choose>
         </xsl:variable>
         
@@ -304,12 +314,15 @@
                 <xsl:when test="$node[@sameAs]">
                     <xsl:value-of select="$node/@sameAs/data()"/>
                 </xsl:when>
+                <xsl:when test="$node[@target]">
+                    <xsl:value-of select="substring-before($node/@target/data(), '/#')"/>
+                </xsl:when>
             </xsl:choose>
         </xsl:variable>
         
         <!-- ## Registertyp ausgeben und Aktionen zum Erstellen des Registerverweises pro übergebenem Key ausführen. -->
         <xsl:value-of select="$registerType//desc/text()"/><xsl:text>: </xsl:text>
-        <xsl:for-each select="tokenize($node/@key/data(), ' ')">
+        <xsl:for-each select="tokenize($key, ' ')">
             
             <!-- ### Ggf. einleitendes Komma oder "und" bei mehreren Einträgen. -->
             <xsl:choose>
@@ -431,7 +444,8 @@
                             .//tei:orgName[ancestor-or-self::tei:body] |
                             .//tei:bibl[ancestor-or-self::tei:body] |
                             .//tei:item[ancestor-or-self::tei:body and @xml:id] |
-                            .//tei:rs[ancestor-or-self::tei:body]">
+                            .//tei:rs[ancestor-or-self::tei:body] | 
+                            .//tei:ref[ancestor-or-self::tei:body][@target]">
                         </xsl:apply-templates>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -452,7 +466,8 @@
                          tei:orgName[ancestor-or-self::tei:body] |
                          tei:bibl[ancestor-or-self::tei:body] |
                          tei:item[ancestor-or-self::tei:body and @xml:id] |
-                         tei:rs[ancestor-or-self::tei:body]">
+                         tei:rs[ancestor-or-self::tei:body] |
+                         tei:ref[ancestor-or-self::tei:body][@target]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
         
@@ -465,7 +480,8 @@
                                                        tei:orgName[ancestor-or-self::tei:body] |
                                                        tei:bibl[ancestor-or-self::tei:body] |
                                                        tei:item[ancestor-or-self::tei:body and @xml:id] |
-                                                       tei:rs[ancestor-or-self::tei:body]"/>
+                                                       tei:rs[ancestor-or-self::tei:body] |
+                                                       tei:ref[ancestor-or-self::tei:body][@target]"/>
         </xsl:variable>
         
         <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
@@ -496,7 +512,7 @@
                 </xsl:if>
             </xsl:when>
             <!-- #### Verweise auf Register -->
-            <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl|self::tei:rs]">
+            <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl|self::tei:rs|self::tei:ref]">
                 <xsl:apply-templates/>
                 <xsl:if test="$placeOfNotes eq 'foot'">
                     <span class="footnote">
@@ -523,7 +539,8 @@
                                             tei:orgName[ancestor-or-self::tei:body] |
                                             tei:bibl[ancestor-or-self::tei:body] |
                                             tei:item[ancestor-or-self::tei:body and @xml:id] |
-                                            tei:rs[ancestor-or-self::tei:body]">
+                                            tei:rs[ancestor-or-self::tei:body] |
+                                            tei:ref[ancestor-or-self::tei:body][@target]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
         
@@ -536,7 +553,8 @@
                                                        tei:orgName[ancestor-or-self::tei:body] |
                                                        tei:bibl[ancestor-or-self::tei:body] |
                                                        tei:item[ancestor-or-self::tei:body and @xml:id] |
-                                                       tei:rs[ancestor-or-self::tei:body]"/>
+                                                       tei:rs[ancestor-or-self::tei:body] |
+                                                       tei:ref[ancestor-or-self::tei:body][@target]"/>
         </xsl:variable>
         
         <li>
@@ -558,7 +576,7 @@
                     <xsl:copy-of select="telota:ediarum_noteContent_noteFoot(.)"/>
                 </xsl:when>
                 <!-- #### Verweise auf Register -->
-                <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl|self::tei:rs]">
+                <xsl:when test=".[self::tei:persName|self::tei:placeName|self::tei:orgName|self::tei:item|self::tei:bibl|self::tei:rs|self::tei:ref]">
                     <xsl:copy-of select="telota:project_getRegisterLink(.)"/>
                 </xsl:when>
             </xsl:choose>
