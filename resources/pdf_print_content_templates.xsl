@@ -175,17 +175,53 @@
     <!-- ## Liste -->
     <xsl:template mode="#all" match="tei:list">
         <xsl:choose>
-            <!-- ### Sortierte Liste -->
-            <xsl:when test=".[@type='ordered']">
+            <!-- ### Sortierte Liste ediarum.BASE.edit (@type) und ediarum.INTRO (@rendition) -->
+            <xsl:when test=".[@type='ordered']|.[@rendition='ordered decimal']">
                 <ol>
                     <xsl:apply-templates mode="#current"/>
                 </ol>
             </xsl:when>
-            <!-- ### Unsortierte Liste (type="bulleted" als default) -->
-            <xsl:otherwise>
-                <ul>
+            <!-- ### ediarum.INTRO, röm. Zahlen klein -->
+            <xsl:when test=".[@rendition='ordered lower-roman']">
+                <ol type="i">
                     <xsl:apply-templates mode="#current"/>
-                </ul>
+                </ol>
+            </xsl:when>
+            <!-- ### ediarum.INTRO, röm. Zahlen groß -->
+            <xsl:when test=".[@rendition='ordered upper-roman']">
+                <ol type="I">
+                    <xsl:apply-templates mode="#current"/>
+                </ol>
+            </xsl:when>
+            <!-- ### ediarum.INTRO, Buchstaben klein -->
+            <xsl:when test=".[@rendition='ordered lower-latin']">
+                <ol type="a">
+                    <xsl:apply-templates mode="#current"/>
+                </ol>
+            </xsl:when>
+            <!-- ### ediarum.INTRO, Buchstaben groß -->
+            <xsl:when test=".[@rendition='ordered upper-latin']">
+                <ol type="A">
+                    <xsl:apply-templates mode="#current"/>
+                </ol>
+            </xsl:when>
+            <!-- ### Unsortierte Liste -->
+            <xsl:otherwise>
+                <xsl:choose>
+                    <!-- ### ediarum.INTRO, ohne Aufzählzeichen -->
+                    <xsl:when test=".[@rendition='none']">
+                        <ul style="list-style-type:none;"><!-- Hinweis: Leider wird der list-style-type über eine Klasse nicht ausgeführt, weswegen die @style-Info hier eingefügt wurde -->
+                            <xsl:apply-templates mode="#current"/>
+                        </ul>
+                    </xsl:when>
+                    <!-- ### Unsortierte Liste (type="bulleted" als default) -->
+                    <xsl:otherwise>
+                        <ul>
+                            <xsl:apply-templates mode="#current"/>
+                        </ul> 
+                    </xsl:otherwise>
+                </xsl:choose>
+                
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -305,6 +341,25 @@
         <span class="quoteInItalicPart">
             "<xsl:apply-templates mode="#current"/>"
         </span>
+    </xsl:template>
+    
+    <!-- ## Inlinezitat (aus ediarum.INTRO) -->
+    <xsl:template mode="#all" match="tei:quote[@rendition='inline']">
+        <span class="italic">
+            <xsl:apply-templates mode="#current"/>
+        </span>
+    </xsl:template>
+    
+    <xsl:template mode="#all" match="tei:quote[@rendition='block']">
+        <p class="blockQuote">
+            <xsl:apply-templates mode="#current"/>
+        </p>
+    </xsl:template>
+    
+    <xsl:template mode="#all" match="tei:quote[@rendition='introQuote']">
+        <p class="introQuote">
+            <xsl:apply-templates mode="#current"/>
+        </p>
     </xsl:template>
         
     <!-- ## Unterstreichungen -->

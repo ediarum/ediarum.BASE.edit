@@ -285,6 +285,15 @@ div.abstract p {
     padding-bottom: 0.5em;
 }
 
+/* # Listen ediarum.INTRO*/
+
+.blockQuote{
+    margin-left:5em;
+}
+
+.introQuote{
+    margin-left:1.5em;
+}
 
 /* # Text */
 
