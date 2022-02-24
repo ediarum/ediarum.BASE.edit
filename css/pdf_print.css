@@ -467,6 +467,7 @@ div.abstract p {
 }
 
 .supplied {
+    /* Fehlendes Wort oder Satzzeichen */
     font-style: italic;
 }
 
@@ -484,6 +485,10 @@ div.abstract p {
 /* # Endnotes */
 .criticalApp {
     list-style-type: none;
+}
+
+.endnote {
+    font-weight: bold;
 }
 
 

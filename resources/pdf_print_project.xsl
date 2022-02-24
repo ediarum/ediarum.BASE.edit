@@ -53,16 +53,13 @@
     <!-- Welche Verbindungen in die DB (data, register, ...) werden genutzt. -->
     
     <!-- ## Oxygen-Ordner -->
-    <!-- TODO: Fallback definieren -->
     <xsl:param name="p_pathToOxygen">
-        <xsl:text>https://xmledit.bbaw.de/mop/rest/db/projects/mop/oxygen</xsl:text>
         <!--${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}/oxygen-->
     </xsl:param>
     
     <!-- ## Registerverbindungen -->
     <!-- ### pathToRegister - Erhält den Pfad zum projektspezifischen Register. -->
     <xsl:param name="p_pathToRegister">
-        <xsl:text>https://xmledit.bbaw.de/mop/rest/db/projects/mop/web/register</xsl:text>
         <!--${ediarum_website_base}${ediarum_projects_directory}${ediarum_project_name}/web/register-->
     </xsl:param>
     
@@ -85,7 +82,7 @@
     <xsl:param name="p_index_bibl_zotero">
         <xsl:text>/ediarum.xql?index=mop</xsl:text>
     </xsl:param>
-    <xsl:param name="p_references">
+    <xsl:param name="p_index_letters">
         <xsl:text>/ediarum.xql?index=letters</xsl:text>
     </xsl:param>
     
@@ -93,9 +90,14 @@
     <!-- # Parameter Anpassungen -->
     <!-- Parameter zur weiteren Anpassung der Ausgabe. -->
     
-    <!-- ## Einstellung Fußnoten: notesAsFootnotes - Erhält einen bool-Wert, ob Sachanmerkungen als Fußnoten (true) oder Endnoten (false) dargestellt werden. -->
+    <!-- ## Einstellung Links: p_createLinks - Erhält einen bool-Wert, ob Links ins Register gesetzt werden sollen. -->
+    <xsl:param name="p_createLinks" select="false()"/>
+    
+    <!-- ## Einstellung Fußnoten: p_notesAsFootnotes - Erhält einen bool-Wert, ob Sachanmerkungen als Fußnoten (true) oder Endnoten (false) dargestellt werden. -->
     <xsl:param name="p_notesAsFootnotes" select="false()"/>
     
+    <!-- ## Fehlernachrichten ausgeben: p_showErrorMessage - Erhält einen bool-Wert, ob Fehlermeldungen in Oxygen ausgegeben werden sollen. -->
+    <xsl:param name="p_showErrorMessage" select="false()"/>
     
     <!-- ## Kennzeichnung Schreibakt: p_showWritingSession - Soll jeder Schreibakt mit einer Zwischenüberschrift "Schreibakt Nr. " begonnen werden? -->
     <xsl:param name="p_showWritingSession" select="false()"/>
@@ -229,43 +231,43 @@
         <!-- ## Zuweisung der Verweise, Beschreibungen und Datenquellen pro Register. -->
         <xsl:variable name="registerMapWeb">
             <register>
+                <!-- Person -->
                 <pers>
                     <dir>/personen/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_persons"/></data>
-                    <desc>Person</desc>
                 </pers>
+                <!-- Ort -->
                 <place>
                     <dir>/orte/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_places"/></data>
-                    <desc>Ort</desc>
                 </place>
+                <!-- Institution -->
                 <org>
                     <dir>/institutionen/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_organizations"/></data>
-                    <desc>Institution</desc>
                 </org>
+                <!-- Werk -->
                 <bibl>
                     <dir>/werke/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_bibl"/></data>
-                    <desc>Werk</desc>
                 </bibl>
+                <!-- Zotero -->
                 <biblZotero>
                     <dir>/werke/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_bibl_zotero"/></data>
-                    <desc>Zotero</desc>
                 </biblZotero>
+                <!-- Sachregister -->
                 <item>
-                    <dir>/hoefe/detail.xql</dir>
+                    <dir>/items/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_items"/></data>
-                    <desc>Sachregister</desc>
                 </item>
+                <!-- Verweis -->
                 <ref>
                     <dir>/index.xql</dir>
-                    <data><xsl:value-of select="$p_references"/></data>
-                    <desc>Verweis</desc>
+                    <data><xsl:value-of select="$p_index_letters"/></data>
                 </ref>
             </register>
-        </xsl:variable>        
+        </xsl:variable>
         
         <!-- ## An Hand des übergebenen Parameters den richtigen Registertyp aus $registerMapWeb auswählen. -->
         <xsl:variable name="registerType">
@@ -315,75 +317,98 @@
                     <xsl:value-of select="$node/@sameAs/data()"/>
                 </xsl:when>
                 <xsl:when test="$node[@target]">
-                    <xsl:value-of select="substring-before($node/@target/data(), '/#')"/>
+                    <xsl:value-of select="tokenize($node/@target/data(), '/#')[1]"/>
                 </xsl:when>
             </xsl:choose>
         </xsl:variable>
         
         <!-- ## Registertyp ausgeben und Aktionen zum Erstellen des Registerverweises pro übergebenem Key ausführen. -->
-        <xsl:value-of select="$registerType//desc/text()"/><xsl:text>: </xsl:text>
-        <xsl:for-each select="tokenize($key, ' ')">
-            
-            <!-- ### Ggf. einleitendes Komma oder "und" bei mehreren Einträgen. -->
-            <xsl:choose>
-                <xsl:when test="position() = last() and not(position() = 1)">
-                    <xsl:text> und </xsl:text>
-                </xsl:when>
-                <xsl:when test="position() &gt; 1">
-                    <xsl:text>, </xsl:text>
-                </xsl:when>
-            </xsl:choose>
-            
-            <!-- ### Aktuellen Key-Wert für bessere Lesbarkeit in Variable zur weiteren Verarbeitung. -->
-            <xsl:variable name="keyLoop">
-                <xsl:value-of select="."/>
-            </xsl:variable>
-            
-            <!-- ### Link auf den entsprechenden Registereintrag erstellen. -->
-            <xsl:variable name="registerLink">
-                <xsl:value-of select="$p_pathToRegister"/>
-                <xsl:value-of select="$registerType//dir/text()"/>
-                <xsl:text>?id=</xsl:text>
-                <xsl:value-of select="$keyLoop"/>
-            </xsl:variable>
-            
-            <!-- ### Registereintrag aus entsprechendem Register übernehmen. Durch try/catch ggf. Fehler abfangen. -->
-            <xsl:variable name="registerEntry">
-                <xsl:try>
+        <xsl:choose>
+            <xsl:when test="$key = ''">
+                <xsl:text>leeres key/sameAs/target-Attribut</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:for-each select="tokenize($key, ' ')">
+                    
+                    <!-- ### Ggf. einleitendes Komma oder "und" bei mehreren Einträgen. -->
                     <xsl:choose>
-                        <xsl:when test="doc($forRegisterEntry)//li[@xml:id=$keyLoop]">
-                            <xsl:value-of select="doc($forRegisterEntry)//li[@xml:id=$keyLoop]"/>
+                        <xsl:when test="position() = last() and not(position() = 1)">
+                            <xsl:text> und </xsl:text>
                         </xsl:when>
-                        <!-- Zotero-Register nutzt item statt li -->
-                        <xsl:when test="doc($forRegisterEntry)//tei:item[@xml:id=$keyLoop]">
-                            <xsl:value-of select="doc($forRegisterEntry)//tei:item[@xml:id=$keyLoop]"/>
+                        <xsl:when test="position() &gt; 1">
+                            <xsl:text>, </xsl:text>
                         </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:text>Keine Referenz gefunden.</xsl:text>
-                        </xsl:otherwise>
                     </xsl:choose>
-                    <!-- Meldungen bei Fehler -->
-                    <xsl:catch errors="err:FODC0002">
-                        <xsl:message>
-                            <xsl:text>Fehler beim Registerzugriff</xsl:text>
-                        </xsl:message>
-                        <!-- Default-Wert bei Exception -->
-                        <xsl:text>FEHLER BEI REGISTERZUGRIFF!</xsl:text>
-                    </xsl:catch>
-                    <xsl:catch errors="*">
-                        <xsl:message>
-                            <xsl:text>Fehler beim Verweis auf das Register</xsl:text>
-                        </xsl:message>
-                        <!-- Default-Wert bei Exception -->
-                        <xsl:text>FEHLER BEI VEWEIS AUF DAS REGISTER!</xsl:text>
-                    </xsl:catch>
-                </xsl:try>
-            </xsl:variable>
-            
-            <!-- ### Registereintrag als Link ausgeben. -->
-            <a class="regLink" href="{$registerLink}"><xsl:value-of select="$registerEntry"/></a>
-            
-        </xsl:for-each>
+                    
+                    <!-- ### Aktuellen Key-Wert für bessere Lesbarkeit in Variable zur weiteren Verarbeitung. -->
+                    <xsl:variable name="keyLoop">
+                        <xsl:value-of select="."/>
+                    </xsl:variable>
+                    
+                    <!-- ### Link auf den entsprechenden Registereintrag erstellen. -->
+                    <xsl:variable name="registerLink">
+                        <xsl:value-of select="$p_pathToRegister"/>
+                        <xsl:value-of select="$registerType//dir/text()"/>
+                        <xsl:text>?id=</xsl:text>
+                        <xsl:value-of select="$keyLoop"/>
+                    </xsl:variable>
+                    
+                    <!-- ### Registereintrag aus entsprechendem Register übernehmen. Durch try/catch ggf. Fehler abfangen. -->
+                    <xsl:variable name="registerEntry">
+                        <xsl:try>
+                            <xsl:choose>
+                                <xsl:when test="doc($forRegisterEntry)//li[@xml:id=$keyLoop]">
+                                    <xsl:value-of select="doc($forRegisterEntry)//li[@xml:id=$keyLoop]"/>
+                                </xsl:when>
+                                <!-- Zotero-Register nutzt item statt li -->
+                                <xsl:when test="doc($forRegisterEntry)//tei:item[@xml:id=$keyLoop]">
+                                    <xsl:value-of select="doc($forRegisterEntry)//tei:item[@xml:id=$keyLoop]"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>Keine Referenz gefunden.</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <!-- Meldungen bei Fehler -->
+                            <xsl:catch errors="err:FODC0002">
+                                <xsl:if test="$p_showErrorMessage = true()">
+                                    <xsl:message>
+                                        <xsl:text>FEHLER beim Registerzugriff</xsl:text>
+                                    </xsl:message>
+                                </xsl:if>
+                                <!-- Default-Wert bei Exception -->
+                                <xsl:text>FEHLER bei Registerzugriff!</xsl:text>
+                            </xsl:catch>
+                            <xsl:catch errors="*">
+                                <xsl:if test="$p_showErrorMessage = true()">
+                                    <xsl:message>
+                                        <xsl:text>FEHLER beim Verweis auf das Register</xsl:text>
+                                    </xsl:message>
+                                </xsl:if>
+                                <!-- Default-Wert bei Exception -->
+                                <xsl:text>FEHLER bei Verweis auf das Register!</xsl:text>
+                            </xsl:catch>
+                        </xsl:try>
+                    </xsl:variable>
+                    
+                    <!-- ### Registereintrag ausgeben. -->
+                    <xsl:choose>
+                        <!-- #### leerer Registereintrag -->
+                        <xsl:when test="$registerEntry = ''">
+                            <xsl:text>leerer Registereintrag</xsl:text>
+                        </xsl:when>
+                        <!-- #### Registereintrag als Link -->
+                        <xsl:when test="$p_createLinks = true()">
+                            <a class="regLink" href="{$registerLink}"><xsl:value-of select="$registerEntry"/></a>
+                        </xsl:when>
+                        <!-- #### Registereintrag als Text -->
+                        <xsl:otherwise>
+                            <xsl:value-of select="$registerEntry"/>
+                        </xsl:otherwise>
+                    </xsl:choose>            
+                    
+                </xsl:for-each>
+            </xsl:otherwise>
+        </xsl:choose>
         
     </xsl:function>
     
@@ -431,7 +456,8 @@
                             .//tei:gap[not(ancestor::tei:del)] |
                             .//tei:metamark |
                             .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                            .//tei:subst"/>
+                            .//tei:subst |
+                            .//tei:supplied[@cert='low']"/>
                     </xsl:when>
                     <!-- ### Sachanmerkungen als Endnoten -->
                     <xsl:otherwise>
@@ -445,7 +471,7 @@
                             .//tei:bibl[ancestor-or-self::tei:body] |
                             .//tei:item[ancestor-or-self::tei:body and @xml:id] |
                             .//tei:rs[ancestor-or-self::tei:body] | 
-                            .//tei:ref[ancestor-or-self::tei:body][@target]">
+                            .//tei:ref[ancestor-or-self::tei:body][not(ancestor-or-self::tei:note)][@target]">
                         </xsl:apply-templates>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -467,7 +493,7 @@
                          tei:bibl[ancestor-or-self::tei:body] |
                          tei:item[ancestor-or-self::tei:body and @xml:id] |
                          tei:rs[ancestor-or-self::tei:body] |
-                         tei:ref[ancestor-or-self::tei:body][@target]">
+                         tei:ref[ancestor-or-self::tei:body][not(ancestor-or-self::tei:note)][@target]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
         
@@ -481,7 +507,7 @@
                                                        tei:bibl[ancestor-or-self::tei:body] |
                                                        tei:item[ancestor-or-self::tei:body and @xml:id] |
                                                        tei:rs[ancestor-or-self::tei:body] |
-                                                       tei:ref[ancestor-or-self::tei:body][@target]"/>
+                                                       tei:ref[ancestor-or-self::tei:body][not(ancestor-or-self::tei:note)][@target]"/>
         </xsl:variable>
         
         <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
@@ -540,7 +566,7 @@
                                             tei:bibl[ancestor-or-self::tei:body] |
                                             tei:item[ancestor-or-self::tei:body and @xml:id] |
                                             tei:rs[ancestor-or-self::tei:body] |
-                                            tei:ref[ancestor-or-self::tei:body][@target]">
+                                            tei:ref[ancestor-or-self::tei:body][not(ancestor-or-self::tei:note)][@target]">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
         
@@ -554,7 +580,7 @@
                                                        tei:bibl[ancestor-or-self::tei:body] |
                                                        tei:item[ancestor-or-self::tei:body and @xml:id] |
                                                        tei:rs[ancestor-or-self::tei:body] |
-                                                       tei:ref[ancestor-or-self::tei:body][@target]"/>
+                                                       tei:ref[ancestor-or-self::tei:body][not(ancestor-or-self::tei:note)][@target]"/>
         </xsl:variable>
         
         <li>
@@ -591,7 +617,8 @@
                          tei:gap |
                          tei:metamark |
                          tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                         tei:subst">
+                         tei:subst |
+                         tei:supplied[@cert='low']">
         
         <xsl:param name="placeOfNotes" tunnel="yes"/>
         
@@ -602,7 +629,8 @@
                                                        tei:gap[not(ancestor::tei:del)] |
                                                        tei:metamark |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                                       tei:subst"/>
+                                                       tei:subst |
+                                                       tei:supplied[@cert='low']"/>
         </xsl:variable>
 
         <!-- ### Hier Inhalte, die im Fließtext bleiben. -->
@@ -704,6 +732,15 @@
                     </span>
                 </xsl:if>
             </xsl:when>
+            <!-- #### Fehlendes Wort oder Satzzeichen (geringe Wahrscheinlichkeit) -->
+            <xsl:when test="self::tei:supplied[@cert='low']">
+                <span class="supplied">[<xsl:apply-templates mode="#current"/>]</span>
+                <xsl:if test="$placeOfNotes eq 'end'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_supplied(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
         </xsl:choose>
 
         <!-- ### Endnotenreferenzen Fließtext -->
@@ -726,7 +763,8 @@
                                             tei:gap[not(ancestor::tei:del)] |
                                             tei:metamark |
                                             tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                            tei:subst">
+                                            tei:subst |
+                                            tei:supplied[@cert='low']">
         
         <xsl:variable name="criticalAppCounter">
             <xsl:number level="any" format="aa" count="tei:add[not(ancestor::tei:subst)] |
@@ -735,7 +773,8 @@
                                                        tei:gap[not(ancestor::tei:del)] |
                                                        tei:metamark |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
-                                                       tei:subst"/>
+                                                       tei:subst |
+                                                       tei:supplied[@cert='low']"/>
         </xsl:variable>
         
         <li>
@@ -771,6 +810,10 @@
                 <!-- #### Zeitgenössische Korrekturen -->
                 <xsl:when test="self::tei:subst">
                     <xsl:copy-of select="telota:ediarum_noteContent_subst(.)"/>
+                </xsl:when>
+                <!-- #### Fehlendes Wort oder Satzzeichen (geringe Wahrscheinlichkeit) -->
+                <xsl:when test="self::tei:supplied[@cert='low']">
+                    <xsl:copy-of select="telota:ediarum_noteContent_supplied(.)"/>
                 </xsl:when>
             </xsl:choose>
         </li>

@@ -272,7 +272,7 @@
     <!-- # Textberarbeitungen durch Herausgeber -->
     
     <!-- ## fehlendes Wort -->
-    <xsl:template mode="#all" match="tei:supplied">
+    <xsl:template mode="#all" match="tei:supplied[not(@cert='low')]">
         <span class="supplied">[<xsl:apply-templates mode="#current"/>]</span>
     </xsl:template>
 

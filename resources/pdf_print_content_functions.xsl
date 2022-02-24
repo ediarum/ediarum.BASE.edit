@@ -73,7 +73,10 @@
             <xsl:attribute name="href">
                 <xsl:text>#criticalApp_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
             </xsl:attribute>
-            <xsl:value-of select="$criticalAppCounter"/>
+            <span class="endnote">
+                <xsl:value-of select="$criticalAppCounter"/>
+                <xsl:text>)</xsl:text>
+            </span>
         </span>
         <xsl:text> </xsl:text>
     </xsl:function>
@@ -390,5 +393,14 @@
         <span class="angleBracket">&#x232A;</span>
         
     </xsl:function>
+    
+    <!-- ## ediarum_noteContent_supplied - Ausgabe Fußnoten eines fehlenden Wortes oder Satzzeichens (nur bei geringer Wahrscheinlichkeit) (tei:supplied[@cert='low']) -->
+    <xsl:function name="telota:ediarum_noteContent_supplied">
+        <xsl:param name="node"/>
+        
+        <span class="supplied"><xsl:text>wohl ergänzt</xsl:text></span>
+        
+    </xsl:function>
         
 </xsl:stylesheet>
+
