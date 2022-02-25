@@ -458,12 +458,8 @@
     
     <!-- ############################ -->
     <!-- ##### Einführungstexte ##### -->
-    
-    <xsl:template match="tei:div[ancestor::tei:TEI[@telota:doctype='introduction']]">
-        <xsl:apply-templates mode="intro"/>
-    </xsl:template>
-    
-    <xsl:template mode="intro" match="tei:head">
+        
+    <xsl:template match="tei:head">
 
         <xsl:variable name="preDivs">
             <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
@@ -501,20 +497,46 @@
                 </h6>
             </xsl:when>
             <xsl:otherwise>
-                <p style="color: red;">
+                <p class="minorHeading">
                     <xsl:apply-templates mode="#current"/>
                 </p>
             </xsl:otherwise>
         </xsl:choose>
         
     </xsl:template>
-
+    
+    <!-- NOCHMAL ÜBERPRÜFEN -->
+    <!-- Anmerkungen zum tei:author -->
+    <!--<xsl:template match="tei:author/tei:note">
+        <span class="authorNote">
+            <xsl:apply-templates mode="#current"/>
+        </span>
+    </xsl:template>-->
+    
+    <!-- Paragraphen nummerieren -->        
+    <!--<xsl:template name="paragraphNumber">
+        <xsl:variable name="nr">
+            <xsl:value-of select="count(preceding::tei:p[ancestor::tei:text and not(parent::tei:note)]) + 1"/>
+        </xsl:variable>
+        <span class="paragraphNumber" title="Absatznummer">
+            <a name="{./@n}">
+                <xsl:value-of select="$nr"/>
+            </a>
+        </span>
+    </xsl:template>-->
 
     
-    <!-- TODO: Hinweis in kritischem Apparat -->
+    <!-- ^^FERTIG MARKER^^ -->
+    
+
+    
+    
+    <!-- INTRO ALT => Kann weg? -->
+    <!--
+    <!-/- TODO: Hinweis in kritischem Apparat -/->
     <xsl:template mode="intro" match="tei:p[.//tei:note[not(ancestor::tei:quote)]/@place='foot']">
         <p>
-            <!--<xsl:call-template name="paragraphNumber"/>-->
+            <!-/-<xsl:call-template name="paragraphNumber"/>-/->
             <xsl:apply-templates mode="#current"/>
             <span class="footnoteContainer">
                 <xsl:apply-templates select=".//tei:note[not(ancestor::tei:quote)]" mode="footnote"/>
@@ -535,9 +557,6 @@
     <xsl:template mode="intro" match="tei:p[parent::tei:note/@place='foot']">
         <xsl:apply-templates mode="intro"/>
     </xsl:template>
-    <xsl:template mode="intro" match="tei:author/tei:note">
-        <xsl:apply-templates mode="#current"/>
-    </xsl:template>
     <xsl:template name="endnotes">
         <div id="endnotes">
             <h3>Anmerkungen</h3>
@@ -553,33 +572,7 @@
             </ul>
         </div>
     </xsl:template>
-    <xsl:template mode="intro" match="tei:quote">
-        <p class="{@type}">
-            <xsl:apply-templates mode="#current"/>
-            <xsl:if test=".//tei:note">
-                <span class="footnoteContainer">
-                    <xsl:apply-templates select=".//tei:note" mode="footnote"/>
-                </span>
-            </xsl:if>
-        </p>
-    </xsl:template>
-    
-    <!-- ^^FERTIG MARKER^^ -->
-    
-    
-    
-    
-    <!-- Braucht man das noch? War bei Intro-p eingebunden (call über apply) -->        
-    <!--<xsl:template name="paragraphNumber">
-        <xsl:variable name="nr">
-            <xsl:value-of select="count(preceding::tei:p[ancestor::tei:text and not(parent::tei:note)]) + 1"/>
-        </xsl:variable>
-        <span class="paragraphNumber" title="Absatznummer">
-            <a name="{./@n}">
-                <xsl:value-of select="$nr"/>
-            </a>
-        </span>
-    </xsl:template>-->
+    -->
     
     
 </xsl:stylesheet>

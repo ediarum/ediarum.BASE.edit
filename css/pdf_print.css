@@ -291,11 +291,11 @@ div.abstract p {
 /* ## Listen ediarum.INTRO*/
 
 .blockQuote{
-    margin-left:5em;
+    margin-left: 5em;
 }
 
 .introQuote{
-    margin-left:1.5em;
+    margin-left: 1.5em;
 }
 
 /* ## ediarum.INTRO head */
@@ -316,6 +316,11 @@ div h5 {
 }
 div h6 {
     font-size: 110%;
+}
+
+.minorHeading {
+    /* head-Elemente unter der 6. Ebene */
+    font-weight: bold;
 }
 
 
