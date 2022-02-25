@@ -108,7 +108,7 @@
             <xsl:apply-templates mode="#current"/>
         </p>
     </xsl:template>
-    
+        
     <!-- ## Anfang und Abschluss -->
     <xsl:template mode="#all" match="tei:address">
         <p class="address">
@@ -464,29 +464,41 @@
     </xsl:template>
     
     <xsl:template mode="intro" match="tei:head">
-        <xsl:variable name="headid">
-            <xsl:value-of select="count(preceding::tei:head)+1"/>
+
+        <xsl:variable name="preDivs">
+            <xsl:value-of select="count(ancestor-or-self::tei:div)"/>
         </xsl:variable>
+        
         <xsl:choose>
-            <xsl:when test="@type='h1'">
-                <h1 id="section{$headid}">
+            <xsl:when test="@type='h1' or $preDivs='1'">
+                <h1>
                     <xsl:apply-templates mode="#current"/>
                 </h1>
             </xsl:when>
-            <xsl:when test="@type='h2'">
-                <h2 id="section{$headid}">
+            <xsl:when test="@type='h2' or $preDivs='2'">
+                <h2>
                     <xsl:apply-templates mode="#current"/>
                 </h2>
             </xsl:when>
-            <xsl:when test="@type='h3'">
-                <h3 id="section{$headid}">
+            <xsl:when test="@type='h3' or $preDivs='3'">
+                <h3>
                     <xsl:apply-templates mode="#current"/>
                 </h3>
             </xsl:when>
-            <xsl:when test="@type='h4'">
-                <h4 id="section{$headid}">
+            <xsl:when test="@type='h4' or $preDivs='4'">
+                <h4>
                     <xsl:apply-templates mode="#current"/>
                 </h4>
+            </xsl:when>
+            <xsl:when test="@type='h5' or $preDivs='5'">
+                <h5>
+                    <xsl:apply-templates mode="#current"/>
+                </h5>
+            </xsl:when>
+            <xsl:when test="@type='h6' or $preDivs='6'">
+                <h6>
+                    <xsl:apply-templates mode="#current"/>
+                </h6>
             </xsl:when>
             <xsl:otherwise>
                 <p style="color: red;">
@@ -494,12 +506,9 @@
                 </p>
             </xsl:otherwise>
         </xsl:choose>
+        
     </xsl:template>
-    <xsl:template mode="intro" match="tei:p">
-        <p>
-            <xsl:apply-templates mode="#current"/>
-        </p>
-    </xsl:template>
+
 
     
     <!-- TODO: Hinweis in kritischem Apparat -->
@@ -573,24 +582,5 @@
     </xsl:template>-->
     
     
-    <!-- Kann das weg? -->
-    <!--<xsl:param name="id"/>
-    <xsl:param name="filename"/>
-    <xsl:param name="print"/>
-    <xsl:param name="cacheLetterIndex"/>
-    <xsl:function name="telota:labels">
-        <xsl:param name="string"/>
-        <xsl:param name="quantity"/>
-        <xsl:variable name="cleanedString">
-            <xsl:choose>
-                <xsl:when test="matches($string, '#')">
-                    <xsl:value-of select="substring-after($string, '#')"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$string"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-    </xsl:function>-->
-    
 </xsl:stylesheet>
+

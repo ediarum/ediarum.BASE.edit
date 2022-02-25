@@ -366,17 +366,59 @@
         </xsl:choose>
         
     </xsl:function>
-    
-    <!-- ## ediarum_noteContent_reg_bibl - Ausgabe Fußnote eines Werkregistereintrags (tei:bibl) -->
-    <!-- TODO: Anpassen -->
-    <xsl:function name="telota:ediarum_noteContent_reg_bibl">
-        <xsl:param name="node"/>
-        <xsl:param name="p_registerBibls"/>
         
-        <xsl:value-of select="$node"/>
-        <xsl:text> (</xsl:text>
-        <xsl:value-of select="$p_registerBibls"/>
-        <xsl:text>)</xsl:text>
+    <!-- ## ediarum_noteContent_space - Ausgabe Fußnote von Leerräumen (tei:space) -->
+    <xsl:function name="telota:ediarum_noteContent_space">
+        <xsl:param name="node"/>
+        
+        <span class="spaceFootnote">
+            <xsl:choose>
+                <xsl:when test="$node/@dim/data() = 'horizontal'">
+                    <xsl:text>Horizontale </xsl:text>
+                </xsl:when>
+                <xsl:when test="$node/@dim/data() = 'vertical'">
+                    <xsl:text>Vertikale </xsl:text>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+            
+            <xsl:text>Lücke</xsl:text>
+            
+            <xsl:if test="$node[@quantity and @unit]">
+                <xsl:text> von </xsl:text>
+                
+                <xsl:value-of select="$node/@quantity"/>
+                
+                <xsl:choose>
+                    <xsl:when test="$node/@unit/data() = 'chars'">
+                        <xsl:text> Zeichen</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$node/@unit/data() = 'lines'">
+                        <xsl:choose>
+                            <xsl:when test="$node/@quantity/data() = 1">
+                                <xsl:text> Zeile</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text> Zeilen</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:when test="$node/@unit/data() = 'words'">
+                        <xsl:choose>
+                            <xsl:when test="$node/@quantity/data() = 1">
+                                <xsl:text> Wort</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text> Wörtern</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:if>
+            
+            
+            
+        </span>
         
     </xsl:function>
     

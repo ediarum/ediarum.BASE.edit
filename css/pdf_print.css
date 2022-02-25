@@ -285,7 +285,10 @@ div.abstract p {
     padding-bottom: 0.5em;
 }
 
-/* # Listen ediarum.INTRO*/
+
+/* # ediarum.INTRO */
+
+/* ## Listen ediarum.INTRO*/
 
 .blockQuote{
     margin-left:5em;
@@ -294,6 +297,28 @@ div.abstract p {
 .introQuote{
     margin-left:1.5em;
 }
+
+/* ## ediarum.INTRO head */
+div h1 {
+    font-size: 160%;
+}
+div h2 {
+    font-size: 150%;
+}
+div h3 {
+    font-size: 140%;
+}
+div h4 {
+    font-size: 130%;
+}
+div h5 {
+    font-size: 120%;
+}
+div h6 {
+    font-size: 110%;
+}
+
+
 
 /* # Text */
 
@@ -452,6 +477,11 @@ div.abstract p {
     font-style: normal;
 }
 
+.spaceFootnote {
+    /* Leerraum Fußnote */
+    font-style: italic;
+}
+
 .strophe {
     /* Strophe */
     display: block;
@@ -499,5 +529,4 @@ div.abstract p {
 .endnote {
     font-weight: bold;
 }
-
 

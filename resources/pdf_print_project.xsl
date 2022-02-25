@@ -456,6 +456,7 @@
                             .//tei:gap[not(ancestor::tei:del)] |
                             .//tei:metamark |
                             .//tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                            .//tei:space |
                             .//tei:subst |
                             .//tei:supplied[@cert='low']"/>
                     </xsl:when>
@@ -617,6 +618,7 @@
                          tei:gap |
                          tei:metamark |
                          tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                         tei:space |
                          tei:subst |
                          tei:supplied[@cert='low']">
         
@@ -629,6 +631,7 @@
                                                        tei:gap[not(ancestor::tei:del)] |
                                                        tei:metamark |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                                       tei:space |
                                                        tei:subst |
                                                        tei:supplied[@cert='low']"/>
         </xsl:variable>
@@ -723,6 +726,15 @@
                     </span>
                 </xsl:if>
             </xsl:when>
+            <!-- #### Leerraum -->
+            <xsl:when test="self::tei:space">
+                <xsl:text>| _ |</xsl:text>
+                <xsl:if test="$placeOfNotes eq 'end'">
+                    <span class="footnote">
+                        <xsl:copy-of select="telota:ediarum_noteContent_space(.)"/>
+                    </span>
+                </xsl:if>
+            </xsl:when>
             <!-- #### Zeitgenössische Korrekturen -->
             <xsl:when test="self::tei:subst">
                 <xsl:apply-templates mode="#current" select="./tei:add"/>
@@ -763,6 +775,7 @@
                                             tei:gap[not(ancestor::tei:del)] |
                                             tei:metamark |
                                             tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                            tei:space |
                                             tei:subst |
                                             tei:supplied[@cert='low']">
         
@@ -773,6 +786,7 @@
                                                        tei:gap[not(ancestor::tei:del)] |
                                                        tei:metamark |
                                                        tei:note[ancestor::tei:div][not(@place='foot') and not(ancestor::tei:seg)] |
+                                                       tei:space |
                                                        tei:subst |
                                                        tei:supplied[@cert='low']"/>
         </xsl:variable>
@@ -806,6 +820,10 @@
                 <!-- #### Anmerkung -->
                 <xsl:when test="self::tei:note">
                     <xsl:copy-of select="telota:ediarum_noteContent_note(.)"/>
+                </xsl:when>
+                <!-- #### Leerraum -->
+                <xsl:when test="self::tei:space">
+                    <xsl:copy-of select="telota:ediarum_noteContent_space(.)"/>
                 </xsl:when>
                 <!-- #### Zeitgenössische Korrekturen -->
                 <xsl:when test="self::tei:subst">

@@ -133,7 +133,13 @@
     <!-- # Dokumentenkopf -->        
     <!-- ## Titel des Dokuments -->
     <xsl:template name="ediarum_headerTitle">
-        <h1 class="title"><xsl:value-of select=".//tei:titleStmt/tei:title"/></h1>
+        <h1 class="title">
+            <xsl:if test=".//tei:titleStmt/tei:title/tei:idno">
+                <xsl:value-of select=".//tei:titleStmt/tei:title/tei:idno/text()"/>
+                <xsl:text>. </xsl:text>
+            </xsl:if>
+            <xsl:value-of select=".//tei:titleStmt/tei:title/text()"/>
+        </h1>
     </xsl:template>
     
     <!-- ## Verantwortlichkeiten -->
@@ -315,3 +321,4 @@
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
+
