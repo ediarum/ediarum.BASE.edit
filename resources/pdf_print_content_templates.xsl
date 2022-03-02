@@ -14,7 +14,8 @@
 
     <xsl:include href="pdf_print_content_functions.xsl"/>
 
-    
+    <!-- # Parameter und globale Variablen -->
+    <xsl:param name="p_numberParagraphs"/>
     
 
 

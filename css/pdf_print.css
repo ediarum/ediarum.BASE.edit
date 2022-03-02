@@ -450,6 +450,11 @@ div h6 {
     font-style: italic;
 }
 
+.paragraphNumber {
+    /* Nummerierung Paragraphen */
+    font-style: italic;
+}
+
 .pb {
     /* Seitenumbruch */
     
