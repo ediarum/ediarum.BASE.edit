@@ -22,6 +22,7 @@
 
     <!-- # Parameter und globale Variablen -->
     <xsl:param name="p_showWritingSession"/>
+    <xsl:param name="p_numberParagraphs"/>
     
     
     

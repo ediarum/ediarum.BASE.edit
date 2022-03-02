@@ -13,12 +13,11 @@
     
 
     <xsl:include href="pdf_print_content_functions.xsl"/>
-    
-    <!-- ## Nummerierte Paragraphen - Erhält einen bool-Wert, ob die Paragraphen durchnummeriert werden sollen. -->
-    <xsl:param name="p_numberParagraphs" select="true()"/>
+
     
     
-    
+
+
     <!-- ####################################### -->
     <!-- ### Content - Template-Definitionen ### -->
     <!-- ####################################### -->
