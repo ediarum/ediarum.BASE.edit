@@ -96,6 +96,9 @@
     <!-- ## Einstellung Fußnoten: p_notesAsFootnotes - Erhält einen bool-Wert, ob Sachanmerkungen als Fußnoten (true) oder Endnoten (false) dargestellt werden. -->
     <xsl:param name="p_notesAsFootnotes" select="false()"/>
     
+    <!-- ## Nummerierte Paragraphen - Erhält einen bool-Wert, ob die Paragraphen durchnummeriert werden sollen. -->
+    <xsl:param name="p_numberParagraphs" select="false()"/>
+    
     <!-- ## Fehlernachrichten ausgeben: p_showErrorMessage - Erhält einen bool-Wert, ob Fehlermeldungen in Oxygen ausgegeben werden sollen. -->
     <xsl:param name="p_showErrorMessage" select="false()"/>
     

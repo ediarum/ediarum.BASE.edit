@@ -14,7 +14,8 @@
 
     <xsl:include href="pdf_print_content_functions.xsl"/>
     
-    
+    <!-- ## Nummerierte Paragraphen - Erhält einen bool-Wert, ob die Paragraphen durchnummeriert werden sollen. -->
+    <xsl:param name="p_numberParagraphs" select="true()"/>
     
     
     
@@ -66,14 +67,40 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- ## Abschnittsstrich -->
     <xsl:template mode="#all" match="tei:milestone[@unit='section' and @rendition='#hr']">
         <hr class="section" title="Abschnittsstrich durch Autor gesetzt"/>
     </xsl:template>
-    
-    <xsl:template mode="#all" match="tei:p">
-        <p>
+        
+    <!-- ## Paragraphen -->
+    <xsl:template match="tei:p">
+        <xsl:element name="p">
+            <!-- ### Vergabe von Klassen -->
+            <xsl:choose>
+                <!-- #### Anstrichung am Rand -->
+                <xsl:when test=".[@rendition='#mMM']">
+                    <xsl:attribute name="class">marginLine</xsl:attribute>
+                </xsl:when>
+                <!-- #### Einrückungen -->
+                <xsl:when test=".[@rendition='#et']">                
+                    <xsl:attribute name="class">indentation</xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            <!-- ### Paragraphen nummerieren -->
+            <xsl:if test="$p_numberParagraphs = true()">
+                <xsl:if test=".[ancestor::tei:text and not(parent::tei:note)]">
+                    <xsl:variable name="nr">
+                        <xsl:value-of select="count(preceding::tei:p[ancestor::tei:text and not(parent::tei:note)]) + count(ancestor::tei:p[ancestor::tei:text and not(parent::tei:note)]) + 1"/>
+                    </xsl:variable>
+                    <span class="paragraphNumber">
+                        <xsl:text>[</xsl:text>
+                        <xsl:value-of select="$nr"/>
+                        <xsl:text>] </xsl:text>
+                    </span>
+                </xsl:if>
+            </xsl:if>
             <xsl:apply-templates mode="#current"/>
-        </p>
+        </xsl:element>
     </xsl:template>
     
     <!-- ## Seitenwechsel -->
@@ -101,14 +128,7 @@
             </span>            
         </span>
     </xsl:template>
-    
-    <!-- ## Einrückungen -->
-    <xsl:template mode="#all" match="tei:p[@rendition='#et']">
-        <p class="indentation">
-            <xsl:apply-templates mode="#current"/>
-        </p>
-    </xsl:template>
-        
+            
     <!-- ## Anfang und Abschluss -->
     <xsl:template mode="#all" match="tei:address">
         <p class="address">
@@ -405,11 +425,6 @@
             <xsl:apply-templates mode="#current"/>
         </span>
     </xsl:template>
-    <xsl:template match="tei:p[@rendition='#mMM']" mode="#all">
-        <p class="marginLine">
-            <xsl:apply-templates mode="#current"/>
-        </p>
-    </xsl:template>
     <xsl:template match="tei:hi[@rendition='#c']" mode="#all">        
         <span class="center">
             <xsl:apply-templates mode="#current"/>
@@ -506,24 +521,8 @@
     </xsl:template>
     
     <!-- NOCHMAL ÜBERPRÜFEN -->
-    <!-- Anmerkungen zum tei:author -->
-    <!--<xsl:template match="tei:author/tei:note">
-        <span class="authorNote">
-            <xsl:apply-templates mode="#current"/>
-        </span>
-    </xsl:template>-->
     
-    <!-- Paragraphen nummerieren -->        
-    <!--<xsl:template name="paragraphNumber">
-        <xsl:variable name="nr">
-            <xsl:value-of select="count(preceding::tei:p[ancestor::tei:text and not(parent::tei:note)]) + 1"/>
-        </xsl:variable>
-        <span class="paragraphNumber" title="Absatznummer">
-            <a name="{./@n}">
-                <xsl:value-of select="$nr"/>
-            </a>
-        </span>
-    </xsl:template>-->
+
 
     
     <!-- ^^FERTIG MARKER^^ -->

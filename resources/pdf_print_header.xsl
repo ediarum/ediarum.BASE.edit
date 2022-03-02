@@ -143,12 +143,31 @@
     </xsl:template>
     
     <!-- ## Verantwortlichkeiten -->
+    <xsl:template name="ediarum_headerAuthor">
+        <xsl:for-each select=".//tei:titleStmt/tei:author">
+            <span class="author">
+                <xsl:value-of select=".//tei:surname"/>
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select=".//tei:forename"/>
+                <xsl:if test="./tei:note">
+                    <span class="authorEditorNote">
+                        <xsl:apply-templates select="./tei:note"/>
+                    </span>
+                </xsl:if>
+            </span>
+        </xsl:for-each>
+    </xsl:template>
     <xsl:template name="ediarum_headerEditor">
         <xsl:for-each select=".//tei:titleStmt/tei:editor">
             <span class="editor">
                 <xsl:value-of select=".//tei:surname"/>
                 <xsl:text>, </xsl:text>
                 <xsl:value-of select=".//tei:forename"/>
+                <xsl:if test="./tei:note">
+                    <span class="authorEditorNote">
+                        <xsl:apply-templates select="./tei:note"/>
+                    </span>
+                </xsl:if>
             </span>
         </xsl:for-each>
     </xsl:template>
