@@ -54,18 +54,22 @@
         
     </xsl:function>
     
+    
     <!-- # Funktionen Fußnoten/Kritischer Apparat -->
     <!-- ## createFootnote - Nimmt Node als Parameter, gibt diese Node in footnote-Class (für Print CSS) zurück. -->
     <xsl:function name="telota:createFootnote">
         <xsl:param name="node"/>
+        
         <span class="footnote">
             <xsl:apply-templates select="$node"/>
         </span>
+        
     </xsl:function>
     
     <!-- ## endnoteAtEnd - Referenzzeichen (Buchstabe; aus Parameter criticalAppCounter) in den Endnoten -->
     <xsl:function name="telota:endnoteAtEnd">
         <xsl:param name="criticalAppCounter"/>
+        
         <span>
             <xsl:attribute name="name">
                 <xsl:text>criticalAppRef_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
@@ -79,11 +83,13 @@
             </span>
         </span>
         <xsl:text> </xsl:text>
+        
     </xsl:function>
     
     <!-- ## endnoteInText - Im Fließtext hochgestelltes Referenzzeichen (Buchstabe; aus Parameter criticalAppCounter) auf Endnote. -->
     <xsl:function name="telota:endnoteInText">
         <xsl:param name="criticalAppCounter"/>
+        
         <span>
             <xsl:attribute name="name">
                 <xsl:text>criticalAppRef_</xsl:text><xsl:value-of select="$criticalAppCounter"/>
@@ -93,6 +99,7 @@
             </xsl:attribute>
             <span class="sup"><xsl:value-of select="$criticalAppCounter"/><xsl:text> </xsl:text></span>
         </span>
+        
     </xsl:function>
     
     
@@ -415,9 +422,6 @@
                     </xsl:when>
                 </xsl:choose>
             </xsl:if>
-            
-            
-            
         </span>
         
     </xsl:function>

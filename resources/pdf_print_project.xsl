@@ -234,37 +234,37 @@
         <!-- ## Zuweisung der Verweise, Beschreibungen und Datenquellen pro Register. -->
         <xsl:variable name="registerMapWeb">
             <register>
-                <!-- Person -->
+                <!-- ### Person -->
                 <pers>
                     <dir>/personen/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_persons"/></data>
                 </pers>
-                <!-- Ort -->
+                <!-- ### Ort -->
                 <place>
                     <dir>/orte/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_places"/></data>
                 </place>
-                <!-- Institution -->
+                <!-- ### Institution -->
                 <org>
                     <dir>/institutionen/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_organizations"/></data>
                 </org>
-                <!-- Werk -->
+                <!-- ### Werk -->
                 <bibl>
                     <dir>/werke/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_bibl"/></data>
                 </bibl>
-                <!-- Zotero -->
+                <!-- ### Zotero -->
                 <biblZotero>
                     <dir>/werke/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_bibl_zotero"/></data>
                 </biblZotero>
-                <!-- Sachregister -->
+                <!-- ### Sachregister -->
                 <item>
                     <dir>/items/detail.xql</dir>
                     <data><xsl:value-of select="$p_index_items"/></data>
                 </item>
-                <!-- Verweis -->
+                <!-- ### Verweis -->
                 <ref>
                     <dir>/index.xql</dir>
                     <data><xsl:value-of select="$p_index_letters"/></data>
@@ -450,7 +450,7 @@
             <ul class="criticalApp">
                 
                 <xsl:choose>
-                    <!-- ### Bearbeitungsanmerkungen als Endnoten -->
+                    <!-- ## Bearbeitungsanmerkungen als Endnoten -->
                     <xsl:when test="$placeOfNotes = 'foot'">
                         <xsl:apply-templates mode="criticalApp" select="
                             .//tei:add[not(ancestor::tei:subst)] |
@@ -463,7 +463,7 @@
                             .//tei:subst |
                             .//tei:supplied[@cert='low']"/>
                     </xsl:when>
-                    <!-- ### Sachanmerkungen als Endnoten -->
+                    <!-- ## Sachanmerkungen als Endnoten -->
                     <xsl:otherwise>
                         <xsl:apply-templates mode="criticalApp" select="
                             .//tei:anchor[ancestor-or-self::tei:body][@type='index'] |

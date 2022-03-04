@@ -44,6 +44,7 @@
         </p>        
     </xsl:function>
     
+    
     <!-- # getDate - Nimmt ein Datum entgegen und gibt je nach Attribut die richtige Beschreibung zurück. -->
     <xsl:function name="telota:getDate">
         <xsl:param name="date"/>
@@ -85,6 +86,7 @@
         </xsl:choose>
     </xsl:function>
     
+    
     <!-- # getMsDesc - Nimmt msDesc/@rend entgegen und gibt die aufgelöste Bedeutung zurück. -->
     <xsl:function name="telota:getMsDesc">
         <xsl:param name="msDesc"/>
@@ -103,6 +105,7 @@
         </xsl:variable>
         <xsl:sequence select="$msDescType, $msDescIdent"/>
     </xsl:function>
+    
     
     <!-- # getPerson - Nimmt ein persName-Element entgegen und formatiert, falls vorhanden, nach "Nachnache, Vorname". -->
     <xsl:function name="telota:getPerson">
@@ -227,6 +230,7 @@
         </p>
     </xsl:template>
     
+    
     <!-- # Metadaten zum Inhalt -->
     <!-- ## Angaben zur Korrespondenz (Brief) -->
     <xsl:template name="ediarum_headerCorresp">
@@ -301,6 +305,7 @@
         </p>
     </xsl:template>
     
+    
     <!-- # Bearbeitungsstatus und Änderungen -->
     <xsl:template name="ediarum_headerRevisionDesc">
         <xsl:if test=".//tei:revisionDesc/tei:listChange/tei:change">
@@ -319,6 +324,7 @@
         </xsl:if>
     </xsl:template>
     
+    
     <!-- # Faksimiles -->
     <xsl:template name="ediarum_facsimile">
         <xsl:if test=".//tei:facsimile">
@@ -329,6 +335,8 @@
         </xsl:if>
     </xsl:template>
     
+    
+    <!-- # Angaben zu Autorinnen und Autoren im Header -->
     <xsl:template name="ediarumIntro_author">
         <xsl:if test=".//tei:titleStmt/tei:author[ancestor::tei:TEI[@telota:doctype='introduction']]">
             <xsl:for-each select=".//tei:titleStmt/tei:author">
@@ -339,5 +347,6 @@
             </xsl:for-each>
         </xsl:if>
     </xsl:template>
+    
 </xsl:stylesheet>
 

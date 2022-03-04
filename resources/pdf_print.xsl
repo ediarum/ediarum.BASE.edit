@@ -53,26 +53,26 @@
         <header>
             <xsl:call-template name="ediarum_headerTitle"/>
             <div class="headerInfo">
-                <!-- ## ediarum.INTRO Autor*in -->
+                <!-- ### ediarum.INTRO Autor*in -->
                 <xsl:call-template name="ediarumIntro_author"/>
             </div>
             <div class="headerInfo">
-                <!-- ## Informationen zum Vorhaben -->
+                <!-- ### Informationen zum Vorhaben -->
                 <xsl:call-template name="ediarum_headerEditor"/>
                 <xsl:call-template name="ediarum_headerResp"/>
                 <xsl:call-template name="ediarum_headerEditionStmt"/>
                 <xsl:call-template name="ediarum_headerPublicationStmt"/>
             </div>
             <div class="headerInfo">
-                <!-- ## Hinweise (noteStmt) -->
+                <!-- ### Hinweise (noteStmt) -->
                 <xsl:call-template name="ediarum_headerNote"/>
             </div>
             <div class="headerInfo">
-                <!-- ## Informationen zur Herkunft -->
+                <!-- ### Informationen zur Herkunft -->
                 <xsl:call-template name="ediarum_headerMsDesc"/>
             </div>
             <div class="contentInfo">
-                <!-- ## Informationen zu Absender/Empfänger, Ort, Datum -->
+                <!-- ### Informationen zu Absender/Empfänger, Ort, Datum -->
                 <xsl:choose>
                     <xsl:when test=".//tei:profileDesc/tei:correspDesc">
                         <xsl:call-template name="ediarum_headerCorresp"/>
@@ -85,11 +85,11 @@
                 <xsl:call-template name="ediarum_headerKeywords"/>
             </div>
             <div class="revisionInfo">
-                <!-- ## Informationen zum Bearbeitungsstatus und Änderungen -->
+                <!-- ### Informationen zum Bearbeitungsstatus und Änderungen -->
                 <xsl:call-template name="ediarum_headerRevisionDesc"/>
             </div>
             <div class="facsimileInfo">
-                <!-- ## Zugehörige Faksimiles -->
+                <!-- ### Zugehörige Faksimiles -->
                 <xsl:call-template name="ediarum_facsimile"/>
             </div>
             <hr/>
@@ -102,7 +102,7 @@
         <xsl:param name="placeOfNotes"/>
         
             <div>
-                <!-- ## Klasse des Inhalts-Div -->
+                <!-- ### Klasse des Inhalts-Div -->
                 <xsl:attribute name="class">
                     <xsl:choose>
                         <xsl:when test=".//tei:text/@type">
@@ -114,21 +114,21 @@
                     </xsl:choose>
                 </xsl:attribute>
                 
-                <!-- ## Opener kann außerhalb von div stehen. -->
+                <!-- ### Opener kann außerhalb von div stehen. -->
                 <xsl:apply-templates select=".//tei:body/tei:opener">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
                 </xsl:apply-templates>
                 
-                <!-- ## Inhalt über jedes div aufrufen, ggf. Schreibakte -->
+                <!-- ### Inhalt über jedes div aufrufen, ggf. Schreibakte -->
                 <xsl:for-each select=".//tei:text/tei:body/tei:div">
                     <div class="textDiv">
                         
-                        <!-- ### Ggf. Schreibakt (oder anderen Typ) ausgeben. -->
+                        <!-- #### Ggf. Schreibakt (oder anderen Typ) ausgeben. -->
                         <xsl:if test="$p_showWritingSession = true()">
                             <xsl:call-template name="ediarum_contentWritingSession"/>
                         </xsl:if>
                         
-                        <!-- ### Templates ausführen -->
+                        <!-- #### Templates ausführen -->
                         <xsl:apply-templates select=".">
                             <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
                         </xsl:apply-templates>
@@ -136,12 +136,12 @@
                     </div>
                 </xsl:for-each>
                 
-                <!-- ## Closer kann außerhalb von div stehen. -->
+                <!-- ### Closer kann außerhalb von div stehen. -->
                 <xsl:apply-templates select=".//tei:body/tei:closer">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
                 </xsl:apply-templates>
                 
-                <!-- ## Postscript kann außerhalb von div stehen -->
+                <!-- ### Postscript kann außerhalb von div stehen -->
                 <xsl:apply-templates select=".//tei:body/tei:postscript">
                     <xsl:with-param name="placeOfNotes" tunnel="yes" select="$placeOfNotes"/>
                 </xsl:apply-templates>

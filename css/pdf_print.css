@@ -1,16 +1,19 @@
 
-/* pdf_print.css - XXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx */
+/* pdf_print.css - Layout für das zu erstellende PDF. Sowohl Style als auch layouttechnische Einstellungen. */
 
 
-/* Print */
-html{
+/* ############## */
+/* ### Layout ### */
+/* ############## */
+
+/* # Print */
+html {
     counter-reset:page;
 }
 
 body {
  hyphens: auto;
 }
-
 
 @page {
     size: A4;
@@ -21,121 +24,74 @@ body {
         content: leader(solid);
         color:black;
         margin:15px;
-        /*border-top:solid black thin; leider keinerlei Auswirkung*/
-        /*float: bottom;*/
-        }
-    /*@top-center{
-        content: "Created: " oxy_xpath("//head/title/text()")
-        oxy_xpath("./body/div[@class='minute']/h2/text()");
-        }*/
+    }
     @top-left{
         content : string(minute_title);
         font-style:italic;
         font-size:75%;
     }
     @bottom-left {
-    content: counter(page);
-    font-size:90%;
-  }
-    
+        content: counter(page);
+        font-size:90%;
+    }
 }
 
-/* running header */
 
+/* @NA ? */
+/* ## running header */
 .heading{
     string-set: minute_title content();
     display:none;
 }
 
-/* nach jedem Protokoll soll ein Seitenumbruch eingefügt werden */
-div[class='minute']{
-    page-break-after: always;
-    counter-reset:footnote 1;
-    text-align:justify;
-}
 
+/* ## Seitenumbrüche */
 /* direkte Seitenumbrüche hinter Überschriften und diesen Klassen (Dokumentenkopf) sollen vermieden werden */
 h1, h2, h3, h4, h5,
-.more_info,
-.time,
-.agenda 
 .criticalAppNextPage,
 .criticalAppNextPage hr {
   page-break-after: avoid;
 }
 
 
-/* Fußnoten */
-
-
-/* This element is for a single footnote body */
+/* ## Fußnoten */
+/* ### This element is for a single footnote body */
 .footnote { 
     float:footnote;
     counter-increment:footnote;/* Auswirkung auf mehrere Dateien? */
     text-align: justify;
-    /*display:block;*/
     hyphens: auto;
     font-size:95%;
 }
 
-/* As the name says this is the footnote call */
+/* ### As the name says this is the footnote call */
 .footnote::footnote-call {
     content: counter(footnote);
     vertical-align:super;
     font-size:0.8em;
 }
 
-/* And the footnote marker */
+/* ### And the footnote marker */
 .footnote::footnote-marker {
     content: counter(footnote, decimal);
     font-size: 80%;
 }
 
-/* ### Agenda */
 
-.agenda,
-.doc_head{
-    font-style:italic;
+/* ## Endnoten */
+.criticalApp {
+    /* Kritischer Apparat */
+    list-style-type: none;
 }
 
-.agenda_item_label{
-    vertical-align:top;
-    padding-bottom: 0.75em;
+.endnote {
+    /* Endnoten im kritischen Apparat */
+    font-weight: bold;
 }
 
-.agenda_item{
-    padding-bottom: 0.75em;
-}
 
-/* ### TOP */
 
-/* F+r Testzwecke */
-/*.top{
-    background-color:pink
-}
-
-.top_added{
-    background-color:green;
-}*/
-
-.top_added h2.added:before{
-    content: "["
-}
-
-.top_added p:last-of-type:after{
-    content: "]"
-}
-
-.ressort{
-    text-align:right;
-    font-size:1em;
-    font-weight:bold;
-}
-
-.time{
-    text-align: right
-}
-
+/* @NA ? */
 /* Umlaufverfahren */
 
 div[class='circulation_procedure'] p:first-child:before{
@@ -151,76 +107,7 @@ div[class='circulation_procedure'] li:last-child:after{
     background-color:yellow;
 }*/
 
-
-
-/* Tabellen */
-
-table {
-    display: table;
-    width:100%;
-    hyphens: auto;
-    border: 1px solid white;
-    border-collapse: collapse;
-    max-width: 160mm;
-}
-
-tr {
-    display: table-row;
-}
-
-td {
-    display: table-cell;
-}
-
-table.table,
-table.table tr,
-table.table td{
-    hyphens: auto;
-}
-
-table.table td:first-of-type{
-    padding: 0 0 0.5em 0;
-    text-align: left;
-}
-
-table.table td{
-    padding: 0 0 0.5em 0.5em;
-    text-align: left;
-}
-
-table.tableDrawn,
-table.tableDrawn th,
-table.tableDrawn td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    max-width: 160mm;
-}
-
-table caption span.tableCaption {
-    display: block;
-    text-align: left;
-    font-style: italic;
-    font-weight: normal;
-}
-
-/* Listen */
-/* funzt noch nicht bei weiteren Listen -> liegt aber wohl am Prozessor */
-ul.list{
-    list-style-type:none;
-}
-
-ul.list li{
-    padding-bottom:0.5em;
-}
-
-ul.list li:before{
-   content: attr(content)" "; 
-}
-
-ul.list li.none{
-    list-style-type:none
-}
-
+/* @NA ? */
 /* geschützes Leerzeichen für Tranchenbesprechung entfernt, evtl. später einbinden */
 /*.non-breaking-space{
     background-color:#e9e9e9;
@@ -228,8 +115,11 @@ ul.list li.none{
 
 
 
-/* ############################################## */
-/* Layout */
+
+
+/* ############### */
+/* ### Styling ### */
+/* ############### */
 
 /* # Allgemein */
 .infoTitle {
@@ -241,7 +131,8 @@ ul.list li.none{
 /* # Header */
 
 header {
-    font-size: 80%;                 /* Header-Angaben etwas kleiner, da sonst sehr umfangreich. */
+    /* Header-Angaben etwas kleiner, da sonst sehr umfangreich. */
+    font-size: 80%;                 
 }
 
 .title {
@@ -349,6 +240,7 @@ div h6 {
 
 .cb {
     /* Spalte */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
     
 }
 
@@ -457,6 +349,7 @@ div h6 {
 
 .pb {
     /* Seitenumbruch */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
     
 }
 
@@ -531,12 +424,72 @@ div h6 {
 }
 
 
-/* # Endnotes */
-.criticalApp {
-    list-style-type: none;
+/* ## Listen */
+/* NA: funzt noch nicht bei weiteren Listen -> liegt aber wohl am Prozessor */
+ul.list{
+    list-style-type:none;
 }
 
-.endnote {
-    font-weight: bold;
+ul.list li{
+    padding-bottom:0.5em;
+}
+
+ul.list li:before{
+   content: attr(content)" "; 
+}
+
+ul.list li.none{
+    list-style-type:none
+}
+
+
+/* ## Tabellen */
+
+table {
+    display: table;
+    width:100%;
+    hyphens: auto;
+    border: 1px solid white;
+    border-collapse: collapse;
+    max-width: 160mm;
+}
+
+tr {
+    display: table-row;
+}
+
+td {
+    display: table-cell;
+}
+
+table.table,
+table.table tr,
+table.table td{
+    hyphens: auto;
+}
+
+table.table td:first-of-type{
+    padding: 0 0 0.5em 0;
+    text-align: left;
+}
+
+table.table td{
+    padding: 0 0 0.5em 0.5em;
+    text-align: left;
+}
+
+table.tableDrawn,
+table.tableDrawn th,
+table.tableDrawn td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    max-width: 160mm;
+}
+
+table caption span.tableCaption {
+    display: block;
+    text-align: left;
+    font-style: italic;
+    font-weight: normal;
 }
 

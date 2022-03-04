@@ -33,6 +33,7 @@
     <xsl:template mode="#all" match="tei:index"/>
     
     
+    
     <!-- ############################ -->
     <!-- ##### Strukturelemente ##### -->
     
@@ -227,14 +228,15 @@
             </xsl:when>
             <!-- ### Unsortierte Liste -->
             <xsl:otherwise>
+                
                 <xsl:choose>
-                    <!-- ### ediarum.INTRO, ohne Aufzählzeichen -->
+                    <!-- #### ediarum.INTRO, ohne Aufzählzeichen -->
                     <xsl:when test=".[@rendition='none']">
                         <ul style="list-style-type:none;"><!-- Hinweis: Leider wird der list-style-type über eine Klasse nicht ausgeführt, weswegen die @style-Info hier eingefügt wurde -->
                             <xsl:apply-templates mode="#current"/>
                         </ul>
                     </xsl:when>
-                    <!-- ### Unsortierte Liste (type="bulleted" als default) -->
+                    <!-- #### Unsortierte Liste (type="bulleted" als default) -->
                     <xsl:otherwise>
                         <ul>
                             <xsl:apply-templates mode="#current"/>
@@ -298,6 +300,7 @@
             </table>
         </div>
     </xsl:template>
+    
     <!-- ## Kennzeichnung vorgedruckte Tabelle -->
     <xsl:template mode="#all" match="tei:table[@rendition='#mPrint']">
         <span class="printed">
@@ -320,6 +323,7 @@
         <xsl:apply-templates mode="#current"/>
         <br/>
     </xsl:template>
+    
     
     
     <!-- #################################### -->
@@ -444,8 +448,6 @@
     </xsl:template>
     
     
-    
-    
     <!-- # Weiteres -->
     
     <!-- ## fremdsprachiger Text -->
@@ -463,13 +465,10 @@
     </xsl:template>
     
     
-
-    
     <!-- # Register-Verknüpfung -->
     <!-- Für Verarbeitung aller Registereinträge (persName, placeName, orgName, bibl, item[@xml:id], rs) siehe Fußnoten. -->
     
-
-
+    
     
     <!-- ############################ -->
     <!-- ##### Einführungstexte ##### -->
@@ -519,60 +518,6 @@
         </xsl:choose>
         
     </xsl:template>
-    
-    <!-- NOCHMAL ÜBERPRÜFEN -->
-    
 
-
-    
-    <!-- ^^FERTIG MARKER^^ -->
-    
-
-    
-    
-    <!-- INTRO ALT => Kann weg? -->
-    <!--
-    <!-/- TODO: Hinweis in kritischem Apparat -/->
-    <xsl:template mode="intro" match="tei:p[.//tei:note[not(ancestor::tei:quote)]/@place='foot']">
-        <p>
-            <!-/-<xsl:call-template name="paragraphNumber"/>-/->
-            <xsl:apply-templates mode="#current"/>
-            <span class="footnoteContainer">
-                <xsl:apply-templates select=".//tei:note[not(ancestor::tei:quote)]" mode="footnote"/>
-            </span>
-        </p>
-    </xsl:template>
-    <xsl:template mode="intro" match="tei:note[@place='foot' and matches(@xml:id, 'ftn')]">
-        <span class="number">[<xsl:value-of select="@n"/>]</span>
-    </xsl:template>
-    <xsl:template mode="footnote" match="tei:note">
-        <span class="footnote">
-            <span class="number">[<xsl:value-of select="@n"/>]</span>
-            <span id="{@n}" class="truncate" style="font-style: italic;">
-                <xsl:apply-templates mode="intro"/>
-            </span>
-        </span>
-    </xsl:template>
-    <xsl:template mode="intro" match="tei:p[parent::tei:note/@place='foot']">
-        <xsl:apply-templates mode="intro"/>
-    </xsl:template>
-    <xsl:template name="endnotes">
-        <div id="endnotes">
-            <h3>Anmerkungen</h3>
-            <ul>
-                <xsl:for-each select="//tei:text//tei:note">
-                    <li id="endnote{@n}">
-                        <span class="number">
-                            <a href="#{@n}">[<xsl:value-of select="@n"/>]</a>
-                        </span>
-                        <xsl:apply-templates select="child::node()" mode="intro"/>
-                    </li>
-                </xsl:for-each>
-            </ul>
-        </div>
-    </xsl:template>
-    -->
-    
-    
 </xsl:stylesheet>
 
