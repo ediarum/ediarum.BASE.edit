@@ -15715,11 +15715,6 @@ ediarum.BASE.pdf_css</String>
 										<menuEntry-array>
 											<menuItem>
 												<field name="actionID">
-													<String>printPDF</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
 													<String>@select</String>
 												</field>
 											</menuItem>
@@ -17518,7 +17513,7 @@ ediarum.BASE.pdf_css</String>
 									<Boolean>false</Boolean>
 								</field>
 								<field name="showInXMLPane">
-									<Boolean>true</Boolean>
+									<Boolean>false</Boolean>
 								</field>
 								<field name="showInSVGPane">
 									<Boolean>false</Boolean>
