@@ -13,7 +13,7 @@
     <!-- ### Project - Einbindungen ### -->
     <!-- ############################## -->
     
-    <xsl:import href="pdf_print.xsl"/>
+    <xsl:import href="../../ediarum.BASE.edit/resources/pdf_print.xsl"/>
     
     
     
@@ -168,7 +168,7 @@
             </xsl:choose>
             
             <body>
-                
+                <p class="heading"><xsl:value-of select="./tei:teiHeader//tei:title"/></p>
                 <!-- ## Transformationsstruktur für header -->
                 <xsl:choose>
                     <xsl:when test="$p_structureHeaderDefault = true()">
