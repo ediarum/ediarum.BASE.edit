@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    xmlns:m="http://www.w3.org/1998/Math/MathML"
     xmlns:telota="http://www.telota.de"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     exclude-result-prefixes="#all"
@@ -464,6 +465,13 @@
         </span>
     </xsl:template>
     
+    
+    <!-- MathML-Formeln -->
+    <xsl:template match="m:math">
+        
+        <xsl:copy-of select="."/>
+        
+    </xsl:template>
     
     <!-- # Register-Verknüpfung -->
     <!-- Für Verarbeitung aller Registereinträge (persName, placeName, orgName, bibl, item[@xml:id], rs) siehe Fußnoten. -->
