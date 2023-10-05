@@ -15770,6 +15770,12 @@ ediarum.BASE.pdf_css</String>
 													<String>ediarum_delete_comment</String>
 												</field>
 											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>printPDF</String>
+												</field>
+											</menuItem>
 										</menuEntry-array>
 									</field>
 									<field name="context">
@@ -17498,7 +17504,7 @@ ediarum.BASE.pdf_css</String>
 									<Boolean>false</Boolean>
 								</field>
 								<field name="outputResource">
-									<String>${homeDir}/Downloads/ediarum_pdf.html</String>
+									<String>${framework}/resources/ediarum_pdf.html</String>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
@@ -17609,7 +17615,7 @@ ediarum.BASE.pdf_css</String>
 												<String></String>
 											</field>
 											<field name="value">
-												<String>${homeDir}/Downloads/ediarum_pdf.html</String>
+												<String>${framework}/resources/ediarum_pdf.html</String>
 											</field>
 											<field name="defaultValue">
 												<null/>
