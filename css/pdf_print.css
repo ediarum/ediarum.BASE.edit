@@ -1,0 +1,467 @@
+
+/* pdf_print.css - Layout für das zu erstellende PDF. Sowohl Style als auch layouttechnische Einstellungen. */
+
+
+/* ############## */
+/* ### Layout ### */
+/* ############## */
+
+/* # Print */
+html {
+    counter-reset:page;
+}
+
+body {
+ hyphens: auto;
+}
+
+@page {
+    size: A4;
+    counter-reset: footnote 1;
+    margin-right:50mm;
+    @footnote {
+        /* Add a separator above the footnote */
+        content: leader(solid);
+        color:black;
+        margin:15px;
+    }
+    @top-left{
+        content : string(heading_title);
+        font-style:italic;
+        font-size:65%;
+    }
+    @bottom-left {
+        content: counter(page);
+        font-size:90%;
+    }
+}
+
+
+/* ## Kolumnentitel */
+.heading{
+    string-set: heading_title content();
+    display:none;
+}
+
+
+/* ## Seitenumbrüche */
+/* direkte Seitenumbrüche hinter Überschriften und diesen Klassen (Dokumentenkopf) sollen vermieden werden */
+h1, h2, h3, h4, h5,
+.criticalAppNextPage,
+.criticalAppNextPage hr {
+  page-break-after: avoid;
+}
+
+
+/* ## Fußnoten */
+/* ### This element is for a single footnote body */
+.footnote { 
+    float:footnote;
+    counter-increment:footnote;/* Auswirkung auf mehrere Dateien? */
+    text-align: justify;
+    hyphens: auto;
+    font-size:95%;
+}
+
+/* ### As the name says this is the footnote call */
+.footnote::footnote-call {
+    content: counter(footnote);
+    vertical-align:super;
+    font-size:0.8em;
+}
+
+/* ### And the footnote marker */
+.footnote::footnote-marker {
+    content: counter(footnote, decimal);
+    font-size: 80%;
+}
+
+
+/* ## Endnoten */
+.criticalApp {
+    /* Kritischer Apparat */
+    list-style-type: none;
+}
+
+.endnote {
+    /* Endnoten im kritischen Apparat */
+    font-weight: bold;
+}
+
+
+/* ############### */
+/* ### Styling ### */
+/* ############### */
+
+/* # Allgemein */
+.infoTitle {
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+/* # Header */
+
+header {
+    /* Header-Angaben etwas kleiner, da sonst sehr umfangreich. */
+    font-size: 80%;                 
+}
+
+.title {
+    display: block;
+}
+
+/* ## Header-Abschnitte */
+
+.contentInfo,
+.facsimileInfo,
+.headerInfo,
+.revisionInfo {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-style: italic;
+}
+
+/* ## Header-Absätze */
+
+.abstract,
+.correspContext,
+.creationalData,
+.editor,
+.headerNote,
+.keywords,
+.respStmt,
+.revision {
+    display: block;
+    font-style: italic;
+}
+
+div.abstract p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+/* # Content */
+
+.textDiv {
+    padding-bottom: 0.5em;
+}
+
+
+/* # ediarum.INTRO */
+
+/* ## Listen ediarum.INTRO*/
+
+.blockQuote{
+    margin-left: 5em;
+}
+
+.introQuote{
+    margin-left: 1.5em;
+}
+
+/* ## ediarum.INTRO head */
+div h1 {
+    font-size: 160%;
+}
+div h2 {
+    font-size: 150%;
+}
+div h3 {
+    font-size: 140%;
+}
+div h4 {
+    font-size: 130%;
+}
+div h5 {
+    font-size: 120%;
+}
+div h6 {
+    font-size: 110%;
+}
+
+.minorHeading {
+    /* head-Elemente unter der 6. Ebene */
+    font-weight: bold;
+}
+
+
+
+/* # Text */
+
+.additionLabel {
+    /* Label Hinzufügung */
+    font-style: italic;
+}
+
+.alignLeft {
+    /* Textausrichtung links */
+    text-align: left;
+}
+
+.alignRight {
+    /* Textausrichtung rechts */
+    text-align: right;
+}
+
+.bold {
+    /* fett */
+    font-weight: bold;
+}
+
+.cb {
+    /* Spalte */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
+    
+}
+
+.cbNum {
+    /* Nummerierung bei Spalten */
+    font-size: smaller;
+}
+
+.center {
+    /* zentriert */
+    text-align: center;
+}
+
+.corr {
+    /* Normalisierte Schreibung */
+    font-style: italic;
+}
+
+.dateline {
+    /* Datumsangabe */
+    text-align: right;
+}
+
+.deleted {
+    /* Streichung */
+    font-style: italic;
+}
+
+.deletedGap {
+    /* Unlesbar in Streichung */
+    font-style: italic;
+}
+
+.ex {
+    /* Ergänzung durch Herausgeber */
+    font-style: italic;
+}
+
+.expan {
+    /* Abkürzungsauflösung durch Herausgeber */
+    font-style: italic;
+}
+
+.fraktur {
+    /* Frakturschrift */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
+    
+}
+
+.foreign {
+    /* fremdsprachiger Text */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
+    font-family: Helvetica;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.fw {
+    /* Foliowechsel */
+    font-family: Helvetica;
+    font-size: 0.9em;
+}
+
+.fwNum {
+    /* Seitennummer im Foliowechsel */
+    font-size: smaller;
+}
+
+.gapSymbol {
+    /* Zeichen bei Auslassungen */
+    
+}
+
+.indentation {
+    /* Einrückung */
+    padding-left: 3em;
+}
+
+.italic {
+    /* kursiv */
+    font-style: italic;
+}
+
+.letterspace {
+    /* gesperrt */
+    letter-spacing: 0.1em;
+}
+
+.marginLine {
+    /* Anstreichung am Rand */
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
+.metamark {
+    /* Einweisungszeichen */
+    font-style: italic;
+}
+
+.paragraphNumber {
+    /* Nummerierung Paragraphen */
+    font-style: italic;
+}
+
+.pb {
+    /* Seitenumbruch */
+    /* In ediarum.PDF standardmäßig nicht dargestellt. */
+    
+}
+
+.pbNum {
+    /* Nummer des Seitenumbruchs */
+    font-size: smaller;
+}
+
+.printed {
+    /* vorgedruckt */
+    font-family: Helvetica;
+    font-size: 0.9em;
+}
+
+.quoteInItalicPart {
+    /* Zitat innerhalb von kursivem Abschnitt */
+    font-style: normal;
+}
+
+.regLink {
+    /* Verlinkung ins Register */
+    color: black;
+    text-decoration: none;
+}
+
+.sic {
+    /* Original der normalisierten Schreibung */
+    font-style: normal;
+}
+
+.spaceFootnote {
+    /* Leerraum Fußnote */
+    font-style: italic;
+}
+
+.strophe {
+    /* Strophe */
+    display: block;
+    padding-bottom: 0.5em;
+}
+
+.sub {
+    /* tiefergestellt */
+    vertical-align: sub;
+    font-size: 70%;
+}
+
+.substition {
+    /* Zeitgenössische Korrektur */
+    font-style: italic;
+}
+
+.sup {
+    /* hochgestellt */
+    vertical-align: super;
+    font-size: 70%;
+}
+
+.supplied {
+    /* Fehlendes Wort oder Satzzeichen */
+    font-style: italic;
+}
+
+.underline {
+    /* Unterstrich -- border-bottom, um mit doppeltem Unterstrich auf gleicher Höhe zu sein. */
+    border-bottom: black 1px solid;
+}
+
+.underlineDouble {
+    /* Doppelter Unterstrich */
+    border-bottom: black 3px double;
+}
+
+
+/* ## Listen */
+/* NA: funzt noch nicht bei verschachtelten Listen -> liegt aber wohl am Prozessor */
+ul.list{
+    list-style-type:none;
+}
+
+ul.list li{
+    padding-bottom:0.5em;
+}
+
+ul.list li:before{
+   content: attr(content)" "; 
+}
+
+ul.list li.none{
+    list-style-type:none
+}
+
+
+/* ## Tabellen */
+
+table {
+    display: table;
+    width:100%;
+    hyphens: auto;
+    border: 1px solid white;
+    border-collapse: collapse;
+    max-width: 160mm;
+}
+
+tr {
+    display: table-row;
+}
+
+td {
+    display: table-cell;
+}
+
+table.table,
+table.table tr,
+table.table td{
+    hyphens: auto;
+}
+
+table.table td:first-of-type{
+    padding: 0 0 0.5em 0;
+    text-align: left;
+}
+
+table.table td{
+    padding: 0 0 0.5em 0.5em;
+    text-align: left;
+}
+
+table.tableDrawn,
+table.tableDrawn th,
+table.tableDrawn td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    max-width: 160mm;
+}
+
+table caption span.tableCaption {
+    display: block;
+    text-align: left;
+    font-style: italic;
+    font-weight: normal;
+}
+
