@@ -2532,7 +2532,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, ('grc':'Griechisch'; 'Lat':'Latein'; 'heb':'Hebräisch';'deu':'Deutsch';'fra':'Französisch'; 'eng':'Englisch';'rus':'Russisch';'spa':'Spanisch'; ))}">&lt;/foreign></String>
+																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, ('grc':'Griechisch'; 'lat':'Latein'; 'heb':'Hebräisch';'deu':'Deutsch';'fra':'Französisch'; 'eng':'Englisch';'rus':'Russisch';'spa':'Spanisch'; ))}">&lt;/foreign></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
