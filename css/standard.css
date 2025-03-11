@@ -203,41 +203,16 @@ sourceDesc witness msDesc[type='copy'] {
     content: "Abschrift: ";
 }
 
+/* Counter zur richtigen Nummerierung von Drucknachweisen. */
+sourceDesc listWit {                                                                                          
+        counter-reset: drucke;                                                                    
+}                                                                                                  
+sourceDesc witness:has(bibl[type="print"]) {                                                                  
+        counter-increment: drucke;                                                                
+        content: "D" counter(drucke) ": ";
+}
 sourceDesc witness>bibl {
-    content: "D: ";
-    -oxy-display-tags: none;
-}
-
-sourceDesc witness:nth-child(2)>bibl {
-    content: "D2: ";
-}
-
-sourceDesc witness:nth-child(3)>bibl {
-    content: "D3: ";
-}
-
-sourceDesc witness:nth-child(4)>bibl {
-    content: "D4: ";
-}
-
-sourceDesc witness:nth-child(5)>bibl {
-    content: "D5: ";
-}
-
-sourceDesc witness:nth-child(6)>bibl {
-    content: "D6: ";
-}
-
-sourceDesc witness:nth-child(7)>bibl {
-    content: "D7: ";
-}
-
-sourceDesc witness:nth-child(8)>bibl {
-    content: "D8: ";
-}
-
-sourceDesc witness:nth-child(9)>bibl {
-    content: "D9: ";
+	-oxy-placeholder-content: "[Hier Drucknachweis eingeben]";                         
 }
 
 sourceDesc witness[select='#this'] {
