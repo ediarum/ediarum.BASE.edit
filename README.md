@@ -1,24 +1,31 @@
 # ediarum.BASE.edit
 
-Version: 2.0.0
+Version: 3.0.0
 
-© 2011-2021 by Berlin-Brandenburg Academey of Sciences and Humanities
+© 2011-2025 by Berlin-Brandenburg Academey of Sciences and Humanities
 
-https://www.ediarum.org
-ediarum@bbaw.de
+Part of ediarum (https://www.ediarum.org, ediarum@bbaw.de)
 
-Developed by TELOTA, a DH working group of the Berlin-Brandenburg Academey of Sciences and Humanities
+Developed by TELOTA (https://www.bbaw.de/telota, telota@bbaw.de), a DH working group of the Berlin-Brandenburg Academey of Sciences and Humanities.
 
-Authors:
+Ediarum Core Team:
 
-* Stefan Dumont
 * Nadine Arndt
-* Sascha Grabsch
-* Lou Klappenbach
+* Martin Fechner
+* Jan Wierzoch
 
-Contributors:
+Developer of ediarum.BASE.edit:
+
+* Nadine Arndt
+* Stefan Dumont
+* Jan Wierzoch
+
+Former Developers:
 
 * Esther Asef
+* Martin Fechner
+* Sascha Grabsch
+* Lou Klappenbach
 * Philipp Linß
 * Ruth Sander
 
