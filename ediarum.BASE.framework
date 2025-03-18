@@ -3907,8 +3907,8 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															<entry>
 																<String>fragment</String>
 																<String>&lt;closer rend="${ask('Formatierung:', combobox, ('paragraph':'eigener Absatz';'within the line':'in der Zeile';))}"  xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;salute>${ask('Gruß falls vorhanden'')}&lt;/salute>
-  &lt;signed>${ask('Unterschrift'')}&lt;/signed>
+  &lt;salute>${ask('Gruß falls vorhanden')}&lt;/salute>
+  &lt;signed>${ask('Unterschrift')}&lt;/signed>
 &lt;/closer></String>
 															</entry>
 														</serializableOrderedMap>
