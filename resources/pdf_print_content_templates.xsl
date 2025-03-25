@@ -87,6 +87,12 @@
                 <xsl:when test=".[@rendition='#et']">                
                     <xsl:attribute name="class">indentation</xsl:attribute>
                 </xsl:when>
+                <xsl:when test=".[@rendition='#indent']">                
+                    <xsl:attribute name="class">indent</xsl:attribute>
+                </xsl:when>
+                <xsl:when test=".[@rendition='#hanging']">                
+                    <xsl:attribute name="class">hanging</xsl:attribute>
+                </xsl:when>
             </xsl:choose>
             <!-- ### Paragraphen nummerieren -->
             <xsl:if test="$p_numberParagraphs = true()">

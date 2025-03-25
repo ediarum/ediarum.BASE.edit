@@ -290,6 +290,15 @@ div h6 {
     /* Einrückung */
     padding-left: 3em;
 }
+.indent {
+    /* Einrückung der ersten Zeile */
+    text-indent: 3em;
+}
+.hanging {
+    /* hängender Absatz */
+    text-indent: -3em;
+    padding-left: 3em;
+}
 
 .italic {
     /* kursiv */

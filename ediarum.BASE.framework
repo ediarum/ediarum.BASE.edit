@@ -11980,10 +11980,10 @@ hand</String>
 											<String>p[renditon=#et]</String>
 										</field>
 										<field name="name">
-											<String>Absatz/Liste eingerückt</String>
+											<String>Einrückung</String>
 										</field>
 										<field name="description">
-											<String></String>
+											<String>Kennzeichnet eine Einrückung (Absatz, erste Zeile, hängend).</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -12001,8 +12001,8 @@ hand</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::p[not(@rendition='#et')]
-or ancestor-or-self::list[not(@rendition='#et')]</String>
+														<String>ancestor-or-self::p[not(@rendition='#et') and not(@rendition='#indent') and not(@rendition='#hanging')]
+or ancestor-or-self::list[not(@rendition='#et') and not(@rendition='#indent') and not(@rendition='#hanging')]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -12016,7 +12016,7 @@ or ancestor-or-self::list[not(@rendition='#et')]</String>
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>#et</String>
+																<String>${ask('Wählen Sie die Art der Einrückung aus', combobox, ('#et':'Absatz/Liste eingerückt'; '#indent':'erste Zeile eingerückt'; '#hanging':'hängender Absatz';), '#et')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -12026,8 +12026,8 @@ or ancestor-or-self::list[not(@rendition='#et')]</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::p[@rendition='#et']
-or ancestor-or-self::list[@rendition='#et']</String>
+														<String>ancestor-or-self::p[(@rendition='#et') or (@rendition='#indent') or (@rendition='#hanging')]
+or ancestor-or-self::list[(@rendition='#et') or (@rendition='#indent') or (@rendition='#hanging')]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

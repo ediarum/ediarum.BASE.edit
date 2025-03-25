@@ -561,6 +561,15 @@ text p[rendition="#et"], text list[rendition="#et"] {
     padding-left: 3em;
 }
 
+text p[rendition="#indent"], text p[rendition="#indent"] {
+    text-indent: 3em;
+}
+
+text p[rendition="#hanging"], text p[rendition="#hanging"] {
+    text-indent: -3em;
+    padding-left: 3em;
+}
+
 text lb {
     display: inline;
     -oxy-display-tags: none;            
