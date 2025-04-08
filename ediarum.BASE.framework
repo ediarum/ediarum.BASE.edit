@@ -2964,7 +2964,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="2.0">
-    &lt;xsl:import href="resources/delete_index_anchor.xsl"/>
+    &lt;xsl:import href="${framework}/resources/delete_index_anchor.xsl"/>
 &lt;/xsl:stylesheet></String>
 															</entry>
 															<entry>
@@ -3026,7 +3026,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="2.0">
-    &lt;xsl:import href="resources/delete_index_anchor_persName.xsl"/>
+    &lt;xsl:import href="${framework}/resources/delete_index_anchor_persName.xsl"/>
 &lt;/xsl:stylesheet></String>
 															</entry>
 															<entry>
