@@ -56,9 +56,10 @@ components:
 
 ## Documentation
 
-See ediarum.BASE.manual[https://www.ediarum.org/docs/ediarum.BASE.manual/](https://www.ediarum.org/docs/ediarum.BASE.manual/) for an user manual of ediarum.BASE.edit. 
+See ediarum.BASE.manual [https://www.ediarum.org/docs/ediarum.BASE.manual/](https://www.ediarum.org/docs/ediarum.BASE.manual/) for an user manual of ediarum.BASE.edit. 
 
 Information for developers can be found in [https://www.ediarum.org/docs/set-up/](https://www.ediarum.org/docs/set-up/). Further information: https://www.ediarum.org.
+
 
 ## License
 
