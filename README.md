@@ -60,6 +60,7 @@ See ediarum.BASE.manual [https://www.ediarum.org/docs/ediarum.BASE.manual/](http
 
 Information for developers can be found in [https://www.ediarum.org/docs/set-up/](https://www.ediarum.org/docs/set-up/). Further information: https://www.ediarum.org.
 
+(INTERN): Workflows for feature requests and transfering project features to ediarum see: https://gitup.uni-potsdam.de/TELOTA/ediarum/ediarum-koordination/-/tree/master/6-workflow
 
 ## License
 
