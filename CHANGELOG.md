@@ -1,8 +1,15 @@
 # CHANGELOG ediarum.BASE.edit 
 
-## 2.X.X. vom XX.XX.XXXX
+## 3.0.0. vom 07.05.2025
 
-* BUGFIX #25: Wert für "Latein" korrigiert.
+* FEATURE: ediarum.PDF
+* UPDATE: ediarum.INTRO herausgelöst. Nun unter https://github.com/ediarum/ediarum.INTRO.edit
+* FEATURE #17: Zeilen einrücken
+* FEATURE #21: Leerraum-Funktionen
+* BUGFIX #22: Fehler in Aktion 'Briefschluss'
+* BUGFIX #25: Wert für "Latein" korrigiert
+* BUGFIX #18259: Fehler in Aktion 'Sachanmerkung löschen'
+* BUGFIX: XSLT-Pfade korrigiert
 
 ## 2.0.0 vom 22.12.2021
  
