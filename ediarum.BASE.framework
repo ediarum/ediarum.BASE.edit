@@ -8321,7 +8321,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8369,7 +8369,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
 															</entry>
 															<entry>
 																<String>element</String>
