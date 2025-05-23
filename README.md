@@ -62,6 +62,10 @@ Information for developers can be found in [https://www.ediarum.org/docs/set-up/
 
 (INTERN): Workflows for feature requests and transfering project features to ediarum see: https://gitup.uni-potsdam.de/TELOTA/ediarum/ediarum-koordination/-/tree/master/6-workflow
 
+## Contribution
+
+If you want to contribute to ediarum, feel free to open an pull request on the develop branch.
+
 ## License
 
 ediarum.BASE.edit is free software: you can redistribute it and/or modify 
